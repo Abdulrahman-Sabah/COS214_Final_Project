@@ -1,0 +1,11 @@
+#include "GreenhouseDirector.h"
+
+GreenhouseDirector::GreenhouseDirector(PlantBuilder* b) : builder(b) {}
+
+void GreenhouseDirector::construct()
+{
+    builder->setName();
+    builder->setCareType("Low Watering");
+    builder->setSeason("Summer");
+    builder->setLifeCycle(new SeedingState());   
+}
