@@ -17,7 +17,7 @@ public:
 
 	virtual std::string name() = 0;
 
-	virtual bool canSell() = 0;
+	virtual bool isDead() = 0;
 };
 
 #endif 

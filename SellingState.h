@@ -13,13 +13,9 @@ public:
 
     std::string name() override;
 
-    void enter(Plant* plant);
+    bool isDead() override;
 
-	void exit(Plant* plant);
-
-	bool needsAttention(Plant* plant);
-
-    bool canSell() override;
+    bool canSell();
 };
 
 #endif
