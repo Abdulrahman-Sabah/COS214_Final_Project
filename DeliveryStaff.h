@@ -2,7 +2,8 @@
 #define DELIVERYSTAFF_H
 #include "Handler.h"
 class DeliveryStaff : public Handler{
-    void handleRequest(Command* r);
+public:
+    void handleRequest(Command* r) override;
 };
 
 #endif
