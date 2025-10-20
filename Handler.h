@@ -9,6 +9,9 @@ class Handler{
     private:
         Handler* successor;  // Pointer to next handler in chain
         Notify* subject;
+    protected:
+        // Helper method for derived classes to pass requests along the chain
+        void passToSuccessor(Command* r); //Add to UML
     public:
         void setSuccessor(Handler* h);
         virtual void handleRequest(Command* r) = 0;
