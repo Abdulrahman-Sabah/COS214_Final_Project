@@ -12,6 +12,6 @@ class Handler{
     public:
         void setSuccessor(Handler* h);
         virtual void handleRequest(Command* r) = 0;
-        virtual ~Handler() = default;  // Virtual destructor for polymorphism
+        virtual ~Handler() = default;  // Add destructor to UML
 };
 #endif
