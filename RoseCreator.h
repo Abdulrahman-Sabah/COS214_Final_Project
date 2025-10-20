@@ -3,7 +3,8 @@
 
 #include "Creator.h"
 
-class RoseCreator : public Creator {
+class RoseCreator : public Creator 
+{
 public:
     virtual Plant* factoryMethod() const;
 };
