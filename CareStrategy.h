@@ -2,6 +2,7 @@
 #define CARESTRATEGY_H
 
 #include "Plant.h"
+#include <iostream>
 
 class CareStrategy {
 public:
