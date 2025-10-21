@@ -1,12 +1,11 @@
 #ifndef CACTUS_H
 #define CACTUS_H
-
 #include "Plant.h"
-
-class Cactus : public Plant {
-public:
+class Cactus : public Plant{
+    public:
     Cactus();
-    virtual Plant* clone() const;
+    virtual ~Cactus() = default;
+    Plant* clone();
 };
 
-#endif 
+#endif
