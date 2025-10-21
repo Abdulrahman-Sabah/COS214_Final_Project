@@ -4,7 +4,7 @@
 class Cactus : public Plant{
     public:
     Cactus();
-    ~Cactus();
+    virtual ~Cactus() = default;
     Plant* clone();
 };
 
