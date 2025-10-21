@@ -6,9 +6,9 @@
 #include <vector>
 #include <list>
 
-// #include "CareStrategy.h"
-// #include "PlantLifeCycleState.h"
-// #include "Observer.h"
+//#include "CareStrategy.h"
+#include "PlantLifeCycleState.h"
+//#include "Observer.h"
 
 class Plant {   
 private:
@@ -22,9 +22,9 @@ private:
 
     // CareStrategy* careStrategy;
 
-    // PlantLifeCycleState* lifeCycleState;
+    PlantLifeCycleState* lifeCycleState;
     
-    // std::vector<Plant*> plants;
+    std::vector<Plant*> plants;
 
 public:
 	Plant(std::string n, std::string c, std::string s, std::string se, CareStrategy* strategy, PlantLifeCycleState* life);
@@ -43,9 +43,9 @@ public:
 
     // CareStrategy* getCareStrategy();
 
-    // PlantLifeCycleState* getLifeCycleState();
+    PlantLifeCycleState* getLifeCycleState();
 
-    // std::vector<Plant*> getPlants();
+    std::vector<Plant*> getPlants();
 
 	void setName(std::string n);
 
@@ -57,11 +57,11 @@ public:
 
     // void setCareStrategy(CareStrategy* cs);
 
-    // void setLifeCycle(PlantLifeCycleState* st);
+    void setLifeCycle(PlantLifeCycleState* st);
 
-    // void setState(PlantLifeCycleState* s);
+    void setState(PlantLifeCycleState* s);
 
-    // void setPlants(std::list<Plant*> p);
+    void setPlants(std::list<Plant*> p);
 
 	void show();
 
@@ -83,7 +83,7 @@ public:
 
 	void applyCare();
 
-	// std::list<Plant*> all();
+	std::list<Plant*> all();
 
 	bool readyForSale();
 
