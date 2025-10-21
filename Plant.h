@@ -6,9 +6,9 @@
 #include <vector>
 #include <list>
 
-// #include "CareStrategy.h"
+//#include "CareStrategy.h"
 #include "PlantLifeCycleState.h"
-// #include "Observer.h"
+//#include "Observer.h"
 
 class Plant {   
 private:
