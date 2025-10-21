@@ -1,0 +1,23 @@
+#ifndef GREENHOUSEFACADE_H
+#define GREENHOUSEFACADE_H
+
+#include <vector>
+#include <string>
+#include <iostream>
+#include "Plant.h"
+#include "SucculentBuilder.h"
+
+class GreenhouseFacade
+{
+    private:
+        std::vector<Plant*> invent;
+        SucculentBuilder* succulentBuilder;
+    
+    public:
+        GreenhouseFacade();
+        ~GreenhouseFacade();
+        void sellPlant(const std::string& name);
+        void showInventory() const;
+};
+
+#endif
