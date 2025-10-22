@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/flosh/OneDrive/Documents/UNI/2nd Year 2025/2nd Semester/COS 214/Project/COS214_Final_Project",
-      "program": "c:/Users/flosh/OneDrive/Documents/UNI/2nd Year 2025/2nd Semester/COS 214/Project/COS214_Final_Project/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/home/hamdaan_mirza/COS214_Final_Project",
+      "program": "/home/hamdaan_mirza/COS214_Final_Project/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
