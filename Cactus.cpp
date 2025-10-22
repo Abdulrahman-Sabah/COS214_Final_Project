@@ -23,3 +23,11 @@ Plant* Cactus::clone() {
     clonedCactus->setSeason(this->getSeason());
     return clonedCactus;
 }
+
+std::string Cactus::description() {
+    return "Cactus";
+}
+
+double Cactus::price() {
+    return 0.0; 
+}

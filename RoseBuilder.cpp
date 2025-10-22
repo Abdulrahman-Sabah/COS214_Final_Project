@@ -41,6 +41,7 @@ void RoseBuilder::setCareStrategy(CareStrategy* strategy)
 
 Plant* RoseBuilder::getPlant()
 {
-    rose = new Rose();
-    return rose;
+    // rose = new Rose();
+    // return rose;
+    return nullptr;
 }

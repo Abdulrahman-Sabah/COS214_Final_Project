@@ -1,39 +1,82 @@
 #include "Plant.h"
+#include "PlantObserver.h"
+#include <algorithm>
 
-Plant::Plant(std::string n, std::string c, std::string s, std::string se, CareStrategy* strategy, PlantLifeCycleState* life) 
-    : name(n), careType(c), state(s), season(se) /*, careStrategy(strategy)*/, lifeCycleState(life) {
+Plant::Plant(string name, string careType, string state, string season, 
+             CareStrategy* strategy, PlantLifeCycleState* life)
+    : name(name), careType(careType), state(state), season(season),
+      careStrategy(strategy), lifeCycle(life) {}
+
+Plant::Plant() : name(""), careType(""), state(""), season(""),
+                 careStrategy(nullptr), lifeCycle(nullptr) {}
+
+string Plant::getName() { return name; }
+string Plant::getCareType() { return careType; }
+string Plant::getStateText() { return state; }
+string Plant::getSeason() { return season; }
+CareStrategy* Plant::getCareStrategy() { return careStrategy; }
+PlantLifeCycleState* Plant::getLifeCycle() { return lifeCycle; }
+
+void Plant::setName(string n) {
+    name = n;
 }
 
-Plant::~Plant() {}
+void Plant::setCareType(string t) {
+    careType = t;
+}
 
-std::string Plant::getName() { return name; }
+void Plant::setStateText(string s) {
+    state = s;
+    notifyStateChanged();
+}
 
-std::string Plant::getCareType() { return careType; }
+void Plant::setSeason(string s) {
+    string oldSeason = season;
+    season = s;
+    notifySeasonChanged(s);
+}
 
-std::string Plant::getStateText() { return state; }
+void Plant::setCareStrategy(CareStrategy* cs) {
+    careStrategy = cs;
+    notifyCareStrategyChanged();
+}
 
-std::string Plant::getSeason() { return season; }
+void Plant::setLifeCycle(PlantLifeCycleState* st) {
+    lifeCycle = st;
+    notifyLifeCycleChanged(st);
+}
 
-void Plant::setName(std::string n) { name = n; }
+void Plant::attach(PlantObserver* observer) {
+    observers.push_back(observer);
+}
 
-void Plant::setCareType(std::string t) { careType = t; }
+void Plant::detach(PlantObserver* observer) {
+    observers.erase(
+        remove(observers.begin(), observers.end(), observer),
+        observers.end()
+    );
+}
 
-void Plant::setStateText(std::string s) { state = s; }
-
-void Plant::setSeason(std::string s) { season = s; }
-
-PlantLifeCycleState* Plant::getLifeCycleState() { return lifeCycleState; }
-
-std::vector<Plant*> Plant::getPlants() { return plants; }
-
-void Plant::setLifeCycle(PlantLifeCycleState* st) { lifeCycleState = st; }
-
-void Plant::setState(PlantLifeCycleState* s) { lifeCycleState = s; }
-
-std::list<Plant*> Plant::all() { 
-    std::list<Plant*> plants;
-    for (int i = 0; i < this->plants.size(); i++) {
-        plants.push_back(this->plants[i]);
+void Plant::notifyStateChanged() {
+    for (PlantObserver* observer : observers) {
+        observer->onPlantStateChanged(this);
     }
-    return plants;
+}
+
+void Plant::notifyLifeCycleChanged(PlantLifeCycleState* newState) {
+    for (PlantObserver* observer : observers) {
+        observer->onLifeCycleChanged(this, newState);
+    }
+}
+
+void Plant::notifySeasonChanged(string newSeason) {
+    for (PlantObserver* observer : observers) {
+        observer->onSeasonChanged(this, newSeason);
+    }
+}
+
+void Plant::notifyCareStrategyChanged() {
+    for (PlantObserver* observer : observers) {
+        observer->onCareStrategyChanged(this);
+    }
 }

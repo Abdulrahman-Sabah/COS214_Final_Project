@@ -9,16 +9,18 @@ Rose::Rose() : Plant("Rose", "Moderate", "Seedling", "Spring", nullptr, nullptr)
     
 }
 
-Rose::~Rose() {
+// Rose::~Rose() {
     
-}
+// }
 
 Plant* Rose::clone() {
     
-    Rose* clonedRose = new Rose();
-    clonedRose->setName(this->getName());
-    clonedRose->setCareType(this->getCareType());
-    clonedRose->setStateText(this->getStateText());
-    clonedRose->setSeason(this->getSeason());
-    return clonedRose;
+    // Rose* clonedRose = new Rose();
+    // clonedRose->setName(this->getName());
+    // clonedRose->setCareType(this->getCareType());
+    // clonedRose->setStateText(this->getStateText());
+    // clonedRose->setSeason(this->getSeason());
+    // return clonedRose;
+
+    return nullptr;
 }

@@ -7,8 +7,8 @@ SeedlingState::SeedlingState() = default;
 SeedlingState::~SeedlingState() = default;
 
 void SeedlingState::advance(Plant* plant) {
-    if(isDead()) plant->setState(new DeadState());
-    else plant->setState(new GrowingState());
+    // if(isDead()) plant->setState(new DeadState());
+    // else plant->setState(new GrowingState());
 }
 
 std::string SeedlingState::name() { return "Seedling"; }

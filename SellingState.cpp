@@ -13,3 +13,13 @@ std::string SellingState::name() { return "Selling"; }
 
 bool SellingState::canSell() { 
     return true;}
+
+
+
+bool SellingState::isDead() {
+    return false;  
+}
+
+// bool SellingState::canSell() {
+//     return true;   
+// }
