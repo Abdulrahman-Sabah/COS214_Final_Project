@@ -26,6 +26,10 @@ int main()
     Plant* cactus = cactusCreator.factoryMethod();
     Plant* lavender = lavenderCreator.factoryMethod();
 
+    delete rose;
+    delete cactus;
+    delete lavender;
+
     std::cout << "========== End of Factory Method Test ==========" << std::endl;
 
 
