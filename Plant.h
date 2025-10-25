@@ -1,5 +1,6 @@
 #ifndef PLANT_H
 #define PLANT_H
+#include "CareStrategy.h"
 #include <string>
 #include <vector>
 using namespace std;
@@ -52,6 +53,8 @@ public:
     
     void attach(PlantObserver* observer);
     void detach(PlantObserver* observer);
+
+    void takeCare();
 };
 
 #endif
