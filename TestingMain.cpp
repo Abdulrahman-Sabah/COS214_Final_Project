@@ -9,13 +9,9 @@
 #include "Lavender.h"
 #include "Rose.h"
 #include "Plant.h"
-
-
-
-#include "Cactus.h"
-#include "Lavender.h"
-#include "Rose.h"
-
+#include "MoveToSales.h"
+#include "Command.h"
+#include "ScheduleDelivery.h"
 
 int main() 
 {
@@ -29,6 +25,8 @@ int main()
     Plant* rose = roseCreator.factoryMethod();
     Plant* cactus = cactusCreator.factoryMethod();
     Plant* lavender = lavenderCreator.factoryMethod();
+
+    std::cout << "========== End of Factory Method Test ==========" << std::endl;
 
 
     std::cout << "========== Plant Class Testing ==========\n" << std::endl;
@@ -67,6 +65,21 @@ int main()
     delete clonedCactus;
 
     std::cout << "\n========== End of Plant Class Test ==========" << std::endl;
+
+
+    std::cout << "========== Command Pattern Testing ==========\n" << std::endl;
+
+    MoveToSales moveCommand("Plant-001");
+    ScheduleDelivery scheduleCommand("Order-ABC123");
+
+    std::cout << "Command Type: " << moveCommand.getType() << std::endl;
+    std::cout << "Command Data: " << moveCommand.getData() << "\n" << std::endl;
+
+    std::cout << "Command Type: " << scheduleCommand.getType() << std::endl;
+    std::cout << "Command Data: " << scheduleCommand.getData() << "\n" << std::endl;
+
+    std::cout << "========== End of Command Test ==========" << std::endl;
+
 
     return 0;
 }
