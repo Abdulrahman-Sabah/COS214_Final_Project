@@ -31,3 +31,9 @@ double Lavender::price()
 {
     return 49.99; 
 }
+
+
+Lavender::~Lavender()
+{
+    
+}

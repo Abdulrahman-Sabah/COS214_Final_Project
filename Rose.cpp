@@ -29,3 +29,8 @@ std::string Rose::description() {
 double Rose::price() {
     return 79.99; 
 }
+
+Rose::~Rose()
+{
+    
+}
