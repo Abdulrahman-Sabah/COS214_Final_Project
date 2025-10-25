@@ -12,4 +12,10 @@ void SellingState::advance(Plant* plant) {
 std::string SellingState::name() { return "Selling"; }
 
 bool SellingState::canSell() { 
-    return true;}
+    return true;
+}
+
+bool SellingState::isDead() { 
+    if(dead) return true;
+    return false;
+ }
