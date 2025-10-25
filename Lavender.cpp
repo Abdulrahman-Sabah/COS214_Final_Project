@@ -1,25 +1,33 @@
 #include "Lavender.h"
-// #include "LavenderCare.h"     // Will be available after merging branches
-// #include "Seedling.h"         // Will be available after merging branches
+#include <iostream>
 
-Lavender::Lavender() : Plant("Lavender", "Moderate", "Seedling", "Spring", nullptr, nullptr) {
-    // TODO: When branches are merged, update to:
-    // Plant("Lavender", "Moderate", "Seedling", "Spring", new LavenderCare(), new Seedling())
-    
-    // Lavender typically needs moderate care and starts as a seedling in spring
-    
+// Constructor
+Lavender::Lavender()
+    : Plant("Lavender", "Moderate", "Seedling", "Spring", nullptr, nullptr)
+{
+    // Later, after merging branches:
+    // Plant("Lavender", "Moderate", "Seedling", "Spring", new LavenderCare(), new Seedling());
+    // For now, we just use nullptr placeholders for care strategy and life cycle.
 }
 
-// Lavender::~Lavender() {
-    
-// }
+Plant* Lavender::clone() 
+{
+    Lavender* clonedLavender = new Lavender();
+    clonedLavender->setName(this->getName());
+    clonedLavender->setCareType(this->getCareType());
+    clonedLavender->setStateText(this->getStateText());
+    clonedLavender->setSeason(this->getSeason());
+    clonedLavender->setCareStrategy(this->getCareStrategy());
+    clonedLavender->setLifeCycle(this->getLifeCycle());
+    return clonedLavender;
+}
 
-Plant* Lavender::clone() {
-    
-    // Lavender* clonedLavender = new Lavender();
-    // clonedLavender->setName(this->getName());
-    // clonedLavender->setCareType(this->getCareType());
-    // clonedLavender->setStateText(this->getStateText());
-    // clonedLavender->setSeason(this->getSeason());
-    // return clonedLavender;
+std::string Lavender::description() 
+{
+    return "Lavender (Lavandula): a fragrant purple herb often used for decoration and scent.";
+}
+
+double Lavender::price() 
+{
+    return 49.99; 
 }
