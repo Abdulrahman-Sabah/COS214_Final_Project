@@ -6,6 +6,8 @@ class Rose : public Plant{
     Rose();
     virtual ~Rose() = default;
     Plant* clone();
+    std::string description() override;
+    double price() override;
 };
 
 #endif

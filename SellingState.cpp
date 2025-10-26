@@ -19,3 +19,8 @@ bool SellingState::isDead() {
     if(dead) return true;
     return false;
  }
+
+bool SellingState::needsAttention() {
+    if(attention) return true;
+    return false;
+}

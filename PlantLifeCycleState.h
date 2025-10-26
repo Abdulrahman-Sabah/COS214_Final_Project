@@ -14,7 +14,7 @@ protected:
 public:
     PlantLifeCycleState() = default;
 
-    virtual ~PlantLifeCycleState() {}
+    virtual ~PlantLifeCycleState() = default;
 
 	virtual void advance(Plant* plant) = 0;
 
