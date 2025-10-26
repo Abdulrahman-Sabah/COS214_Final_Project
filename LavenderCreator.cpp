@@ -1,5 +1,6 @@
 #include "LavenderCreator.h"
+#include "Lavender.h"
 
 Plant* LavenderCreator::factoryMethod() const {
-    return nullptr;
+    return new Lavender();
 }

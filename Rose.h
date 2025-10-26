@@ -1,11 +1,16 @@
 #ifndef ROSE_H
 #define ROSE_H
+
 #include "Plant.h"
-class Rose : public Plant{
+
+class Rose : public Plant
+{
     public:
-    Rose();
-    virtual ~Rose() = default;
-    Plant* clone();
+        Rose();
+        ~Rose();
+        std::string description() override;
+        double price() override;
+        Plant* clone() override;
 };
 
 #endif

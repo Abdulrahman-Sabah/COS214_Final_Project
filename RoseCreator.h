@@ -5,8 +5,9 @@
 
 class RoseCreator : public Creator 
 {
-public:
-    virtual Plant* factoryMethod() const;
+    public:
+        RoseCreator() = default;
+        Plant* factoryMethod() const override;
 };
 
 #endif 

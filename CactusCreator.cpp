@@ -1,5 +1,6 @@
 #include "CactusCreator.h"
+#include "Cactus.h"
 
 Plant* CactusCreator::factoryMethod() const {
-    return nullptr;
+    return new Cactus();
 }

@@ -1,5 +1,6 @@
 #include "RoseCreator.h"
+#include "Rose.h"
 
 Plant* RoseCreator::factoryMethod() const {
-    return nullptr;
+    return new Rose();
 }
