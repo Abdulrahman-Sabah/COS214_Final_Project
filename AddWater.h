@@ -1,7 +1,7 @@
 #ifndef ADDWATER_H
 #define ADDWATER_H
 
-#include "Command.h"
+#include "Commands.h"
 
 class AddWater : public Commands {
 private:
