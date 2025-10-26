@@ -3,7 +3,8 @@
 
 #include "CareStrategy.h"
 
-class CactusCare : public CareStrategy {
+class CactusCare : public CareStrategy 
+{
 public:
     void applyCare(Plant& plant) override;
     ~CactusCare() override = default;

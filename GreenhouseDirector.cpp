@@ -7,5 +7,5 @@ void GreenhouseDirector::construct()
     builder->setName();
     builder->setCareType("Low Watering");
     builder->setSeason("Summer");
-    builder->setLifeCycle(new SeedingState());   
+    //builder->setLifeCycle(new SeedingState());   
 }

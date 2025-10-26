@@ -10,16 +10,16 @@ Lavender::Lavender() : Plant("Lavender", "Moderate", "Seedling", "Spring", nullp
     
 }
 
-Lavender::~Lavender() {
+// Lavender::~Lavender() {
     
-}
+// }
 
 Plant* Lavender::clone() {
     
-    Lavender* clonedLavender = new Lavender();
-    clonedLavender->setName(this->getName());
-    clonedLavender->setCareType(this->getCareType());
-    clonedLavender->setStateText(this->getStateText());
-    clonedLavender->setSeason(this->getSeason());
-    return clonedLavender;
+    // Lavender* clonedLavender = new Lavender();
+    // clonedLavender->setName(this->getName());
+    // clonedLavender->setCareType(this->getCareType());
+    // clonedLavender->setStateText(this->getStateText());
+    // clonedLavender->setSeason(this->getSeason());
+    // return clonedLavender;
 }

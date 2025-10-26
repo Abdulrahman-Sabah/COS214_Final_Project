@@ -1,4 +1,4 @@
-#include "CareSchedulerObserver.h"
+#include "CareScheduleObserver.h"
 #include "Plant.h"
 
 void CareSchedulerObserver::onPlantStateChanged(Plant* plant) {

@@ -2,7 +2,7 @@
 
 GreenhouseFacade::GreenhouseFacade()
 {
-    succulentBuilder = new SucculentBuilder();
+    //succulentBuilder = new SucculentBuilder();
 }
 
 GreenhouseFacade::~GreenhouseFacade()
@@ -33,7 +33,8 @@ void GreenhouseFacade::showInventory() const
     std::cout << "==========================" << std::endl;
     std::cout << "Current Inventory:" << std::endl;
     std::cout << "==========================" << std::endl;
-    for (const Plant* p : invent) {
-        std::cout << p->getName() << std::endl;
+    for (const Plant* p : invent) 
+    {
+       // std::cout << p->getName() << std::endl;
     }
 }

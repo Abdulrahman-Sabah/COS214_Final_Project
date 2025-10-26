@@ -63,7 +63,7 @@ void Inventory::displayAll() {
         Plant* p = it->current();
         if (p != nullptr) {
             std::cout << count++ << ". ";
-            p->show();
+           // p->show();
             std::cout << "\n";
         }
     }

@@ -3,6 +3,7 @@
 #include <algorithm>
 
 Plant::Plant(string name, string careType, string state, string season, 
+<<<<<<< HEAD
         CareStrategy* strategy, PlantLifeCycleState* life)
         : name(name), careType(careType), state(state), season(season),
         careStrategy(strategy), lifeCycle(life) {}
@@ -20,6 +21,20 @@ string Plant::getSeason() { return season; }
 
 CareStrategy* Plant::getCareStrategy() { return careStrategy; }
 
+=======
+             CareStrategy* strategy, PlantLifeCycleState* life)
+    : name(name), careType(careType), state(state), season(season),
+      careStrategy(strategy), lifeCycle(life) {}
+
+Plant::Plant() : name(""), careType(""), state(""), season(""),
+                 careStrategy(nullptr), lifeCycle(nullptr) {}
+
+string Plant::getName() { return name; }
+string Plant::getCareType() { return careType; }
+string Plant::getStateText() { return state; }
+string Plant::getSeason() { return season; }
+CareStrategy* Plant::getCareStrategy() { return careStrategy; }
+>>>>>>> origin/secondary_main
 PlantLifeCycleState* Plant::getLifeCycle() { return lifeCycle; }
 
 void Plant::setName(string n) {

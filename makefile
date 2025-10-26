@@ -12,7 +12,7 @@ OBJS := $(patsubst %.cpp,%.o,$(SRCS))
 
 COMMON_OBJS := $(filter-out DemoMain.o TestingMain.o,$(OBJS))
 
-.PHONY: all DemoMain TestingMain run demo-run clean valgrind clean-coverage coverage state-tests
+.PHONY: all DemoMain TestingMain run demo-run clean valgrind clean-coverage coverage
 
 all: DemoMain TestingMain
 
@@ -50,5 +50,3 @@ coverage: clean clean-coverage
 	$(MAKE) COVERAGE=1 TestingMain
 	./TestingMain
 	gcov -b -c $(SRCS)
-
-
