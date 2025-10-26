@@ -1,16 +1,29 @@
 #include "GrowingState.h"
 #include "DeadState.h"
-#include "MatureState.h"
+#include "DormantState.h"
 
 GrowingState::GrowingState() = default;
 
 GrowingState::~GrowingState() = default;
 
 void GrowingState::advance(Plant* plant) {
-    // if(isDead()) plant->setState(new DeadState());
-    // else if(isGrowingAgain(plant)) plant->setState(new MatureState());
+    if(isDead()) {
+        plant->setLifeCycle(new DeadState());
+        std::cout << plant->getName() << " has died in the " << plant->getLifeCycle()->name() << " state." << std::endl;
+    } else {
+        plant->setLifeCycle(new DormantState());
+        std::cout << plant->getName() << " has advanced to the " << plant->getLifeCycle()->name() << " state." << std::endl;
+    }
 }
 
 std::string GrowingState::name() { return "Growing"; }
 
-bool GrowingState::isDead() { return false; }
+bool GrowingState::isDead() { 
+    if(dead) return true;
+    return false;
+ }
+
+bool GrowingState::needsAttention() {
+    if(attention) return true;
+    return false;
+}

@@ -3,10 +3,10 @@
 
 #include "Creator.h"
 
-class RoseCreator : public Creator 
-{
+class RoseCreator : public Creator {
 public:
-    virtual Plant* factoryMethod() const;
+    RoseCreator();
+    Plant* factoryMethod() const override;
 };
 
-#endif 
+#endif

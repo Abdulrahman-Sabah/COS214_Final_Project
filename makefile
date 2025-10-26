@@ -34,7 +34,7 @@ demo-run: DemoMain
 	./DemoMain
 
 clean:
-	rm -f $(OBJS) DemoMain TestingMain
+	del /Q $(OBJS) DemoMain.exe TestingMain.exe 2>nul
 	@echo "Cleaned object files and executables."
 
 valgrind: TestingMain
@@ -50,3 +50,6 @@ coverage: clean clean-coverage
 	$(MAKE) COVERAGE=1 TestingMain
 	./TestingMain
 	gcov -b -c $(SRCS)
+
+clean-coverage:
+	rm -f *.gcno *.gcda *.gcov
