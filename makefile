@@ -34,7 +34,7 @@ demo-run: DemoMain
 	./DemoMain
 
 clean:
-	del /Q $(OBJS) DemoMain.exe TestingMain.exe 2>nul
+	rm -f $(OBJS) DemoMain TestingMain
 	@echo "Cleaned object files and executables."
 
 valgrind: TestingMain
