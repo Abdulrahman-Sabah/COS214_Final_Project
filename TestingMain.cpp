@@ -655,22 +655,22 @@ int main()
     Rose* rosetwos = new Rose();
     Lavender* lavendertwos = new Lavender();
 
-    cactustwo->setCareStrategy(new CactusCare());
-    rosetwo->setCareStrategy(new RoseCare());
-    lavendertwo->setCareStrategy(new LavenderCare());
+    cactustwos->setCareStrategy(new CactusCare());
+    rosetwos->setCareStrategy(new RoseCare());
+    lavendertwos->setCareStrategy(new LavenderCare());
 
-    cactustwo->setName("Golden Barrel Cactus");
-    rosetwo->setName("Red Rose");
-    lavendertwo->setName("English Lavender");
+    cactustwos->setName("Golden Barrel Cactus");
+    rosetwos->setName("Red Rose");
+    lavendertwos->setName("English Lavender");
 
     std::cout << "Taking care of Cactus:" << std::endl;
-    cactustwo->takeCare();
+    cactustwos->takeCare();
 
     std::cout << "Taking care of Rose:" << std::endl;
-    rosetwo->takeCare();
+    rosetwos->takeCare();
 
     std::cout << "Taking care of Lavender:" << std::endl;
-    lavendertwo->takeCare();
+    lavendertwos->takeCare();
 
     delete cactustwos;
     delete rosetwos;
