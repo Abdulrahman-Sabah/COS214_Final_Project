@@ -1,7 +1,7 @@
 #include "CardDecorator.h"
-CardDecorator::CardDecorator(Plant* item, string msg, double cost)
-    : PlantDecorations(item), message(msg), cardCost(cost) {
-}
+
+CardDecorator::CardDecorator(Plant* item, string msg, double cost) 
+    : PlantDecorations(item), message(msg), cardCost(cost) {}
 
 string CardDecorator::description() {
     return wrappedPlant->description() + " with card: \"" + message + "\"";

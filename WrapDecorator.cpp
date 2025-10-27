@@ -1,8 +1,7 @@
 #include "WrapDecorator.h"
 
-WrapDecorator::WrapDecorator(Plant* item, string wrap, double cost)
-    : PlantDecorations(item), wrapType(wrap), wrapCost(cost) {
-}
+WrapDecorator::WrapDecorator(Plant* item, string wrap, double cost) 
+    : PlantDecorations(item), wrapType(wrap), wrapCost(cost) {}
 
 string WrapDecorator::description() {
     return wrappedPlant->description() + " with " + wrapType + " wrap";

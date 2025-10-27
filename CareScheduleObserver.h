@@ -1,6 +1,7 @@
 #ifndef CARESCHEDULEROBSERVER_H
 #define CARESCHEDULEROBSERVER_H
 #include "PlantObserver.h"
+
 #include <iostream>
 
 class CareSchedulerObserver : public PlantObserver {
