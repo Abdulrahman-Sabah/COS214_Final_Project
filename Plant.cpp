@@ -75,3 +75,9 @@ void Plant::notifyCareStrategyChanged() {
         observer->onCareStrategyChanged(this);
     }
 }
+
+void Plant::takeCare() {
+    if (careStrategy) {
+        careStrategy->applyCare(*this);
+    }
+}
