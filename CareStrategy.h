@@ -6,7 +6,7 @@
 
 class CareStrategy {
 public:
-    virtual void applyCare(Plant& plant) = 0;
+    virtual void applyCare(Plant* plant) = 0;
     virtual ~CareStrategy() = default;
 };
 

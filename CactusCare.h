@@ -6,7 +6,7 @@
 class CactusCare : public CareStrategy 
 {
 public:
-    void applyCare(Plant& plant) override;
+    void applyCare(Plant* plant) override;
     ~CactusCare() override = default;
 };
 
