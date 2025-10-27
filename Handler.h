@@ -3,7 +3,7 @@
 
 
 class Notify;
-class Command;
+class Commands;  // Changed from Command to Commands
 
 class Handler{
     private:
@@ -11,10 +11,10 @@ class Handler{
         Notify* subject;
     protected:
         // Helper method for derived classes to pass requests along the chain
-        void passToSuccessor(Command* r); //Add to UML
+        void passToSuccessor(Commands* r); //Add to UML - Changed parameter type
     public:
         void setSuccessor(Handler* h);
-        virtual void handleRequest(Command* r) = 0;
+        virtual void handleRequest(Commands* r) = 0;  // Changed parameter type
         virtual ~Handler() = default;  // Add destructor to UML
 };
 #endif

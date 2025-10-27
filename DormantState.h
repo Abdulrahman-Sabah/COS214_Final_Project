@@ -4,6 +4,8 @@
 #include "PlantLifeCycleState.h"
 
 class DormantState : public PlantLifeCycleState {
+private:
+    bool growing;
 public:
     DormantState();
 
@@ -15,7 +17,13 @@ public:
 
     bool isDead() override;
 
-	bool isGrowingAgain(Plant* plant);
+    bool getGrowing();
+
+    void setGrowing(bool grow);
+
+	bool isGrowingAgain();
+
+    bool needsAttention() override;
 };
 
 #endif

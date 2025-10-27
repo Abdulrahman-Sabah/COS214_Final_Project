@@ -5,9 +5,9 @@
 
 class CactusCreator : public Creator 
 {
-    public:
-        CactusCreator() = default;
-        Plant* factoryMethod() const override;
+public:
+    CactusCreator() = default;
+    Plant* factoryMethod() const override; 
 };
 
 #endif

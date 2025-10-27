@@ -5,9 +5,9 @@
 
 class LavenderCreator : public Creator 
 {
-    public:
-        LavenderCreator() = default;
-        Plant* factoryMethod() const override;
+public:
+    LavenderCreator();
+    Plant* factoryMethod() const;
 };
 
 #endif

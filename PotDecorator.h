@@ -1,6 +1,8 @@
 #ifndef POTDECORATOR_H
 #define POTDECORATOR_H
+
 #include "PlantDecorations.h"
+
 class PotDecorator : public PlantDecorations {
 private:
     string potType;

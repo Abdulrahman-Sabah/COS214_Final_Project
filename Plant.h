@@ -36,7 +36,7 @@ public:
     virtual double price() = 0;
     virtual Plant* clone() = 0;
     
-    string getName();
+    virtual string getName(){ return name;};
     string getCareType();
     string getStateText();
     string getSeason();

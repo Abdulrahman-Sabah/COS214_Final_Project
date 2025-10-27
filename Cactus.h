@@ -1,3 +1,4 @@
+
 #ifndef CACTUS_H
 #define CACTUS_H
 
@@ -5,9 +6,9 @@
 
 class Cactus : public Plant 
 {
-    public:
+public:
     Cactus();
-    ~Cactus() override;
+    ~Cactus();
     std::string description() override;
     double price() override;
     Plant* clone() override;
