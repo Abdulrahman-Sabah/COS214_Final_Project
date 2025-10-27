@@ -15,6 +15,8 @@ public:
 
     bool isDead() override;
 
+    bool needsAttention() override;
+
     bool canSell();
 };
 

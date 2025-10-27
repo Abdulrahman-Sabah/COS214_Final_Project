@@ -1,10 +1,10 @@
 #include "Rose.h"
 #include <iostream>
 // #include "RoseCare.h"     // Will be available after merging branches
-// #include "Seedling.h"     // Will be available after merging branches
+#include "SeedlingState.h"     // Will be available after merging branches
 
 Rose::Rose()
-    : Plant("Rose", "Moderate", "Seedling", "Spring", nullptr, nullptr)
+    : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling())
 {
     // TODO: When branches are merged, update to:
     // Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling());
