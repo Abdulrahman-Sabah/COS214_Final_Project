@@ -11,7 +11,7 @@ Plant::Plant(string name, string careType, string state, string season,
 Plant::Plant() : name(""), careType(""), state(""), season(""), 
                  careStrategy(nullptr), lifeCycle(nullptr) {}
 
-string Plant::getName() { return name; }
+// string Plant::getName() { return name; }
 string Plant::getCareType() { return careType; }
 string Plant::getStateText() { return state; }
 string Plant::getSeason() { return season; }
