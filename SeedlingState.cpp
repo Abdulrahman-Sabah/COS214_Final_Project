@@ -25,5 +25,5 @@ bool SeedlingState::isDead() {
 
 bool SeedlingState::needsAttention() {
     if(attention) return true;
-    return false;\
+    return false;
 }

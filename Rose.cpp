@@ -1,16 +1,12 @@
 
 #include "Rose.h"
 #include <iostream>
-// #include "RoseCare.h"     // Will be available after merging branches
-#include "SeedlingState.h"     // Will be available after merging branches
+#include "RoseCare.h"     
+#include "SeedlingState.h"     
 
 Rose::Rose()
     : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling())
-{
-    // TODO: When branches are merged, update to:
-    // Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling());
-    // Roses typically need moderate care and start as seedlings in spring.
-}
+{}
 
 Plant* Rose::clone() {
     Rose* clonedRose = new Rose();

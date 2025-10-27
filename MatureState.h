@@ -15,6 +15,8 @@ public:
 
     bool isDead() override;
 
+    bool isGrowingAgain(Plant* plant);
+
     bool needsAttention() override;
 };
 
