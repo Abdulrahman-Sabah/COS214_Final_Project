@@ -8,7 +8,7 @@ using namespace std;
 class Rose : public Plant {
 public:
     Rose();
-    ~Rose() = default;
+    ~Rose();
     
     string description() override;
     double price() override;
