@@ -48,6 +48,7 @@
 #include "DeliveryStaff.h"
 #include "GreenhouseManager.h"
 #include "Landscaper.h"
+#include "InventorySerializer.h"
 
 using namespace std;
   
@@ -210,6 +211,32 @@ public:
 
 int main() 
 {
+// ===== SIMPLIFIED: Create inventory and save to file directly =====
+    std::cout << "🌿 Creating Plant Inventory for Web Interface...\n";
+    
+    Inventory webInventory;  // Local inventory just for saving to file
+    
+    // Add plants directly to this inventory
+    webInventory.addPlant(new Rose());
+    webInventory.addPlant(new Cactus());
+    webInventory.addPlant(new Lavender());
+    webInventory.addPlant(new Rose());   // Multiple roses
+    webInventory.addPlant(new Cactus()); // Multiple cacti
+    
+    // Add some decorated plants for variety
+    Plant* webBasicRose = new BasicPlant("Red Rose", "Beautiful red rose", 45.99);
+    Plant* webPotRose = new PotDecorator(webBasicRose, "Ceramic", 8.99);
+    webInventory.addPlant(webPotRose);
+    
+    Plant* webBasicCactus = new BasicPlant("Golden Cactus", "Desert cactus", 35.00);
+    webInventory.addPlant(webBasicCactus);
+    
+    std::cout << "✅ Created inventory with " << webInventory.getSize() << " plants\n";
+    
+    // Save directly to file
+    InventorySerializer::saveToFile(webInventory, "inventory_state.json");
+    
+    std::cout << "🌐 Web server can now display real plant data!\n\n";
 
     std::cout << "\n\n=== Builder Design Pattern Test ===\n\n";
 

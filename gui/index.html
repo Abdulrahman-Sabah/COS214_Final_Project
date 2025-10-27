@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱 Pixel Plant Nursery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .nursery-container {
+            background: #F5DEB3;
+            border: 8px solid #8B4513;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 95%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2F4F2F;
+            text-shadow: 2px 2px #D2B48C;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            background: #8B4513;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            color: #FFE4B5;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 5px;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .main-area {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .inventory-section {
+            background: #DEB887;
+            border: 4px solid #8B4513;
+            border-radius: 4px;
+            padding: 15px;
+            min-height: 400px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #2F4F2F;
+            margin-bottom: 10px;
+            text-align: center;
+            background: #FFE4B5;
+            padding: 5px;
+            border-radius: 2px;
+        }
+
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .plant-card {
+            background: #F5DEB3;
+            border: 3px solid #8B4513;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-5px);
+            border-color: #228B22;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .plant-card.selected {
+            border-color: #FFD700;
+            background: #FFF8DC;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .plant-sprite {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 5px;
+            font-size: 48px;
+            line-height: 64px;
+        }
+
+        .plant-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #2F4F2F;
+            margin: 5px 0;
+        }
+
+        .plant-price {
+            font-size: 14px;
+            color: #228B22;
+            font-weight: bold;
+        }
+
+        .plant-info {
+            font-size: 10px;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .info-panel {
+            background: #DEB887;
+            border: 4px solid #8B4513;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .plant-detail {
+            background: #F5DEB3;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .detail-sprite {
+            width: 128px;
+            height: 128px;
+            margin: 10px auto;
+            font-size: 96px;
+            line-height: 128px;
+            text-align: center;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 12px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #2F4F2F;
+        }
+
+        .detail-value {
+            color: #666;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 12px;
+            border: 3px solid #8B4513;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: scale(1.05);
+        }
+
+        .btn:active:not(:disabled) {
+            transform: scale(0.95);
+        }
+
+        .btn-browse {
+            background: #87CEEB;
+            color: #2F4F2F;
+        }
+
+        .btn-browse:hover {
+            background: #6AB8E0;
+        }
+
+        .btn-purchase {
+            background: #FFD700;
+            color: #2F4F2F;
+        }
+
+        .btn-purchase:hover:not(:disabled) {
+            background: #FFC700;
+        }
+
+        .btn-purchase:disabled {
+            background: #CCC;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .btn-add-basket {
+            background: #32CD32;
+            color: white;
+        }
+
+        .btn-add-basket:hover:not(:disabled) {
+            background: #28a428;
+        }
+
+        .btn-add-basket:disabled {
+            background: #CCC;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .iterator-display {
+            background: #FFE4B5;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #2F4F2F;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #228B22;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            border: 3px solid #006400;
+            font-weight: bold;
+            animation: slideIn 0.3s, slideOut 0.3s 2.7s;
+            z-index: 1000;
+        }
+
+        .notification.error {
+            background: #DC143C;
+            border-color: #8B0000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes plantPop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .plant-card.purchased {
+            animation: plantPop 0.5s;
+        }
+
+        .season-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #228B22;
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+
+        .no-selection {
+            text-align: center;
+            color: #666;
+            padding: 40px;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            color: #2F4F2F;
+            padding: 40px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nursery-container">
+        <div class="header">
+            <h1>🌱 PIXEL PLANT NURSERY 🌱</h1>
+            <p>Browse & Purchase Plants</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div>Available</div>
+                <div class="stat-value" id="inventory-count">0</div>
+            </div>
+            <div class="stat">
+                <div>Balance</div>
+                <div class="stat-value" id="balance">R500.00</div>
+            </div>
+            <div class="stat">
+                <div>Basket Items</div>
+                <div class="stat-value" id="basket-count">0</div>
+            </div>
+            <div class="stat">
+                <div>Basket Total</div>
+                <div class="stat-value" id="basket-total">R0.00</div>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <div class="inventory-section">
+                <div class="section-title">🏪 AVAILABLE PLANTS</div>
+                <div class="plant-grid" id="plant-grid">
+                    <div class="loading">Loading plants...</div>
+                </div>
+                <div class="iterator-display" id="iterator-info">
+                    Iterator Position: <span id="iterator-pos">0</span> / <span id="iterator-total">0</span>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="section-title">📋 PLANT DETAILS</div>
+                <div id="plant-details">
+                    <div class="no-selection">
+                        Click on a plant to view details
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn btn-browse" onclick="app && app.browseNext()" disabled id="browse-btn">→ Browse Next</button>
+                    <button class="btn btn-add-basket" onclick="app && app.addToBasket()" disabled id="basket-btn">🛒 Add to Basket</button>
+                    <button class="btn btn-purchase" onclick="app && app.purchaseBasket()" disabled id="purchase-btn">💰 Purchase Basket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Plant class
+        class Plant {
+            constructor(name, careType, state, season, price) {
+                this.name = name;
+                this.careType = careType;
+                this.state = state;
+                this.season = season;
+                this.plantPrice = price;
+            }
+
+            getName() { return this.name; }
+            getCareType() { return this.careType; }
+            getStateText() { return this.state; }
+            getSeason() { return this.season; }
+            price() { return this.plantPrice; }
+            
+            getSprite() {
+                const sprites = {
+                    'Red Rose': '🌹', 'Rose': '🌹',
+                    'Aloe Vera': '🌵', 'Barrel Cactus': '🌵', 'Cactus': '🌵',
+                    'Lavender': '💜',
+                    'Baobab Tree': '🌳',
+                    'Jade Plant': '🪴',
+                    'Peace Lily': '🌸',
+                    'Snake Plant': '🌿'
+                };
+                return sprites[this.name] || '🌱';
+            }
+        }
+
+        // Iterator
+        class PlantIterator {
+            constructor(plants) {
+                this.plants = plants;
+                this.currentIndex = 0;
+            }
+
+            first() { this.currentIndex = 0; }
+            next() { if (!this.isDone()) this.currentIndex++; }
+            isDone() { return this.currentIndex >= this.plants.length; }
+            current() { return this.isDone() ? null : this.plants[this.currentIndex]; }
+            getPosition() { return this.currentIndex; }
+            getTotal() { return this.plants.length; }
+        }
+
+        // Inventory
+        class Inventory {
+            constructor() {
+                this.plants = [];
+            }
+
+            addPlant(plant) {
+                if (plant) this.plants.push(plant);
+            }
+
+            removePlant(plant) {
+                const index = this.plants.indexOf(plant);
+                if (index > -1) {
+                    this.plants.splice(index, 1);
+                    return true;
+                }
+                return false;
+            }
+
+            getSize() { return this.plants.length; }
+            createIterator() { return new PlantIterator(this.plants); }
+        }
+
+        // Main App
+        class PlantNurseryApp {
+            constructor() {
+                this.inventory = new Inventory();
+                this.basket = new Map();
+                this.selectedPlant = null;
+                this.balance = 500.00;
+                this.init();
+            }
+
+            async init() {
+                await this.loadPlants();
+                this.renderInventory();
+                this.enableButtons();
+            }
+
+            async loadPlants() {
+                try {
+                    // Fetch from root path (server will serve inventory_state.json)
+                    const response = await fetch('/inventory_state.json');
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log('📦 JSON Response:', data);
+                        
+                        if (data.plants && data.plants.length > 0) {
+                            data.plants.forEach(p => {
+                                this.inventory.addPlant(new Plant(p.name, p.careType, p.state, p.season, p.price));
+                            });
+                            console.log(`✅ Loaded ${data.plants.length} plants from inventory_state.json`);
+                            this.showNotification(`Loaded ${data.plants.length} plants from C++ backend! 🎉`);
+                            return;
+                        } else {
+                            console.log('⚠️ JSON loaded but no plants array found');
+                        }
+                    }
+                } catch (error) {
+                    console.log('⚠️ Error loading inventory_state.json:', error);
+                }
+
+                // Fallback to demo data
+                console.log('📋 Using demo data as fallback');
+                this.loadDemoPlants();
+            }
+
+            loadDemoPlants() {
+                const demos = [
+                    new Plant("Red Rose", "Moderate", "Budding", "Spring", 45.99),
+                    new Plant("Aloe Vera", "Low", "Mature", "Summer", 25.50),
+                    new Plant("Barrel Cactus", "Low", "Young", "Summer", 35.00),
+                    new Plant("Lavender", "Moderate", "Flowering", "Spring", 28.75),
+                    new Plant("Baobab Tree", "High", "Seedling", "Year-round", 150.00),
+                    new Plant("Jade Plant", "Low", "Mature", "Year-round", 32.00),
+                    new Plant("Peace Lily", "Moderate", "Flowering", "Spring", 55.00),
+                    new Plant("Snake Plant", "Low", "Mature", "Year-round", 40.00)
+                ];
+                demos.forEach(p => this.inventory.addPlant(p));
+                console.log('✅ Loaded demo plants');
+            }
+
+            enableButtons() {
+                document.getElementById('browse-btn').disabled = false;
+                document.getElementById('purchase-btn').disabled = false;
+            }
+
+            renderInventory() {
+                const grid = document.getElementById('plant-grid');
+                grid.innerHTML = '';
+
+                const iterator = this.inventory.createIterator();
+                let position = 0;
+                let selectedPos = 0;
+                
+                for (iterator.first(); !iterator.isDone(); iterator.next()) {
+                    const plant = iterator.current();
+                    if (plant) {
+                        const card = this.createPlantCard(plant);
+                        grid.appendChild(card);
+                        if (plant === this.selectedPlant) selectedPos = position;
+                        position++;
+                    }
+                }
+
+                this.updateIteratorDisplay(selectedPos);
+                this.updateStats();
+            }
+
+            createPlantCard(plant) {
+                const card = document.createElement('div');
+                card.className = 'plant-card';
+                if (plant === this.selectedPlant) card.classList.add('selected');
+
+                card.innerHTML = `
+                    <div class="season-badge">${plant.getSeason()}</div>
+                    <div class="plant-sprite">${plant.getSprite()}</div>
+                    <div class="plant-name">${plant.getName()}</div>
+                    <div class="plant-price">R${plant.price().toFixed(2)}</div>
+                    <div class="plant-info">${plant.getCareType()} Care</div>
+                `;
+
+                card.addEventListener('click', () => this.selectPlant(plant));
+                return card;
+            }
+
+            selectPlant(plant) {
+                this.selectedPlant = plant;
+                
+                const iterator = this.inventory.createIterator();
+                let position = 0;
+                
+                for (iterator.first(); !iterator.isDone(); iterator.next()) {
+                    if (iterator.current() === plant) break;
+                    position++;
+                }
+                
+                this.renderInventory();
+                this.renderPlantDetails(plant);
+                this.updateIteratorDisplay(position);
+                
+                document.getElementById('basket-btn').disabled = false;
+            }
+
+            renderPlantDetails(plant) {
+                const detailsDiv = document.getElementById('plant-details');
+                detailsDiv.innerHTML = `
+                    <div class="plant-detail">
+                        <div class="detail-sprite">${plant.getSprite()}</div>
+                        <div class="detail-row">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">${plant.getName()}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Price:</span>
+                            <span class="detail-value">R${plant.price().toFixed(2)}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Care Level:</span>
+                            <span class="detail-value">${plant.getCareType()}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">State:</span>
+                            <span class="detail-value">${plant.getStateText()}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Season:</span>
+                            <span class="detail-value">${plant.getSeason()}</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            browseNext() {
+                if (!this.selectedPlant || this.inventory.getSize() === 0) {
+                    // Select first plant if none selected
+                    const iterator = this.inventory.createIterator();
+                    iterator.first();
+                    if (!iterator.isDone()) {
+                        this.selectPlant(iterator.current());
+                    }
+                    return;
+                }
+
+                const iterator = this.inventory.createIterator();
+                let found = false;
+                
+                for (iterator.first(); !iterator.isDone(); iterator.next()) {
+                    if (found) {
+                        this.selectPlant(iterator.current());
+                        return;
+                    }
+                    if (iterator.current() === this.selectedPlant) {
+                        found = true;
+                    }
+                }
+                
+                // Wrap to first
+                iterator.first();
+                if (!iterator.isDone()) {
+                    this.selectPlant(iterator.current());
+                }
+            }
+
+            addToBasket() {
+                if (!this.selectedPlant) {
+                    this.showNotification("Please select a plant first!", "error");
+                    return;
+                }
+                
+                const quantity = this.basket.get(this.selectedPlant) || 0;
+                this.basket.set(this.selectedPlant, quantity + 1);
+                
+                this.updateBasketDisplay();
+                this.showNotification(`Added ${this.selectedPlant.getName()} to basket! 🛒`);
+            }
+
+            getBasketTotal() {
+                let total = 0;
+                for (const [plant, quantity] of this.basket) {
+                    total += plant.price() * quantity;
+                }
+                return total;
+            }
+
+            getBasketQuantity() {
+                let total = 0;
+                for (const quantity of this.basket.values()) {
+                    total += quantity;
+                }
+                return total;
+            }
+
+            updateBasketDisplay() {
+                document.getElementById('basket-count').textContent = this.getBasketQuantity();
+                document.getElementById('basket-total').textContent = `R${this.getBasketTotal().toFixed(2)}`;
+            }
+
+            purchaseBasket() {
+                const total = this.getBasketTotal();
+                if (total === 0) {
+                    this.showNotification("Basket is empty!", "error");
+                    return;
+                }
+
+                if (this.balance < total) {
+                    this.showNotification("Insufficient funds!", "error");
+                    return;
+                }
+
+                this.balance -= total;
+                this.showNotification(`Purchased basket for R${total.toFixed(2)}! 🎉`);
+
+                this.basket.clear();
+                this.updateBasketDisplay();
+                this.updateStats();
+            }
+
+            updateIteratorDisplay(position) {
+                document.getElementById('iterator-pos').textContent = position + 1;
+                document.getElementById('iterator-total').textContent = this.inventory.getSize();
+            }
+
+            updateStats() {
+                document.getElementById('inventory-count').textContent = this.inventory.getSize();
+                document.getElementById('balance').textContent = `R${this.balance.toFixed(2)}`;
+                this.updateBasketDisplay();
+            }
+
+            showNotification(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }
+        }
+
+        // Initialize
+        let app;
+        document.addEventListener('DOMContentLoaded', () => {
+            app = new PlantNurseryApp();
+        });
+    </script>
+</body>
+</html>
