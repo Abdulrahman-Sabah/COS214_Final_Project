@@ -5,7 +5,7 @@ void Handler::setSuccessor(Handler* h){
     successor = h;
 }
 
-void Handler::passToSuccessor(Command* r) {
+void Handler::passToSuccessor(Commands* r) {
     if (successor) {
         successor->handleRequest(r);
     } else {

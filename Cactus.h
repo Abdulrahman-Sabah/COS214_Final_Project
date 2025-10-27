@@ -1,16 +1,17 @@
+
 #ifndef CACTUS_H
 #define CACTUS_H
 
 #include "Plant.h"
-#include <string>
 
-class Cactus : public Plant {
+class Cactus : public Plant 
+{
 public:
     Cactus();
-    ~Cactus() override;               
-    Plant* clone() override;
+    ~Cactus();
     std::string description() override;
     double price() override;
+    Plant* clone() override;
 };
 
 #endif

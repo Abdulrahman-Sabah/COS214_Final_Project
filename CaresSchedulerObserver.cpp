@@ -1,22 +1,22 @@
 #include "CareScheduleObserver.h"
-#include "Plant.h"
-
 void CareSchedulerObserver::onPlantStateChanged(Plant* plant) {
-    cout << "[Scheduler] Updating care schedule for '" << plant->getName() 
-         << "' based on state: " << plant->getStateText() << endl;
+    std::cout << "[CareScheduler] Plant state changed: " 
+              << plant->getName() << " is now in state: " 
+              << plant->getStateText() << std::endl;
 }
 
 void CareSchedulerObserver::onLifeCycleChanged(Plant* plant, PlantLifeCycleState* newState) {
-    cout << "[Scheduler] Adjusting watering frequency for '" << plant->getName() 
-         << "' due to lifecycle change" << endl;
+    std::cout << "[CareScheduler] Life cycle changed for: " 
+              << plant->getName() << std::endl;
 }
 
 void CareSchedulerObserver::onSeasonChanged(Plant* plant, string newSeason) {
-    cout << "[Scheduler] Modifying care routine for '" << plant->getName() 
-         << "' for season: " << newSeason << endl;
+    std::cout << "[CareScheduler] Season changed: " 
+              << plant->getName() << " now in season: " 
+              << newSeason << std::endl;
 }
 
 void CareSchedulerObserver::onCareStrategyChanged(Plant* plant) {
-    cout << "[Scheduler] Recalculating care tasks for '" << plant->getName() 
-         << "' with new strategy" << endl;
+    std::cout << "[CareScheduler] Care strategy updated for: " 
+              << plant->getName() << std::endl;
 }

@@ -1,47 +1,63 @@
 #include "RoseBuilder.h"
+//#include "Rose.h"             // concrete Plant subtype
+#include "Plant.h"
+#include "PlantLifeCycleState.h"
+#include "RoseCreator.h"
+#include <utility> // std::move
+
+namespace
+{
+    // Lazily allocate the product the first time it’s needed
+    inline void ensureAllocated(Plant*& p)
+    {
+        if (!p)
+        {
+            RoseCreator creator;
+            p = creator.factoryMethod(); // adjust ctor args if your Rose needs them
+        }
+    }
+}
 
 RoseBuilder::RoseBuilder()
+    : product(nullptr)
 {
-    rose = nullptr;
 }
 
 RoseBuilder::~RoseBuilder()
 {
-    if (rose)
-    {
-        delete rose;
-    }
-    rose = nullptr;
+    delete product;    // safe if nullptr
+    product = nullptr;
 }
 
 void RoseBuilder::setName(std::string n)
 {
-    rose->setName(n);
+    ensureAllocated(product);
+    product->setName(std::move(n));
 }
 
-void RoseBuilder::setCareType(std::string c)
+void RoseBuilder::setCareType(std::string ct)
 {
-    rose->setCareType(c);
+    ensureAllocated(product);
+    product->setCareType(std::move(ct));
 }
 
 void RoseBuilder::setSeason(std::string s)
 {
-    rose->setSeason(s);
+    ensureAllocated(product);
+    product->setSeason(std::move(s));
 }
 
 void RoseBuilder::setLifeCycle(PlantLifeCycleState* state)
 {
-    rose->setLifeCycle(state);
+    ensureAllocated(product);
+    product->setLifeCycle(state);
 }
 
-void RoseBuilder::setCareStrategy(CareStrategy* strategy)
-{
-    rose->setCareStrategy(strategy);
-}
 
 Plant* RoseBuilder::getPlant()
 {
-    // rose = new Rose();
-    // return rose;
-    return nullptr;
+    ensureAllocated(product);
+    Plant* out = product;  // transfer ownership
+    product = nullptr;     // builder relinquishes ownership
+    return out;
 }

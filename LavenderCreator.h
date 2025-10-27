@@ -3,9 +3,11 @@
 
 #include "Creator.h"
 
-class LavenderCreator : public Creator {
+class LavenderCreator : public Creator 
+{
 public:
-    virtual Plant* factoryMethod() const;
+    LavenderCreator();
+    Plant* factoryMethod() const;
 };
 
-#endif 
+#endif

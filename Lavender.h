@@ -1,11 +1,16 @@
 #ifndef LAVENDER_H
 #define LAVENDER_H
+
 #include "Plant.h"
-class Lavender : public Plant{
+
+class Lavender : public Plant
+{
     public:
     Lavender();
-    virtual ~Lavender() = default;
-    Plant* clone();
+    ~Lavender();
+    std::string description() override;
+    double price() override;
+    Plant* clone() override;
 };
 
 #endif

@@ -12,7 +12,6 @@ class PlantBuilder
         virtual void setCareType(std::string c = "") = 0;
         virtual void setSeason(std::string s = "") = 0;
         virtual void setLifeCycle(PlantLifeCycleState* state) = 0;
-        virtual void setCareStrategy(CareStrategy* strategy) = 0;
         virtual Plant* getPlant() = 0;
         virtual ~PlantBuilder() = default;
 };
