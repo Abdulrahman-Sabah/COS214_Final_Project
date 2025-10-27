@@ -1,15 +1,11 @@
 #include "Cactus.h"
 #include <iostream>
-// #include "CactusCare.h"     // Will be available after merging branches
-// #include "Seedling.h"       // Will be available after merging branches
+#include "CactusCare.h"     
+#include "SeedlingState.h"       
 
 Cactus::Cactus()
-    : Plant("Cactus", "Low", "Seedling", "Summer", nullptr, nullptr)
-{
-    // TODO: When branches are merged, update to:
-    // Plant("Cactus", "Low", "Seedling", "Summer", new CactusCare(), new Seedling());
-    // Cactus typically needs low care and starts as a seedling in summer.
-}
+    : Plant("Cactus", "Low", "Seedling", "Summer", new CactusCare(), new SeedlingState())
+{}
 
 Plant* Cactus::clone() {
     Cactus* clonedCactus = new Cactus();
@@ -17,8 +13,8 @@ Plant* Cactus::clone() {
     clonedCactus->setCareType(this->getCareType());
     clonedCactus->setStateText(this->getStateText());
     clonedCactus->setSeason(this->getSeason());
-    clonedCactus->setCareStrategy(this->getCareStrategy());
-    clonedCactus->setLifeCycle(this->getLifeCycle());
+    clonedCactus->setCareStrategy(new CactusCare());
+    clonedCactus->setLifeCycle(new SeedlingState());
     return clonedCactus;
 }
 

@@ -399,8 +399,8 @@ int main()
     std::cout << "=========================================\n";
     deadfromMatureTest();
     std::cout << ANSI_BLUE << "=========================================\n";
-    std::cout << ANSI_BLUE << "ALL TESTS COMPLETED SUCCESSFULLY\n" << ANSI_RESET;
-    std::cout << ANSI_BLUE << "=========================================\n";
+    std::cout << ANSI_BLUE << "ALL TESTS COMPLETED SUCCESSFULLY\n";
+    std::cout << ANSI_BLUE << "=========================================\n"<< ANSI_RESET;
   
   
     cout << "=== PLANT OBSERVER PATTERN TEST ===" << endl;
@@ -411,36 +411,36 @@ int main()
     CareSchedulerObserver* scheduler = new CareSchedulerObserver();
     
     cout << "\nAttaching CareSchedulerObserver to the rose..." << endl;
-    rose->attach(scheduler);
+    rosethree->attach(scheduler);
     
     cout << "\n--- Testing Notifications ---" << endl;
     
     cout << "\n1. Changing plant state:" << endl;
-    rose->setStateText("Flowering");
+    rosethree->setStateText("Flowering");
     
     cout << "\n2. Changing season:" << endl;
-    rose->setSeason("Summer");
+    rosethree->setSeason("Summer");
     
     cout << "\n3. Changing care type:" << endl;
-    rose->setCareType("High");
-    
+    rosethree->setCareType("High");
+
     cout << "\n4. Changing name (no observer for this):" << endl;
-    rose->setName("Red Rose");
-    cout << "Name changed to: " << rose->getName() << " (no notification expected)" << endl;
-    
+    rosethree->setName("Red Rose");
+    cout << "Name changed to: " << rosethree->getName() << " (no notification expected)" << endl;
+
     cout << "\n5. Detaching observer and making changes:" << endl;
-    rose->detach(scheduler);
-    rose->setStateText("Mature");
+    rosethree->detach(scheduler);
+    rosethree->setStateText("Mature");
     cout << "State changed to Mature (no notification expected - observer detached)" << endl;
     
     cout << "\n6. Re-attaching observer:" << endl;
-    rose->attach(scheduler);
-    rose->setSeason("Autumn");
+    rosethree->attach(scheduler);
+    rosethree->setSeason("Autumn");
     
     cout << "\n--- Testing Plant Information ---" << endl;
-    cout << "Plant Description: " << rose->description() << endl;
-    cout << "Plant Price: $" << rose->price() << endl;
-    
+    cout << "Plant Description: " << rosethree->description() << endl;
+    cout << "Plant Price: $" << rosethree->price() << endl;
+
     cout << "\n=== CLEANUP ===" << endl;
     delete rosethree;
     delete scheduler;

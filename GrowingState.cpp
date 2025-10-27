@@ -2,7 +2,7 @@
 #include "DeadState.h"
 #include "DormantState.h"
 
-GrowingState::GrowingState() = default;
+GrowingState::GrowingState() : PlantLifeCycleState() {}
 
 GrowingState::~GrowingState() = default;
 

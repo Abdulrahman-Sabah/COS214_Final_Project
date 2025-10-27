@@ -14,8 +14,8 @@ Plant* Rose::clone() {
     clonedRose->setCareType(this->getCareType());
     clonedRose->setStateText(this->getStateText());
     clonedRose->setSeason(this->getSeason());
-    clonedRose->setCareStrategy(this->getCareStrategy());
-    clonedRose->setLifeCycle(this->getLifeCycle());
+    clonedRose->setCareStrategy(new RoseCare());
+    clonedRose->setLifeCycle(new SeedlingState());
     return clonedRose;
 }
 

@@ -12,7 +12,7 @@ protected:
 	bool dead;
 	bool attention;
 public:
-    PlantLifeCycleState() = default;
+    PlantLifeCycleState();
 
     virtual ~PlantLifeCycleState() = default;
 

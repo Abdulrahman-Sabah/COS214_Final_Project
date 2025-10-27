@@ -1,9 +1,6 @@
 #include "DeadState.h"
 
-DeadState::DeadState() {
-    dead = true;
-    attention = false;
-}
+DeadState::DeadState() : PlantLifeCycleState() {}
 
 DeadState::~DeadState() = default;
 

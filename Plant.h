@@ -31,7 +31,7 @@ public:
     
     Plant();
     
-    virtual ~Plant() = default;
+    virtual ~Plant();
     
     virtual string description() = 0;
     virtual double price() = 0;

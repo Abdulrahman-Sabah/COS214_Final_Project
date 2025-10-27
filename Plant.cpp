@@ -11,6 +11,11 @@ Plant::Plant(string name, string careType, string state, string season,
 Plant::Plant() : name(""), careType(""), state(""), season(""), 
         careStrategy(nullptr), lifeCycle(nullptr) {}
 
+Plant::~Plant() {
+    delete careStrategy;
+    delete lifeCycle;
+}
+
 string Plant::getCareType() { return careType; }
 
 string Plant::getStateText() { return state; }
@@ -22,6 +27,7 @@ CareStrategy* Plant::getCareStrategy() { return careStrategy; }
 PlantLifeCycleState* Plant::getLifeCycle() { return lifeCycle; }
 
 void Plant::setName(string n) { name = n; }
+
 void Plant::setCareType(string t) { 
     careType = t; 
     notifyCareStrategyChanged();
@@ -34,11 +40,13 @@ void Plant::setSeason(string s) {
     season = s; 
     notifySeasonChanged(s);
 }
-void Plant::setCareStrategy(CareStrategy* cs) { 
+void Plant::setCareStrategy(CareStrategy* cs) {
+    if (careStrategy && careStrategy != cs) delete careStrategy; 
     careStrategy = cs; 
     notifyCareStrategyChanged();
 }
 void Plant::setLifeCycle(PlantLifeCycleState* st) { 
+    if (lifeCycle && lifeCycle != st) delete lifeCycle;
     lifeCycle = st; 
     notifyLifeCycleChanged(st);
 }

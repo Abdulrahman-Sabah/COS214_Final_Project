@@ -1,14 +1,12 @@
 #include "Lavender.h"
+#include "LavenderCare.h"
 #include <iostream>
+#include "SeedlingState.h"
 
 // Constructor
 Lavender::Lavender()
-    : Plant("Lavender", "Moderate", "Seedling", "Spring", nullptr, nullptr)
-{
-    // Later, after merging branches:
-    // Plant("Lavender", "Moderate", "Seedling", "Spring", new LavenderCare(), new Seedling());
-    // For now, we just use nullptr placeholders for care strategy and life cycle.
-}
+    : Plant("Lavender", "Moderate", "Seedling", "Spring", new LavenderCare(), new SeedlingState())
+{}
 
 Plant* Lavender::clone() 
 {
@@ -17,8 +15,8 @@ Plant* Lavender::clone()
     clonedLavender->setCareType(this->getCareType());
     clonedLavender->setStateText(this->getStateText());
     clonedLavender->setSeason(this->getSeason());
-    clonedLavender->setCareStrategy(this->getCareStrategy());
-    clonedLavender->setLifeCycle(this->getLifeCycle());
+    clonedLavender->setCareStrategy(new LavenderCare());
+    clonedLavender->setLifeCycle(new SeedlingState());
     return clonedLavender;
 }
 
