@@ -16,7 +16,7 @@ public:
     ~Inventory();
     void addPlant(Plant* p);
     bool removePlant(Plant* p);
-    bool removePlantByName(const std::string& name);
+    Plant* removePlantByName(const std::string& name);
     size_t getSize() const;
     PlantIterator* createIterator();
     std::vector<Plant*>& getPlants();
