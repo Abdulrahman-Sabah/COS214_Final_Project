@@ -1,16 +1,17 @@
 
 #include "Rose.h"
-#include "CareStrategy.h"
-#include "PlantLifeCycleState.h"
 #include <iostream>
+// #include "RoseCare.h"     // Will be available after merging branches
+#include "SeedlingState.h"     // Will be available after merging branches
 
-Rose::Rose() : Plant("Rose", "Moderate", "Seedling", "Spring", nullptr, nullptr) {
-    std::cout << "Rose created: " << getName() << std::endl;
+Rose::Rose()
+    : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling())
+{
+    // TODO: When branches are merged, update to:
+    // Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling());
+    // Roses typically need moderate care and start as seedlings in spring.
 }
 
-Rose::~Rose() {
-    std::cout << "Rose destroyed: " << getName() << std::endl;
-}
 Plant* Rose::clone() {
     Rose* clonedRose = new Rose();
     clonedRose->setName(this->getName());
@@ -21,21 +22,16 @@ Plant* Rose::clone() {
     clonedRose->setLifeCycle(this->getLifeCycle());
     return clonedRose;
 }
-string Rose::description() {
-    return "Beautiful Rose plant with fragrant blooms. Care Type: " + 
-           getCareType() + ", Current State: " + getStateText() + 
-           ", Season: " + getSeason();
+
+std::string Rose::description() {
+    return "Rose (Rosa): a fragrant and colorful flowering plant symbolizing love and beauty.";
 }
 
 double Rose::price() {
-    double basePrice = 25.00;
-    if (getStateText() == "Seedling") {
-        basePrice = 15.00;
-    } else if (getStateText() == "Flowering") {
-        basePrice = 45.00;
-    } else if (getStateText() == "Mature") {
-        basePrice = 35.00;
-    }
+    return 79.99; 
+}
+
+Rose::~Rose()
+{
     
-    return basePrice;
 }

@@ -14,6 +14,8 @@ public:
     std::string name() override;
 
     bool isDead() override;
+
+    bool needsAttention() override;
 };
 
 #endif

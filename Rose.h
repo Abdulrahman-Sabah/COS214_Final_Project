@@ -1,16 +1,15 @@
 
 #ifndef ROSE_H
 #define ROSE_H
-#include "Plant.h"
-#include <string>
-using namespace std;
 
-class Rose : public Plant {
+#include "Plant.h"
+
+class Rose : public Plant 
+{
 public:
     Rose();
     ~Rose();
-    
-    string description() override;
+    std::string description() override;
     double price() override;
     Plant* clone() override;
 };

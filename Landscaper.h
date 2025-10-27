@@ -3,7 +3,7 @@
 #include "Handler.h"
 class Landscaper : public Handler{
 public:
-    void handleRequest(Command* r) override;
+    void handleRequest(Commands* r) override;
 };
 
 #endif

@@ -1,17 +1,18 @@
-#ifndef MOVETOSALES_H
-#define MOVETOSALES_H
+#ifndef APPLYFERTILIZER_H
+#define APPLYFERTILIZER_H
 
 #include "Commands.h"
 #include <string>
 
-class MoveToSales : public Commands {
+class ApplyFertilizer : public Commands 
+{
 private:
     std::string plantId;
 
 public:
-    explicit MoveToSales(const std::string& id);
+    ApplyFertilizer(const std::string& id);
     std::string getType() const override;
     std::string getData() const override;
 };
 
-#endif 
+#endif
