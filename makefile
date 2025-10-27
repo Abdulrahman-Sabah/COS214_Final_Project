@@ -50,3 +50,6 @@ coverage: clean clean-coverage
 	$(MAKE) COVERAGE=1 TestingMain
 	./TestingMain
 	gcov -b -c $(SRCS)
+
+clean-coverage:
+	rm -f *.gcno *.gcda *.gcov
