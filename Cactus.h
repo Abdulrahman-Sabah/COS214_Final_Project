@@ -1,6 +1,6 @@
 
-#ifndef LAVENDER_H
-#define LAVENDER_H
+#ifndef CACTUS_H
+#define CACTUS_H
 
 #include "Plant.h"
 

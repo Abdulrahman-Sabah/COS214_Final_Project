@@ -1,11 +1,11 @@
-#ifndef CACTUS_H
-#define CACTUS_H
+#ifndef LAVENDER_H
+#define LAVENDER_H
 
 #include "Plant.h"
 
-class Lavender : public Plant 
+class Lavender : public Plant
 {
-public:
+    public:
     Lavender();
     ~Lavender();
     std::string description() override;
