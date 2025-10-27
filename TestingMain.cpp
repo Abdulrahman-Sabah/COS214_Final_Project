@@ -41,10 +41,13 @@
 #include "Rose.h"
 #include "Plant.h"
 #include "MoveToSales.h"
-#include "Command.h"
+#include "Commands.h"
 #include "ScheduleDelivery.h"
 #include "ApplyFertilizer.h"
 #include "AddWater.h"
+#include "DeliveryStaff.h"
+#include "GreenhouseManager.h"
+#include "Landscaper.h"
 
 using namespace std;
   
@@ -275,13 +278,13 @@ int main()
     CactusCreator cactusCreator;
     LavenderCreator lavenderCreator;
 
-    Plant* rose = roseCreator.factoryMethod();
-    Plant* cactus = cactusCreator.factoryMethod();
-    Plant* lavender = lavenderCreator.factoryMethod();
+    Plant* rosetwo = roseCreator.factoryMethod();
+    Plant* cactustwo = cactusCreator.factoryMethod();
+    Plant* lavendertwo = lavenderCreator.factoryMethod();
 
-    delete rose;
-    delete cactus;
-    delete lavender;
+    delete rosetwo;
+    delete cactustwo;
+    delete lavendertwo;
 
     std::cout << "========== End of Factory Method Test ==========" << std::endl;
 
@@ -403,7 +406,7 @@ int main()
     cout << "=== PLANT OBSERVER PATTERN TEST ===" << endl;
     cout << "Creating a rose plant..." << endl;
     
-    Rose* rose = new Rose();
+    Rose* rosethree = new Rose();
     
     CareSchedulerObserver* scheduler = new CareSchedulerObserver();
     
@@ -439,7 +442,7 @@ int main()
     cout << "Plant Price: $" << rose->price() << endl;
     
     cout << "\n=== CLEANUP ===" << endl;
-    delete rose;
+    delete rosethree;
     delete scheduler;
     
     cout << "Test completed successfully!" << endl;
@@ -648,30 +651,86 @@ int main()
   
     std::cout << "=========Strategy Testing=========" << std::endl;
 
-    Cactus* cactus = new Cactus();
-    Rose* rose = new Rose();
-    Lavender* lavender = new Lavender();
+    Cactus* cactustwos = new Cactus();
+    Rose* rosetwos = new Rose();
+    Lavender* lavendertwos = new Lavender();
 
-    cactus->setCareStrategy(new CactusCare());
-    rose->setCareStrategy(new RoseCare());
-    lavender->setCareStrategy(new LavenderCare());
+    cactustwo->setCareStrategy(new CactusCare());
+    rosetwo->setCareStrategy(new RoseCare());
+    lavendertwo->setCareStrategy(new LavenderCare());
 
-    cactus->setName("Golden Barrel Cactus");
-    rose->setName("Red Rose");
-    lavender->setName("English Lavender");
+    cactustwo->setName("Golden Barrel Cactus");
+    rosetwo->setName("Red Rose");
+    lavendertwo->setName("English Lavender");
 
     std::cout << "Taking care of Cactus:" << std::endl;
-    cactus->takeCare();
+    cactustwo->takeCare();
 
     std::cout << "Taking care of Rose:" << std::endl;
-    rose->takeCare();
+    rosetwo->takeCare();
 
     std::cout << "Taking care of Lavender:" << std::endl;
-    lavender->takeCare();
+    lavendertwo->takeCare();
 
-    delete cactus;
-    delete rose;
-    delete lavender;
+    delete cactustwos;
+    delete rosetwos;
+    delete lavendertwos;
+
+
+      std::cout << "=== Chain of Responsibility Pattern Test ===" << std::endl;
+    
+   
+    DeliveryStaff* deliveryStaff = new DeliveryStaff();
+    GreenhouseManager* manager = new GreenhouseManager();
+    Landscaper* landscaper = new Landscaper();
+    
+    
+    deliveryStaff->setSuccessor(manager);    // delivery -> manager
+    manager->setSuccessor(landscaper);       // manager -> landscaper
+    
+    std::cout << "\nChain built: DeliveryStaff -> GreenhouseManager -> Landscaper\n" << std::endl;
+    
+    
+    ScheduleDelivery* deliveryCmd = new ScheduleDelivery("ORDER123");
+    MoveToSales* salesCmd = new MoveToSales("PLANT456");
+    AddWater* waterCmd = new AddWater("PLANT789");
+    ApplyFertilizer* fertilizerCmd = new ApplyFertilizer("PLANT101");
+    
+    
+    std::cout << "--- Testing Chain of Responsibility ---\n" << std::endl;
+    
+    std::cout << "1. Testing ScheduleDelivery command:" << std::endl;
+    std::cout << "   Command Type: " << deliveryCmd->getType() << ", Data: " << deliveryCmd->getData() << std::endl;
+    deliveryStaff->handleRequest(deliveryCmd);
+    
+    std::cout << "\n2. Testing MoveToSales command:" << std::endl;
+    std::cout << "   Command Type: " << salesCmd->getType() << ", Data: " << salesCmd->getData() << std::endl;
+    deliveryStaff->handleRequest(salesCmd);
+    
+    std::cout << "\n3. Testing AddWater command:" << std::endl;
+    std::cout << "   Command Type: " << waterCmd->getType() << ", Data: " << waterCmd->getData() << std::endl;
+    deliveryStaff->handleRequest(waterCmd);
+    
+    std::cout << "\n4. Testing ApplyFertilizer command:" << std::endl;
+    std::cout << "   Command Type: " << fertilizerCmd->getType() << ", Data: " << fertilizerCmd->getData() << std::endl;
+    deliveryStaff->handleRequest(fertilizerCmd);
+    
+    std::cout << "\n--- Expected Results ---" << std::endl;
+    std::cout << "ScheduleDelivery -> Handled by DeliveryStaff" << std::endl;
+    std::cout << "MoveToSales -> Passed through DeliveryStaff -> Handled by GreenhouseManager" << std::endl;
+    std::cout << "AddWater -> Passed through DeliveryStaff -> GreenhouseManager -> Handled by Landscaper" << std::endl;
+    std::cout << "ApplyFertilizer -> Passed through DeliveryStaff -> GreenhouseManager -> Handled by Landscaper" << std::endl;
+    
+    std::cout << "\n--- Test Complete ---" << std::endl;
+    
+    
+    delete deliveryStaff;
+    delete manager;
+    delete landscaper;
+    delete deliveryCmd;
+    delete salesCmd;
+    delete waterCmd;
+    delete fertilizerCmd;
     
     return 0;
 }

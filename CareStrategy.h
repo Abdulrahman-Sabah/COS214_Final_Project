@@ -1,8 +1,9 @@
 #ifndef CARESTRATEGY_H
 #define CARESTRATEGY_H
 
-#include "Plant.h"
+// #include "Plant.h"
 #include <iostream>
+class Plant;
 
 class CareStrategy {
 public:

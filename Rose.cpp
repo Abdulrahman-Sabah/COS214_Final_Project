@@ -5,7 +5,7 @@
 #include "SeedlingState.h"     
 
 Rose::Rose()
-    : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new Seedling())
+    : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(), new SeedlingState())
 {}
 
 Plant* Rose::clone() {

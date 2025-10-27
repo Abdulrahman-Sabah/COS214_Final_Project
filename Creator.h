@@ -9,7 +9,6 @@ class Creator
         Plant* product;
         virtual Plant* factoryMethod() const = 0;
 
-    virtual Plant* factoryMethod() const = 0;
 
 public:
     virtual ~Creator() {}

@@ -78,6 +78,6 @@ void Plant::notifyCareStrategyChanged() {
 
 void Plant::takeCare() {
     if (careStrategy) {
-        careStrategy->applyCare(*this);
+        careStrategy->applyCare(this);
     }
 }

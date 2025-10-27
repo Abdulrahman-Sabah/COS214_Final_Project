@@ -1,4 +1,5 @@
 #include "LavenderCare.h"
+#include "Plant.h"
 
 void LavenderCare::applyCare(Plant* plant)
 {
