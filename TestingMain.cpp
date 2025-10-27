@@ -8,8 +8,8 @@
 int main() 
 {
     std::cout << "Testing the main" << std::endl;
-    
-    std::cout << "=== Bulder Design Pattern Test ===\n\n";
+
+    std::cout << "\n\n=== Builder Design Pattern Test ===\n\n";
 
     // 1. Rose
     RoseBuilder roseBuilder;
@@ -62,6 +62,13 @@ int main()
     {
         std:: cout << "Lavender Builder Returned Null Plant!" << std::endl;
     }
+
+    //Cleanup
+    delete lavender;
+    delete cactus;
+    delete rose;
+
+    std::cout << "\n\n=== Builder Design Pattern Test Completed ===\n\n";
 
     return 0;
 }
