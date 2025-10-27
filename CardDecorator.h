@@ -1,6 +1,6 @@
-
 #ifndef CARDDECORATOR_H
 #define CARDDECORATOR_H
+
 #include "PlantDecorations.h"
 
 class CardDecorator : public PlantDecorations {

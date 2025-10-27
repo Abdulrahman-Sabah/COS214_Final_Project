@@ -1,7 +1,7 @@
 #ifndef MOVETOSALES_H
 #define MOVETOSALES_H
 
-#include "Command.h"
+#include "Commands.h"
 #include <string>
 
 class MoveToSales : public Commands {

@@ -16,3 +16,4 @@ std::string DeadState::name() { return "Dead"; }
 bool DeadState::isDead() { return true; }
 
 bool DeadState::needsAttention() { return false; }
+

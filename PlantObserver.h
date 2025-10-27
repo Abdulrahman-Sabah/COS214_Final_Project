@@ -1,5 +1,6 @@
 #ifndef PLANTOBSERVER_H
 #define PLANTOBSERVER_H
+#include "Plant.h"
 #include <string>
 using namespace std;
 

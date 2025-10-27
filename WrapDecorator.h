@@ -1,5 +1,6 @@
 #ifndef WRAPDECORATOR_H
 #define WRAPDECORATOR_H
+
 #include "PlantDecorations.h"
 
 class WrapDecorator : public PlantDecorations {
