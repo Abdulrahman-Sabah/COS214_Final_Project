@@ -8,7 +8,7 @@
 #include <iostream>
 #include <memory>
 
-explicit StaffFacade::StaffFacade(Inventory& inv) : inventory(inv) {}
+StaffFacade::StaffFacade(Inventory& inv) : inventory(inv) {}
 
 void StaffFacade::addStock(const std::string& name)
 {

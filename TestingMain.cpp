@@ -48,6 +48,8 @@
 #include "DeliveryStaff.h"
 #include "GreenhouseManager.h"
 #include "Landscaper.h"
+#include "CustomerFacade.h"
+#include "StaffFacade.h"
 
 using namespace std;
   
@@ -210,7 +212,35 @@ public:
 
 int main() 
 {
+    // Customer Facade Pattern Test
+    std::cout << "\n\n=== Customer Facade Pattern Test ===\n\n";
+    Inventory invent;
+    CustomerFacade customer(invent);
+    StaffFacade staff(invent);
 
+    //1. Staff adds stock
+    staff.addStock("Rose");
+    staff.addStock("Rose");
+    staff.addStock("Cactus");
+    staff.addStock("Lavender");
+
+    //2. Customer interacts with facade
+    customer.browsePlants();
+    customer.addToCart("Rose");
+    customer.addToCart("Rose");
+    customer.addToCart("Cactus");
+    customer.viewCart();
+    customer.removeFromCart("Rose");
+    customer.viewCart();
+
+    //3. Complete checkout
+    customer.checkout();
+    std::cout << "\nInventory after checkout:\n";
+    invent.displayAll();
+
+    std::cout << "\n\n=== Customer Facade Test Completed ===\n\n";
+
+    // Builder Pattern Test
     std::cout << "\n\n=== Builder Design Pattern Test ===\n\n";
 
     // 1. Rose

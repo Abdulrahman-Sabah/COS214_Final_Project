@@ -2,7 +2,7 @@
 #include "Receipt.h"
 #include <iostream>
 
-explicit CustomerFacade::CustomerFacade(Inventory& inv) : inventory(inv) {}
+CustomerFacade::CustomerFacade(Inventory& inv) : inventory(inv) {}
 
 void CustomerFacade::browsePlants() const
 {

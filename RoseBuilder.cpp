@@ -14,6 +14,7 @@ namespace
         {
             RoseCreator creator;
             p = creator.factoryMethod(); // adjust ctor args if your Rose needs them
+            p->setName("Rose");
         }
     }
 }
