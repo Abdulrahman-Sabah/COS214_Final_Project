@@ -1,32 +1,36 @@
 /**
  * @file DeliveryStaff.h
- * @brief Concrete handler for delivery-related requests in Chain of Responsibility pattern
- * @author COS214 Final Project Team
+ * @brief Delivery staff that interacts with the mediator and participates in the chain of responsibility
+ * @author COS214
  * @date 2025
  */
 
 #ifndef DELIVERYSTAFF_H
 #define DELIVERYSTAFF_H
-#include "Handler.h"
 
-/**
- * @class DeliveryStaff
- * @brief Handles delivery scheduling requests in the chain of responsibility
- * 
- * The DeliveryStaff class is a concrete handler that specifically processes
- * "ScheduleDelivery" command types. If it cannot handle a request, it passes
- * the request to the next handler in the chain.
- */
-class DeliveryStaff : public Handler{
+#include "Handler.h"
+#include "StoreColleague.h"
+#include "Commands.h"
+#include <iostream>
+
+class DeliveryStaff : public Handler, public StoreColleague {
 public:
+    using StoreColleague::StoreColleague;
+
     /**
-     * @brief Handles delivery-related requests
-     * @param r Pointer to the command to be processed
-     * 
-     * This method checks if the command type is "ScheduleDelivery" and processes it.
-     * If not, it passes the request to the next handler in the chain.
+     * @brief Handles delivery-related commands (part of Chain of Responsibility)
      */
     void handleRequest(Commands* r) override;
+
+    /**
+     * @brief Processes a request from the mediator (e.g., a customer order)
+     */
+    void processCustomerRequest(Commands* cmd);
+
+    /**
+     * @brief Receives notifications from mediator
+     */
+    void receive(const std::string& event) override;
 };
 
 #endif

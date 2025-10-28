@@ -1,23 +1,24 @@
-/**
- * @file DeliveryStaff.cpp
- * @brief Implementation of DeliveryStaff handler for delivery scheduling
- * @author COS214 Final Project Team
- * @date 2025
- */
-
 #include "DeliveryStaff.h"
-#include "Commands.h"
-#include <iostream>
- void DeliveryStaff::handleRequest(Commands* r)
- {
-    
-    if (r && r->getType() == "ScheduleDelivery")
-    {
-        std::cout << "Delivery Staff is scheduling the delivery." << std::endl;
-    }
-    else{
-        // Pass to next handler in chain using protected method
+#include "StoreMediator.h"
+
+void DeliveryStaff::handleRequest(Commands* r) {
+    if (r && r->getType() == "ScheduleDelivery") {
+        std::cout << "DeliveryStaff: Scheduling delivery...\n";
+    } else {
         passToSuccessor(r);
     }
-    
+}
+
+void DeliveryStaff::processCustomerRequest(Commands* cmd) {
+    std::cout << "DeliveryStaff: Received request from customer through mediator.\n";
+
+    std::cout << "DeliveryStaff: Fetching plant from greenhouse...\n";
+
+    handleRequest(cmd);
+
+    mediator->notify(this, "DeliveryReady", cmd);
+}
+
+void DeliveryStaff::receive(const std::string& event) {
+    std::cout << "DeliveryStaff received event: " << event << "\n";
 }
