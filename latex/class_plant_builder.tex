@@ -1,0 +1,145 @@
+\doxysection{Plant\+Builder Class Reference}
+\hypertarget{class_plant_builder}{}\label{class_plant_builder}\index{PlantBuilder@{PlantBuilder}}
+
+
+Abstract builder class for constructing \doxylink{class_plant}{Plant} objects step by step.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Builder.\+h$>$}
+
+Inheritance diagram for Plant\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plant_builder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_plant_builder_acdc99bb039c75e03e688643c1c0489a9}{set\+Name}} (std\+::string n="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Sets the name of the plant being built. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_builder_adc2fbfe095efc4ea8a15d4dc4b274a2f}{set\+Care\+Type}} (std\+::string c="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Sets the care type required for the plant. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_builder_af10239b8094f146d3b5ec0a516fc1549}{set\+Season}} (std\+::string s="{}"{})=0
+\begin{DoxyCompactList}\small\item\em Sets the growing season for the plant. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_builder_acc9726aefd21c639de96df2ab1c9c575}{set\+Life\+Cycle}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}state)=0
+\begin{DoxyCompactList}\small\item\em Sets the lifecycle state for the plant. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_builder_a6d63fa390854343c5ab5a00a68a7d9ad}{get\+Plant}} ()=0
+\begin{DoxyCompactList}\small\item\em Gets the constructed plant object. \end{DoxyCompactList}\item 
+\Hypertarget{class_plant_builder_a9f7486b7a2d9297d76c561d4f3148014}\label{class_plant_builder_a9f7486b7a2d9297d76c561d4f3148014} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Builder} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract builder class for constructing \doxylink{class_plant}{Plant} objects step by step. 
+
+This class defines the interface for the Builder pattern, allowing different concrete builders to construct various types of plants with different configurations. 
+
+Definition at line \mbox{\hyperlink{_plant_builder_8h_source_l00022}{22}} of file \mbox{\hyperlink{_plant_builder_8h_source}{Plant\+Builder.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_plant_builder_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_builder_a6d63fa390854343c5ab5a00a68a7d9ad}\index{PlantBuilder@{PlantBuilder}!getPlant@{getPlant}}
+\index{getPlant@{getPlant}!PlantBuilder@{PlantBuilder}}
+\doxysubsubsection{\texorpdfstring{getPlant()}{getPlant()}}
+{\footnotesize\ttfamily \label{class_plant_builder_a6d63fa390854343c5ab5a00a68a7d9ad} 
+virtual \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Plant\+Builder\+::get\+Plant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the constructed plant object. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the constructed \doxylink{class_plant}{Plant} 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_cactus_builder_acb82d70fc09ccb5b2d0b6b3ee502aa60}{Cactus\+Builder}}, \mbox{\hyperlink{class_lavender_builder_a50bfc76140689fb8a3cd641b3f09c415}{Lavender\+Builder}}, \mbox{\hyperlink{class_rose_builder_abe709d6b83ce39d0aca082ac254384f0}{Rose\+Builder}}, and \mbox{\hyperlink{class_succulent_builder_a95357d7812ad5e55b244e57d73650288}{Succulent\+Builder}}.
+
+\Hypertarget{class_plant_builder_adc2fbfe095efc4ea8a15d4dc4b274a2f}\index{PlantBuilder@{PlantBuilder}!setCareType@{setCareType}}
+\index{setCareType@{setCareType}!PlantBuilder@{PlantBuilder}}
+\doxysubsubsection{\texorpdfstring{setCareType()}{setCareType()}}
+{\footnotesize\ttfamily \label{class_plant_builder_adc2fbfe095efc4ea8a15d4dc4b274a2f} 
+virtual void Plant\+Builder\+::set\+Care\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{c}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the care type required for the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The care type to set (default\+: empty string) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_cactus_builder_a1c5b182e2a9b652911d48a060c74ed17}{Cactus\+Builder}}, \mbox{\hyperlink{class_lavender_builder_a7d05e20f2ac2687b963ad9646ece0a4d}{Lavender\+Builder}}, \mbox{\hyperlink{class_rose_builder_af1371a7f7933a2083500731fbc411f43}{Rose\+Builder}}, and \mbox{\hyperlink{class_succulent_builder_a1d36c185987d538620102533e00b2881}{Succulent\+Builder}}.
+
+\Hypertarget{class_plant_builder_acc9726aefd21c639de96df2ab1c9c575}\index{PlantBuilder@{PlantBuilder}!setLifeCycle@{setLifeCycle}}
+\index{setLifeCycle@{setLifeCycle}!PlantBuilder@{PlantBuilder}}
+\doxysubsubsection{\texorpdfstring{setLifeCycle()}{setLifeCycle()}}
+{\footnotesize\ttfamily \label{class_plant_builder_acc9726aefd21c639de96df2ab1c9c575} 
+virtual void Plant\+Builder\+::set\+Life\+Cycle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the lifecycle state for the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The \doxylink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State} to set \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_cactus_builder_aad6b18b219b1e6256ea57efe7bc49978}{Cactus\+Builder}}, \mbox{\hyperlink{class_lavender_builder_af9f03023b7a54b26ddec8a03f616cf79}{Lavender\+Builder}}, \mbox{\hyperlink{class_rose_builder_a6b6c4d0f266b8126e114fea4d2da54ee}{Rose\+Builder}}, and \mbox{\hyperlink{class_succulent_builder_afa9b5508dd3cb59fd787ffd5b908a1e3}{Succulent\+Builder}}.
+
+\Hypertarget{class_plant_builder_acdc99bb039c75e03e688643c1c0489a9}\index{PlantBuilder@{PlantBuilder}!setName@{setName}}
+\index{setName@{setName}!PlantBuilder@{PlantBuilder}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_plant_builder_acdc99bb039c75e03e688643c1c0489a9} 
+virtual void Plant\+Builder\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{n}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the name of the plant being built. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The name to set (default\+: empty string) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_cactus_builder_a1d3716b8c3acb8a751164cd44fad54f3}{Cactus\+Builder}}, \mbox{\hyperlink{class_lavender_builder_aa65f1420583d3fbeac8d8f85f588891e}{Lavender\+Builder}}, \mbox{\hyperlink{class_rose_builder_aec496cce70389196bdf6d0b4317f18d9}{Rose\+Builder}}, and \mbox{\hyperlink{class_succulent_builder_a91e844731cdb38b1150d3278f9fd50d0}{Succulent\+Builder}}.
+
+\Hypertarget{class_plant_builder_af10239b8094f146d3b5ec0a516fc1549}\index{PlantBuilder@{PlantBuilder}!setSeason@{setSeason}}
+\index{setSeason@{setSeason}!PlantBuilder@{PlantBuilder}}
+\doxysubsubsection{\texorpdfstring{setSeason()}{setSeason()}}
+{\footnotesize\ttfamily \label{class_plant_builder_af10239b8094f146d3b5ec0a516fc1549} 
+virtual void Plant\+Builder\+::set\+Season (\begin{DoxyParamCaption}\item[{std\+::string}]{s}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the growing season for the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The season to set (default\+: empty string) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_cactus_builder_a5ecb73c6b9ce1c5a87254ee2bb3e65d7}{Cactus\+Builder}}, \mbox{\hyperlink{class_lavender_builder_a9edf0b093ff27f1627008f154bc50cb0}{Lavender\+Builder}}, \mbox{\hyperlink{class_rose_builder_a7338cdfaeed3a215be070fcbbdf63340}{Rose\+Builder}}, and \mbox{\hyperlink{class_succulent_builder_aa2c0a1c91b8e81932f03e3b8f87f33c2}{Succulent\+Builder}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_plant_builder_8h}{Plant\+Builder.\+h}}\end{DoxyCompactItemize}

@@ -1,3 +1,10 @@
+/**
+ * @file CactusCare.cpp
+ * @brief Implementation of CactusCare strategy for cactus plant care
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "CactusCare.h"
 #include "Plant.h"
 

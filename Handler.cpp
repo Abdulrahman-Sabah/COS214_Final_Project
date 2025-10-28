@@ -1,3 +1,10 @@
+/**
+ * @file Handler.cpp
+ * @brief Implementation of Handler base class for Chain of Responsibility pattern
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "Handler.h"
 #include <iostream>
 

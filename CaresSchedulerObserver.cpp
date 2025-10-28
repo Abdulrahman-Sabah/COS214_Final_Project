@@ -1,3 +1,10 @@
+/**
+ * @file CaresSchedulerObserver.cpp
+ * @brief Implementation of CareSchedulerObserver for plant monitoring
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "CareScheduleObserver.h"
 void CareSchedulerObserver::onPlantStateChanged(Plant* plant) {
     std::cout << "[CareScheduler] Plant state changed: " 

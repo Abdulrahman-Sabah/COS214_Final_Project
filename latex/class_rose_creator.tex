@@ -1,0 +1,95 @@
+\doxysection{Rose\+Creator Class Reference}
+\hypertarget{class_rose_creator}{}\label{class_rose_creator}\index{RoseCreator@{RoseCreator}}
+
+
+Concrete factory class for creating \doxylink{class_rose}{Rose} objects.  
+
+
+
+
+{\ttfamily \#include $<$Rose\+Creator.\+h$>$}
+
+Inheritance diagram for Rose\+Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rose_creator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rose_creator_ade0933622a41808a945998b001af167d}{Rose\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_rose_creator_a19e364ab94857672de398b6001816812}{factory\+Method}} () const override
+\begin{DoxyCompactList}\small\item\em Factory method that creates a new \doxylink{class_rose}{Rose} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_creator}{Creator}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_creator_a2fe5ac9bd6c9852ab6b92bc7b80c3fef}{\texorpdfstring{$\sim$}{\string~}\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_creator}{Creator}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_creator_a8fb4d751cac5aa5dfee96d5bc668f86e}{product}}
+\begin{DoxyCompactList}\small\item\em The plant product created by this factory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete factory class for creating \doxylink{class_rose}{Rose} objects. 
+
+This class implements the Factory Method pattern to create \doxylink{class_rose}{Rose} plants. It extends the \doxylink{class_creator}{Creator} base class to provide specific creation logic for roses. 
+
+Definition at line \mbox{\hyperlink{_rose_creator_8h_source_l00020}{20}} of file \mbox{\hyperlink{_rose_creator_8h_source}{Rose\+Creator.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_rose_creator_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rose_creator_ade0933622a41808a945998b001af167d}\index{RoseCreator@{RoseCreator}!RoseCreator@{RoseCreator}}
+\index{RoseCreator@{RoseCreator}!RoseCreator@{RoseCreator}}
+\doxysubsubsection{\texorpdfstring{RoseCreator()}{RoseCreator()}}
+{\footnotesize\ttfamily \label{class_rose_creator_ade0933622a41808a945998b001af167d} 
+Rose\+Creator\+::\+Rose\+Creator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{_rose_creator_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_rose_creator_8cpp_source}{Rose\+Creator.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_rose_creator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rose_creator_a19e364ab94857672de398b6001816812}\index{RoseCreator@{RoseCreator}!factoryMethod@{factoryMethod}}
+\index{factoryMethod@{factoryMethod}!RoseCreator@{RoseCreator}}
+\doxysubsubsection{\texorpdfstring{factoryMethod()}{factoryMethod()}}
+{\footnotesize\ttfamily \label{class_rose_creator_a19e364ab94857672de398b6001816812} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Rose\+Creator\+::factory\+Method (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Factory method that creates a new \doxylink{class_rose}{Rose} plant. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a newly created \doxylink{class_rose}{Rose} plant 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_creator_ab37e4464a8e8c1d9063474ef41b95e91}{Creator}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_creator_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_rose_creator_8cpp_source}{Rose\+Creator.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rose_creator_8h}{Rose\+Creator.\+h}}\item 
+\mbox{\hyperlink{_rose_creator_8cpp}{Rose\+Creator.\+cpp}}\end{DoxyCompactItemize}

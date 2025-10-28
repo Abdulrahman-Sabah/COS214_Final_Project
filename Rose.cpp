@@ -1,4 +1,11 @@
 
+/**
+ * @file Rose.cpp
+ * @brief Implementation of the Rose class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "Rose.h"
 #include <iostream>
 #include "RoseCare.h"     

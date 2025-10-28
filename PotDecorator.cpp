@@ -1,3 +1,10 @@
+/**
+ * @file PotDecorator.cpp
+ * @brief Implementation of the PotDecorator class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "PotDecorator.h"
 
 PotDecorator::PotDecorator(Plant* item, string pot, double cost) 

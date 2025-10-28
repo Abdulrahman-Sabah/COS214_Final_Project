@@ -1,3 +1,10 @@
+/**
+ * @file RoseBuilder.cpp
+ * @brief Implementation of the RoseBuilder class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "RoseBuilder.h"
 //#include "Rose.h"             // concrete Plant subtype
 #include "Plant.h"

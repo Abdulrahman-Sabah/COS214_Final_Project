@@ -46,6 +46,13 @@
 // }
 
 
+/**
+ * @file CactusBuilder.cpp
+ * @brief Implementation of the CactusBuilder class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "CactusBuilder.h"
 // #include "Cactus.h"              // concrete Plant subtype
 #include "Plant.h"

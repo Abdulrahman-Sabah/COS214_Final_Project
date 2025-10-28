@@ -1,3 +1,10 @@
+/**
+ * @file GrowingState.cpp
+ * @brief Implementation of GrowingState for plant lifecycle management
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "GrowingState.h"
 #include "DeadState.h"
 #include "DormantState.h"

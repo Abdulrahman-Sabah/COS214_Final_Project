@@ -1,3 +1,10 @@
+/**
+ * @file MatureState.cpp
+ * @brief Implementation of the MatureState class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "MatureState.h"
 #include "DeadState.h"
 #include "SellingState.h"

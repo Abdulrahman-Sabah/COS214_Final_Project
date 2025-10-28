@@ -1,3 +1,10 @@
+/**
+ * @file RoseCreator.cpp
+ * @brief Implementation of the RoseCreator class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "RoseCreator.h"
 #include "Rose.h"   
 #include <iostream>

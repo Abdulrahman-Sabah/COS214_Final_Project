@@ -1,3 +1,10 @@
+/**
+ * @file BasicPlant.cpp
+ * @brief Implementation of BasicPlant class
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "BasicPlant.h"
 
 BasicPlant::BasicPlant(string name, string description, double price, 

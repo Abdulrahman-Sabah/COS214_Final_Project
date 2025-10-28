@@ -46,6 +46,13 @@
 // }
 
 
+/**
+ * @file SucculentBuilder.cpp
+ * @brief Implementation of the SucculentBuilder class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "SucculentBuilder.h"
 // #include "Succulent.h"              // concrete Plant subtype
 #include "Plant.h"

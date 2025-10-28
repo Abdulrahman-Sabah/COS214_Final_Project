@@ -1,3 +1,10 @@
+/**
+ * @file SeedlingState.cpp
+ * @brief Implementation of the SeedlingState class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "SeedlingState.h"
 #include "DeadState.h"
 #include "GrowingState.h"

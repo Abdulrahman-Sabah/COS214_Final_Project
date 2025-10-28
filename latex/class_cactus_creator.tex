@@ -1,0 +1,77 @@
+\doxysection{Cactus\+Creator Class Reference}
+\hypertarget{class_cactus_creator}{}\label{class_cactus_creator}\index{CactusCreator@{CactusCreator}}
+
+
+Concrete factory for creating \doxylink{class_cactus}{Cactus} plant objects.  
+
+
+
+
+{\ttfamily \#include $<$Cactus\+Creator.\+h$>$}
+
+Inheritance diagram for Cactus\+Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_cactus_creator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_cactus_creator_a0ea25b351dd6582ff3a02ee9fe17369c}\label{class_cactus_creator_a0ea25b351dd6582ff3a02ee9fe17369c} 
+{\bfseries Cactus\+Creator} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_cactus_creator}{Cactus\+Creator}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_cactus_creator_add5aa2c380e1f4a8bf476bcaec1ce7f3}{factory\+Method}} () const override
+\begin{DoxyCompactList}\small\item\em Factory method to create a new \doxylink{class_cactus}{Cactus} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_creator}{Creator}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_creator_a2fe5ac9bd6c9852ab6b92bc7b80c3fef}{\texorpdfstring{$\sim$}{\string~}\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_creator}{Creator}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_creator_a8fb4d751cac5aa5dfee96d5bc668f86e}{product}}
+\begin{DoxyCompactList}\small\item\em The plant product created by this factory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete factory for creating \doxylink{class_cactus}{Cactus} plant objects. 
+
+\doxylink{class_cactus_creator}{Cactus\+Creator} implements the Factory Method pattern to create \doxylink{class_cactus}{Cactus} plant instances. This allows the greenhouse system to create cactus plants without knowing the specific construction details. 
+
+Definition at line \mbox{\hyperlink{_cactus_creator_8h_source_l00021}{21}} of file \mbox{\hyperlink{_cactus_creator_8h_source}{Cactus\+Creator.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_cactus_creator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cactus_creator_add5aa2c380e1f4a8bf476bcaec1ce7f3}\index{CactusCreator@{CactusCreator}!factoryMethod@{factoryMethod}}
+\index{factoryMethod@{factoryMethod}!CactusCreator@{CactusCreator}}
+\doxysubsubsection{\texorpdfstring{factoryMethod()}{factoryMethod()}}
+{\footnotesize\ttfamily \label{class_cactus_creator_add5aa2c380e1f4a8bf476bcaec1ce7f3} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Cactus\+Creator\+::factory\+Method (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Factory method to create a new \doxylink{class_cactus}{Cactus} plant. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a newly created \doxylink{class_cactus}{Cactus} object
+\end{DoxyReturn}
+This method implements the abstract factory method to create a specific \doxylink{class_cactus}{Cactus} plant with appropriate default settings. 
+
+Implements \mbox{\hyperlink{class_creator_ab37e4464a8e8c1d9063474ef41b95e91}{Creator}}.
+
+
+
+Definition at line \mbox{\hyperlink{_cactus_creator_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_cactus_creator_8cpp_source}{Cactus\+Creator.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_cactus_creator_8h}{Cactus\+Creator.\+h}}\item 
+\mbox{\hyperlink{_cactus_creator_8cpp}{Cactus\+Creator.\+cpp}}\end{DoxyCompactItemize}

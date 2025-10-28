@@ -1,0 +1,182 @@
+\doxysection{Selling\+State Class Reference}
+\hypertarget{class_selling_state}{}\label{class_selling_state}\index{SellingState@{SellingState}}
+
+
+Represents the selling state in a plant\textquotesingle{}s lifecycle.  
+
+
+
+
+{\ttfamily \#include $<$Selling\+State.\+h$>$}
+
+Inheritance diagram for Selling\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_selling_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_selling_state_ac8d49e6d86851a1865cd06b479f8acc4}\label{class_selling_state_ac8d49e6d86851a1865cd06b479f8acc4} 
+{\bfseries Selling\+State} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_selling_state_a446e34c0e814525f62aeff3074e17b24}\label{class_selling_state_a446e34c0e814525f62aeff3074e17b24} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Selling\+State} () override
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_selling_state_a811d369e9554e1bf7edf670f918f1c82}{advance}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant) override
+\begin{DoxyCompactList}\small\item\em Advances the plant state (typically no further advancement from selling). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_selling_state_ac9db87d4b17bb9ca41222ffd2b9d20d7}{name}} () override
+\begin{DoxyCompactList}\small\item\em Gets the name of this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_selling_state_afc759e95db444624264525970fd274bd}{is\+Dead}} () override
+\begin{DoxyCompactList}\small\item\em Checks if the plant is dead in this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_selling_state_a2900b931a96e9c3d640e5f726c43ca75}{needs\+Attention}} () override
+\begin{DoxyCompactList}\small\item\em Checks if the plant needs attention in this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_selling_state_a6f2a871fa1a40c0e0a2ef0bcf2eb2af4}{can\+Sell}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the plant can be sold. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Life\+Cycle\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Life\+Cycle\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_aecdafadaa1c205d2fb0dea9fdf520427}{get\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em Gets the dead status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a214c1d958f1f0e2d59434958bbe35640}{get\+Attention}} ()
+\begin{DoxyCompactList}\small\item\em Gets the attention status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a523eaa347fb70822449c2405cdaa8338}{set\+Dead}} (bool d)
+\begin{DoxyCompactList}\small\item\em Sets the dead status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_ac715e2826b65ec49f13a9f8019ec6a9a}{set\+Attention}} (bool a)
+\begin{DoxyCompactList}\small\item\em Sets the attention status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a3c6716c37ae271381c65821638a184bf}{dead}}
+\begin{DoxyCompactList}\small\item\em Indicates if the plant is dead. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_ae1931986ab26922093d25b395acdff5c}{attention}}
+\begin{DoxyCompactList}\small\item\em Indicates if the plant needs attention. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the selling state in a plant\textquotesingle{}s lifecycle. 
+
+This state represents when a plant is ready for sale. It\textquotesingle{}s the final state in the plant lifecycle where the plant is mature enough to be sold to customers. 
+
+Definition at line \mbox{\hyperlink{_selling_state_8h_source_l00021}{21}} of file \mbox{\hyperlink{_selling_state_8h_source}{Selling\+State.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_selling_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_selling_state_a811d369e9554e1bf7edf670f918f1c82}\index{SellingState@{SellingState}!advance@{advance}}
+\index{advance@{advance}!SellingState@{SellingState}}
+\doxysubsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily \label{class_selling_state_a811d369e9554e1bf7edf670f918f1c82} 
+void Selling\+State\+::advance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advances the plant state (typically no further advancement from selling). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant to advance \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a8582c9f9bcf2da4644ff67fa1a33ce65}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_selling_state_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_selling_state_8cpp_source}{Selling\+State.\+cpp}}.
+
+\Hypertarget{class_selling_state_a6f2a871fa1a40c0e0a2ef0bcf2eb2af4}\index{SellingState@{SellingState}!canSell@{canSell}}
+\index{canSell@{canSell}!SellingState@{SellingState}}
+\doxysubsubsection{\texorpdfstring{canSell()}{canSell()}}
+{\footnotesize\ttfamily \label{class_selling_state_a6f2a871fa1a40c0e0a2ef0bcf2eb2af4} 
+bool Selling\+State\+::can\+Sell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the plant can be sold. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant is ready for sale 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_selling_state_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_selling_state_8cpp_source}{Selling\+State.\+cpp}}.
+
+\Hypertarget{class_selling_state_afc759e95db444624264525970fd274bd}\index{SellingState@{SellingState}!isDead@{isDead}}
+\index{isDead@{isDead}!SellingState@{SellingState}}
+\doxysubsubsection{\texorpdfstring{isDead()}{isDead()}}
+{\footnotesize\ttfamily \label{class_selling_state_afc759e95db444624264525970fd274bd} 
+bool Selling\+State\+::is\+Dead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the plant is dead in this state. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant has died 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a649b3ecb7c89ddc1e07f1ec3060a0eca}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_selling_state_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{_selling_state_8cpp_source}{Selling\+State.\+cpp}}.
+
+\Hypertarget{class_selling_state_ac9db87d4b17bb9ca41222ffd2b9d20d7}\index{SellingState@{SellingState}!name@{name}}
+\index{name@{name}!SellingState@{SellingState}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily \label{class_selling_state_ac9db87d4b17bb9ca41222ffd2b9d20d7} 
+std\+::string Selling\+State\+::name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+"{}\+Selling"{} as the state name 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a53f9476db7fa4c86bc73a1f163cadf43}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_selling_state_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_selling_state_8cpp_source}{Selling\+State.\+cpp}}.
+
+\Hypertarget{class_selling_state_a2900b931a96e9c3d640e5f726c43ca75}\index{SellingState@{SellingState}!needsAttention@{needsAttention}}
+\index{needsAttention@{needsAttention}!SellingState@{SellingState}}
+\doxysubsubsection{\texorpdfstring{needsAttention()}{needsAttention()}}
+{\footnotesize\ttfamily \label{class_selling_state_a2900b931a96e9c3d640e5f726c43ca75} 
+bool Selling\+State\+::needs\+Attention (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the plant needs attention in this state. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant needs care 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a1bbf2698b2b7e70acef10cdfaca41149}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_selling_state_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_selling_state_8cpp_source}{Selling\+State.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_selling_state_8h}{Selling\+State.\+h}}\item 
+\mbox{\hyperlink{_selling_state_8cpp}{Selling\+State.\+cpp}}\end{DoxyCompactItemize}

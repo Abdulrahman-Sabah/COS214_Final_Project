@@ -1,0 +1,198 @@
+\doxysection{Wrap\+Decorator Class Reference}
+\hypertarget{class_wrap_decorator}{}\label{class_wrap_decorator}\index{WrapDecorator@{WrapDecorator}}
+
+
+Concrete decorator that adds wrapping functionality to plants.  
+
+
+
+
+{\ttfamily \#include $<$Wrap\+Decorator.\+h$>$}
+
+Inheritance diagram for Wrap\+Decorator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_wrap_decorator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wrap_decorator_ad19b3d811593af7d12fd099df59f5a8f}{Wrap\+Decorator}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}item, string wrap, double cost)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_wrap_decorator}{Wrap\+Decorator}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_wrap_decorator_a7c6d5bc145a2a488da911c4a679f0be4}{description}} () override
+\begin{DoxyCompactList}\small\item\em Gets the description including wrapping information. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_wrap_decorator_a22af4d447c6d1c4e7d9d8ab61f579822}{price}} () override
+\begin{DoxyCompactList}\small\item\em Gets the total price including wrapping cost. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_wrap_decorator_ac90722e42a9a5f99c07c39614e913f6f}{clone}} () override
+\begin{DoxyCompactList}\small\item\em Creates a clone of the wrap-\/decorated plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_decorations}{Plant\+Decorations}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_decorations_ae231eb4f0b897a1d9b78f112d30a884a}{Plant\+Decorations}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Constructor that wraps an existing plant. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_plant_decorations_a39974f6fc688437cf688b21e07d44b8d}{\texorpdfstring{$\sim$}{\string~}\+Plant\+Decorations}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor that cleans up the wrapped plant. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_plant_decorations_ae1bd788500084e3361848d56bb9354cd}{get\+Name}} () override
+\begin{DoxyCompactList}\small\item\em Gets the name of the wrapped plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant}{Plant}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_a6f5dd9beeca5ff8f20c436c6e8d73aec}{Plant}} (string name, string care\+Type, string state, string season, \mbox{\hyperlink{class_care_strategy}{Care\+Strategy}} \texorpdfstring{$\ast$}{*}strategy, \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}life)
+\item 
+string \mbox{\hyperlink{class_plant_a6c65689ebd677f4caf237b172bdd7ca3}{get\+Care\+Type}} ()
+\item 
+string \mbox{\hyperlink{class_plant_aacd53c1b230818c657f3d68829684675}{get\+State\+Text}} ()
+\item 
+string \mbox{\hyperlink{class_plant_aeb35002fb979b645d37ab500b88f78f8}{get\+Season}} ()
+\item 
+\mbox{\hyperlink{class_care_strategy}{Care\+Strategy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_a1962c6dc1bb26b57a1a437a02094fd26}{get\+Care\+Strategy}} ()
+\item 
+\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_a6a0baf188a29b57202329cd4dd9a4dda}{get\+Life\+Cycle}} ()
+\item 
+void \mbox{\hyperlink{class_plant_a5ec7718bb0cb08645641d8edbb142d3c}{set\+Name}} (string n)
+\item 
+void \mbox{\hyperlink{class_plant_ace635810e9cf52807ef5b3a0259b7917}{set\+Care\+Type}} (string t)
+\item 
+void \mbox{\hyperlink{class_plant_a9603e0b17da3210fac6287d0a9e510a2}{set\+State\+Text}} (string s)
+\item 
+void \mbox{\hyperlink{class_plant_a08bdbbf5f676eab306fc088a761b2ed0}{set\+Season}} (string s)
+\item 
+void \mbox{\hyperlink{class_plant_af0552dc1c67ca15b1b4cad7c3602899f}{set\+Care\+Strategy}} (\mbox{\hyperlink{class_care_strategy}{Care\+Strategy}} \texorpdfstring{$\ast$}{*}cs)
+\item 
+void \mbox{\hyperlink{class_plant_a9c2aed573c8ecb545ddd256dae628b5c}{set\+Life\+Cycle}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}st)
+\item 
+void \mbox{\hyperlink{class_plant_a4d35beadb384e58519e95f6f0a28ed0c}{attach}} (\mbox{\hyperlink{class_plant_observer}{Plant\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{class_plant_a1c343db2f6d51568551acf9bb16d80c5}{detach}} (\mbox{\hyperlink{class_plant_observer}{Plant\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{class_plant_a9989b6af97a9b7bff9d043c5e8922e9a}{take\+Care}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_plant}{Plant}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_plant_abae19afa279dd4c8ba0ba07179cbaf6f}{notify\+State\+Changed}} ()
+\item 
+void \mbox{\hyperlink{class_plant_a181fc942b964ddb5a538c7edf660f051}{notify\+Life\+Cycle\+Changed}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}new\+State)
+\item 
+void \mbox{\hyperlink{class_plant_a43bfb5c3cb391b38ea019411c1fa330f}{notify\+Season\+Changed}} (string new\+Season)
+\item 
+void \mbox{\hyperlink{class_plant_a6b66a4ee92e1e07cb6827c001427ce64}{notify\+Care\+Strategy\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_plant_decorations}{Plant\+Decorations}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrapped\+Plant}}
+\begin{DoxyCompactList}\small\item\em The plant being decorated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete decorator that adds wrapping functionality to plants. 
+
+This decorator adds wrapping features to plants, including wrap type and cost. It extends the \doxylink{class_plant_decorations}{Plant\+Decorations} base class to provide specific wrapping decoration. 
+
+Definition at line \mbox{\hyperlink{_wrap_decorator_8h_source_l00020}{20}} of file \mbox{\hyperlink{_wrap_decorator_8h_source}{Wrap\+Decorator.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_wrap_decorator_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_wrap_decorator_ad19b3d811593af7d12fd099df59f5a8f}\index{WrapDecorator@{WrapDecorator}!WrapDecorator@{WrapDecorator}}
+\index{WrapDecorator@{WrapDecorator}!WrapDecorator@{WrapDecorator}}
+\doxysubsubsection{\texorpdfstring{WrapDecorator()}{WrapDecorator()}}
+{\footnotesize\ttfamily \label{class_wrap_decorator_ad19b3d811593af7d12fd099df59f5a8f} 
+Wrap\+Decorator\+::\+Wrap\+Decorator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{string}]{wrap}{, }\item[{double}]{cost}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_wrap_decorator}{Wrap\+Decorator}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The plant to decorate with wrapping \\
+\hline
+{\em wrap} & The type of wrapping to add \\
+\hline
+{\em cost} & The cost of the wrapping \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_wrap_decorator_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_wrap_decorator_8cpp_source}{Wrap\+Decorator.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_wrap_decorator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_wrap_decorator_ac90722e42a9a5f99c07c39614e913f6f}\index{WrapDecorator@{WrapDecorator}!clone@{clone}}
+\index{clone@{clone}!WrapDecorator@{WrapDecorator}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_wrap_decorator_ac90722e42a9a5f99c07c39614e913f6f} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Wrap\+Decorator\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a clone of the wrap-\/decorated plant. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to cloned wrap-\/decorated plant 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_decorations_ac38b126b35ca40d1d2f1cff32dcc6cc9}{Plant\+Decorations}}.
+
+
+
+Definition at line \mbox{\hyperlink{_wrap_decorator_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_wrap_decorator_8cpp_source}{Wrap\+Decorator.\+cpp}}.
+
+\Hypertarget{class_wrap_decorator_a7c6d5bc145a2a488da911c4a679f0be4}\index{WrapDecorator@{WrapDecorator}!description@{description}}
+\index{description@{description}!WrapDecorator@{WrapDecorator}}
+\doxysubsubsection{\texorpdfstring{description()}{description()}}
+{\footnotesize\ttfamily \label{class_wrap_decorator_a7c6d5bc145a2a488da911c4a679f0be4} 
+string Wrap\+Decorator\+::description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the description including wrapping information. 
+
+\begin{DoxyReturn}{Returns}
+String description of the plant with wrapping 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_decorations_aa79abb00844516c574954732077de879}{Plant\+Decorations}}.
+
+
+
+Definition at line \mbox{\hyperlink{_wrap_decorator_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_wrap_decorator_8cpp_source}{Wrap\+Decorator.\+cpp}}.
+
+\Hypertarget{class_wrap_decorator_a22af4d447c6d1c4e7d9d8ab61f579822}\index{WrapDecorator@{WrapDecorator}!price@{price}}
+\index{price@{price}!WrapDecorator@{WrapDecorator}}
+\doxysubsubsection{\texorpdfstring{price()}{price()}}
+{\footnotesize\ttfamily \label{class_wrap_decorator_a22af4d447c6d1c4e7d9d8ab61f579822} 
+double Wrap\+Decorator\+::price (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the total price including wrapping cost. 
+
+\begin{DoxyReturn}{Returns}
+Total price of plant plus wrapping 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_decorations_a3c27b09a719f4f7f7274597511a0dec2}{Plant\+Decorations}}.
+
+
+
+Definition at line \mbox{\hyperlink{_wrap_decorator_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_wrap_decorator_8cpp_source}{Wrap\+Decorator.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_wrap_decorator_8h}{Wrap\+Decorator.\+h}}\item 
+\mbox{\hyperlink{_wrap_decorator_8cpp}{Wrap\+Decorator.\+cpp}}\end{DoxyCompactItemize}

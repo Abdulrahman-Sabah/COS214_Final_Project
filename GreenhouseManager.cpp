@@ -1,3 +1,10 @@
+/**
+ * @file GreenhouseManager.cpp
+ * @brief Implementation of GreenhouseManager handler for sales operations
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "GreenhouseManager.h"
 #include <iostream>
 #include "Commands.h"

@@ -1,0 +1,117 @@
+\doxysection{Apply\+Fertilizer Class Reference}
+\hypertarget{class_apply_fertilizer}{}\label{class_apply_fertilizer}\index{ApplyFertilizer@{ApplyFertilizer}}
+
+
+Concrete command class for applying fertilizer to plants.  
+
+
+
+
+{\ttfamily \#include $<$Apply\+Fertilizer.\+h$>$}
+
+Inheritance diagram for Apply\+Fertilizer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_apply_fertilizer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_apply_fertilizer_a7b67e3904c65cf8fe2f7f97f14c69206}{Apply\+Fertilizer}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_apply_fertilizer}{Apply\+Fertilizer} command. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_apply_fertilizer_ac71904857941beed9688353e5b00b397}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of this command. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_apply_fertilizer_ad76052714013698fe322ea0943693340}{get\+Data}} () const override
+\begin{DoxyCompactList}\small\item\em Get the data associated with this command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_commands}{Commands}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Commands} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete command class for applying fertilizer to plants. 
+
+This class implements the \doxylink{class_commands}{Commands} interface to represent a fertilizer application command in the Command pattern. It encapsulates the request to apply fertilizer to a specific plant identified by its ID. 
+
+Definition at line \mbox{\hyperlink{_apply_fertilizer_8h_source_l00020}{20}} of file \mbox{\hyperlink{_apply_fertilizer_8h_source}{Apply\+Fertilizer.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_apply_fertilizer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_apply_fertilizer_a7b67e3904c65cf8fe2f7f97f14c69206}\index{ApplyFertilizer@{ApplyFertilizer}!ApplyFertilizer@{ApplyFertilizer}}
+\index{ApplyFertilizer@{ApplyFertilizer}!ApplyFertilizer@{ApplyFertilizer}}
+\doxysubsubsection{\texorpdfstring{ApplyFertilizer()}{ApplyFertilizer()}}
+{\footnotesize\ttfamily \label{class_apply_fertilizer_a7b67e3904c65cf8fe2f7f97f14c69206} 
+Apply\+Fertilizer\+::\+Apply\+Fertilizer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_apply_fertilizer}{Apply\+Fertilizer} command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the plant to apply fertilizer to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_apply_fertilizer_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_apply_fertilizer_8cpp_source}{Apply\+Fertilizer.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_apply_fertilizer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_apply_fertilizer_ad76052714013698fe322ea0943693340}\index{ApplyFertilizer@{ApplyFertilizer}!getData@{getData}}
+\index{getData@{getData}!ApplyFertilizer@{ApplyFertilizer}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily \label{class_apply_fertilizer_ad76052714013698fe322ea0943693340} 
+std\+::string Apply\+Fertilizer\+::get\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the data associated with this command. 
+
+\begin{DoxyReturn}{Returns}
+String containing the plant ID for fertilizer application 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_ad4df04741f05e5fa9ddf8459e41da8ce}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_apply_fertilizer_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_apply_fertilizer_8cpp_source}{Apply\+Fertilizer.\+cpp}}.
+
+\Hypertarget{class_apply_fertilizer_ac71904857941beed9688353e5b00b397}\index{ApplyFertilizer@{ApplyFertilizer}!getType@{getType}}
+\index{getType@{getType}!ApplyFertilizer@{ApplyFertilizer}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_apply_fertilizer_ac71904857941beed9688353e5b00b397} 
+std\+::string Apply\+Fertilizer\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of this command. 
+
+\begin{DoxyReturn}{Returns}
+String indicating this is an "{}\+Apply\+Fertilizer"{} command 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_apply_fertilizer_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_apply_fertilizer_8cpp_source}{Apply\+Fertilizer.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_apply_fertilizer_8h}{Apply\+Fertilizer.\+h}}\item 
+\mbox{\hyperlink{_apply_fertilizer_8cpp}{Apply\+Fertilizer.\+cpp}}\end{DoxyCompactItemize}

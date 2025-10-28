@@ -1,3 +1,10 @@
+/**
+ * @file LavenderBuilder.cpp
+ * @brief Implementation of the LavenderBuilder class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "LavenderBuilder.h"
 //#include "Lavender.h"         // concrete Plant subtype
 #include "Plant.h"

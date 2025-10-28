@@ -1,0 +1,205 @@
+\doxysection{Rose\+Builder Class Reference}
+\hypertarget{class_rose_builder}{}\label{class_rose_builder}\index{RoseBuilder@{RoseBuilder}}
+
+
+Concrete builder class for constructing \doxylink{class_rose}{Rose} objects.  
+
+
+
+
+{\ttfamily \#include $<$Rose\+Builder.\+h$>$}
+
+Inheritance diagram for Rose\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rose_builder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rose_builder_a3f703502d0c25c0426725e59741dc985}{Rose\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Constructor that initializes a new rose build process. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_rose_builder_ac49e8fee784053cc38ea50e1375952bc}{\texorpdfstring{$\sim$}{\string~}\+Rose\+Builder}} () override
+\begin{DoxyCompactList}\small\item\em Destructor that cleans up resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rose_builder_aec496cce70389196bdf6d0b4317f18d9}{set\+Name}} (std\+::string n) override
+\begin{DoxyCompactList}\small\item\em Sets the name of the rose being built. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rose_builder_af1371a7f7933a2083500731fbc411f43}{set\+Care\+Type}} (std\+::string ct) override
+\begin{DoxyCompactList}\small\item\em Sets the care type required for the rose. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rose_builder_a7338cdfaeed3a215be070fcbbdf63340}{set\+Season}} (std\+::string s) override
+\begin{DoxyCompactList}\small\item\em Sets the growing season for the rose. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rose_builder_a6b6c4d0f266b8126e114fea4d2da54ee}{set\+Life\+Cycle}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}state) override
+\begin{DoxyCompactList}\small\item\em Sets the lifecycle state for the rose. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_rose_builder_abe709d6b83ce39d0aca082ac254384f0}{get\+Plant}} () override
+\begin{DoxyCompactList}\small\item\em Gets the constructed rose and transfers ownership to caller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_builder}{Plant\+Builder}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Builder} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete builder class for constructing \doxylink{class_rose}{Rose} objects. 
+
+This class implements the Builder pattern to construct \doxylink{class_rose}{Rose} plants step by step, allowing for flexible configuration of rose properties. 
+
+Definition at line \mbox{\hyperlink{_rose_builder_8h_source_l00026}{26}} of file \mbox{\hyperlink{_rose_builder_8h_source}{Rose\+Builder.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_rose_builder_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rose_builder_a3f703502d0c25c0426725e59741dc985}\index{RoseBuilder@{RoseBuilder}!RoseBuilder@{RoseBuilder}}
+\index{RoseBuilder@{RoseBuilder}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{RoseBuilder()}{RoseBuilder()}}
+{\footnotesize\ttfamily \label{class_rose_builder_a3f703502d0c25c0426725e59741dc985} 
+Rose\+Builder\+::\+Rose\+Builder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor that initializes a new rose build process. 
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+\Hypertarget{class_rose_builder_ac49e8fee784053cc38ea50e1375952bc}\index{RoseBuilder@{RoseBuilder}!````~RoseBuilder@{\texorpdfstring{$\sim$}{\string~}RoseBuilder}}
+\index{````~RoseBuilder@{\texorpdfstring{$\sim$}{\string~}RoseBuilder}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RoseBuilder()}{\string~RoseBuilder()}}
+{\footnotesize\ttfamily \label{class_rose_builder_ac49e8fee784053cc38ea50e1375952bc} 
+Rose\+Builder\+::\texorpdfstring{$\sim$}{\string~}\+Rose\+Builder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor that cleans up resources. 
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_rose_builder_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rose_builder_abe709d6b83ce39d0aca082ac254384f0}\index{RoseBuilder@{RoseBuilder}!getPlant@{getPlant}}
+\index{getPlant@{getPlant}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{getPlant()}{getPlant()}}
+{\footnotesize\ttfamily \label{class_rose_builder_abe709d6b83ce39d0aca082ac254384f0} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Rose\+Builder\+::get\+Plant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the constructed rose and transfers ownership to caller. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the constructed \doxylink{class_rose}{Rose} plant 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_a6d63fa390854343c5ab5a00a68a7d9ad}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+\Hypertarget{class_rose_builder_af1371a7f7933a2083500731fbc411f43}\index{RoseBuilder@{RoseBuilder}!setCareType@{setCareType}}
+\index{setCareType@{setCareType}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{setCareType()}{setCareType()}}
+{\footnotesize\ttfamily \label{class_rose_builder_af1371a7f7933a2083500731fbc411f43} 
+void Rose\+Builder\+::set\+Care\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the care type required for the rose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ct} & The care type to set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_adc2fbfe095efc4ea8a15d4dc4b274a2f}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+\Hypertarget{class_rose_builder_a6b6c4d0f266b8126e114fea4d2da54ee}\index{RoseBuilder@{RoseBuilder}!setLifeCycle@{setLifeCycle}}
+\index{setLifeCycle@{setLifeCycle}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{setLifeCycle()}{setLifeCycle()}}
+{\footnotesize\ttfamily \label{class_rose_builder_a6b6c4d0f266b8126e114fea4d2da54ee} 
+void Rose\+Builder\+::set\+Life\+Cycle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the lifecycle state for the rose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The \doxylink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State} to set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_acc9726aefd21c639de96df2ab1c9c575}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+\Hypertarget{class_rose_builder_aec496cce70389196bdf6d0b4317f18d9}\index{RoseBuilder@{RoseBuilder}!setName@{setName}}
+\index{setName@{setName}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_rose_builder_aec496cce70389196bdf6d0b4317f18d9} 
+void Rose\+Builder\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the name of the rose being built. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The name to set for the rose \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_acdc99bb039c75e03e688643c1c0489a9}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+\Hypertarget{class_rose_builder_a7338cdfaeed3a215be070fcbbdf63340}\index{RoseBuilder@{RoseBuilder}!setSeason@{setSeason}}
+\index{setSeason@{setSeason}!RoseBuilder@{RoseBuilder}}
+\doxysubsubsection{\texorpdfstring{setSeason()}{setSeason()}}
+{\footnotesize\ttfamily \label{class_rose_builder_a7338cdfaeed3a215be070fcbbdf63340} 
+void Rose\+Builder\+::set\+Season (\begin{DoxyParamCaption}\item[{std\+::string}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the growing season for the rose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The season to set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_af10239b8094f146d3b5ec0a516fc1549}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_builder_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{_rose_builder_8cpp_source}{Rose\+Builder.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rose_builder_8h}{Rose\+Builder.\+h}}\item 
+\mbox{\hyperlink{_rose_builder_8cpp}{Rose\+Builder.\+cpp}}\end{DoxyCompactItemize}

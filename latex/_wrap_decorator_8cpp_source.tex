@@ -1,0 +1,23 @@
+\doxysection{Wrap\+Decorator.\+cpp}
+\hypertarget{_wrap_decorator_8cpp_source}{}\label{_wrap_decorator_8cpp_source}\mbox{\hyperlink{_wrap_decorator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_wrap_decorator_8h}{WrapDecorator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00010}\mbox{\hyperlink{class_wrap_decorator_ad19b3d811593af7d12fd099df59f5a8f}{00010}}\ \mbox{\hyperlink{class_wrap_decorator_ad19b3d811593af7d12fd099df59f5a8f}{WrapDecorator::WrapDecorator}}(Plant*\ item,\ \textcolor{keywordtype}{string}\ wrap,\ \textcolor{keywordtype}{double}\ cost)\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00011}00011\ \ \ \ \ :\ \mbox{\hyperlink{class_plant_decorations_ae231eb4f0b897a1d9b78f112d30a884a}{PlantDecorations}}(item),\ wrapType(wrap),\ wrapCost(cost)\ \{\}}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00013}\mbox{\hyperlink{class_wrap_decorator_a7c6d5bc145a2a488da911c4a679f0be4}{00013}}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_wrap_decorator_a7c6d5bc145a2a488da911c4a679f0be4}{WrapDecorator::description}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}}-\/>description()\ +\ \textcolor{stringliteral}{"{}\ with\ "{}}\ +\ wrapType\ +\ \textcolor{stringliteral}{"{}\ wrap"{}};}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00017}\mbox{\hyperlink{class_wrap_decorator_a22af4d447c6d1c4e7d9d8ab61f579822}{00017}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_wrap_decorator_a22af4d447c6d1c4e7d9d8ab61f579822}{WrapDecorator::price}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}}-\/>price()\ +\ wrapCost;}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00021}\mbox{\hyperlink{class_wrap_decorator_ac90722e42a9a5f99c07c39614e913f6f}{00021}}\ Plant*\ \mbox{\hyperlink{class_wrap_decorator_ac90722e42a9a5f99c07c39614e913f6f}{WrapDecorator::clone}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_wrap_decorator_ad19b3d811593af7d12fd099df59f5a8f}{WrapDecorator}}(\mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}}-\/>clone(),\ wrapType,\ wrapCost);}
+\DoxyCodeLine{\Hypertarget{_wrap_decorator_8cpp_source_l00023}00023\ \}}
+
+\end{DoxyCode}

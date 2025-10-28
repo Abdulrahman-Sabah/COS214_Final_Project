@@ -1,0 +1,36 @@
+\doxysection{Inventory\+Iterator.\+cpp}
+\hypertarget{_inventory_iterator_8cpp_source}{}\label{_inventory_iterator_8cpp_source}\mbox{\hyperlink{_inventory_iterator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_inventory_iterator_8h}{InventoryIterator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00010}\mbox{\hyperlink{class_inventory_iterator_af1d54e40e33b75d8b61d97c78ca088f7}{00010}}\ \mbox{\hyperlink{class_inventory_iterator_af1d54e40e33b75d8b61d97c78ca088f7}{InventoryIterator::InventoryIterator}}(std::vector<Plant*>\&\ plantList)}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00011}00011\ \ \ \ \ :\ plants(plantList),\ currentIndex(0)\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00014}\mbox{\hyperlink{class_inventory_iterator_a56f3b2052041def97410dd60af616b40}{00014}}\ \mbox{\hyperlink{class_inventory_iterator_a56f3b2052041def97410dd60af616b40}{InventoryIterator::\string~InventoryIterator}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00017}\mbox{\hyperlink{class_inventory_iterator_a690dd1d283f7aca876616af93cb5d046}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_iterator_a690dd1d283f7aca876616af93cb5d046}{InventoryIterator::first}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00018}00018\ \ \ \ \ currentIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00021}\mbox{\hyperlink{class_inventory_iterator_acc01b20b3d3aac5e62371046437104b5}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_iterator_acc01b20b3d3aac5e62371046437104b5}{InventoryIterator::next}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_inventory_iterator_a6a1daa4ac9fbb098228fb0288b27cefb}{isDone}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ currentIndex++;}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00027}\mbox{\hyperlink{class_inventory_iterator_a6a1daa4ac9fbb098228fb0288b27cefb}{00027}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_inventory_iterator_a6a1daa4ac9fbb098228fb0288b27cefb}{InventoryIterator::isDone}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ currentIndex\ >=\ plants.size();}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00031}\mbox{\hyperlink{class_inventory_iterator_a99b1cf523226125606fc5e81e705300c}{00031}}\ \mbox{\hyperlink{class_plant}{Plant}}*\ \mbox{\hyperlink{class_inventory_iterator_a99b1cf523226125606fc5e81e705300c}{InventoryIterator::current}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_inventory_iterator_a6a1daa4ac9fbb098228fb0288b27cefb}{isDone}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ plants[currentIndex];}
+\DoxyCodeLine{\Hypertarget{_inventory_iterator_8cpp_source_l00036}00036\ \}}
+
+\end{DoxyCode}

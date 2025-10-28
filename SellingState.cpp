@@ -1,3 +1,10 @@
+/**
+ * @file SellingState.cpp
+ * @brief Implementation of the SellingState class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "SellingState.h"
 
 SellingState::SellingState() = default;

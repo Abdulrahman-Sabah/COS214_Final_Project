@@ -1,3 +1,10 @@
+/**
+ * @file PlantLifeCycleState.cpp
+ * @brief Implementation of the PlantLifeCycleState base class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "PlantLifeCycleState.h"
 
 bool PlantLifeCycleState::getDead() {

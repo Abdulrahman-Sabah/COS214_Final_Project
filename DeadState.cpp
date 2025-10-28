@@ -1,3 +1,10 @@
+/**
+ * @file DeadState.cpp
+ * @brief Implementation of DeadState for plant lifecycle management
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "DeadState.h"
 
 DeadState::DeadState() {

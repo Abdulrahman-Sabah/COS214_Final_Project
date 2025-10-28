@@ -1,0 +1,213 @@
+\doxysection{Inventory Class Reference}
+\hypertarget{class_inventory}{}\label{class_inventory}\index{Inventory@{Inventory}}
+
+
+Manages a collection of plants with iterator support.  
+
+
+
+
+{\ttfamily \#include $<$Inventory.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_inventory_a6c6dfcb6d977c74a7abf46809e892e3d}{\texorpdfstring{$\sim$}{\string~}\+Inventory}} ()
+\begin{DoxyCompactList}\small\item\em Destructor that cleans up all plants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_ab366de112ab32f4b4bd7463e2f7ae8df}{add\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the inventory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_inventory_ad13f97da10e98839fe29c65f4cf5237b}{remove\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Removes a specific plant from the inventory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_inventory_a6137a50327f95fc1aa3b90b83479e4a9}{remove\+Plant\+By\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Removes a plant by name from the inventory. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_inventory_acc882286eb4a3c3a0efe024fe0ae0a8b}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of plants in inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant_iterator}{Plant\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_inventory_a980ce486175195783691ebeb44a44394}{create\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Creates an iterator for traversing the inventory. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_inventory_a8ec7dc487afa69e828da4c124c34c0fd}{get\+Plants}} ()
+\begin{DoxyCompactList}\small\item\em Gets reference to the plants vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_ab8633438428ce929216bc357c67930c8}{display\+All}} ()
+\begin{DoxyCompactList}\small\item\em Displays all plants in the inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a collection of plants with iterator support. 
+
+This class provides functionality to store, manage, and iterate through a collection of plants. It implements the Iterator pattern to allow traversal of the plant collection. 
+
+Definition at line \mbox{\hyperlink{_inventory_8h_source_l00023}{23}} of file \mbox{\hyperlink{_inventory_8h_source}{Inventory.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_inventory_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}\index{Inventory@{Inventory}!Inventory@{Inventory}}
+\index{Inventory@{Inventory}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{Inventory()}{Inventory()}}
+{\footnotesize\ttfamily \label{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb} 
+Inventory\+::\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_a6c6dfcb6d977c74a7abf46809e892e3d}\index{Inventory@{Inventory}!````~Inventory@{\texorpdfstring{$\sim$}{\string~}Inventory}}
+\index{````~Inventory@{\texorpdfstring{$\sim$}{\string~}Inventory}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Inventory()}{\string~Inventory()}}
+{\footnotesize\ttfamily \label{class_inventory_a6c6dfcb6d977c74a7abf46809e892e3d} 
+Inventory\+::\texorpdfstring{$\sim$}{\string~}\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor that cleans up all plants. 
+
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_inventory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_ab366de112ab32f4b4bd7463e2f7ae8df}\index{Inventory@{Inventory}!addPlant@{addPlant}}
+\index{addPlant@{addPlant}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{addPlant()}{addPlant()}}
+{\footnotesize\ttfamily \label{class_inventory_ab366de112ab32f4b4bd7463e2f7ae8df} 
+void Inventory\+::add\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Adds a plant to the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_a980ce486175195783691ebeb44a44394}\index{Inventory@{Inventory}!createIterator@{createIterator}}
+\index{createIterator@{createIterator}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{createIterator()}{createIterator()}}
+{\footnotesize\ttfamily \label{class_inventory_a980ce486175195783691ebeb44a44394} 
+\mbox{\hyperlink{class_plant_iterator}{Plant\+Iterator}} \texorpdfstring{$\ast$}{*} Inventory\+::create\+Iterator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates an iterator for traversing the inventory. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a \doxylink{class_plant_iterator}{Plant\+Iterator} for this inventory 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_ab8633438428ce929216bc357c67930c8}\index{Inventory@{Inventory}!displayAll@{displayAll}}
+\index{displayAll@{displayAll}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{displayAll()}{displayAll()}}
+{\footnotesize\ttfamily \label{class_inventory_ab8633438428ce929216bc357c67930c8} 
+void Inventory\+::display\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Displays all plants in the inventory. 
+
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_a8ec7dc487afa69e828da4c124c34c0fd}\index{Inventory@{Inventory}!getPlants@{getPlants}}
+\index{getPlants@{getPlants}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getPlants()}{getPlants()}}
+{\footnotesize\ttfamily \label{class_inventory_a8ec7dc487afa69e828da4c124c34c0fd} 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \& Inventory\+::get\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets reference to the plants vector. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of plants 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_acc882286eb4a3c3a0efe024fe0ae0a8b}\index{Inventory@{Inventory}!getSize@{getSize}}
+\index{getSize@{getSize}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \label{class_inventory_acc882286eb4a3c3a0efe024fe0ae0a8b} 
+size\+\_\+t Inventory\+::get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of plants in inventory. 
+
+\begin{DoxyReturn}{Returns}
+Size of the inventory 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_ad13f97da10e98839fe29c65f4cf5237b}\index{Inventory@{Inventory}!removePlant@{removePlant}}
+\index{removePlant@{removePlant}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{removePlant()}{removePlant()}}
+{\footnotesize\ttfamily \label{class_inventory_ad13f97da10e98839fe29c65f4cf5237b} 
+bool Inventory\+::remove\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Removes a specific plant from the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if plant was found and removed, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+\Hypertarget{class_inventory_a6137a50327f95fc1aa3b90b83479e4a9}\index{Inventory@{Inventory}!removePlantByName@{removePlantByName}}
+\index{removePlantByName@{removePlantByName}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{removePlantByName()}{removePlantByName()}}
+{\footnotesize\ttfamily \label{class_inventory_a6137a50327f95fc1aa3b90b83479e4a9} 
+bool Inventory\+::remove\+Plant\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Removes a plant by name from the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the plant to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if plant was found and removed, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_inventory_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_inventory_8cpp_source}{Inventory.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_inventory_8h}{Inventory.\+h}}\item 
+\mbox{\hyperlink{_inventory_8cpp}{Inventory.\+cpp}}\end{DoxyCompactItemize}

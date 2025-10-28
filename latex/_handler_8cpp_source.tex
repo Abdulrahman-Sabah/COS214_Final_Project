@@ -1,0 +1,21 @@
+\doxysection{Handler.\+cpp}
+\hypertarget{_handler_8cpp_source}{}\label{_handler_8cpp_source}\mbox{\hyperlink{_handler_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_handler_8h}{Handler.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00011}\mbox{\hyperlink{class_handler_aeb7a2ba7f559155822552463a94fc948}{00011}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_handler_aeb7a2ba7f559155822552463a94fc948}{Handler::setSuccessor}}(\mbox{\hyperlink{class_handler}{Handler}}*\ h)\{}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00012}00012\ \ \ \ \ successor\ =\ h;}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00015}\mbox{\hyperlink{class_handler_a69a302a65709241299d25fd5e7b1e49e}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_handler_a69a302a65709241299d25fd5e7b1e49e}{Handler::passToSuccessor}}(\mbox{\hyperlink{class_commands}{Commands}}*\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (successor)\ \{}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ successor-\/>handleRequest(r);}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00018}00018\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}End\ of\ chain\ reached.\ No\ handler\ available\ for\ this\ request."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_handler_8cpp_source_l00021}00021\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,25 @@
+\doxysection{Basic\+Plant.\+cpp}
+\hypertarget{_basic_plant_8cpp_source}{}\label{_basic_plant_8cpp_source}\mbox{\hyperlink{_basic_plant_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_basic_plant_8h}{BasicPlant.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00010}\mbox{\hyperlink{class_basic_plant_ac8e443b44cde408dc1a230c7255f2943}{00010}}\ \mbox{\hyperlink{class_basic_plant_ac8e443b44cde408dc1a230c7255f2943}{BasicPlant::BasicPlant}}(\textcolor{keywordtype}{string}\ name,\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_basic_plant_a15de621d5955e47222be1d32c7808482}{description}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_basic_plant_a43adc1a03ec9684fd37b6b2d71c1507a}{price}},\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ careType,\ \textcolor{keywordtype}{string}\ state,\ \textcolor{keywordtype}{string}\ season)}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00012}00012\ \ \ \ \ :\ Plant(name,\ careType,\ state,\ season,\ nullptr,\ nullptr),\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00013}00013\ \ \ \ \ \ \ basePrice(\mbox{\hyperlink{class_basic_plant_a43adc1a03ec9684fd37b6b2d71c1507a}{price}}),\ plantDescription(\mbox{\hyperlink{class_basic_plant_a15de621d5955e47222be1d32c7808482}{description}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00015}\mbox{\hyperlink{class_basic_plant_a15de621d5955e47222be1d32c7808482}{00015}}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_basic_plant_a15de621d5955e47222be1d32c7808482}{BasicPlant::description}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{return}\ plantDescription;}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00019}\mbox{\hyperlink{class_basic_plant_a43adc1a03ec9684fd37b6b2d71c1507a}{00019}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_basic_plant_a43adc1a03ec9684fd37b6b2d71c1507a}{BasicPlant::price}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ basePrice;}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00023}\mbox{\hyperlink{class_basic_plant_aea864f04c8e8c2593655613486bb1cbc}{00023}}\ Plant*\ \mbox{\hyperlink{class_basic_plant_aea864f04c8e8c2593655613486bb1cbc}{BasicPlant::clone}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_basic_plant_ac8e443b44cde408dc1a230c7255f2943}{BasicPlant}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_basic_plant_8cpp_source_l00025}00025\ \}}
+
+\end{DoxyCode}

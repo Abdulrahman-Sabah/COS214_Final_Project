@@ -1,3 +1,10 @@
+/**
+ * @file RoseCare.cpp
+ * @brief Implementation of the RoseCare class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "RoseCare.h"
 #include "Plant.h"
 

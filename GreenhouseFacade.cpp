@@ -1,3 +1,10 @@
+/**
+ * @file GreenhouseFacade.cpp
+ * @brief Implementation of the GreenhouseFacade class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "GreenhouseFacade.h"
 
 GreenhouseFacade::GreenhouseFacade()

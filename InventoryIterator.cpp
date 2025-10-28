@@ -1,3 +1,10 @@
+/**
+ * @file InventoryIterator.cpp
+ * @brief Implementation of the InventoryIterator class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "InventoryIterator.h"
 
 InventoryIterator::InventoryIterator(std::vector<Plant*>& plantList)

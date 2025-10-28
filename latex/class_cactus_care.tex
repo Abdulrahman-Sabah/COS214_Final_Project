@@ -1,0 +1,78 @@
+\doxysection{Cactus\+Care Class Reference}
+\hypertarget{class_cactus_care}{}\label{class_cactus_care}\index{CactusCare@{CactusCare}}
+
+
+Concrete strategy implementation for caring for cactus plants.  
+
+
+
+
+{\ttfamily \#include $<$Cactus\+Care.\+h$>$}
+
+Inheritance diagram for Cactus\+Care\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_cactus_care}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_cactus_care_a70cca32e54cbb23f14b5da33e05f724f}{apply\+Care}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant) override
+\begin{DoxyCompactList}\small\item\em Applies cactus-\/specific care to the plant. \end{DoxyCompactList}\item 
+\Hypertarget{class_cactus_care_a3bfb6dda21cd70d0a9db41ab2a6a13b8}\label{class_cactus_care_a3bfb6dda21cd70d0a9db41ab2a6a13b8} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Cactus\+Care} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_care_strategy}{Care\+Strategy}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Care\+Strategy} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete strategy implementation for caring for cactus plants. 
+
+\doxylink{class_cactus_care}{Cactus\+Care} implements the Strategy pattern to provide specific care instructions for cactus plants. Cacti require minimal watering, maximum sunlight, and well-\/draining soil. 
+
+Definition at line \mbox{\hyperlink{_cactus_care_8h_source_l00021}{21}} of file \mbox{\hyperlink{_cactus_care_8h_source}{Cactus\+Care.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_cactus_care_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cactus_care_a70cca32e54cbb23f14b5da33e05f724f}\index{CactusCare@{CactusCare}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!CactusCare@{CactusCare}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily \label{class_cactus_care_a70cca32e54cbb23f14b5da33e05f724f} 
+void Cactus\+Care\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies cactus-\/specific care to the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Pointer to the plant receiving care\\
+\hline
+\end{DoxyParams}
+Implements care routine specific to cacti including\+:
+\begin{DoxyItemize}
+\item Minimal watering (only when soil is completely dry)
+\item Direct sunlight placement
+\item Well-\/draining soil requirements 
+\end{DoxyItemize}
+
+Implements \mbox{\hyperlink{class_care_strategy_a9e921121874d975ff091d1b3a68532ef}{Care\+Strategy}}.
+
+
+
+Definition at line \mbox{\hyperlink{_cactus_care_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_cactus_care_8cpp_source}{Cactus\+Care.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_cactus_care_8h}{Cactus\+Care.\+h}}\item 
+\mbox{\hyperlink{_cactus_care_8cpp}{Cactus\+Care.\+cpp}}\end{DoxyCompactItemize}

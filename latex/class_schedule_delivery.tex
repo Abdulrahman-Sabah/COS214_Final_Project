@@ -1,0 +1,117 @@
+\doxysection{Schedule\+Delivery Class Reference}
+\hypertarget{class_schedule_delivery}{}\label{class_schedule_delivery}\index{ScheduleDelivery@{ScheduleDelivery}}
+
+
+Concrete command implementation for scheduling plant deliveries.  
+
+
+
+
+{\ttfamily \#include $<$Schedule\+Delivery.\+h$>$}
+
+Inheritance diagram for Schedule\+Delivery\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_schedule_delivery}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_schedule_delivery_ac52159191d95cb40c0f05289ed6c0513}{Schedule\+Delivery}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_schedule_delivery}{Schedule\+Delivery} command with the specified order ID. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_schedule_delivery_a8b71dd6e366deff1527c14fb3185afd9}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the command type. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_schedule_delivery_ade30ac9130ad857a54078ec37c0d80b5}{get\+Data}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the order ID associated with this delivery command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_commands}{Commands}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Commands} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete command implementation for scheduling plant deliveries. 
+
+This class implements the Command pattern for delivery scheduling operations. It encapsulates all the information needed to schedule a delivery, including the order ID and any delivery-\/specific parameters. 
+
+Definition at line \mbox{\hyperlink{_schedule_delivery_8h_source_l00022}{22}} of file \mbox{\hyperlink{_schedule_delivery_8h_source}{Schedule\+Delivery.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_schedule_delivery_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_schedule_delivery_ac52159191d95cb40c0f05289ed6c0513}\index{ScheduleDelivery@{ScheduleDelivery}!ScheduleDelivery@{ScheduleDelivery}}
+\index{ScheduleDelivery@{ScheduleDelivery}!ScheduleDelivery@{ScheduleDelivery}}
+\doxysubsubsection{\texorpdfstring{ScheduleDelivery()}{ScheduleDelivery()}}
+{\footnotesize\ttfamily \label{class_schedule_delivery_ac52159191d95cb40c0f05289ed6c0513} 
+Schedule\+Delivery\+::\+Schedule\+Delivery (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{class_schedule_delivery}{Schedule\+Delivery} command with the specified order ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique order identifier for the delivery \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_schedule_delivery_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_schedule_delivery_8cpp_source}{Schedule\+Delivery.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_schedule_delivery_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_schedule_delivery_ade30ac9130ad857a54078ec37c0d80b5}\index{ScheduleDelivery@{ScheduleDelivery}!getData@{getData}}
+\index{getData@{getData}!ScheduleDelivery@{ScheduleDelivery}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily \label{class_schedule_delivery_ade30ac9130ad857a54078ec37c0d80b5} 
+std\+::string Schedule\+Delivery\+::get\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the order ID associated with this delivery command. 
+
+\begin{DoxyReturn}{Returns}
+String containing the order ID 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_ad4df04741f05e5fa9ddf8459e41da8ce}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_schedule_delivery_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_schedule_delivery_8cpp_source}{Schedule\+Delivery.\+cpp}}.
+
+\Hypertarget{class_schedule_delivery_a8b71dd6e366deff1527c14fb3185afd9}\index{ScheduleDelivery@{ScheduleDelivery}!getType@{getType}}
+\index{getType@{getType}!ScheduleDelivery@{ScheduleDelivery}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_schedule_delivery_a8b71dd6e366deff1527c14fb3185afd9} 
+std\+::string Schedule\+Delivery\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the command type. 
+
+\begin{DoxyReturn}{Returns}
+String "{}\+Schedule\+Delivery"{} identifying this command type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_schedule_delivery_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_schedule_delivery_8cpp_source}{Schedule\+Delivery.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_schedule_delivery_8h}{Schedule\+Delivery.\+h}}\item 
+\mbox{\hyperlink{_schedule_delivery_8cpp}{Schedule\+Delivery.\+cpp}}\end{DoxyCompactItemize}

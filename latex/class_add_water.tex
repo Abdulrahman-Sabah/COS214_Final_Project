@@ -1,0 +1,117 @@
+\doxysection{Add\+Water Class Reference}
+\hypertarget{class_add_water}{}\label{class_add_water}\index{AddWater@{AddWater}}
+
+
+Concrete command implementation for watering plants.  
+
+
+
+
+{\ttfamily \#include $<$Add\+Water.\+h$>$}
+
+Inheritance diagram for Add\+Water\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_add_water}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_add_water_aacc5abd9c2950f8a7746db8b6f4b5627}{Add\+Water}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_add_water}{Add\+Water} command for the specified plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_add_water_a70438744c007b959933fc8d4bf1b68a7}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the command type. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_add_water_a16f168296eed91e1a6bc9a02fc9526f6}{get\+Data}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the plant ID associated with this watering command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_commands}{Commands}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Commands} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete command implementation for watering plants. 
+
+This class implements the Command pattern for plant watering operations. It encapsulates the plant identification and watering parameters needed to execute the watering action. 
+
+Definition at line \mbox{\hyperlink{_add_water_8h_source_l00021}{21}} of file \mbox{\hyperlink{_add_water_8h_source}{Add\+Water.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_add_water_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_add_water_aacc5abd9c2950f8a7746db8b6f4b5627}\index{AddWater@{AddWater}!AddWater@{AddWater}}
+\index{AddWater@{AddWater}!AddWater@{AddWater}}
+\doxysubsubsection{\texorpdfstring{AddWater()}{AddWater()}}
+{\footnotesize\ttfamily \label{class_add_water_aacc5abd9c2950f8a7746db8b6f4b5627} 
+Add\+Water\+::\+Add\+Water (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{class_add_water}{Add\+Water} command for the specified plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique plant identifier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_add_water_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_add_water_8cpp_source}{Add\+Water.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_add_water_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_add_water_a16f168296eed91e1a6bc9a02fc9526f6}\index{AddWater@{AddWater}!getData@{getData}}
+\index{getData@{getData}!AddWater@{AddWater}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily \label{class_add_water_a16f168296eed91e1a6bc9a02fc9526f6} 
+std\+::string Add\+Water\+::get\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the plant ID associated with this watering command. 
+
+\begin{DoxyReturn}{Returns}
+String containing the plant ID 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_ad4df04741f05e5fa9ddf8459e41da8ce}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_add_water_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_add_water_8cpp_source}{Add\+Water.\+cpp}}.
+
+\Hypertarget{class_add_water_a70438744c007b959933fc8d4bf1b68a7}\index{AddWater@{AddWater}!getType@{getType}}
+\index{getType@{getType}!AddWater@{AddWater}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_add_water_a70438744c007b959933fc8d4bf1b68a7} 
+std\+::string Add\+Water\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the command type. 
+
+\begin{DoxyReturn}{Returns}
+String "{}\+Add\+Water"{} identifying this command type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_add_water_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_add_water_8cpp_source}{Add\+Water.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_add_water_8h}{Add\+Water.\+h}}\item 
+\mbox{\hyperlink{_add_water_8cpp}{Add\+Water.\+cpp}}\end{DoxyCompactItemize}

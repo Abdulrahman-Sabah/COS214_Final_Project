@@ -1,3 +1,10 @@
+/**
+ * @file Cactus.cpp
+ * @brief Implementation of the Cactus class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "Cactus.h"
 #include <iostream>
 // #include "CactusCare.h"     // Will be available after merging branches

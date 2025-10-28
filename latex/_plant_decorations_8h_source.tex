@@ -1,0 +1,36 @@
+\doxysection{Plant\+Decorations.\+h}
+\hypertarget{_plant_decorations_8h_source}{}\label{_plant_decorations_8h_source}\mbox{\hyperlink{_plant_decorations_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ PLANTDECORATIONS\_H}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ PLANTDECORATIONS\_H}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plant_8h}{Plant.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00014}00014\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00024}\mbox{\hyperlink{class_plant_decorations}{00024}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant_decorations_ae231eb4f0b897a1d9b78f112d30a884a}{PlantDecorations}}\ :\ \textcolor{keyword}{public}\ Plant\ \{}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00025}00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00026}\mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{00026}}\ \ \ \ \ Plant*\ \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}};\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00027}00027\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00033}\mbox{\hyperlink{class_plant_decorations_ae231eb4f0b897a1d9b78f112d30a884a}{00033}}\ \ \ \ \ \mbox{\hyperlink{class_plant_decorations_ae231eb4f0b897a1d9b78f112d30a884a}{PlantDecorations}}(Plant*\ item)\ :\ \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}}(item)\ \{\}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00038}\mbox{\hyperlink{class_plant_decorations_a39974f6fc688437cf688b21e07d44b8d}{00038}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_plant_decorations_a39974f6fc688437cf688b21e07d44b8d}{\string~PlantDecorations}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}};}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00041}00041\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00046}\mbox{\hyperlink{class_plant_decorations_ae1bd788500084e3361848d56bb9354cd}{00046}}\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_plant_decorations_ae1bd788500084e3361848d56bb9354cd}{getName}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_plant_decorations_af895d857c0e23f49e1ab4e7fa18c82c5}{wrappedPlant}}-\/>getName();\ \}}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00047}00047\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00052}\mbox{\hyperlink{class_plant_decorations_aa79abb00844516c574954732077de879}{00052}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_plant_decorations_aa79abb00844516c574954732077de879}{description}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00053}00053\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00058}\mbox{\hyperlink{class_plant_decorations_a3c27b09a719f4f7f7274597511a0dec2}{00058}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_plant_decorations_a3c27b09a719f4f7f7274597511a0dec2}{price}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00059}00059\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00064}\mbox{\hyperlink{class_plant_decorations_ac38b126b35ca40d1d2f1cff32dcc6cc9}{00064}}\ \ \ \ \ \textcolor{keyword}{virtual}\ Plant*\ \mbox{\hyperlink{class_plant_decorations_ac38b126b35ca40d1d2f1cff32dcc6cc9}{clone}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00065}00065\ \};}
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_plant_decorations_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

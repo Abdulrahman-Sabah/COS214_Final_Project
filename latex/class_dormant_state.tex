@@ -1,0 +1,222 @@
+\doxysection{Dormant\+State Class Reference}
+\hypertarget{class_dormant_state}{}\label{class_dormant_state}\index{DormantState@{DormantState}}
+
+
+Represents the dormant state in a plant\textquotesingle{}s lifecycle.  
+
+
+
+
+{\ttfamily \#include $<$Dormant\+State.\+h$>$}
+
+Inheritance diagram for Dormant\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dormant_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dormant_state_a6d842b8413a2148b9699eda46dbe549c}\label{class_dormant_state_a6d842b8413a2148b9699eda46dbe549c} 
+{\bfseries Dormant\+State} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_dormant_state_abf72c3d545e24978a59f54264200a3b2}\label{class_dormant_state_abf72c3d545e24978a59f54264200a3b2} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Dormant\+State} () override
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dormant_state_ad96e4b77420653b70f24d50a0c13c318}{advance}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant) override
+\begin{DoxyCompactList}\small\item\em Advances the plant to the next lifecycle state if conditions are met. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_dormant_state_afa751428a63e304ee50e7df83a6a61b7}{name}} () override
+\begin{DoxyCompactList}\small\item\em Gets the name of this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dormant_state_a6309b91605a738f1c3f67f2faaece963}{is\+Dead}} () override
+\begin{DoxyCompactList}\small\item\em Checks if the plant is dead in this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dormant_state_a96b2f644672e5940151ae26403376fa2}{get\+Growing}} ()
+\begin{DoxyCompactList}\small\item\em Gets the growing status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dormant_state_abf82b535212c2ad145276cd61048d677}{set\+Growing}} (bool grow)
+\begin{DoxyCompactList}\small\item\em Sets the growing status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dormant_state_a04bee9b854a777e4817a82a9b0f9f665}{is\+Growing\+Again}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the plant is growing again. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dormant_state_aabd99b9072687942285635cc2e9e50ae}{needs\+Attention}} () override
+\begin{DoxyCompactList}\small\item\em Checks if the plant needs attention in this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Life\+Cycle\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Life\+Cycle\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_aecdafadaa1c205d2fb0dea9fdf520427}{get\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em Gets the dead status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a214c1d958f1f0e2d59434958bbe35640}{get\+Attention}} ()
+\begin{DoxyCompactList}\small\item\em Gets the attention status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a523eaa347fb70822449c2405cdaa8338}{set\+Dead}} (bool d)
+\begin{DoxyCompactList}\small\item\em Sets the dead status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_ac715e2826b65ec49f13a9f8019ec6a9a}{set\+Attention}} (bool a)
+\begin{DoxyCompactList}\small\item\em Sets the attention status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a3c6716c37ae271381c65821638a184bf}{dead}}
+\begin{DoxyCompactList}\small\item\em Indicates if the plant is dead. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_ae1931986ab26922093d25b395acdff5c}{attention}}
+\begin{DoxyCompactList}\small\item\em Indicates if the plant needs attention. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the dormant state in a plant\textquotesingle{}s lifecycle. 
+
+This state represents when a plant is in a dormant phase, typically during unfavorable growing conditions. The plant conserves energy and waits for better conditions to resume growth. 
+
+Definition at line \mbox{\hyperlink{_dormant_state_8h_source_l00021}{21}} of file \mbox{\hyperlink{_dormant_state_8h_source}{Dormant\+State.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_dormant_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dormant_state_ad96e4b77420653b70f24d50a0c13c318}\index{DormantState@{DormantState}!advance@{advance}}
+\index{advance@{advance}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily \label{class_dormant_state_ad96e4b77420653b70f24d50a0c13c318} 
+void Dormant\+State\+::advance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advances the plant to the next lifecycle state if conditions are met. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant to advance \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a8582c9f9bcf2da4644ff67fa1a33ce65}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+\Hypertarget{class_dormant_state_a96b2f644672e5940151ae26403376fa2}\index{DormantState@{DormantState}!getGrowing@{getGrowing}}
+\index{getGrowing@{getGrowing}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{getGrowing()}{getGrowing()}}
+{\footnotesize\ttfamily \label{class_dormant_state_a96b2f644672e5940151ae26403376fa2} 
+bool Dormant\+State\+::get\+Growing (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the growing status. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant is starting to grow again 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+\Hypertarget{class_dormant_state_a6309b91605a738f1c3f67f2faaece963}\index{DormantState@{DormantState}!isDead@{isDead}}
+\index{isDead@{isDead}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{isDead()}{isDead()}}
+{\footnotesize\ttfamily \label{class_dormant_state_a6309b91605a738f1c3f67f2faaece963} 
+bool Dormant\+State\+::is\+Dead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the plant is dead in this state. 
+
+\begin{DoxyReturn}{Returns}
+False, as dormant plants are still alive 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a649b3ecb7c89ddc1e07f1ec3060a0eca}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+\Hypertarget{class_dormant_state_a04bee9b854a777e4817a82a9b0f9f665}\index{DormantState@{DormantState}!isGrowingAgain@{isGrowingAgain}}
+\index{isGrowingAgain@{isGrowingAgain}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{isGrowingAgain()}{isGrowingAgain()}}
+{\footnotesize\ttfamily \label{class_dormant_state_a04bee9b854a777e4817a82a9b0f9f665} 
+bool Dormant\+State\+::is\+Growing\+Again (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the plant is growing again. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant is starting to grow 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+\Hypertarget{class_dormant_state_afa751428a63e304ee50e7df83a6a61b7}\index{DormantState@{DormantState}!name@{name}}
+\index{name@{name}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily \label{class_dormant_state_afa751428a63e304ee50e7df83a6a61b7} 
+std\+::string Dormant\+State\+::name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+"{}\+Dormant"{} as the state name 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a53f9476db7fa4c86bc73a1f163cadf43}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+\Hypertarget{class_dormant_state_aabd99b9072687942285635cc2e9e50ae}\index{DormantState@{DormantState}!needsAttention@{needsAttention}}
+\index{needsAttention@{needsAttention}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{needsAttention()}{needsAttention()}}
+{\footnotesize\ttfamily \label{class_dormant_state_aabd99b9072687942285635cc2e9e50ae} 
+bool Dormant\+State\+::needs\+Attention (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the plant needs attention in this state. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant needs care 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a1bbf2698b2b7e70acef10cdfaca41149}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+\Hypertarget{class_dormant_state_abf82b535212c2ad145276cd61048d677}\index{DormantState@{DormantState}!setGrowing@{setGrowing}}
+\index{setGrowing@{setGrowing}!DormantState@{DormantState}}
+\doxysubsubsection{\texorpdfstring{setGrowing()}{setGrowing()}}
+{\footnotesize\ttfamily \label{class_dormant_state_abf82b535212c2ad145276cd61048d677} 
+void Dormant\+State\+::set\+Growing (\begin{DoxyParamCaption}\item[{bool}]{grow}{}\end{DoxyParamCaption})}
+
+
+
+Sets the growing status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grow} & The new growing status \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_dormant_state_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_dormant_state_8cpp_source}{Dormant\+State.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_dormant_state_8h}{Dormant\+State.\+h}}\item 
+\mbox{\hyperlink{_dormant_state_8cpp}{Dormant\+State.\+cpp}}\end{DoxyCompactItemize}

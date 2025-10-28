@@ -1,3 +1,10 @@
+/**
+ * @file CardDecorator.cpp
+ * @brief Implementation of CardDecorator for adding greeting cards to plants
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "CardDecorator.h"
 
 CardDecorator::CardDecorator(Plant* item, string msg, double cost) 

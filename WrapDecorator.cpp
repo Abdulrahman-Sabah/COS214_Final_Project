@@ -1,3 +1,10 @@
+/**
+ * @file WrapDecorator.cpp
+ * @brief Implementation of the WrapDecorator class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "WrapDecorator.h"
 
 WrapDecorator::WrapDecorator(Plant* item, string wrap, double cost) 

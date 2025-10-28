@@ -1,0 +1,109 @@
+\doxysection{Handler Class Reference}
+\hypertarget{class_handler}{}\label{class_handler}\index{Handler@{Handler}}
+
+
+Abstract base class implementing the Chain of Responsibility pattern.  
+
+
+
+
+{\ttfamily \#include $<$Handler.\+h$>$}
+
+Inheritance diagram for Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_handler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_handler_aeb7a2ba7f559155822552463a94fc948}{set\+Successor}} (\mbox{\hyperlink{class_handler}{Handler}} \texorpdfstring{$\ast$}{*}h)
+\begin{DoxyCompactList}\small\item\em Sets the next handler in the chain. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_handler_ad288ba3c3bb1372e55df4ebdc0648a60}{handle\+Request}} (\mbox{\hyperlink{class_commands}{Commands}} \texorpdfstring{$\ast$}{*}r)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method for handling requests. \end{DoxyCompactList}\item 
+\Hypertarget{class_handler_aae990cbd425b7c030285cba901583ee9}\label{class_handler_aae990cbd425b7c030285cba901583ee9} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Handler} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_handler_a69a302a65709241299d25fd5e7b1e49e}{pass\+To\+Successor}} (\mbox{\hyperlink{class_commands}{Commands}} \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em Helper method for derived classes to pass requests along the chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class implementing the Chain of Responsibility pattern. 
+
+The \doxylink{class_handler}{Handler} class defines the interface for handling requests in a chain. Each handler can process a request or pass it to the next handler in the chain. This implements the Chain of Responsibility design pattern for the greenhouse management system. 
+
+Definition at line \mbox{\hyperlink{_handler_8h_source_l00024}{24}} of file \mbox{\hyperlink{_handler_8h_source}{Handler.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_handler_ad288ba3c3bb1372e55df4ebdc0648a60}\index{Handler@{Handler}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily \label{class_handler_ad288ba3c3bb1372e55df4ebdc0648a60} 
+virtual void Handler\+::handle\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_commands}{Commands}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method for handling requests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Pointer to the command to be handled\\
+\hline
+\end{DoxyParams}
+Each concrete handler must implement this method to define how it processes specific types of requests. If the handler cannot process the request, it should call \doxylink{class_handler_a69a302a65709241299d25fd5e7b1e49e}{pass\+To\+Successor()}. 
+
+Implemented in \mbox{\hyperlink{class_delivery_staff_acf03e0c8df8da91592796b349d1079b8}{Delivery\+Staff}}, \mbox{\hyperlink{class_greenhouse_manager_a3f08bc141a3082c1b07909bceb532cba}{Greenhouse\+Manager}}, and \mbox{\hyperlink{class_landscaper_a3e54cfad899fddcc09b4e2f72a25c461}{Landscaper}}.
+
+\Hypertarget{class_handler_a69a302a65709241299d25fd5e7b1e49e}\index{Handler@{Handler}!passToSuccessor@{passToSuccessor}}
+\index{passToSuccessor@{passToSuccessor}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{passToSuccessor()}{passToSuccessor()}}
+{\footnotesize\ttfamily \label{class_handler_a69a302a65709241299d25fd5e7b1e49e} 
+void Handler\+::pass\+To\+Successor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_commands}{Commands}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Helper method for derived classes to pass requests along the chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Pointer to the command to be passed to successor\\
+\hline
+\end{DoxyParams}
+This protected method allows derived handlers to easily pass requests to the next handler in the chain when they cannot handle the request themselves. 
+
+Definition at line \mbox{\hyperlink{_handler_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_handler_8cpp_source}{Handler.\+cpp}}.
+
+\Hypertarget{class_handler_aeb7a2ba7f559155822552463a94fc948}\index{Handler@{Handler}!setSuccessor@{setSuccessor}}
+\index{setSuccessor@{setSuccessor}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{setSuccessor()}{setSuccessor()}}
+{\footnotesize\ttfamily \label{class_handler_aeb7a2ba7f559155822552463a94fc948} 
+void Handler\+::set\+Successor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_handler}{Handler}} \texorpdfstring{$\ast$}{*}}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Sets the next handler in the chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Pointer to the handler that should be the successor\\
+\hline
+\end{DoxyParams}
+This method establishes the chain by setting which handler should receive requests that this handler cannot process. 
+
+Definition at line \mbox{\hyperlink{_handler_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_handler_8cpp_source}{Handler.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_handler_8h}{Handler.\+h}}\item 
+\mbox{\hyperlink{_handler_8cpp}{Handler.\+cpp}}\end{DoxyCompactItemize}

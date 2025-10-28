@@ -1,3 +1,10 @@
+/**
+ * @file Inventory.cpp
+ * @brief Implementation of the Inventory class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "Inventory.h"
 #include "InventoryIterator.h"
 #include <iostream>

@@ -1,3 +1,10 @@
+/**
+ * @file Landscaper.cpp
+ * @brief Implementation of Landscaper handler for plant care operations
+ * @author COS214 Final Project Team
+ * @date 2025
+ */
+
 #include "Landscaper.h"
 #include "Commands.h"
 #include <iostream>

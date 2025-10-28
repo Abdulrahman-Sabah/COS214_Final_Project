@@ -1,0 +1,117 @@
+\doxysection{Move\+To\+Sales Class Reference}
+\hypertarget{class_move_to_sales}{}\label{class_move_to_sales}\index{MoveToSales@{MoveToSales}}
+
+
+Concrete command class for moving plants to sales area.  
+
+
+
+
+{\ttfamily \#include $<$Move\+To\+Sales.\+h$>$}
+
+Inheritance diagram for Move\+To\+Sales\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_move_to_sales}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_move_to_sales_aaa3ced7c322476769b9438ca0bf0ab61}{Move\+To\+Sales}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_move_to_sales}{Move\+To\+Sales} command. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_move_to_sales_a7ed64c1876c0d739434d79cfa6e08d9b}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of this command. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_move_to_sales_a30c7863e8e5f4bcdcdc11ed15385a480}{get\+Data}} () const override
+\begin{DoxyCompactList}\small\item\em Get the data associated with this command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_commands}{Commands}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Commands} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete command class for moving plants to sales area. 
+
+This class implements the \doxylink{class_commands}{Commands} interface to represent a move-\/to-\/sales command in the Command pattern. It encapsulates the request to move a specific plant to the sales area, typically handled by the \doxylink{class_greenhouse_manager}{Greenhouse\+Manager}. 
+
+Definition at line \mbox{\hyperlink{_move_to_sales_8h_source_l00020}{20}} of file \mbox{\hyperlink{_move_to_sales_8h_source}{Move\+To\+Sales.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_move_to_sales_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_move_to_sales_aaa3ced7c322476769b9438ca0bf0ab61}\index{MoveToSales@{MoveToSales}!MoveToSales@{MoveToSales}}
+\index{MoveToSales@{MoveToSales}!MoveToSales@{MoveToSales}}
+\doxysubsubsection{\texorpdfstring{MoveToSales()}{MoveToSales()}}
+{\footnotesize\ttfamily \label{class_move_to_sales_aaa3ced7c322476769b9438ca0bf0ab61} 
+Move\+To\+Sales\+::\+Move\+To\+Sales (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{class_move_to_sales}{Move\+To\+Sales} command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the plant to move to sales area \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_move_to_sales_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_move_to_sales_8cpp_source}{Move\+To\+Sales.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_move_to_sales_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_move_to_sales_a30c7863e8e5f4bcdcdc11ed15385a480}\index{MoveToSales@{MoveToSales}!getData@{getData}}
+\index{getData@{getData}!MoveToSales@{MoveToSales}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily \label{class_move_to_sales_a30c7863e8e5f4bcdcdc11ed15385a480} 
+std\+::string Move\+To\+Sales\+::get\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the data associated with this command. 
+
+\begin{DoxyReturn}{Returns}
+String containing the plant ID for sales movement 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_ad4df04741f05e5fa9ddf8459e41da8ce}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_move_to_sales_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_move_to_sales_8cpp_source}{Move\+To\+Sales.\+cpp}}.
+
+\Hypertarget{class_move_to_sales_a7ed64c1876c0d739434d79cfa6e08d9b}\index{MoveToSales@{MoveToSales}!getType@{getType}}
+\index{getType@{getType}!MoveToSales@{MoveToSales}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_move_to_sales_a7ed64c1876c0d739434d79cfa6e08d9b} 
+std\+::string Move\+To\+Sales\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of this command. 
+
+\begin{DoxyReturn}{Returns}
+String indicating this is a "{}\+Move\+To\+Sales"{} command 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{Commands}}.
+
+
+
+Definition at line \mbox{\hyperlink{_move_to_sales_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_move_to_sales_8cpp_source}{Move\+To\+Sales.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_move_to_sales_8h}{Move\+To\+Sales.\+h}}\item 
+\mbox{\hyperlink{_move_to_sales_8cpp}{Move\+To\+Sales.\+cpp}}\end{DoxyCompactItemize}

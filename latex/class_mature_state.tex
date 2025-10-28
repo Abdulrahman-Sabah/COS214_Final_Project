@@ -1,0 +1,183 @@
+\doxysection{Mature\+State Class Reference}
+\hypertarget{class_mature_state}{}\label{class_mature_state}\index{MatureState@{MatureState}}
+
+
+Represents the mature state in a plant\textquotesingle{}s lifecycle.  
+
+
+
+
+{\ttfamily \#include $<$Mature\+State.\+h$>$}
+
+Inheritance diagram for Mature\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mature_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_mature_state_a7f42721cd4eded23ffc9506f82ba2830}\label{class_mature_state_a7f42721cd4eded23ffc9506f82ba2830} 
+{\bfseries Mature\+State} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_mature_state_a275cba45383e3550735c9c5c2bf57737}\label{class_mature_state_a275cba45383e3550735c9c5c2bf57737} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Mature\+State} () override
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mature_state_aae861998c6fecd50ebb62ae44a8859e1}{advance}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant) override
+\begin{DoxyCompactList}\small\item\em Advances the plant to the next lifecycle state if conditions are met. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_mature_state_aafd41238303b31f415fc4151bfae10dc}{name}} () override
+\begin{DoxyCompactList}\small\item\em Gets the name of this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_mature_state_a980d9add431a6c44830470f5a234d7d6}{is\+Dead}} () override
+\begin{DoxyCompactList}\small\item\em Checks if the plant is dead in this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_mature_state_abde28afa884388fae051b0ffa5da2770}{is\+Growing\+Again}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Checks if the plant is growing again. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_mature_state_a88b385c14ab7c10dbc568e10bca54093}{needs\+Attention}} () override
+\begin{DoxyCompactList}\small\item\em Checks if the plant needs attention in this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Life\+Cycle\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Life\+Cycle\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_aecdafadaa1c205d2fb0dea9fdf520427}{get\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em Gets the dead status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a214c1d958f1f0e2d59434958bbe35640}{get\+Attention}} ()
+\begin{DoxyCompactList}\small\item\em Gets the attention status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a523eaa347fb70822449c2405cdaa8338}{set\+Dead}} (bool d)
+\begin{DoxyCompactList}\small\item\em Sets the dead status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_ac715e2826b65ec49f13a9f8019ec6a9a}{set\+Attention}} (bool a)
+\begin{DoxyCompactList}\small\item\em Sets the attention status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_a3c6716c37ae271381c65821638a184bf}{dead}}
+\begin{DoxyCompactList}\small\item\em Indicates if the plant is dead. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_life_cycle_state_ae1931986ab26922093d25b395acdff5c}{attention}}
+\begin{DoxyCompactList}\small\item\em Indicates if the plant needs attention. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the mature state in a plant\textquotesingle{}s lifecycle. 
+
+This state represents when a plant has reached full maturity and is at its peak condition. From here, the plant may enter dormancy or potentially decline if not properly cared for. 
+
+Definition at line \mbox{\hyperlink{_mature_state_8h_source_l00021}{21}} of file \mbox{\hyperlink{_mature_state_8h_source}{Mature\+State.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_mature_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mature_state_aae861998c6fecd50ebb62ae44a8859e1}\index{MatureState@{MatureState}!advance@{advance}}
+\index{advance@{advance}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily \label{class_mature_state_aae861998c6fecd50ebb62ae44a8859e1} 
+void Mature\+State\+::advance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advances the plant to the next lifecycle state if conditions are met. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant to advance \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a8582c9f9bcf2da4644ff67fa1a33ce65}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_mature_state_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_mature_state_8cpp_source}{Mature\+State.\+cpp}}.
+
+\Hypertarget{class_mature_state_a980d9add431a6c44830470f5a234d7d6}\index{MatureState@{MatureState}!isDead@{isDead}}
+\index{isDead@{isDead}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{isDead()}{isDead()}}
+{\footnotesize\ttfamily \label{class_mature_state_a980d9add431a6c44830470f5a234d7d6} 
+bool Mature\+State\+::is\+Dead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the plant is dead in this state. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant has died 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a649b3ecb7c89ddc1e07f1ec3060a0eca}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_mature_state_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_mature_state_8cpp_source}{Mature\+State.\+cpp}}.
+
+\Hypertarget{class_mature_state_abde28afa884388fae051b0ffa5da2770}\index{MatureState@{MatureState}!isGrowingAgain@{isGrowingAgain}}
+\index{isGrowingAgain@{isGrowingAgain}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{isGrowingAgain()}{isGrowingAgain()}}
+{\footnotesize\ttfamily \label{class_mature_state_abde28afa884388fae051b0ffa5da2770} 
+bool Mature\+State\+::is\+Growing\+Again (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the plant is growing again. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the plant is continuing to grow 
+\end{DoxyReturn}
+\Hypertarget{class_mature_state_aafd41238303b31f415fc4151bfae10dc}\index{MatureState@{MatureState}!name@{name}}
+\index{name@{name}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily \label{class_mature_state_aafd41238303b31f415fc4151bfae10dc} 
+std\+::string Mature\+State\+::name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+"{}\+Mature"{} as the state name 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a53f9476db7fa4c86bc73a1f163cadf43}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_mature_state_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_mature_state_8cpp_source}{Mature\+State.\+cpp}}.
+
+\Hypertarget{class_mature_state_a88b385c14ab7c10dbc568e10bca54093}\index{MatureState@{MatureState}!needsAttention@{needsAttention}}
+\index{needsAttention@{needsAttention}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{needsAttention()}{needsAttention()}}
+{\footnotesize\ttfamily \label{class_mature_state_a88b385c14ab7c10dbc568e10bca54093} 
+bool Mature\+State\+::needs\+Attention (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the plant needs attention in this state. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant needs care 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_life_cycle_state_a1bbf2698b2b7e70acef10cdfaca41149}{Plant\+Life\+Cycle\+State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_mature_state_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_mature_state_8cpp_source}{Mature\+State.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_mature_state_8h}{Mature\+State.\+h}}\item 
+\mbox{\hyperlink{_mature_state_8cpp}{Mature\+State.\+cpp}}\end{DoxyCompactItemize}

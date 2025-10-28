@@ -1,0 +1,205 @@
+\doxysection{Lavender\+Builder Class Reference}
+\hypertarget{class_lavender_builder}{}\label{class_lavender_builder}\index{LavenderBuilder@{LavenderBuilder}}
+
+
+Concrete builder class for constructing \doxylink{class_lavender}{Lavender} objects.  
+
+
+
+
+{\ttfamily \#include $<$Lavender\+Builder.\+h$>$}
+
+Inheritance diagram for Lavender\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_lavender_builder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lavender_builder_ae54b12981e960006c680f897521c0fae}{Lavender\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Constructor that initializes a new lavender build process. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_lavender_builder_ad088f961741aac19c63f70e9107008f8}{\texorpdfstring{$\sim$}{\string~}\+Lavender\+Builder}} () override
+\begin{DoxyCompactList}\small\item\em Destructor that cleans up resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lavender_builder_aa65f1420583d3fbeac8d8f85f588891e}{set\+Name}} (std\+::string name) override
+\begin{DoxyCompactList}\small\item\em Sets the name of the lavender being built. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lavender_builder_a7d05e20f2ac2687b963ad9646ece0a4d}{set\+Care\+Type}} (std\+::string care\+Type) override
+\begin{DoxyCompactList}\small\item\em Sets the care type required for the lavender. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lavender_builder_a9edf0b093ff27f1627008f154bc50cb0}{set\+Season}} (std\+::string season) override
+\begin{DoxyCompactList}\small\item\em Sets the growing season for the lavender. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lavender_builder_af9f03023b7a54b26ddec8a03f616cf79}{set\+Life\+Cycle}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}state) override
+\begin{DoxyCompactList}\small\item\em Sets the lifecycle state for the lavender. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lavender_builder_a50bfc76140689fb8a3cd641b3f09c415}{get\+Plant}} () override
+\begin{DoxyCompactList}\small\item\em Gets the constructed lavender and transfers ownership to caller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_builder}{Plant\+Builder}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Builder} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete builder class for constructing \doxylink{class_lavender}{Lavender} objects. 
+
+This class implements the Builder pattern to construct \doxylink{class_lavender}{Lavender} plants step by step, allowing for flexible configuration of lavender properties. 
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8h_source_l00026}{26}} of file \mbox{\hyperlink{_lavender_builder_8h_source}{Lavender\+Builder.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_lavender_builder_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_lavender_builder_ae54b12981e960006c680f897521c0fae}\index{LavenderBuilder@{LavenderBuilder}!LavenderBuilder@{LavenderBuilder}}
+\index{LavenderBuilder@{LavenderBuilder}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{LavenderBuilder()}{LavenderBuilder()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_ae54b12981e960006c680f897521c0fae} 
+Lavender\+Builder\+::\+Lavender\+Builder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor that initializes a new lavender build process. 
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+\Hypertarget{class_lavender_builder_ad088f961741aac19c63f70e9107008f8}\index{LavenderBuilder@{LavenderBuilder}!````~LavenderBuilder@{\texorpdfstring{$\sim$}{\string~}LavenderBuilder}}
+\index{````~LavenderBuilder@{\texorpdfstring{$\sim$}{\string~}LavenderBuilder}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LavenderBuilder()}{\string~LavenderBuilder()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_ad088f961741aac19c63f70e9107008f8} 
+Lavender\+Builder\+::\texorpdfstring{$\sim$}{\string~}\+Lavender\+Builder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor that cleans up resources. 
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_lavender_builder_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_lavender_builder_a50bfc76140689fb8a3cd641b3f09c415}\index{LavenderBuilder@{LavenderBuilder}!getPlant@{getPlant}}
+\index{getPlant@{getPlant}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{getPlant()}{getPlant()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_a50bfc76140689fb8a3cd641b3f09c415} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Lavender\+Builder\+::get\+Plant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the constructed lavender and transfers ownership to caller. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the constructed \doxylink{class_lavender}{Lavender} plant 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_a6d63fa390854343c5ab5a00a68a7d9ad}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+\Hypertarget{class_lavender_builder_a7d05e20f2ac2687b963ad9646ece0a4d}\index{LavenderBuilder@{LavenderBuilder}!setCareType@{setCareType}}
+\index{setCareType@{setCareType}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{setCareType()}{setCareType()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_a7d05e20f2ac2687b963ad9646ece0a4d} 
+void Lavender\+Builder\+::set\+Care\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{care\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the care type required for the lavender. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em care\+Type} & The care type to set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_adc2fbfe095efc4ea8a15d4dc4b274a2f}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+\Hypertarget{class_lavender_builder_af9f03023b7a54b26ddec8a03f616cf79}\index{LavenderBuilder@{LavenderBuilder}!setLifeCycle@{setLifeCycle}}
+\index{setLifeCycle@{setLifeCycle}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{setLifeCycle()}{setLifeCycle()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_af9f03023b7a54b26ddec8a03f616cf79} 
+void Lavender\+Builder\+::set\+Life\+Cycle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the lifecycle state for the lavender. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The \doxylink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State} to set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_acc9726aefd21c639de96df2ab1c9c575}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+\Hypertarget{class_lavender_builder_aa65f1420583d3fbeac8d8f85f588891e}\index{LavenderBuilder@{LavenderBuilder}!setName@{setName}}
+\index{setName@{setName}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_aa65f1420583d3fbeac8d8f85f588891e} 
+void Lavender\+Builder\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the name of the lavender being built. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to set for the lavender \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_acdc99bb039c75e03e688643c1c0489a9}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+\Hypertarget{class_lavender_builder_a9edf0b093ff27f1627008f154bc50cb0}\index{LavenderBuilder@{LavenderBuilder}!setSeason@{setSeason}}
+\index{setSeason@{setSeason}!LavenderBuilder@{LavenderBuilder}}
+\doxysubsubsection{\texorpdfstring{setSeason()}{setSeason()}}
+{\footnotesize\ttfamily \label{class_lavender_builder_a9edf0b093ff27f1627008f154bc50cb0} 
+void Lavender\+Builder\+::set\+Season (\begin{DoxyParamCaption}\item[{std\+::string}]{season}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the growing season for the lavender. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em season} & The season to set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_builder_af10239b8094f146d3b5ec0a516fc1549}{Plant\+Builder}}.
+
+
+
+Definition at line \mbox{\hyperlink{_lavender_builder_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{_lavender_builder_8cpp_source}{Lavender\+Builder.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_lavender_builder_8h}{Lavender\+Builder.\+h}}\item 
+\mbox{\hyperlink{_lavender_builder_8cpp}{Lavender\+Builder.\+cpp}}\end{DoxyCompactItemize}

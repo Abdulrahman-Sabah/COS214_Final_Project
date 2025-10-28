@@ -1,0 +1,21 @@
+\doxysection{Landscaper.\+cpp}
+\hypertarget{_landscaper_8cpp_source}{}\label{_landscaper_8cpp_source}\mbox{\hyperlink{_landscaper_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_landscaper_8h}{Landscaper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_commands_8h}{Commands.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00011}\mbox{\hyperlink{class_landscaper_a3e54cfad899fddcc09b4e2f72a25c461}{00011}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_landscaper_a3e54cfad899fddcc09b4e2f72a25c461}{Landscaper::handleRequest}}(\mbox{\hyperlink{class_commands}{Commands}}*\ r)\{}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ \&\&\ (r-\/>\mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{getType}}()\ ==\ \textcolor{stringliteral}{"{}AddWater"{}}\ ||\ r-\/>\mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{getType}}()\ ==\ \textcolor{stringliteral}{"{}ApplyFertilizer"{}}))\ }
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Landscaper\ is\ handling\ plant\ care:\ "{}}\ <<\ r-\/>\mbox{\hyperlink{class_commands_aedef7ec5c0efd039b2ed190dc3f8d87d}{getType}}()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pass\ to\ next\ handler\ in\ chain\ using\ protected\ method}}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_handler_a69a302a65709241299d25fd5e7b1e49e}{passToSuccessor}}(r);}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00020}00020\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_landscaper_8cpp_source_l00021}00021\ \}\ \ \ }
+
+\end{DoxyCode}

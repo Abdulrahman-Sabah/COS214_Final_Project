@@ -1,4 +1,11 @@
 
+/**
+ * @file Plant.cpp
+ * @brief Implementation of the Plant base class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "Plant.h"
 #include "PlantObserver.h"
 #include <algorithm>

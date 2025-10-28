@@ -1,0 +1,64 @@
+\chapter{README }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{README@{README}}
+do\# COS214 Final Project -\/ Greenhouse Management System\hypertarget{md__r_e_a_d_m_e_autotoc_md0}{}\doxysubsection{\texorpdfstring{Overview}{Overview}}\label{md__r_e_a_d_m_e_autotoc_md0}
+This project implements a comprehensive greenhouse management system using multiple design patterns. The system manages plant inventory, care scheduling, delivery processes, and sales operations through a well-\/architected object-\/oriented design.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsection{\texorpdfstring{Design Patterns Implemented}{Design Patterns Implemented}}\label{md__r_e_a_d_m_e_autotoc_md1}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsubsection{\texorpdfstring{1. Chain of Responsibility Pattern}{1. Chain of Responsibility Pattern}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_handler}{Handler}}, {\ttfamily \doxylink{class_delivery_staff}{Delivery\+Staff}}, {\ttfamily \doxylink{class_greenhouse_manager}{Greenhouse\+Manager}}, {\ttfamily \doxylink{class_landscaper}{Landscaper}}
+\item {\bfseries{Purpose}}\+: Handles different types of requests (delivery scheduling, plant care, sales operations) by passing them through a chain of handlers
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{2. Command Pattern}{2. Command Pattern}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_commands}{Commands}}, {\ttfamily \doxylink{class_schedule_delivery}{Schedule\+Delivery}}, {\ttfamily \doxylink{class_move_to_sales}{Move\+To\+Sales}}, {\ttfamily \doxylink{class_add_water}{Add\+Water}}, {\ttfamily \doxylink{class_apply_fertilizer}{Apply\+Fertilizer}}
+\item {\bfseries{Purpose}}\+: Encapsulates requests as objects, allowing for parameterization and queuing of operations
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{3. Strategy Pattern}{3. Strategy Pattern}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_care_strategy}{Care\+Strategy}}, {\ttfamily \doxylink{class_rose_care}{Rose\+Care}}, {\ttfamily \doxylink{class_cactus_care}{Cactus\+Care}}, {\ttfamily \doxylink{class_lavender_care}{Lavender\+Care}}
+\item {\bfseries{Purpose}}\+: Defines different care strategies for different plant types
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{4. State Pattern}{4. State Pattern}}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}}, {\ttfamily \doxylink{class_seedling_state}{Seedling\+State}}, {\ttfamily \doxylink{class_growing_state}{Growing\+State}}, {\ttfamily \doxylink{class_mature_state}{Mature\+State}}, {\ttfamily \doxylink{class_dormant_state}{Dormant\+State}}, {\ttfamily \doxylink{class_dead_state}{Dead\+State}}
+\item {\bfseries{Purpose}}\+: Manages plant lifecycle transitions and state-\/dependent behavior
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{5. Factory Method Pattern}{5. Factory Method Pattern}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_creator}{Creator}}, {\ttfamily \doxylink{class_rose_creator}{Rose\+Creator}}, {\ttfamily \doxylink{class_cactus_creator}{Cactus\+Creator}}, {\ttfamily \doxylink{class_lavender_creator}{Lavender\+Creator}}
+\item {\bfseries{Purpose}}\+: Creates plant objects without specifying their exact classes
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{6. Builder Pattern}{6. Builder Pattern}}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_plant_builder}{Plant\+Builder}}, {\ttfamily \doxylink{class_rose_builder}{Rose\+Builder}}, {\ttfamily \doxylink{class_cactus_builder}{Cactus\+Builder}}, {\ttfamily \doxylink{class_lavender_builder}{Lavender\+Builder}}
+\item {\bfseries{Purpose}}\+: Constructs complex plant objects step by step
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{7. Decorator Pattern}{7. Decorator Pattern}}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_plant_decorations}{Plant\+Decorations}}, {\ttfamily \doxylink{class_pot_decorator}{Pot\+Decorator}}, {\ttfamily \doxylink{class_card_decorator}{Card\+Decorator}}, {\ttfamily \doxylink{class_wrap_decorator}{Wrap\+Decorator}}
+\item {\bfseries{Purpose}}\+: Adds additional features/decorations to plants dynamically
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{8. Observer Pattern}{8. Observer Pattern}}\label{md__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyItemize}
+\item {\bfseries{Classes}}\+: {\ttfamily \doxylink{class_plant_observer}{Plant\+Observer}}, {\ttfamily \doxylink{class_care_scheduler_observer}{Care\+Scheduler\+Observer}}
+\item {\bfseries{Purpose}}\+: Notifies observers when plant states change
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{md__r_e_a_d_m_e_autotoc_md10}
+
+\begin{DoxyItemize}
+\item \doxylink{class_plant}{Plant} inventory management
+\item Automated care scheduling based on plant types
+\item Delivery and sales process handling
+\item State-\/aware plant lifecycle management
+\item Extensible decorator system for plant accessories
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsection{\texorpdfstring{Building and Running}{Building and Running}}\label{md__r_e_a_d_m_e_autotoc_md11}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Compile\ the\ project}
+\DoxyCodeLine{clang++\ -\/o\ greenhouse\ main.cpp\ Handler.cpp\ DeliveryStaff.cpp\ GreenhouseManager.cpp\ Landscaper.cpp\ ScheduleDelivery.cpp\ MoveToSales.cpp\ AddWater.cpp\ ApplyFertilizer.cpp\ Commands.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ the\ application}
+\DoxyCodeLine{./greenhouse}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{md__r_e_a_d_m_e_autotoc_md12}
+This documentation was generated using Doxygen. The system demonstrates advanced object-\/oriented design principles and design pattern implementation in C++. 

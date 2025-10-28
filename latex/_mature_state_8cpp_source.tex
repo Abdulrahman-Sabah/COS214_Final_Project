@@ -1,0 +1,37 @@
+\doxysection{Mature\+State.\+cpp}
+\hypertarget{_mature_state_8cpp_source}{}\label{_mature_state_8cpp_source}\mbox{\hyperlink{_mature_state_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mature_state_8h}{MatureState.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dead_state_8h}{DeadState.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_selling_state_8h}{SellingState.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00012}00012\ \mbox{\hyperlink{class_mature_state_a7f42721cd4eded23ffc9506f82ba2830}{MatureState::MatureState}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00014}00014\ \mbox{\hyperlink{class_mature_state_a275cba45383e3550735c9c5c2bf57737}{MatureState::\string~MatureState}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00016}\mbox{\hyperlink{class_mature_state_aae861998c6fecd50ebb62ae44a8859e1}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mature_state_aae861998c6fecd50ebb62ae44a8859e1}{MatureState::advance}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant)\ \{}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mature_state_a980d9add431a6c44830470f5a234d7d6}{isDead}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ plant-\/>setLifeCycle(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_dead_state}{DeadState}}());}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ std::cout\ <<\ plant-\/>getName()\ <<\ \textcolor{stringliteral}{"{}\ has\ died\ in\ the\ "{}}\ <<\ plant-\/>getLifeCycle()-\/>\mbox{\hyperlink{class_plant_life_cycle_state_a53f9476db7fa4c86bc73a1f163cadf43}{name}}()\ <<\ \textcolor{stringliteral}{"{}\ state."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00020}00020\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ plant-\/>setLifeCycle(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_selling_state}{SellingState}}());}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::cout\ <<\ plant-\/>getName()\ <<\ \textcolor{stringliteral}{"{}\ has\ advanced\ to\ the\ "{}}\ <<\ plant-\/>getLifeCycle()-\/>\mbox{\hyperlink{class_plant_life_cycle_state_a53f9476db7fa4c86bc73a1f163cadf43}{name}}()\ <<\ \textcolor{stringliteral}{"{}\ state."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00027}\mbox{\hyperlink{class_mature_state_aafd41238303b31f415fc4151bfae10dc}{00027}}\ std::string\ \mbox{\hyperlink{class_mature_state_aafd41238303b31f415fc4151bfae10dc}{MatureState::name}}()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Mature"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00029}\mbox{\hyperlink{class_mature_state_a980d9add431a6c44830470f5a234d7d6}{00029}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mature_state_a980d9add431a6c44830470f5a234d7d6}{MatureState::isDead}}()\ \{\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_plant_life_cycle_state_a3c6716c37ae271381c65821638a184bf}{dead}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00034}\mbox{\hyperlink{class_mature_state_a88b385c14ab7c10dbc568e10bca54093}{00034}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mature_state_a88b385c14ab7c10dbc568e10bca54093}{MatureState::needsAttention}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_plant_life_cycle_state_ae1931986ab26922093d25b395acdff5c}{attention}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_mature_state_8cpp_source_l00037}00037\ \}}
+
+\end{DoxyCode}

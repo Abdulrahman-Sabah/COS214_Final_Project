@@ -1,0 +1,193 @@
+\doxysection{Rose Class Reference}
+\hypertarget{class_rose}{}\label{class_rose}\index{Rose@{Rose}}
+
+
+Concrete implementation of \doxylink{class_plant}{Plant} representing a \doxylink{class_rose}{Rose}.  
+
+
+
+
+{\ttfamily \#include $<$Rose.\+h$>$}
+
+Inheritance diagram for Rose\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rose}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rose_a1f6cc909ea44fbcd7a18b0d917412659}{Rose}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_rose}{Rose} Creates a rose with appropriate care strategy and seasonal settings. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_rose_a05ce52aaa1c6d8c9fa1953987b808f0f}{\texorpdfstring{$\sim$}{\string~}\+Rose}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_rose}{Rose}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_rose_a2f52ac30b3ea936fda6031c2ec87abfa}{description}} () override
+\begin{DoxyCompactList}\small\item\em Get description of the rose. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_rose_a5a0f821dead4bb0b21c908909e98a79d}{price}} () override
+\begin{DoxyCompactList}\small\item\em Get the price of the rose. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_rose_acd33e3ac59c355effccec63a056da02c}{clone}} () override
+\begin{DoxyCompactList}\small\item\em Clone this rose (Prototype pattern). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant}{Plant}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_a6f5dd9beeca5ff8f20c436c6e8d73aec}{Plant}} (string name, string care\+Type, string state, string season, \mbox{\hyperlink{class_care_strategy}{Care\+Strategy}} \texorpdfstring{$\ast$}{*}strategy, \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}life)
+\item 
+virtual string \mbox{\hyperlink{class_plant_af27e7de2f45f54480b9cbbc9f0b911f8}{get\+Name}} ()
+\item 
+string \mbox{\hyperlink{class_plant_a6c65689ebd677f4caf237b172bdd7ca3}{get\+Care\+Type}} ()
+\item 
+string \mbox{\hyperlink{class_plant_aacd53c1b230818c657f3d68829684675}{get\+State\+Text}} ()
+\item 
+string \mbox{\hyperlink{class_plant_aeb35002fb979b645d37ab500b88f78f8}{get\+Season}} ()
+\item 
+\mbox{\hyperlink{class_care_strategy}{Care\+Strategy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_a1962c6dc1bb26b57a1a437a02094fd26}{get\+Care\+Strategy}} ()
+\item 
+\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_a6a0baf188a29b57202329cd4dd9a4dda}{get\+Life\+Cycle}} ()
+\item 
+void \mbox{\hyperlink{class_plant_a5ec7718bb0cb08645641d8edbb142d3c}{set\+Name}} (string n)
+\item 
+void \mbox{\hyperlink{class_plant_ace635810e9cf52807ef5b3a0259b7917}{set\+Care\+Type}} (string t)
+\item 
+void \mbox{\hyperlink{class_plant_a9603e0b17da3210fac6287d0a9e510a2}{set\+State\+Text}} (string s)
+\item 
+void \mbox{\hyperlink{class_plant_a08bdbbf5f676eab306fc088a761b2ed0}{set\+Season}} (string s)
+\item 
+void \mbox{\hyperlink{class_plant_af0552dc1c67ca15b1b4cad7c3602899f}{set\+Care\+Strategy}} (\mbox{\hyperlink{class_care_strategy}{Care\+Strategy}} \texorpdfstring{$\ast$}{*}cs)
+\item 
+void \mbox{\hyperlink{class_plant_a9c2aed573c8ecb545ddd256dae628b5c}{set\+Life\+Cycle}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}st)
+\item 
+void \mbox{\hyperlink{class_plant_a4d35beadb384e58519e95f6f0a28ed0c}{attach}} (\mbox{\hyperlink{class_plant_observer}{Plant\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{class_plant_a1c343db2f6d51568551acf9bb16d80c5}{detach}} (\mbox{\hyperlink{class_plant_observer}{Plant\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{class_plant_a9989b6af97a9b7bff9d043c5e8922e9a}{take\+Care}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_plant}{Plant}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_plant_abae19afa279dd4c8ba0ba07179cbaf6f}{notify\+State\+Changed}} ()
+\item 
+void \mbox{\hyperlink{class_plant_a181fc942b964ddb5a538c7edf660f051}{notify\+Life\+Cycle\+Changed}} (\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}new\+State)
+\item 
+void \mbox{\hyperlink{class_plant_a43bfb5c3cb391b38ea019411c1fa330f}{notify\+Season\+Changed}} (string new\+Season)
+\item 
+void \mbox{\hyperlink{class_plant_a6b66a4ee92e1e07cb6827c001427ce64}{notify\+Care\+Strategy\+Changed}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete implementation of \doxylink{class_plant}{Plant} representing a \doxylink{class_rose}{Rose}. 
+
+This class implements the Prototype pattern by providing a \doxylink{class_rose_acd33e3ac59c355effccec63a056da02c}{clone()} method and represents a specific type of plant with its own characteristics, care requirements, and seasonal preferences. 
+
+Definition at line \mbox{\hyperlink{_rose_8h_source_l00020}{20}} of file \mbox{\hyperlink{_rose_8h_source}{Rose.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_rose_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rose_a1f6cc909ea44fbcd7a18b0d917412659}\index{Rose@{Rose}!Rose@{Rose}}
+\index{Rose@{Rose}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{Rose()}{Rose()}}
+{\footnotesize\ttfamily \label{class_rose_a1f6cc909ea44fbcd7a18b0d917412659} 
+Rose\+::\+Rose (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor for \doxylink{class_rose}{Rose} Creates a rose with appropriate care strategy and seasonal settings. 
+
+
+
+Definition at line \mbox{\hyperlink{_rose_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_rose_8cpp_source}{Rose.\+cpp}}.
+
+\Hypertarget{class_rose_a05ce52aaa1c6d8c9fa1953987b808f0f}\index{Rose@{Rose}!````~Rose@{\texorpdfstring{$\sim$}{\string~}Rose}}
+\index{````~Rose@{\texorpdfstring{$\sim$}{\string~}Rose}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Rose()}{\string~Rose()}}
+{\footnotesize\ttfamily \label{class_rose_a05ce52aaa1c6d8c9fa1953987b808f0f} 
+Rose\+::\texorpdfstring{$\sim$}{\string~}\+Rose (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_rose}{Rose}. 
+
+
+
+Definition at line \mbox{\hyperlink{_rose_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_rose_8cpp_source}{Rose.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_rose_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rose_acd33e3ac59c355effccec63a056da02c}\index{Rose@{Rose}!clone@{clone}}
+\index{clone@{clone}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_rose_acd33e3ac59c355effccec63a056da02c} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Rose\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clone this rose (Prototype pattern). 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a new \doxylink{class_rose}{Rose} instance that is a copy of this one 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant}{Plant}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_rose_8cpp_source}{Rose.\+cpp}}.
+
+\Hypertarget{class_rose_a2f52ac30b3ea936fda6031c2ec87abfa}\index{Rose@{Rose}!description@{description}}
+\index{description@{description}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{description()}{description()}}
+{\footnotesize\ttfamily \label{class_rose_a2f52ac30b3ea936fda6031c2ec87abfa} 
+std\+::string Rose\+::description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get description of the rose. 
+
+\begin{DoxyReturn}{Returns}
+String description of the rose plant 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant}{Plant}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_rose_8cpp_source}{Rose.\+cpp}}.
+
+\Hypertarget{class_rose_a5a0f821dead4bb0b21c908909e98a79d}\index{Rose@{Rose}!price@{price}}
+\index{price@{price}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{price()}{price()}}
+{\footnotesize\ttfamily \label{class_rose_a5a0f821dead4bb0b21c908909e98a79d} 
+double Rose\+::price (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the price of the rose. 
+
+\begin{DoxyReturn}{Returns}
+Price of the rose as a double value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant}{Plant}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_rose_8cpp_source}{Rose.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rose_8h}{Rose.\+h}}\item 
+\mbox{\hyperlink{_rose_8cpp}{Rose.\+cpp}}\end{DoxyCompactItemize}

@@ -1,3 +1,10 @@
+/**
+ * @file Lavender.cpp
+ * @brief Implementation of the Lavender class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "Lavender.h"
 #include <iostream>
 

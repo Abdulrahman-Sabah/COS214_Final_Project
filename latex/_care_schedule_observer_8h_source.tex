@@ -1,0 +1,25 @@
+\doxysection{Care\+Schedule\+Observer.\+h}
+\hypertarget{_care_schedule_observer_8h_source}{}\label{_care_schedule_observer_8h_source}\mbox{\hyperlink{_care_schedule_observer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CARESCHEDULEROBSERVER\_H}}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CARESCHEDULEROBSERVER\_H}}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plant_observer_8h}{PlantObserver.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00022}\mbox{\hyperlink{class_care_scheduler_observer}{00022}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_care_scheduler_observer}{CareSchedulerObserver}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_plant_observer}{PlantObserver}}\ \{}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00023}00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a6a83461e12b7a2c1994ed6ac176c0151}{onPlantStateChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00032}00032\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a2cb6c09d2547efc9af415692b71cd8c1}{onLifeCycleChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant,\ \mbox{\hyperlink{class_plant_life_cycle_state}{PlantLifeCycleState}}*\ newState)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a0931d6d42196868eba03ad9ca470faa0}{onSeasonChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant,\ \textcolor{keywordtype}{string}\ newSeason)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00052}00052\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a2540a3fb0a1c78030de54653ca331f2f}{onCareStrategyChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00061}00061\ \};}
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_care_schedule_observer_8h_source_l00063}00063\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

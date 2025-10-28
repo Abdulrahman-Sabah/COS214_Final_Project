@@ -1,0 +1,40 @@
+\doxysection{Lavender\+Builder.\+h}
+\hypertarget{_lavender_builder_8h_source}{}\label{_lavender_builder_8h_source}\mbox{\hyperlink{_lavender_builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ LAVENDERBUILDER\_H}}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ LAVENDERBUILDER\_H}}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plant_builder_8h}{PlantBuilder.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00014}00014\ \textcolor{comment}{//\ Forward\ declaration\ to\ minimize\ coupling}}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00015}00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant}{Plant}};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00016}00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_lavender}{Lavender}};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00017}00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant_life_cycle_state}{PlantLifeCycleState}};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00026}\mbox{\hyperlink{class_lavender_builder}{00026}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_lavender_builder_ae54b12981e960006c680f897521c0fae}{LavenderBuilder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_plant_builder}{PlantBuilder}}}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}*\ product;\ \ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_lavender_builder_ae54b12981e960006c680f897521c0fae}{LavenderBuilder}}();}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_lavender_builder_ad088f961741aac19c63f70e9107008f8}{\string~LavenderBuilder}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lavender_builder_aa65f1420583d3fbeac8d8f85f588891e}{setName}}(std::string\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lavender_builder_a7d05e20f2ac2687b963ad9646ece0a4d}{setCareType}}(std::string\ careType)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lavender_builder_a9edf0b093ff27f1627008f154bc50cb0}{setSeason}}(std::string\ season)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lavender_builder_af9f03023b7a54b26ddec8a03f616cf79}{setLifeCycle}}(\mbox{\hyperlink{class_plant_life_cycle_state}{PlantLifeCycleState}}*\ state)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}*\ \mbox{\hyperlink{class_lavender_builder_a50bfc76140689fb8a3cd641b3f09c415}{getPlant}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00071}00071\ \};}
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_lavender_builder_8h_source_l00073}00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LAVENDERBUILDER\_H}}
+
+\end{DoxyCode}

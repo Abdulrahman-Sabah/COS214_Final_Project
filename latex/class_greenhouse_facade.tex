@@ -1,0 +1,108 @@
+\doxysection{Greenhouse\+Facade Class Reference}
+\hypertarget{class_greenhouse_facade}{}\label{class_greenhouse_facade}\index{GreenhouseFacade@{GreenhouseFacade}}
+
+
+Provides a simplified interface to complex greenhouse subsystems.  
+
+
+
+
+{\ttfamily \#include $<$Greenhouse\+Facade.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_greenhouse_facade_a051b6c1cd5d149a8dbb8446ced5f2920}{Greenhouse\+Facade}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that initializes the facade. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_greenhouse_facade_a7c4ac6b1ed4bf504cedbfebb9ab07cc0}{\texorpdfstring{$\sim$}{\string~}\+Greenhouse\+Facade}} ()
+\begin{DoxyCompactList}\small\item\em Destructor that cleans up resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_greenhouse_facade_a1b813f6ad547fcd724b17eb012ccde02}{sell\+Plant}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Sells a plant by removing it from inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_greenhouse_facade_a98dd7adf172f13440f1b13e030398920}{show\+Inventory}} () const
+\begin{DoxyCompactList}\small\item\em Displays the current inventory of plants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a simplified interface to complex greenhouse subsystems. 
+
+This class implements the Facade pattern to provide a simple interface for greenhouse operations, hiding the complexity of plant management, inventory tracking, and builder patterns from the client. 
+
+Definition at line \mbox{\hyperlink{_greenhouse_facade_8h_source_l00025}{25}} of file \mbox{\hyperlink{_greenhouse_facade_8h_source}{Greenhouse\+Facade.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_greenhouse_facade_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_greenhouse_facade_a051b6c1cd5d149a8dbb8446ced5f2920}\index{GreenhouseFacade@{GreenhouseFacade}!GreenhouseFacade@{GreenhouseFacade}}
+\index{GreenhouseFacade@{GreenhouseFacade}!GreenhouseFacade@{GreenhouseFacade}}
+\doxysubsubsection{\texorpdfstring{GreenhouseFacade()}{GreenhouseFacade()}}
+{\footnotesize\ttfamily \label{class_greenhouse_facade_a051b6c1cd5d149a8dbb8446ced5f2920} 
+Greenhouse\+Facade\+::\+Greenhouse\+Facade (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor that initializes the facade. 
+
+
+
+Definition at line \mbox{\hyperlink{_greenhouse_facade_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_greenhouse_facade_8cpp_source}{Greenhouse\+Facade.\+cpp}}.
+
+\Hypertarget{class_greenhouse_facade_a7c4ac6b1ed4bf504cedbfebb9ab07cc0}\index{GreenhouseFacade@{GreenhouseFacade}!````~GreenhouseFacade@{\texorpdfstring{$\sim$}{\string~}GreenhouseFacade}}
+\index{````~GreenhouseFacade@{\texorpdfstring{$\sim$}{\string~}GreenhouseFacade}!GreenhouseFacade@{GreenhouseFacade}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GreenhouseFacade()}{\string~GreenhouseFacade()}}
+{\footnotesize\ttfamily \label{class_greenhouse_facade_a7c4ac6b1ed4bf504cedbfebb9ab07cc0} 
+Greenhouse\+Facade\+::\texorpdfstring{$\sim$}{\string~}\+Greenhouse\+Facade (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor that cleans up resources. 
+
+
+
+Definition at line \mbox{\hyperlink{_greenhouse_facade_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_greenhouse_facade_8cpp_source}{Greenhouse\+Facade.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_greenhouse_facade_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_greenhouse_facade_a1b813f6ad547fcd724b17eb012ccde02}\index{GreenhouseFacade@{GreenhouseFacade}!sellPlant@{sellPlant}}
+\index{sellPlant@{sellPlant}!GreenhouseFacade@{GreenhouseFacade}}
+\doxysubsubsection{\texorpdfstring{sellPlant()}{sellPlant()}}
+{\footnotesize\ttfamily \label{class_greenhouse_facade_a1b813f6ad547fcd724b17eb012ccde02} 
+void Greenhouse\+Facade\+::sell\+Plant (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Sells a plant by removing it from inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the plant to sell \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_greenhouse_facade_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_greenhouse_facade_8cpp_source}{Greenhouse\+Facade.\+cpp}}.
+
+\Hypertarget{class_greenhouse_facade_a98dd7adf172f13440f1b13e030398920}\index{GreenhouseFacade@{GreenhouseFacade}!showInventory@{showInventory}}
+\index{showInventory@{showInventory}!GreenhouseFacade@{GreenhouseFacade}}
+\doxysubsubsection{\texorpdfstring{showInventory()}{showInventory()}}
+{\footnotesize\ttfamily \label{class_greenhouse_facade_a98dd7adf172f13440f1b13e030398920} 
+void Greenhouse\+Facade\+::show\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Displays the current inventory of plants. 
+
+
+
+Definition at line \mbox{\hyperlink{_greenhouse_facade_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_greenhouse_facade_8cpp_source}{Greenhouse\+Facade.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_greenhouse_facade_8h}{Greenhouse\+Facade.\+h}}\item 
+\mbox{\hyperlink{_greenhouse_facade_8cpp}{Greenhouse\+Facade.\+cpp}}\end{DoxyCompactItemize}

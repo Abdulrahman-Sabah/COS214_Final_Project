@@ -1,3 +1,10 @@
+/**
+ * @file LavenderCare.cpp
+ * @brief Implementation of the LavenderCare class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "LavenderCare.h"
 #include "Plant.h"
 

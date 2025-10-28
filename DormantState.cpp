@@ -1,3 +1,10 @@
+/**
+ * @file DormantState.cpp
+ * @brief Implementation of the DormantState class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "DormantState.h"
 #include "DeadState.h"
 #include "GrowingState.h"

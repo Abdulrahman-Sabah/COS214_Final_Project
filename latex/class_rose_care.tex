@@ -1,0 +1,73 @@
+\doxysection{Rose\+Care Class Reference}
+\hypertarget{class_rose_care}{}\label{class_rose_care}\index{RoseCare@{RoseCare}}
+
+
+Implements specific care requirements for rose plants.  
+
+
+
+
+{\ttfamily \#include $<$Rose\+Care.\+h$>$}
+
+Inheritance diagram for Rose\+Care\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rose_care}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_rose_care_a1e04e48798422d55d6063694cf68e87f}{apply\+Care}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant) override
+\begin{DoxyCompactList}\small\item\em Applies rose-\/specific care to a plant. \end{DoxyCompactList}\item 
+\Hypertarget{class_rose_care_a2daff66923a58442a8b68630d73df87b}\label{class_rose_care_a2daff66923a58442a8b68630d73df87b} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Rose\+Care} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_care_strategy}{Care\+Strategy}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Care\+Strategy} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements specific care requirements for rose plants. 
+
+This class provides the concrete implementation of care strategies specifically tailored for rose plants, including their unique watering, pruning, and fertilization requirements. 
+
+Definition at line \mbox{\hyperlink{_rose_care_8h_source_l00021}{21}} of file \mbox{\hyperlink{_rose_care_8h_source}{Rose\+Care.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_rose_care_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rose_care_a1e04e48798422d55d6063694cf68e87f}\index{RoseCare@{RoseCare}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!RoseCare@{RoseCare}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily \label{class_rose_care_a1e04e48798422d55d6063694cf68e87f} 
+void Rose\+Care\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies rose-\/specific care to a plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The rose plant to care for \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_care_strategy_a9e921121874d975ff091d1b3a68532ef}{Care\+Strategy}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rose_care_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_rose_care_8cpp_source}{Rose\+Care.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rose_care_8h}{Rose\+Care.\+h}}\item 
+\mbox{\hyperlink{_rose_care_8cpp}{Rose\+Care.\+cpp}}\end{DoxyCompactItemize}

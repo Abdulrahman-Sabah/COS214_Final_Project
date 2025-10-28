@@ -1,0 +1,29 @@
+\doxysection{Cares\+Scheduler\+Observer.\+cpp}
+\hypertarget{_cares_scheduler_observer_8cpp_source}{}\label{_cares_scheduler_observer_8cpp_source}\mbox{\hyperlink{_cares_scheduler_observer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_care_schedule_observer_8h}{CareScheduleObserver.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00009}\mbox{\hyperlink{class_care_scheduler_observer_a6a83461e12b7a2c1994ed6ac176c0151}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a6a83461e12b7a2c1994ed6ac176c0151}{CareSchedulerObserver::onPlantStateChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant)\ \{}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00010}00010\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CareScheduler]\ Plant\ state\ changed:\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ plant-\/>getName()\ <<\ \textcolor{stringliteral}{"{}\ is\ now\ in\ state:\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ plant-\/>getStateText()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00015}\mbox{\hyperlink{class_care_scheduler_observer_a2cb6c09d2547efc9af415692b71cd8c1}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a2cb6c09d2547efc9af415692b71cd8c1}{CareSchedulerObserver::onLifeCycleChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant,\ \mbox{\hyperlink{class_plant_life_cycle_state}{PlantLifeCycleState}}*\ newState)\ \{}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00016}00016\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CareScheduler]\ Life\ cycle\ changed\ for:\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ plant-\/>getName()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00020}\mbox{\hyperlink{class_care_scheduler_observer_a0931d6d42196868eba03ad9ca470faa0}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a0931d6d42196868eba03ad9ca470faa0}{CareSchedulerObserver::onSeasonChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant,\ \textcolor{keywordtype}{string}\ newSeason)\ \{}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00021}00021\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CareScheduler]\ Season\ changed:\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ plant-\/>getName()\ <<\ \textcolor{stringliteral}{"{}\ now\ in\ season:\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ newSeason\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00026}\mbox{\hyperlink{class_care_scheduler_observer_a2540a3fb0a1c78030de54653ca331f2f}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_care_scheduler_observer_a2540a3fb0a1c78030de54653ca331f2f}{CareSchedulerObserver::onCareStrategyChanged}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant)\ \{}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00027}00027\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CareScheduler]\ Care\ strategy\ updated\ for:\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ plant-\/>getName()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_cares_scheduler_observer_8cpp_source_l00029}00029\ \}}
+
+\end{DoxyCode}

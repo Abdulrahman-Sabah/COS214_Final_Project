@@ -1,0 +1,112 @@
+\doxysection{Succulent\+Builder.\+cpp}
+\hypertarget{_succulent_builder_8cpp_source}{}\label{_succulent_builder_8cpp_source}\mbox{\hyperlink{_succulent_builder_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00001}00001\ \textcolor{comment}{//\#include\ "{}SucculentBuilder.h"{}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00003}00003\ \textcolor{comment}{//\ SucculentBuilder::SucculentBuilder()}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ succulent\ =\ NULL;}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00006}00006\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00008}00008\ \textcolor{comment}{//\ SucculentBuilder::\string~SucculentBuilder()}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00009}00009\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00010}00010\ \textcolor{comment}{//\ \ \ \ \ if\ (succulent)}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00012}00012\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ delete\ succulent;}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00013}00013\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00014}00014\ \textcolor{comment}{//\ \ \ \ \ succulent\ =\ NULL;}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00015}00015\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00017}00017\ \textcolor{comment}{//\ void\ SucculentBuilder::setName(\ std::string\&\ name)}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00018}00018\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00019}00019\ \textcolor{comment}{//\ \ \ \ \ plant-\/>setName(name);}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00020}00020\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00022}00022\ \textcolor{comment}{//\ void\ SucculentBuilder::setCareType(const\ std::string\&\ careType)}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00023}00023\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00024}00024\ \textcolor{comment}{//\ \ \ \ \ plant-\/>setCareType(careType);}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00025}00025\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00027}00027\ \textcolor{comment}{//\ void\ SucculentBuilder::setSeason(const\ std::string\&\ season)}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00028}00028\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00029}00029\ \textcolor{comment}{//\ \ \ \ \ plant-\/>setSeason(season);}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00030}00030\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00032}00032\ \textcolor{comment}{//\ void\ SucculentBuilder::setLifeCycle(PlantLifeCycleState*\ state)}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00033}00033\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00034}00034\ \textcolor{comment}{//\ \ \ \ \ plant-\/>setLifeCycle(state);}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00035}00035\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00037}00037\ \textcolor{comment}{//\ void\ SucculentBuilder::setCareStrategy(CareStrategy*\ strategy)}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00038}00038\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00039}00039\ \textcolor{comment}{//\ \ \ \ \ plant-\/>setCareStrategy(strategy);}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00040}00040\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00042}00042\ \textcolor{comment}{//\ Plant\ SucculentBuilder::getPlant()}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00043}00043\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00044}00044\ \textcolor{comment}{//\ \ \ \ \ Plant*\ succulent\ =\ new\ Succulent();}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00045}00045\ \textcolor{comment}{//\ \ \ \ \ return\ succulent;}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00046}00046\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00056}00056\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_succulent_builder_8h}{SucculentBuilder.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00057}00057\ \textcolor{comment}{//\ \#include\ "{}Succulent.h"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ concrete\ Plant\ subtype}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00058}00058\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plant_8h}{Plant.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00059}00059\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plant_life_cycle_state_8h}{PlantLifeCycleState.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00061}00061\ \textcolor{preprocessor}{\#include\ <utility>}\ \textcolor{comment}{//\ std::move}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00063}00063\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ Lazily\ allocate\ the\ product\ the\ first\ time\ it’s\ needed}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ensureAllocated(\mbox{\hyperlink{class_plant}{Plant}}*\&\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ (!p)\ \{}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ p\ =\ new\ Succulent();\ //\ adjust\ ctor\ args\ if\ your\ Succulent\ needs\ them}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00072}\mbox{\hyperlink{class_succulent_builder_a0b6197fdabfb9146315bd8959b4d359c}{00072}}\ \mbox{\hyperlink{class_succulent_builder_a0b6197fdabfb9146315bd8959b4d359c}{SucculentBuilder::SucculentBuilder}}()}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00073}00073\ \ \ \ \ :\ product(nullptr)}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00077}\mbox{\hyperlink{class_succulent_builder_a0c8e5d9be791b3184b2aa4f1163c624b}{00077}}\ \mbox{\hyperlink{class_succulent_builder_a0c8e5d9be791b3184b2aa4f1163c624b}{SucculentBuilder::\string~SucculentBuilder}}()}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{delete}\ product;\ \ \ \ \textcolor{comment}{//\ safe\ if\ nullptr}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00080}00080\ \ \ \ \ product\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00083}\mbox{\hyperlink{class_succulent_builder_a91e844731cdb38b1150d3278f9fd50d0}{00083}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_succulent_builder_a91e844731cdb38b1150d3278f9fd50d0}{SucculentBuilder::setName}}(std::string\ n)}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00085}00085\ \ \ \ \ ensureAllocated(product);}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00086}00086\ \ \ \ \ product-\/>setName(std::move(n));}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00089}\mbox{\hyperlink{class_succulent_builder_a1d36c185987d538620102533e00b2881}{00089}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_succulent_builder_a1d36c185987d538620102533e00b2881}{SucculentBuilder::setCareType}}(std::string\ ct)}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00091}00091\ \ \ \ \ ensureAllocated(product);}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00092}00092\ \ \ \ \ product-\/>setCareType(std::move(ct));}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00093}00093\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00095}\mbox{\hyperlink{class_succulent_builder_aa2c0a1c91b8e81932f03e3b8f87f33c2}{00095}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_succulent_builder_aa2c0a1c91b8e81932f03e3b8f87f33c2}{SucculentBuilder::setSeason}}(std::string\ s)}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00096}00096\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00097}00097\ \ \ \ \ ensureAllocated(product);}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00098}00098\ \ \ \ \ product-\/>setSeason(std::move(s));}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00101}\mbox{\hyperlink{class_succulent_builder_afa9b5508dd3cb59fd787ffd5b908a1e3}{00101}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_succulent_builder_afa9b5508dd3cb59fd787ffd5b908a1e3}{SucculentBuilder::setLifeCycle}}(\mbox{\hyperlink{class_plant_life_cycle_state}{PlantLifeCycleState}}*\ state)}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00103}00103\ \ \ \ \ ensureAllocated(product);}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00104}00104\ \ \ \ \ product-\/>setLifeCycle(state);}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00107}\mbox{\hyperlink{class_succulent_builder_a95357d7812ad5e55b244e57d73650288}{00107}}\ \mbox{\hyperlink{class_plant}{Plant}}*\ \mbox{\hyperlink{class_succulent_builder_a95357d7812ad5e55b244e57d73650288}{SucculentBuilder::getPlant}}()}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00108}00108\ \{}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00109}00109\ \ \ \ \ ensureAllocated(product);}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00110}00110\ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}*\ out\ =\ product;\ \ \textcolor{comment}{//\ transfer\ ownership}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00111}00111\ \ \ \ \ product\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \textcolor{comment}{//\ builder\ relinquishes\ ownership}}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\Hypertarget{_succulent_builder_8cpp_source_l00113}00113\ \}}
+
+\end{DoxyCode}

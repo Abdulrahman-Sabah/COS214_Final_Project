@@ -1,0 +1,130 @@
+\doxysection{Plant\+Observer Class Reference}
+\hypertarget{class_plant_observer}{}\label{class_plant_observer}\index{PlantObserver@{PlantObserver}}
+
+
+Abstract observer class for monitoring \doxylink{class_plant}{Plant} state changes.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Observer.\+h$>$}
+
+Inheritance diagram for Plant\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plant_observer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_plant_observer_ac08d1d0ba7fa55c28f7399bba34747c2}\label{class_plant_observer_ac08d1d0ba7fa55c28f7399bba34747c2} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_observer_ad9cc899e20ff40df0190ac6cb21bdd12}{on\+Plant\+State\+Changed}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)=0
+\begin{DoxyCompactList}\small\item\em Called when a plant\textquotesingle{}s general state changes. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_observer_a4d2cc055cb5861d29f581816fe9e95eb}{on\+Life\+Cycle\+Changed}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, \mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}new\+State)=0
+\begin{DoxyCompactList}\small\item\em Called when a plant\textquotesingle{}s lifecycle state changes. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_observer_af5eb3eeddc2e250a8014b65dd6156c53}{on\+Season\+Changed}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, string new\+Season)=0
+\begin{DoxyCompactList}\small\item\em Called when a plant\textquotesingle{}s season changes. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_observer_a403a294ffe041670664bd2e87e185641}{on\+Care\+Strategy\+Changed}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)=0
+\begin{DoxyCompactList}\small\item\em Called when a plant\textquotesingle{}s care strategy changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract observer class for monitoring \doxylink{class_plant}{Plant} state changes. 
+
+This class defines the interface for the Observer pattern, allowing objects to be notified when plants undergo various state changes such as lifecycle transitions, season changes, or care strategy modifications. 
+
+Definition at line \mbox{\hyperlink{_plant_observer_8h_source_l00025}{25}} of file \mbox{\hyperlink{_plant_observer_8h_source}{Plant\+Observer.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_plant_observer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_observer_a403a294ffe041670664bd2e87e185641}\index{PlantObserver@{PlantObserver}!onCareStrategyChanged@{onCareStrategyChanged}}
+\index{onCareStrategyChanged@{onCareStrategyChanged}!PlantObserver@{PlantObserver}}
+\doxysubsubsection{\texorpdfstring{onCareStrategyChanged()}{onCareStrategyChanged()}}
+{\footnotesize\ttfamily \label{class_plant_observer_a403a294ffe041670664bd2e87e185641} 
+virtual void Plant\+Observer\+::on\+Care\+Strategy\+Changed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called when a plant\textquotesingle{}s care strategy changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant whose care strategy changed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_care_scheduler_observer_a2540a3fb0a1c78030de54653ca331f2f}{Care\+Scheduler\+Observer}}.
+
+\Hypertarget{class_plant_observer_a4d2cc055cb5861d29f581816fe9e95eb}\index{PlantObserver@{PlantObserver}!onLifeCycleChanged@{onLifeCycleChanged}}
+\index{onLifeCycleChanged@{onLifeCycleChanged}!PlantObserver@{PlantObserver}}
+\doxysubsubsection{\texorpdfstring{onLifeCycleChanged()}{onLifeCycleChanged()}}
+{\footnotesize\ttfamily \label{class_plant_observer_a4d2cc055cb5861d29f581816fe9e95eb} 
+virtual void Plant\+Observer\+::on\+Life\+Cycle\+Changed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{\mbox{\hyperlink{class_plant_life_cycle_state}{Plant\+Life\+Cycle\+State}} \texorpdfstring{$\ast$}{*}}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called when a plant\textquotesingle{}s lifecycle state changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant whose lifecycle changed \\
+\hline
+{\em new\+State} & The new lifecycle state \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_care_scheduler_observer_a2cb6c09d2547efc9af415692b71cd8c1}{Care\+Scheduler\+Observer}}.
+
+\Hypertarget{class_plant_observer_ad9cc899e20ff40df0190ac6cb21bdd12}\index{PlantObserver@{PlantObserver}!onPlantStateChanged@{onPlantStateChanged}}
+\index{onPlantStateChanged@{onPlantStateChanged}!PlantObserver@{PlantObserver}}
+\doxysubsubsection{\texorpdfstring{onPlantStateChanged()}{onPlantStateChanged()}}
+{\footnotesize\ttfamily \label{class_plant_observer_ad9cc899e20ff40df0190ac6cb21bdd12} 
+virtual void Plant\+Observer\+::on\+Plant\+State\+Changed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called when a plant\textquotesingle{}s general state changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant that changed state \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_care_scheduler_observer_a6a83461e12b7a2c1994ed6ac176c0151}{Care\+Scheduler\+Observer}}.
+
+\Hypertarget{class_plant_observer_af5eb3eeddc2e250a8014b65dd6156c53}\index{PlantObserver@{PlantObserver}!onSeasonChanged@{onSeasonChanged}}
+\index{onSeasonChanged@{onSeasonChanged}!PlantObserver@{PlantObserver}}
+\doxysubsubsection{\texorpdfstring{onSeasonChanged()}{onSeasonChanged()}}
+{\footnotesize\ttfamily \label{class_plant_observer_af5eb3eeddc2e250a8014b65dd6156c53} 
+virtual void Plant\+Observer\+::on\+Season\+Changed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{string}]{new\+Season}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called when a plant\textquotesingle{}s season changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The plant whose season changed \\
+\hline
+{\em new\+Season} & The new season \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_care_scheduler_observer_a0931d6d42196868eba03ad9ca470faa0}{Care\+Scheduler\+Observer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_plant_observer_8h}{Plant\+Observer.\+h}}\end{DoxyCompactItemize}

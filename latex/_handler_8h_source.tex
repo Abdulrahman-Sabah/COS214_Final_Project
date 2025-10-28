@@ -1,0 +1,30 @@
+\doxysection{Handler.\+h}
+\hypertarget{_handler_8h_source}{}\label{_handler_8h_source}\mbox{\hyperlink{_handler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ HANDLER\_H}}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ HANDLER\_H}}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00011}00011\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00012}00012\ \textcolor{keyword}{class\ }Notify;}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00013}00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_commands}{Commands}};}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00024}\mbox{\hyperlink{class_handler}{00024}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_handler}{Handler}}\{}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_handler}{Handler}}*\ successor;\ \ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ Notify*\ subject;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00028}00028\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_handler_a69a302a65709241299d25fd5e7b1e49e}{passToSuccessor}}(\mbox{\hyperlink{class_commands}{Commands}}*\ r);}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_handler_aeb7a2ba7f559155822552463a94fc948}{setSuccessor}}(\mbox{\hyperlink{class_handler}{Handler}}*\ h);}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00057}\mbox{\hyperlink{class_handler_ad288ba3c3bb1372e55df4ebdc0648a60}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_handler_ad288ba3c3bb1372e55df4ebdc0648a60}{handleRequest}}(\mbox{\hyperlink{class_commands}{Commands}}*\ r)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00062}\mbox{\hyperlink{class_handler_aae990cbd425b7c030285cba901583ee9}{00062}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_handler_aae990cbd425b7c030285cba901583ee9}{\string~Handler}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00063}00063\ \};}
+\DoxyCodeLine{\Hypertarget{_handler_8h_source_l00064}00064\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
