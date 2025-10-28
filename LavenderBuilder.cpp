@@ -14,6 +14,7 @@ namespace
         {
             LavenderCreator creator;
             p = creator.factoryMethod(); // adjust ctor args if your Lavender needs them
+            p->setName("Lavender");
         }
     }
 }

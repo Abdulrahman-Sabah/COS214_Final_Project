@@ -29,15 +29,15 @@ bool Inventory::removePlant(Plant* p) {
     return false;
 }
 
-bool Inventory::removePlantByName(const std::string& name) {
+Plant* Inventory::removePlantByName(const std::string& name) {
     for (auto it = plants.begin(); it != plants.end(); ++it) {
         if ((*it)->getName() == name) {
-            delete *it;
+            Plant* plant = *it;
             plants.erase(it);
-            return true;
+            return plant;
         }
     }
-    return false;
+    return nullptr;
 }
 
 size_t Inventory::getSize() const {

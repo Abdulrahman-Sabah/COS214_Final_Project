@@ -16,6 +16,7 @@ namespace
         {
             CactusCreator creator;
             p = creator.factoryMethod(); // adjust ctor args if your Cactus needs them
+            p->setName("Cactus");
         }
     }
 }
