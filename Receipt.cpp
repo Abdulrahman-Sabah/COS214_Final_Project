@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 
+Receipt::Receipt() : totalAmount(0.0) {} 
+
 void Receipt::addPlant(Plant* p)
 {
     purchasedPlants.push_back(p);
