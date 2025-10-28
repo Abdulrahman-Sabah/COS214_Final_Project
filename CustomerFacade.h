@@ -17,6 +17,7 @@ class CustomerFacade
         std::vector<std::unique_ptr<Plant>> cart;
 
     public:
+        explicit CustomerFacade(Inventory& inv);
         void browsePlants() const;
         void addToCart(const std::string& name);
         void removeFromCart(const std::string& name);
