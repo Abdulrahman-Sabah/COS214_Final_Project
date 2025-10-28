@@ -9,7 +9,6 @@
 class Inventory {
 private:
     std::vector<Plant*> plants;
-
 public:
 
     Inventory();
