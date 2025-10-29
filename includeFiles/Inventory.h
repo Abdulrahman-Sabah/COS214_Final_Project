@@ -3,14 +3,12 @@
 
 #include "Plant.h"
 #include "PlantIterator.h"
+#include "InventoryAggregate.h"
 #include <vector>
 
 
-class Inventory {
-private:
-    std::vector<Plant*> plants;
+class Inventory : public InventoryAggregate {
 public:
-
     Inventory();
     ~Inventory();
     void addPlant(Plant* p);

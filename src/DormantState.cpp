@@ -13,10 +13,10 @@ void DormantState::advance(Plant* plant) {
     if(isDead()) {
          plant->setLifeCycle(new DeadState());
          std::cout << plant->getName() << " has died in the " << plant->getLifeCycle()->name() << " state." << std::endl;
-    } else if(isGrowingAgain()) {
+    } else if( !isDead() && isGrowingAgain()) {
         plant->setLifeCycle(new GrowingState());
         std::cout << plant->getName() << " has advanced to the " << plant->getLifeCycle()->name() << " state." << std::endl;
-    } else {
+    } else if ( !isDead() && !isGrowingAgain()) {
         plant->setLifeCycle(new MatureState());
         std::cout << plant->getName() << " has advanced to the " << plant->getLifeCycle()->name() << " state." << std::endl;
     }

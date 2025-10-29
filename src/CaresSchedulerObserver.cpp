@@ -1,4 +1,5 @@
 #include "CareScheduleObserver.h"
+
 void CareSchedulerObserver::onPlantStateChanged(Plant* plant) {
     std::cout << "[CareScheduler] Plant state changed: " 
               << plant->getName() << " is now in state: " 

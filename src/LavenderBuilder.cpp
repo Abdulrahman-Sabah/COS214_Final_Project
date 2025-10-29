@@ -1,8 +1,8 @@
-#include "RoseBuilder.h"
-//#include "Rose.h"             // concrete Plant subtype
+#include "LavenderBuilder.h"
+#include "Lavender.h"         // concrete Plant subtype
 #include "Plant.h"
 #include "PlantLifeCycleState.h"
-#include "RoseCreator.h"
+#include "LavenderCreator.h"
 #include <utility> // std::move
 
 namespace
@@ -12,50 +12,49 @@ namespace
     {
         if (!p)
         {
-            RoseCreator creator;
-            p = creator.factoryMethod(); // adjust ctor args if your Rose needs them
-            p->setName("Rose");
+            LavenderCreator creator;
+            p = creator.factoryMethod(); // adjust ctor args if your Lavender needs them
+            p->setName("Lavender");
         }
     }
 }
 
-RoseBuilder::RoseBuilder()
+LavenderBuilder::LavenderBuilder()
     : product(nullptr)
 {
 }
 
-RoseBuilder::~RoseBuilder()
+LavenderBuilder::~LavenderBuilder()
 {
     delete product;    // safe if nullptr
     product = nullptr;
 }
 
-void RoseBuilder::setName(std::string n)
+void LavenderBuilder::setName(std::string n)
 {
     ensureAllocated(product);
     product->setName(std::move(n));
 }
 
-void RoseBuilder::setCareType(std::string ct)
+void LavenderBuilder::setCareType(std::string ct)
 {
     ensureAllocated(product);
     product->setCareType(std::move(ct));
 }
 
-void RoseBuilder::setSeason(std::string s)
+void LavenderBuilder::setSeason(std::string s)
 {
     ensureAllocated(product);
     product->setSeason(std::move(s));
 }
 
-void RoseBuilder::setLifeCycle(PlantLifeCycleState* state)
+void LavenderBuilder::setLifeCycle(PlantLifeCycleState* state)
 {
     ensureAllocated(product);
     product->setLifeCycle(state);
 }
 
-
-Plant* RoseBuilder::getPlant()
+Plant* LavenderBuilder::getPlant()
 {
     ensureAllocated(product);
     Plant* out = product;  // transfer ownership

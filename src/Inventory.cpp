@@ -3,14 +3,10 @@
 #include <iostream>
 #include <algorithm>
 
-Inventory::Inventory() {
-}
+Inventory::Inventory() {}
 
 Inventory::~Inventory() {
-    for (Plant* p : plants) {
-        delete p;
-    }
-    plants.clear();
+    
 }
 
 void Inventory::addPlant(Plant* p) {
@@ -40,16 +36,8 @@ Plant* Inventory::removePlantByName(const std::string& name) {
     return nullptr;
 }
 
-size_t Inventory::getSize() const {
-    return plants.size();
-}
-
 PlantIterator* Inventory::createIterator() {
     return new InventoryIterator(plants);
-}
-
-std::vector<Plant*>& Inventory::getPlants() {
-    return plants;
 }
 
 void Inventory::displayAll() {

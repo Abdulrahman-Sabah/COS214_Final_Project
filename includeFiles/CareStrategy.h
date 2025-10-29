@@ -1,7 +1,6 @@
 #ifndef CARESTRATEGY_H
 #define CARESTRATEGY_H
 
-// #include "Plant.h"
 #include <iostream>
 class Plant;
 

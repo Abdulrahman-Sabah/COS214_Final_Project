@@ -11,6 +11,8 @@ class Receipt
         double totalAmount;
     
     public:
+        Receipt();
+        ~Receipt();
         void addPlant(Plant* plant);
         void printReceipt() const;
 };

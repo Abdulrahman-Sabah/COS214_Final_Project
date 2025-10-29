@@ -12,8 +12,10 @@ Plant::Plant() : name(""), careType(""), state(""), season(""),
         careStrategy(nullptr), lifeCycle(nullptr) {}
 
 Plant::~Plant() {
-    delete careStrategy;
-    delete lifeCycle;
+    if(careStrategy) delete careStrategy;
+    if(lifeCycle) delete lifeCycle;
+    careStrategy = nullptr;
+    lifeCycle = nullptr;
 }
 
 string Plant::getCareType() { return careType; }

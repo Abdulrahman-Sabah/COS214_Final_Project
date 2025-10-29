@@ -556,9 +556,8 @@ int main()
     cout << "All plants deleted successfully!" << endl;
   
     std::cout << "=== Plant Nursery Iterator Demo ===\n\n";
-    
-    Inventory* inventory = new Inventory();
-    
+    InventoryAggregate* inventory = new Inventory();
+
     std::cout << "Test 1: Adding plants\n";
     inventory->addPlant(new SimplePlant("Red Rose", "Moderate", "Budding", "Spring", 45.99));
     inventory->addPlant(new SimplePlant("Aloe Vera", "Low", "Mature", "Summer", 25.50));
@@ -619,9 +618,14 @@ int main()
     delete it4;
     
     std::cout << "Test 6: Remove plant by name\n";
-    bool removed = inventory->removePlantByName("Barrel Cactus");
-    std::cout << "Removal " << (removed ? "successful" : "failed") 
-              << ". New total: " << inventory->getSize() << "\n\n";
+    Plant* removed = inventory->removePlantByName("Barrel Cactus");
+    if (removed) {
+        delete removed;
+        std::cout << "SSuccessfully removed. New total: " << inventory->getSize() << "\n\n";
+    } 
+    else {
+        std::cout << "We failed the remove. New total: " << inventory->getSize() << "\n\n";
+    }
     
     std::cout << "Test 7: Multiple concurrent iterations\n";
     PlantIterator* itA = inventory->createIterator();

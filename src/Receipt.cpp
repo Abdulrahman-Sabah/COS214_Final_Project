@@ -4,6 +4,14 @@
 
 Receipt::Receipt() : totalAmount(0.0) {} 
 
+Receipt::~Receipt() 
+{
+    for(auto* p : purchasedPlants)
+    {
+        delete p;
+    }
+}
+
 void Receipt::addPlant(Plant* p)
 {
     purchasedPlants.push_back(p);
