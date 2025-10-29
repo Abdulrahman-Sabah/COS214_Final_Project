@@ -77,6 +77,9 @@ public:
      * @brief Displays all plants in the inventory
      */
     void displayAll();
+
+    bool hasPlant(Plant* p);
+    
 };
 
 #endif

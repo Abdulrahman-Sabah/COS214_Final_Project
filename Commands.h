@@ -9,6 +9,7 @@
 #define COMMANDS_H
 
 #include <string>
+#include "Plant.h"
 
 /**
  * @class Commands
@@ -36,7 +37,7 @@ public:
      * This method allows handlers in the Chain of Responsibility to identify
      * what type of command they are processing and decide whether they can handle it.
      */
-    virtual std::string getType() const = 0;
+    virtual std::string name() = 0;
     
     /**
      * @brief Gets the data/parameters associated with the command
@@ -45,7 +46,7 @@ public:
      * This method provides access to any additional data or parameters
      * that the command needs for execution (e.g., plant IDs, order numbers).
      */
-    virtual std::string getData() const = 0;
+    virtual void execute(Plant* Plant) = 0;
 };
 
 #endif

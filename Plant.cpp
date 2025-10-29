@@ -31,23 +31,19 @@ PlantLifeCycleState* Plant::getLifeCycle() { return lifeCycle; }
 void Plant::setName(string n) { name = n; }
 void Plant::setCareType(string t) { 
     careType = t; 
-    notifyCareStrategyChanged();
 }
 void Plant::setStateText(string s) { 
     state = s; 
-    notifyStateChanged();
 }
+
 void Plant::setSeason(string s) { 
     season = s; 
-    notifySeasonChanged(s);
 }
 void Plant::setCareStrategy(CareStrategy* cs) { 
     careStrategy = cs; 
-    notifyCareStrategyChanged();
 }
 void Plant::setLifeCycle(PlantLifeCycleState* st) { 
     lifeCycle = st; 
-    notifyLifeCycleChanged(st);
 }
 
 void Plant::attach(PlantObserver* observer) {
@@ -59,28 +55,11 @@ void Plant::detach(PlantObserver* observer) {
                    observers.end());
 }
 
-void Plant::notifyStateChanged() {
-    for (auto observer : observers) {
-        observer->onPlantStateChanged(this);
-    }
-}
-
-void Plant::notifyLifeCycleChanged(PlantLifeCycleState* newState) {
-    for (auto observer : observers) {
-        observer->onLifeCycleChanged(this, newState);
-    }
-}
-
-void Plant::notifySeasonChanged(string newSeason) {
-    for (auto observer : observers) {
-        observer->onSeasonChanged(this, newSeason);
-    }
-}
-
-void Plant::notifyCareStrategyChanged() {
-    for (auto observer : observers) {
-        observer->onCareStrategyChanged(this);
-    }
+Plant::~Plant() 
+{
+    delete lifeCycle;                  
+    lifeCycle = nullptr;
+    delete careStrategy;
 }
 
 void Plant::takeCare() {
@@ -88,3 +67,4 @@ void Plant::takeCare() {
         careStrategy->applyCare(this);
     }
 }
+

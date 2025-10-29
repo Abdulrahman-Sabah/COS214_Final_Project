@@ -8,6 +8,7 @@
 #ifndef LANDSCAPER_H
 #define LANDSCAPER_H
 #include "Handler.h"
+#include "Plant.h"
 
 /**
  * @class Landscaper
@@ -27,7 +28,7 @@ public:
      * This method checks if the command type is "AddWater" or "ApplyFertilizer"
      * and processes it. If not, it passes the request to the next handler in the chain.
      */
-    void handleRequest(Commands* r) override;
+    void handleRequest(Commands* r, Plant* plant) override;
 };
 
 #endif

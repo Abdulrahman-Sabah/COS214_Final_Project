@@ -1,36 +1,26 @@
-/**
- * @file FrontDesk.h
- * @brief Concrete mediator coordinating between StoreCustomer and DeliveryStaff in the nursery system
- * @author COS214
- * @date 2025
- */
-
 #ifndef FRONTDESK_H
 #define FRONTDESK_H
 
 #include "StoreMediator.h"
+#include <string>
 
 class StoreCustomer;
 class DeliveryStaff;
-class Handler;
-class Commands;
+class Plant;
 
 class FrontDesk : public StoreMediator {
-private:
-    StoreCustomer* customer;
-    DeliveryStaff* staff;
-    Handler* handlerChain;
-
 public:
-    FrontDesk(StoreCustomer* c, DeliveryStaff*, Handler* chain);
+    FrontDesk(StoreCustomer* c = nullptr, DeliveryStaff* d = nullptr)
+        : customer(c), staff(d) {}
+
     void setCustomer(StoreCustomer* c);
     void setDeliveryStaff(DeliveryStaff* d);
-    void setHandlerChain(Handler* chain);
 
-    /**
-     * @brief Handles communication between participants
-     */
-    void notify(void* sender, const std::string& event, Commands* cmd = nullptr) override;
+    void notify(Plant* plant, const std::string& event) override;
+
+private:
+    StoreCustomer* customer = nullptr;
+    DeliveryStaff* staff    = nullptr;
 };
 
 #endif

@@ -8,6 +8,7 @@
 #ifndef CARESCHEDULEROBSERVER_H
 #define CARESCHEDULEROBSERVER_H
 #include "PlantObserver.h"
+#include "Handler.h"
 
 #include <iostream>
 
@@ -20,6 +21,10 @@
  * to these changes by updating care schedules and logging important events.
  */
 class CareSchedulerObserver : public PlantObserver {
+
+    public:
+    Handler* handler_; 
+
 public:
     /**
      * @brief Called when a plant's general state changes
@@ -28,7 +33,10 @@ public:
      * This method is notified when a plant's basic state information
      * changes, allowing the care scheduler to adjust care plans accordingly.
      */
-    void onPlantStateChanged(Plant* plant) override;
+    
+ explicit CareSchedulerObserver(Handler* chainHead) : handler_(chainHead) {}
+    ~CareSchedulerObserver();
+        //void onPlantStateChanged(Plant* plant,CareStrategy* CareStrategyOfPlant) override;
     
     /**
      * @brief Called when a plant's lifecycle state changes
@@ -41,23 +49,15 @@ public:
     void onLifeCycleChanged(Plant* plant, PlantLifeCycleState* newState) override;
     
     /**
-     * @brief Called when a plant's seasonal context changes
-     * @param plant Pointer to the plant with season change
-     * @param newSeason String representing the new season
-     * 
-     * This method adjusts care schedules based on seasonal changes that
-     * affect plant care requirements.
-     */
-    void onSeasonChanged(Plant* plant, string newSeason) override;
-    
-    /**
      * @brief Called when a plant's care strategy changes
      * @param plant Pointer to the plant with strategy change
      * 
      * This method responds to changes in plant care strategies and
      * updates scheduling accordingly.
      */
-    void onCareStrategyChanged(Plant* plant) override;
+    void onCareStrategyChanged(Plant* plant,CareStrategy* newStrategy) override;
+
+    //~CareSchedulerObserver() = default;
 };
 
 #endif

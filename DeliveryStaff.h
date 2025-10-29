@@ -1,35 +1,21 @@
-/**
- * @file DeliveryStaff.h
- * @brief Delivery staff that interacts with the mediator and participates in the chain of responsibility
- * @author COS214
- * @date 2025
- */
-
 #ifndef DELIVERYSTAFF_H
 #define DELIVERYSTAFF_H
 
-#include "Handler.h"
 #include "StoreColleague.h"
-#include "Commands.h"
+#include "Plant.h"
+#include "Inventory.h"
 #include <iostream>
 
-class DeliveryStaff : public Handler, public StoreColleague {
+class DeliveryStaff : public StoreColleague {
+private:
+    Inventory* greenhouse_ = nullptr;
+
 public:
-    using StoreColleague::StoreColleague;
+    explicit DeliveryStaff(Inventory* inv) : greenhouse_(inv) {}
 
-    /**
-     * @brief Handles delivery-related commands (part of Chain of Responsibility)
-     */
-    void handleRequest(Commands* r) override;
+    void setInventory(Inventory* inv) { greenhouse_ = inv; }
 
-    /**
-     * @brief Processes a request from the mediator (e.g., a customer order)
-     */
-    void processCustomerRequest(Commands* cmd);
-
-    /**
-     * @brief Receives notifications from mediator
-     */
+    void processCustomerRequest(Plant* plant);
     void receive(const std::string& event) override;
 };
 

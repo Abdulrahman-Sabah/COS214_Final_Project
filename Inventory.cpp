@@ -77,3 +77,9 @@ void Inventory::displayAll() {
     
     delete it;
 }
+
+bool Inventory::hasPlant(Plant* p)  
+{
+    return std::find(plants.begin(), plants.end(), p) != plants.end();
+}
+

@@ -27,7 +27,7 @@ public:
      * This method checks if the command type is "MoveToSales" and processes it.
      * If not, it passes the request to the next handler in the chain.
      */
-    void handleRequest(Commands* r) override;
+    void handleRequest(Commands* r,Plant* plant) override;
 };
 
 #endif

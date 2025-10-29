@@ -8,6 +8,7 @@
 #ifndef PLANTOBSERVER_H
 #define PLANTOBSERVER_H
 #include "Plant.h"
+#include "CareStrategy.h"
 #include <string>
 using namespace std;
 
@@ -33,7 +34,7 @@ public:
      * @brief Called when a plant's general state changes
      * @param plant The plant that changed state
      */
-    virtual void onPlantStateChanged(Plant* plant) = 0;
+    //virtual void onPlantStateChanged(Plant* plant,CareStrategy* CareStrategyOfPlant) = 0;
     
     /**
      * @brief Called when a plant's lifecycle state changes
@@ -47,13 +48,12 @@ public:
      * @param plant The plant whose season changed
      * @param newSeason The new season
      */
-    virtual void onSeasonChanged(Plant* plant, string newSeason) = 0;
     
     /**
      * @brief Called when a plant's care strategy changes
      * @param plant The plant whose care strategy changed
      */
-    virtual void onCareStrategyChanged(Plant* plant) = 0;
+    virtual void onCareStrategyChanged(Plant* plant,CareStrategy* newStrategy) = 0;
 };
 
 #endif

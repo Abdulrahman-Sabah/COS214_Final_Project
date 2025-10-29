@@ -7,6 +7,7 @@
 
 #ifndef HANDLER_H
 #define HANDLER_H
+#include "Plant.h"
 
 // Forward declarations
 class Notify;
@@ -34,7 +35,7 @@ class Handler{
          * This protected method allows derived handlers to easily pass requests
          * to the next handler in the chain when they cannot handle the request themselves.
          */
-        void passToSuccessor(Commands* r);
+        void passToSuccessor(Commands* r,Plant* plant);
     
     public:
         /**
@@ -54,7 +55,7 @@ class Handler{
          * processes specific types of requests. If the handler cannot process
          * the request, it should call passToSuccessor().
          */
-        virtual void handleRequest(Commands* r) = 0;
+        virtual void handleRequest(Commands* cmd,Plant* plant) = 0;
         
         /**
          * @brief Virtual destructor for proper polymorphic cleanup
