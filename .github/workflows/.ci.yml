@@ -41,18 +41,3 @@ jobs:
 
     - name: check for meemory leaks for unit tests
       run: make valgrind-tests
-
-    - name: Make coverage report
-      run: |
-        make clean
-        make COVERAGE=1 unit-tests
-        ./unit-tests
-        lcov --capture --directory . --output-file coverage.info
-        lcov --remove coverage.info '/usr/*' '/opt/*' '*/testFile/*' --output-file coverage.info
-        genhtml coverage.info --output-directory coverage-report
-
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-report
-        path: coverage-report
