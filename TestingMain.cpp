@@ -87,7 +87,7 @@
 #include "SellingStateCmd.h"
 #include "DeadStateCmd.h"
 #include "Plant.h"
-#include "CareScheduleObserver.h"   // your observer header (note the exact file name in your repo)
+#include "CareScheduleObserver.h"   
 #include "SeedlingState.h"
 #include "GrowingState.h"
 #include "DormantState.h"
