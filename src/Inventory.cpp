@@ -1,60 +1,58 @@
 #include "Inventory.h"
 #include "InventoryIterator.h"
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 Inventory::Inventory() {}
 
-Inventory::~Inventory() {
-    
+Inventory::~Inventory() {}
+
+void Inventory::addPlant(Plant *p) {
+  if (p != nullptr) {
+    plants.push_back(p);
+  }
 }
 
-void Inventory::addPlant(Plant* p) {
-    if (p != nullptr) {
-        plants.push_back(p);
+bool Inventory::removePlant(Plant *p) {
+  auto it = std::find(plants.begin(), plants.end(), p);
+  if (it != plants.end()) {
+    delete *it;
+    plants.erase(it);
+    return true;
+  }
+  return false;
+}
+
+Plant *Inventory::removePlantByName(const std::string &name) {
+  for (auto it = plants.begin(); it != plants.end(); ++it) {
+    if ((*it)->getName() == name) {
+      Plant *plant = *it;
+      plants.erase(it);
+      return plant;
     }
+  }
+  return nullptr;
 }
 
-bool Inventory::removePlant(Plant* p) {
-    auto it = std::find(plants.begin(), plants.end(), p);
-    if (it != plants.end()) {
-        delete *it;
-        plants.erase(it);
-        return true;
-    }
-    return false;
-}
-
-Plant* Inventory::removePlantByName(const std::string& name) {
-    for (auto it = plants.begin(); it != plants.end(); ++it) {
-        if ((*it)->getName() == name) {
-            Plant* plant = *it;
-            plants.erase(it);
-            return plant;
-        }
-    }
-    return nullptr;
-}
-
-PlantIterator* Inventory::createIterator() {
-    return new InventoryIterator(plants);
+PlantIterator *Inventory::createIterator() {
+  return new InventoryIterator(plants);
 }
 
 void Inventory::displayAll() {
-    std::cout << "\nCurrent Inventory: \n";
-    std::cout << "Total plants: " << plants.size() << "\n\n";
-    
-    PlantIterator* it = createIterator();
-    int count = 1;
-    
-    for (it->first(); !it->isDone(); it->next()) {
-        Plant* p = it->current();
-        if (p != nullptr) {
-            std::cout << count++ << ". ";
-           // p->show();
-            std::cout << "\n";
-        }
+  std::cout << "\nCurrent Inventory: \n";
+  std::cout << "Total plants: " << plants.size() << "\n\n";
+
+  PlantIterator *it = createIterator();
+  int count = 1;
+
+  for (it->first(); !it->isDone(); it->next()) {
+    Plant *p = it->current();
+    if (p != nullptr) {
+      std::cout << count++ << ". ";
+      // p->show();
+      std::cout << "\n";
     }
-    
-    delete it;
+  }
+
+  delete it;
 }

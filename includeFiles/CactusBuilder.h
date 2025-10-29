@@ -8,7 +8,7 @@
 // {
 //     private:
 //         SucculentCare* succulent;
-    
+
 //     public:
 //         SucculentBuilder();
 //         ~SucculentBuilder();
@@ -21,35 +21,33 @@
 
 // #endif
 
-
 #ifndef CACTUS_BUILDER_H
 #define CACTUS_BUILDER_H
 
-#include <string>
 #include "PlantBuilder.h"
+#include <string>
 
 // Forward declarations to minimize coupling
 class Plant;
 class Cactus;
 class PlantLifeCycleState;
 
-class CactusBuilder : public PlantBuilder
-{
-    private:
-        Plant* product; // the plant being built (will be a Cactus)
+class CactusBuilder : public PlantBuilder {
+private:
+  Plant *product; // the plant being built (will be a Cactus)
 
-    public:
-        CactusBuilder();
-        ~CactusBuilder() override;
+public:
+  CactusBuilder();
+  ~CactusBuilder() override;
 
-        // NOTE: By-value std::string parameters to match your ABI/linker traces
-        void setName(std::string n) override;
-        void setCareType(std::string ct) override;
-        void setSeason(std::string s) override;
-        void setLifeCycle(PlantLifeCycleState* state) override;
+  // NOTE: By-value std::string parameters to match your ABI/linker traces
+  void setName(std::string n) override;
+  void setCareType(std::string ct) override;
+  void setSeason(std::string s) override;
+  void setLifeCycle(PlantLifeCycleState *state) override;
 
-        // Transfer ownership of the built plant to the caller
-        Plant* getPlant() override;
+  // Transfer ownership of the built plant to the caller
+  Plant *getPlant() override;
 };
 
 #endif

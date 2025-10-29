@@ -6,12 +6,12 @@
 
 class ScheduleDelivery : public Commands {
 private:
-    std::string orderId;
+  std::string orderId;
 
 public:
-    explicit ScheduleDelivery(const std::string& id);
-    std::string getType() const override;
-    std::string getData() const override;
+  explicit ScheduleDelivery(const std::string &id);
+  std::string getType() const override;
+  std::string getData() const override;
 };
 
-#endif 
+#endif

@@ -3,12 +3,11 @@
 
 #include <string>
 
-class Commands 
-{
+class Commands {
 public:
-    virtual ~Commands() = default;
-    virtual std::string getType() const = 0;
-    virtual std::string getData() const = 0;
+  virtual ~Commands() = default;
+  virtual std::string getType() const = 0;
+  virtual std::string getData() const = 0;
 };
 
 #endif

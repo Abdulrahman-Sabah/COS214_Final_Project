@@ -5,8 +5,8 @@
 
 class RoseCreator : public Creator {
 public:
-    RoseCreator();
-    Plant* factoryMethod() const override;
+  RoseCreator();
+  Plant *factoryMethod() const override;
 };
 
 #endif

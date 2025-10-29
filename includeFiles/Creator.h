@@ -3,15 +3,13 @@
 
 #include "Plant.h"
 
-class Creator 
-{
-    protected:
-        Plant* product;
-        virtual Plant* factoryMethod() const = 0;
-
+class Creator {
+protected:
+  Plant *product;
+  virtual Plant *factoryMethod() const = 0;
 
 public:
-    virtual ~Creator() {}
+  virtual ~Creator() {}
 };
 
-#endif 
+#endif

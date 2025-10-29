@@ -16,6 +16,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y g++ make valgrind clang-format lcov gcovr
+        sudo apt -get install -y clang-format
 
     - name: Caching build files
       uses: actions/cache@v4

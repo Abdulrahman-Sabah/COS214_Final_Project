@@ -3,14 +3,13 @@
 
 #include "PlantBuilder.h"
 
-class GreenhouseDirector
-{
-    private:
-        PlantBuilder* builder;
+class GreenhouseDirector {
+private:
+  PlantBuilder *builder;
 
-    public:
-        GreenhouseDirector(PlantBuilder* b);
-        void construct();
+public:
+  GreenhouseDirector(PlantBuilder *b);
+  void construct();
 };
 
 #endif

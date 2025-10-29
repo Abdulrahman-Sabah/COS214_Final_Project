@@ -1,36 +1,37 @@
 #ifndef PLANTLIFECYCLESTATE_H
 #define PLANTLIFECYCLESTATE_H
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <vector>
 
 #include "Plant.h"
 
 class PlantLifeCycleState {
 protected:
-	bool dead;
-	bool attention;
+  bool dead;
+  bool attention;
+
 public:
-    PlantLifeCycleState();
+  PlantLifeCycleState();
 
-    virtual ~PlantLifeCycleState() = default;
+  virtual ~PlantLifeCycleState() = default;
 
-	virtual void advance(Plant* plant) = 0;
+  virtual void advance(Plant *plant) = 0;
 
-	virtual std::string name() = 0;
+  virtual std::string name() = 0;
 
-	bool getDead();
+  bool getDead();
 
-	bool getAttention();
+  bool getAttention();
 
-	bool setDead(bool d);
+  bool setDead(bool d);
 
-	bool setAttention(bool a);
+  bool setAttention(bool a);
 
-	virtual bool isDead() = 0;
+  virtual bool isDead() = 0;
 
-	virtual bool needsAttention() = 0;
+  virtual bool needsAttention() = 0;
 };
 
-#endif 
+#endif

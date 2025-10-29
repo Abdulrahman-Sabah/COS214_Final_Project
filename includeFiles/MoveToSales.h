@@ -6,12 +6,12 @@
 
 class MoveToSales : public Commands {
 private:
-    std::string plantId;
+  std::string plantId;
 
 public:
-    explicit MoveToSales(const std::string& id);
-    std::string getType() const override;
-    std::string getData() const override;
+  explicit MoveToSales(const std::string &id);
+  std::string getType() const override;
+  std::string getData() const override;
 };
 
-#endif 
+#endif

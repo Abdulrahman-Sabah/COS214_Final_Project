@@ -5,25 +5,26 @@
 
 class DormantState : public PlantLifeCycleState {
 private:
-    bool growing;
+  bool growing;
+
 public:
-    DormantState();
+  DormantState();
 
-    ~DormantState() override;
+  ~DormantState() override;
 
-    void advance(Plant* plant) override;
+  void advance(Plant *plant) override;
 
-    std::string name() override;
+  std::string name() override;
 
-    bool isDead() override;
+  bool isDead() override;
 
-    bool getGrowing();
+  bool getGrowing();
 
-    void setGrowing(bool grow);
+  void setGrowing(bool grow);
 
-	bool isGrowingAgain();
+  bool isGrowingAgain();
 
-    bool needsAttention() override;
+  bool needsAttention() override;
 };
 
 #endif
