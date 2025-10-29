@@ -1,729 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌱 Pixel Plant Nursery</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌱 Pixel Plant Nursery — Customer & Staff</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 100%);
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;
+    }
+    .hidden { display: none !important; }
 
-        body {
-            font-family: 'Courier New', monospace;
-            background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-        }
+    .nursery-container { background: #F5DEB3; border: 8px solid #8B4513; border-radius: 4px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-width: 1100px; width: 96%; }
+    .header { display:flex; align-items:center; justify-content:space-between; gap: 12px; margin-bottom: 16px; color: #2F4F2F; text-shadow: 2px 2px #D2B48C; }
+    .header h1 { font-size: 28px; }
+    .role-chip { background:#228B22; color:#fff; font-weight:bold; border:3px solid #006400; padding:6px 10px; border-radius: 6px; }
+    .btn { padding: 10px 12px; border: 3px solid #8B4513; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; cursor: pointer; transition: transform .15s; text-transform: uppercase; background:#FFE4B5; }
+    .btn:hover { transform: scale(1.04); }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background:#FFD700; }
+    .btn-accent { background:#87CEEB; }
 
-        .nursery-container {
-            background: #F5DEB3;
-            border: 8px solid #8B4513;
-            border-radius: 4px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            max-width: 900px;
-            width: 95%;
-        }
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #8B4513; padding: 10px; border-radius: 4px; margin-bottom: 16px; color: #FFE4B5; }
+    .stat { text-align: center; padding: 5px; }
+    .stat-value { font-size: 20px; font-weight: bold; color: #FFD700; }
 
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2F4F2F;
-            text-shadow: 2px 2px #D2B48C;
-        }
+    .main-area { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 10px; }
+    .inventory-section, .info-panel, .staff-panel { background: #DEB887; border: 4px solid #8B4513; border-radius: 4px; padding: 15px; min-height: 360px; }
+    .section-title { font-size: 18px; color: #2F4F2F; margin-bottom: 10px; text-align: center; background: #FFE4B5; padding: 5px; border-radius: 2px; }
 
-        .header h1 {
-            font-size: 32px;
-            margin-bottom: 5px;
-        }
+    .plant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 10px; }
+    .plant-card { background: #F5DEB3; border: 3px solid #8B4513; border-radius: 4px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.2s; position: relative; }
+    .plant-card:hover { transform: translateY(-5px); border-color: #228B22; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .plant-card.selected { border-color: #FFD700; background: #FFF8DC; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+    .plant-sprite { width: 64px; height: 64px; margin: 0 auto 5px; font-size: 48px; line-height: 64px; }
+    .plant-name { font-size: 12px; font-weight: bold; color: #2F4F2F; margin: 5px 0; }
+    .plant-price { font-size: 14px; color: #228B22; font-weight: bold; }
+    .plant-info { font-size: 10px; color: #666; margin-top: 3px; }
 
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            background: #8B4513;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            color: #FFE4B5;
-        }
+    .plant-detail { background: #F5DEB3; padding: 10px; border-radius: 4px; margin-bottom: 10px; }
+    .detail-sprite { width: 128px; height: 128px; margin: 10px auto; font-size: 96px; line-height: 128px; text-align: center; }
+    .detail-row { display: flex; justify-content: space-between; margin: 8px 0; font-size: 12px; }
+    .detail-label { font-weight: bold; color: #2F4F2F; }
+    .detail-value { color: #666; }
 
-        .stat {
-            text-align: center;
-            padding: 5px;
-        }
+    .iterator-display { background: #FFE4B5; padding: 10px; border-radius: 4px; text-align: center; margin-top: 10px; font-size: 12px; color: #2F4F2F; }
 
-        .stat-value {
-            font-size: 20px;
-            font-weight: bold;
-            color: #FFD700;
-        }
+    .notification { position: fixed; top: 20px; right: 20px; background: #228B22; color: white; padding: 15px 20px; border-radius: 4px; border: 3px solid #006400; font-weight: bold; animation: slideIn 0.3s, slideOut 0.3s 2.7s; z-index: 1000; }
+    .notification.error { background: #DC143C; border-color: #8B0000; }
 
-        .main-area {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
+    @keyframes slideIn { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(400px); opacity: 0; } }
+    @keyframes plantPop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    .plant-card.purchased { animation: plantPop 0.5s; }
 
-        .inventory-section {
-            background: #DEB887;
-            border: 4px solid #8B4513;
-            border-radius: 4px;
-            padding: 15px;
-            min-height: 400px;
-        }
+    .season-badge { position: absolute; top: 5px; right: 5px; background: #228B22; color: white; font-size: 10px; padding: 2px 5px; border-radius: 2px; }
+    .no-selection { text-align: center; color: #666; padding: 40px; font-style: italic; }
+    .loading { text-align: center; color: #2F4F2F; padding: 40px; font-size: 18px; }
 
-        .section-title {
-            font-size: 18px;
-            color: #2F4F2F;
-            margin-bottom: 10px;
-            text-align: center;
-            background: #FFE4B5;
-            padding: 5px;
-            border-radius: 2px;
-        }
+    /* Role chooser overlay */
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index: 2000; }
+    .overlay-card { width: 96%; max-width: 680px; background:#F5DEB3; border:8px solid #8B4513; border-radius:4px; padding: 22px; text-align:center; }
+    .role-grid { margin-top: 14px; display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .role-tile { cursor:pointer; border:4px solid #8B4513; border-radius: 8px; padding: 18px; background:#FFE4B5; transition: transform .15s; }
+    .role-tile:hover { transform: translateY(-3px); border-color:#228B22; }
+    .role-title { font-weight:900; margin-top:6px; }
+    .pin-row { margin-top: 12px; display:flex; justify-content:center; gap: 8px; }
+    .pin-input { border: 3px solid #8B4513; background:#FFF8DC; padding: 8px; width: 180px; text-align:center; font-weight:bold; }
 
-        .plant-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .plant-card {
-            background: #F5DEB3;
-            border: 3px solid #8B4513;
-            border-radius: 4px;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
-        }
-
-        .plant-card:hover {
-            transform: translateY(-5px);
-            border-color: #228B22;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .plant-card.selected {
-            border-color: #FFD700;
-            background: #FFF8DC;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-
-        .plant-sprite {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 5px;
-            font-size: 48px;
-            line-height: 64px;
-        }
-
-        .plant-name {
-            font-size: 12px;
-            font-weight: bold;
-            color: #2F4F2F;
-            margin: 5px 0;
-        }
-
-        .plant-price {
-            font-size: 14px;
-            color: #228B22;
-            font-weight: bold;
-        }
-
-        .plant-info {
-            font-size: 10px;
-            color: #666;
-            margin-top: 3px;
-        }
-
-        .info-panel {
-            background: #DEB887;
-            border: 4px solid #8B4513;
-            border-radius: 4px;
-            padding: 15px;
-        }
-
-        .plant-detail {
-            background: #F5DEB3;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        .detail-sprite {
-            width: 128px;
-            height: 128px;
-            margin: 10px auto;
-            font-size: 96px;
-            line-height: 128px;
-            text-align: center;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 8px 0;
-            font-size: 12px;
-        }
-
-        .detail-label {
-            font-weight: bold;
-            color: #2F4F2F;
-        }
-
-        .detail-value {
-            color: #666;
-        }
-
-        .controls {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .btn {
-            padding: 12px;
-            border: 3px solid #8B4513;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
-        }
-
-        .btn:hover:not(:disabled) {
-            transform: scale(1.05);
-        }
-
-        .btn:active:not(:disabled) {
-            transform: scale(0.95);
-        }
-
-        .btn-browse {
-            background: #87CEEB;
-            color: #2F4F2F;
-        }
-
-        .btn-browse:hover {
-            background: #6AB8E0;
-        }
-
-        .btn-purchase {
-            background: #FFD700;
-            color: #2F4F2F;
-        }
-
-        .btn-purchase:hover:not(:disabled) {
-            background: #FFC700;
-        }
-
-        .btn-purchase:disabled {
-            background: #CCC;
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .btn-add-basket {
-            background: #32CD32;
-            color: white;
-        }
-
-        .btn-add-basket:hover:not(:disabled) {
-            background: #28a428;
-        }
-
-        .btn-add-basket:disabled {
-            background: #CCC;
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .iterator-display {
-            background: #FFE4B5;
-            padding: 10px;
-            border-radius: 4px;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 12px;
-            color: #2F4F2F;
-        }
-
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #228B22;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 4px;
-            border: 3px solid #006400;
-            font-weight: bold;
-            animation: slideIn 0.3s, slideOut 0.3s 2.7s;
-            z-index: 1000;
-        }
-
-        .notification.error {
-            background: #DC143C;
-            border-color: #8B0000;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-        }
-
-        @keyframes plantPop {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .plant-card.purchased {
-            animation: plantPop 0.5s;
-        }
-
-        .season-badge {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: #228B22;
-            color: white;
-            font-size: 10px;
-            padding: 2px 5px;
-            border-radius: 2px;
-        }
-
-        .no-selection {
-            text-align: center;
-            color: #666;
-            padding: 40px;
-            font-style: italic;
-        }
-
-        .loading {
-            text-align: center;
-            color: #2F4F2F;
-            padding: 40px;
-            font-size: 18px;
-        }
-    </style>
+    /* Staff table */
+    table { width:100%; border-collapse: collapse; background:#F5DEB3; }
+    th, td { border: 2px solid #8B4513; padding: 6px; font-size: 13px; }
+    th { background:#FFE4B5; }
+    tr.selected-row { outline: 4px solid #FFD700; }
+    .form-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+    .form-grid label { font-size: 12px; color:#2F4F2F; font-weight:bold; }
+    .form-grid input, .form-grid select { border:3px solid #8B4513; background:#FFF8DC; padding:8px; }
+  </style>
 </head>
 <body>
-    <div class="nursery-container">
-        <div class="header">
-            <h1>🌱 PIXEL PLANT NURSERY 🌱</h1>
-            <p>Browse & Purchase Plants</p>
+  <!-- Role chooser overlay -->
+  <div id="roleOverlay" class="overlay">
+    <div class="overlay-card">
+      <h2 style="color:#2F4F2F; text-shadow:1px 1px #D2B48C;">🌱 Welcome to PIXEL PLANT NURSERY</h2>
+      <p style="margin-top:6px;">Choose how you want to enter:</p>
+      <div class="role-grid">
+        <div class="role-tile" id="chooseCustomer">
+          <div style="font-size:54px;">🛒</div>
+          <div class="role-title">I'm a Customer</div>
+          <div style="font-size:12px; color:#555;">Browse, add to basket, purchase</div>
         </div>
-
-        <div class="stats-bar">
-            <div class="stat">
-                <div>Available</div>
-                <div class="stat-value" id="inventory-count">0</div>
-            </div>
-            <div class="stat">
-                <div>Balance</div>
-                <div class="stat-value" id="balance">R500.00</div>
-            </div>
-            <div class="stat">
-                <div>Basket Items</div>
-                <div class="stat-value" id="basket-count">0</div>
-            </div>
-            <div class="stat">
-                <div>Basket Total</div>
-                <div class="stat-value" id="basket-total">R0.00</div>
-            </div>
+        <div class="role-tile" id="chooseStaff">
+          <div style="font-size:54px;">🧑‍🌾</div>
+          <div class="role-title">I'm Staff</div>
+          <div style="font-size:12px; color:#555;">Manage inventory & export</div>
+          <div class="pin-row">
+            <input id="staffPin" class="pin-input" type="password" placeholder="Enter PIN (default 1234)">
+          </div>
+          <div class="pin-row">
+            <button id="staffEnterBtn" class="btn btn-primary">Enter Staff</button>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="main-area">
-            <div class="inventory-section">
-                <div class="section-title">🏪 AVAILABLE PLANTS</div>
-                <div class="plant-grid" id="plant-grid">
-                    <div class="loading">Loading plants...</div>
-                </div>
-                <div class="iterator-display" id="iterator-info">
-                    Iterator Position: <span id="iterator-pos">0</span> / <span id="iterator-total">0</span>
-                </div>
-            </div>
-
-            <div class="info-panel">
-                <div class="section-title">📋 PLANT DETAILS</div>
-                <div id="plant-details">
-                    <div class="no-selection">
-                        Click on a plant to view details
-                    </div>
-                </div>
-                
-                <div class="controls">
-                    <button class="btn btn-browse" onclick="app && app.browseNext()" disabled id="browse-btn">→ Browse Next</button>
-                    <button class="btn btn-add-basket" onclick="app && app.addToBasket()" disabled id="basket-btn">🛒 Add to Basket</button>
-                    <button class="btn btn-purchase" onclick="app && app.purchaseBasket()" disabled id="purchase-btn">💰 Purchase Basket</button>
-                </div>
-            </div>
-        </div>
+  <div class="nursery-container">
+    <div class="header">
+      <h1>🌱 PIXEL PLANT NURSERY</h1>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span class="role-chip">Role: <span id="roleLabel">Customer</span></span>
+        <button id="switchRoleBtn" class="btn btn-accent">Switch Role</button>
+      </div>
     </div>
 
-    <script>
-        // Plant class
-        class Plant {
-            constructor(name, careType, state, season, price) {
-                this.name = name;
-                this.careType = careType;
-                this.state = state;
-                this.season = season;
-                this.plantPrice = price;
-            }
+    <!-- Shared / Customer Stats Bar -->
+    <div id="statsBar" class="stats-bar">
+      <div class="stat"><div>Available</div><div class="stat-value" id="inventory-count">0</div></div>
+      <div class="stat"><div>Balance</div><div class="stat-value" id="balance">R500.00</div></div>
+      <div class="stat"><div>Basket Items</div><div class="stat-value" id="basket-count">0</div></div>
+      <div class="stat"><div>Basket Total</div><div class="stat-value" id="basket-total">R0.00</div></div>
+    </div>
 
-            getName() { return this.name; }
-            getCareType() { return this.careType; }
-            getStateText() { return this.state; }
-            getSeason() { return this.season; }
-            price() { return this.plantPrice; }
-            
-            getSprite() {
-                const sprites = {
-                    'Red Rose': '🌹', 'Rose': '🌹',
-                    'Aloe Vera': '🌵', 'Barrel Cactus': '🌵', 'Cactus': '🌵',
-                    'Lavender': '💜',
-                    'Baobab Tree': '🌳',
-                    'Jade Plant': '🪴',
-                    'Peace Lily': '🌸',
-                    'Snake Plant': '🌿'
-                };
-                return sprites[this.name] || '🌱';
-            }
-        }
+    <!-- CUSTOMER VIEW -->
+    <div id="customerView">
+      <div class="main-area">
+        <div class="inventory-section">
+          <div class="section-title">🏪 AVAILABLE PLANTS</div>
+          <div class="plant-grid" id="plant-grid"><div class="loading">Loading plants...</div></div>
+          <div class="iterator-display" id="iterator-info">Iterator Position: <span id="iterator-pos">0</span> / <span id="iterator-total">0</span></div>
+        </div>
 
-        // Iterator
-        class PlantIterator {
-            constructor(plants) {
-                this.plants = plants;
-                this.currentIndex = 0;
-            }
+        <div class="info-panel">
+          <div class="section-title">📋 PLANT DETAILS</div>
+          <div id="plant-details"><div class="no-selection">Click on a plant to view details</div></div>
+          <div class="controls" style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
+            <button class="btn btn-accent" id="browse-btn" disabled>→ Browse Next</button>
+            <button class="btn" style="background:#32CD32; color:#fff;" id="basket-btn" disabled>🛒 Add to Basket</button>
+            <button class="btn btn-primary" id="purchase-btn" disabled>💰 Purchase Basket</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            first() { this.currentIndex = 0; }
-            next() { if (!this.isDone()) this.currentIndex++; }
-            isDone() { return this.currentIndex >= this.plants.length; }
-            current() { return this.isDone() ? null : this.plants[this.currentIndex]; }
-            getPosition() { return this.currentIndex; }
-            getTotal() { return this.plants.length; }
-        }
+    <!-- STAFF VIEW -->
+    <div id="staffView" class="hidden">
+      <div class="staff-panel">
+        <div class="section-title">🧑‍🌾 STAFF DASHBOARD — Inventory Management</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+          <button id="loadFromJsonBtn" class="btn btn-accent">Load from inventory_state.json</button>
+          <button id="loadDemoBtn" class="btn">Load Demo Plants</button>
+          <button id="exportJsonBtn" class="btn btn-primary">Export inventory_state.json</button>
+          <button id="clearAllBtn" class="btn" style="background:#ffb7b7;">Clear All</button>
+        </div>
 
-        // Inventory
-        class Inventory {
-            constructor() {
-                this.plants = [];
-            }
+        <div style="overflow:auto; max-height:300px;">
+          <table id="staffTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Care</th>
+                <th>State</th>
+                <th>Season</th>
+                <th>Price (R)</th>
+              </tr>
+            </thead>
+            <tbody id="staffTbody">
+              <!-- rows injected -->
+            </tbody>
+          </table>
+        </div>
 
-            addPlant(plant) {
-                if (plant) this.plants.push(plant);
-            }
+        <div class="section-title" style="margin-top:12px;">➕ Add / Edit Plant</div>
+        <div class="form-grid">
+          <div>
+            <label>Name</label>
+            <input id="fName" placeholder="e.g., Red Rose" />
+          </div>
+          <div>
+            <label>Care</label>
+            <select id="fCare">
+              <option>Low</option>
+              <option selected>Moderate</option>
+              <option>High</option>
+            </select>
+          </div>
+          <div>
+            <label>State</label>
+            <select id="fState">
+              <option>Seedling</option>
+              <option>Young</option>
+              <option selected>Budding</option>
+              <option>Flowering</option>
+              <option>Mature</option>
+            </select>
+          </div>
+          <div>
+            <label>Season</label>
+            <select id="fSeason">
+              <option>Spring</option>
+              <option>Summer</option>
+              <option>Autumn</option>
+              <option>Winter</option>
+              <option>Year-round</option>
+            </select>
+          </div>
+          <div>
+            <label>Price (R)</label>
+            <input id="fPrice" type="number" step="0.01" min="0" value="45.00" />
+          </div>
+          <div style="display:flex; align-items:flex-end; gap:8px;">
+            <button id="addPlantBtn" class="btn btn-primary">Add Plant</button>
+            <button id="removeSelectedBtn" class="btn" style="background:#ffb7b7;">Remove Selected</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            removePlant(plant) {
-                const index = this.plants.indexOf(plant);
-                if (index > -1) {
-                    this.plants.splice(index, 1);
-                    return true;
-                }
-                return false;
-            }
+  <script>
+    // ===== Data Model =====
+    class Plant {
+      constructor(name, careType, state, season, price) {
+        this.name = name; this.careType = careType; this.state = state; this.season = season; this.plantPrice = Number(price) || 0;
+      }
+      getName(){return this.name;} getCareType(){return this.careType;} getStateText(){return this.state;} getSeason(){return this.season;} price(){return this.plantPrice;}
+      getSprite(){ const s={ 'Red Rose':'🌹','Rose':'🌹','Aloe Vera':'🌵','Barrel Cactus':'🌵','Cactus':'🌵','Lavender':'💜','Baobab Tree':'🌳','Jade Plant':'🪴','Peace Lily':'🌸','Snake Plant':'🌿'}; return s[this.name]||'🌱';}
+    }
+    class PlantIterator { constructor(plants){ this.plants=plants; this.currentIndex=0; } first(){this.currentIndex=0;} next(){ if(!this.isDone()) this.currentIndex++; } isDone(){return this.currentIndex>=this.plants.length;} current(){return this.isDone()?null:this.plants[this.currentIndex];} getPosition(){return this.currentIndex;} getTotal(){return this.plants.length;} }
+    class Inventory { constructor(){ this.plants=[]; } addPlant(p){ if(p) this.plants.push(p);} removePlant(p){ const i=this.plants.indexOf(p); if(i>-1){ this.plants.splice(i,1); return true;} return false;} getSize(){return this.plants.length;} createIterator(){return new PlantIterator(this.plants);} clear(){ this.plants.length=0; } }
 
-            getSize() { return this.plants.length; }
-            createIterator() { return new PlantIterator(this.plants); }
-        }
+    // ===== App Controller =====
+    class PlantNurseryApp {
+      constructor(){
+        this.inventory = new Inventory();
+        this.basket = new Map();
+        this.selectedPlant = null;
+        this.balance = 500.00;
+        this.role = 'customer'; // 'customer' | 'staff'
 
-        // Main App
-        class PlantNurseryApp {
-            constructor() {
-                this.inventory = new Inventory();
-                this.basket = new Map();
-                this.selectedPlant = null;
-                this.balance = 500.00;
-                this.init();
-            }
+        // bind UI
+        this.ui = {
+          roleOverlay: document.getElementById('roleOverlay'),
+          roleLabel: document.getElementById('roleLabel'),
+          switchRoleBtn: document.getElementById('switchRoleBtn'),
 
-            async init() {
-                await this.loadPlants();
-                this.renderInventory();
-                this.enableButtons();
-            }
+          // customer
+          customerView: document.getElementById('customerView'),
+          grid: document.getElementById('plant-grid'),
+          iteratorPos: document.getElementById('iterator-pos'),
+          iteratorTotal: document.getElementById('iterator-total'),
+          details: document.getElementById('plant-details'),
+          browseBtn: document.getElementById('browse-btn'),
+          basketBtn: document.getElementById('basket-btn'),
+          purchaseBtn: document.getElementById('purchase-btn'),
 
-            async loadPlants() {
-                try {
-                    // Fetch from root path (server will serve inventory_state.json)
-                    const response = await fetch('/inventory_state.json');
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        console.log('📦 JSON Response:', data);
-                        
-                        if (data.plants && data.plants.length > 0) {
-                            data.plants.forEach(p => {
-                                this.inventory.addPlant(new Plant(p.name, p.careType, p.state, p.season, p.price));
-                            });
-                            console.log(`✅ Loaded ${data.plants.length} plants from inventory_state.json`);
-                            this.showNotification(`Loaded ${data.plants.length} plants from C++ backend! 🎉`);
-                            return;
-                        } else {
-                            console.log('⚠️ JSON loaded but no plants array found');
-                        }
-                    }
-                } catch (error) {
-                    console.log('⚠️ Error loading inventory_state.json:', error);
-                }
+          // shared stats
+          invCount: document.getElementById('inventory-count'),
+          balance: document.getElementById('balance'),
+          basketCount: document.getElementById('basket-count'),
+          basketTotal: document.getElementById('basket-total'),
 
-                // Fallback to demo data
-                console.log('📋 Using demo data as fallback');
-                this.loadDemoPlants();
-            }
+          // staff
+          staffView: document.getElementById('staffView'),
+          staffTbody: document.getElementById('staffTbody'),
+          loadFromJsonBtn: document.getElementById('loadFromJsonBtn'),
+          loadDemoBtn: document.getElementById('loadDemoBtn'),
+          exportJsonBtn: document.getElementById('exportJsonBtn'),
+          clearAllBtn: document.getElementById('clearAllBtn'),
+          addPlantBtn: document.getElementById('addPlantBtn'),
+          removeSelectedBtn: document.getElementById('removeSelectedBtn'),
+          fName: document.getElementById('fName'), fCare: document.getElementById('fCare'), fState: document.getElementById('fState'), fSeason: document.getElementById('fSeason'), fPrice: document.getElementById('fPrice')
+        };
 
-            loadDemoPlants() {
-                const demos = [
-                    new Plant("Red Rose", "Moderate", "Budding", "Spring", 45.99),
-                    new Plant("Aloe Vera", "Low", "Mature", "Summer", 25.50),
-                    new Plant("Barrel Cactus", "Low", "Young", "Summer", 35.00),
-                    new Plant("Lavender", "Moderate", "Flowering", "Spring", 28.75),
-                    new Plant("Baobab Tree", "High", "Seedling", "Year-round", 150.00),
-                    new Plant("Jade Plant", "Low", "Mature", "Year-round", 32.00),
-                    new Plant("Peace Lily", "Moderate", "Flowering", "Spring", 55.00),
-                    new Plant("Snake Plant", "Low", "Mature", "Year-round", 40.00)
-                ];
-                demos.forEach(p => this.inventory.addPlant(p));
-                console.log('✅ Loaded demo plants');
-            }
-
-            enableButtons() {
-                document.getElementById('browse-btn').disabled = false;
-                document.getElementById('purchase-btn').disabled = false;
-            }
-
-            renderInventory() {
-                const grid = document.getElementById('plant-grid');
-                grid.innerHTML = '';
-
-                const iterator = this.inventory.createIterator();
-                let position = 0;
-                let selectedPos = 0;
-                
-                for (iterator.first(); !iterator.isDone(); iterator.next()) {
-                    const plant = iterator.current();
-                    if (plant) {
-                        const card = this.createPlantCard(plant);
-                        grid.appendChild(card);
-                        if (plant === this.selectedPlant) selectedPos = position;
-                        position++;
-                    }
-                }
-
-                this.updateIteratorDisplay(selectedPos);
-                this.updateStats();
-            }
-
-            createPlantCard(plant) {
-                const card = document.createElement('div');
-                card.className = 'plant-card';
-                if (plant === this.selectedPlant) card.classList.add('selected');
-
-                card.innerHTML = `
-                    <div class="season-badge">${plant.getSeason()}</div>
-                    <div class="plant-sprite">${plant.getSprite()}</div>
-                    <div class="plant-name">${plant.getName()}</div>
-                    <div class="plant-price">R${plant.price().toFixed(2)}</div>
-                    <div class="plant-info">${plant.getCareType()} Care</div>
-                `;
-
-                card.addEventListener('click', () => this.selectPlant(plant));
-                return card;
-            }
-
-            selectPlant(plant) {
-                this.selectedPlant = plant;
-                
-                const iterator = this.inventory.createIterator();
-                let position = 0;
-                
-                for (iterator.first(); !iterator.isDone(); iterator.next()) {
-                    if (iterator.current() === plant) break;
-                    position++;
-                }
-                
-                this.renderInventory();
-                this.renderPlantDetails(plant);
-                this.updateIteratorDisplay(position);
-                
-                document.getElementById('basket-btn').disabled = false;
-            }
-
-            renderPlantDetails(plant) {
-                const detailsDiv = document.getElementById('plant-details');
-                detailsDiv.innerHTML = `
-                    <div class="plant-detail">
-                        <div class="detail-sprite">${plant.getSprite()}</div>
-                        <div class="detail-row">
-                            <span class="detail-label">Name:</span>
-                            <span class="detail-value">${plant.getName()}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Price:</span>
-                            <span class="detail-value">R${plant.price().toFixed(2)}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Care Level:</span>
-                            <span class="detail-value">${plant.getCareType()}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">State:</span>
-                            <span class="detail-value">${plant.getStateText()}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Season:</span>
-                            <span class="detail-value">${plant.getSeason()}</span>
-                        </div>
-                    </div>
-                `;
-            }
-
-            browseNext() {
-                if (!this.selectedPlant || this.inventory.getSize() === 0) {
-                    // Select first plant if none selected
-                    const iterator = this.inventory.createIterator();
-                    iterator.first();
-                    if (!iterator.isDone()) {
-                        this.selectPlant(iterator.current());
-                    }
-                    return;
-                }
-
-                const iterator = this.inventory.createIterator();
-                let found = false;
-                
-                for (iterator.first(); !iterator.isDone(); iterator.next()) {
-                    if (found) {
-                        this.selectPlant(iterator.current());
-                        return;
-                    }
-                    if (iterator.current() === this.selectedPlant) {
-                        found = true;
-                    }
-                }
-                
-                // Wrap to first
-                iterator.first();
-                if (!iterator.isDone()) {
-                    this.selectPlant(iterator.current());
-                }
-            }
-
-            addToBasket() {
-                if (!this.selectedPlant) {
-                    this.showNotification("Please select a plant first!", "error");
-                    return;
-                }
-                
-                const quantity = this.basket.get(this.selectedPlant) || 0;
-                this.basket.set(this.selectedPlant, quantity + 1);
-                
-                this.updateBasketDisplay();
-                this.showNotification(`Added ${this.selectedPlant.getName()} to basket! 🛒`);
-            }
-
-            getBasketTotal() {
-                let total = 0;
-                for (const [plant, quantity] of this.basket) {
-                    total += plant.price() * quantity;
-                }
-                return total;
-            }
-
-            getBasketQuantity() {
-                let total = 0;
-                for (const quantity of this.basket.values()) {
-                    total += quantity;
-                }
-                return total;
-            }
-
-            updateBasketDisplay() {
-                document.getElementById('basket-count').textContent = this.getBasketQuantity();
-                document.getElementById('basket-total').textContent = `R${this.getBasketTotal().toFixed(2)}`;
-            }
-
-            purchaseBasket() {
-                const total = this.getBasketTotal();
-                if (total === 0) {
-                    this.showNotification("Basket is empty!", "error");
-                    return;
-                }
-
-                if (this.balance < total) {
-                    this.showNotification("Insufficient funds!", "error");
-                    return;
-                }
-
-                this.balance -= total;
-                this.showNotification(`Purchased basket for R${total.toFixed(2)}! 🎉`);
-
-                this.basket.clear();
-                this.updateBasketDisplay();
-                this.updateStats();
-            }
-
-            updateIteratorDisplay(position) {
-                document.getElementById('iterator-pos').textContent = position + 1;
-                document.getElementById('iterator-total').textContent = this.inventory.getSize();
-            }
-
-            updateStats() {
-                document.getElementById('inventory-count').textContent = this.inventory.getSize();
-                document.getElementById('balance').textContent = `R${this.balance.toFixed(2)}`;
-                this.updateBasketDisplay();
-            }
-
-            showNotification(message, type = 'success') {
-                const notification = document.createElement('div');
-                notification.className = `notification ${type}`;
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                setTimeout(() => notification.remove(), 3000);
-            }
-        }
-
-        // Initialize
-        let app;
-        document.addEventListener('DOMContentLoaded', () => {
-            app = new PlantNurseryApp();
+        // role chooser wiring
+        document.getElementById('chooseCustomer').addEventListener('click', ()=>{ this.setRole('customer'); this.ui.roleOverlay.classList.add('hidden'); });
+        document.getElementById('staffEnterBtn').addEventListener('click', ()=>{
+          const pin = (document.getElementById('staffPin').value||'').trim();
+          if(pin === PlantNurseryApp.STAFF_PIN){ this.setRole('staff'); this.ui.roleOverlay.classList.add('hidden'); }
+          else { this.toast('Wrong PIN. Try 1234 or set your own in code.', 'error'); }
         });
-    </script>
+        document.getElementById('chooseStaff').addEventListener('dblclick', ()=>{ // shortcut: double-click card enters with default pin
+          this.setRole('staff'); this.ui.roleOverlay.classList.add('hidden');
+        });
+        this.ui.switchRoleBtn.addEventListener('click', ()=>{ this.ui.roleOverlay.classList.remove('hidden'); });
+
+        // customer actions
+        this.ui.browseBtn.addEventListener('click', ()=> this.browseNext());
+        this.ui.basketBtn.addEventListener('click', ()=> this.addToBasket());
+        this.ui.purchaseBtn.addEventListener('click', ()=> this.purchaseBasket());
+
+        // staff actions
+        this.ui.loadFromJsonBtn.addEventListener('click', ()=> this.loadFromJson());
+        this.ui.loadDemoBtn.addEventListener('click', ()=> { this.loadDemoPlants(true); });
+        this.ui.exportJsonBtn.addEventListener('click', ()=> this.exportToJson());
+        this.ui.clearAllBtn.addEventListener('click', ()=> { this.inventory.clear(); this.selectedPlant=null; this.renderAll(); });
+        this.ui.addPlantBtn.addEventListener('click', ()=> this.staffAddPlant());
+        this.ui.removeSelectedBtn.addEventListener('click', ()=> this.staffRemoveSelected());
+
+        // boot
+        this.init();
+      }
+
+      static get STAFF_PIN(){ return '1234'; } // change here
+
+      async init(){ await this.loadPlants(); this.renderAll(); this.enableCustomerButtons(); }
+
+      async loadPlants(){
+        // try fetch from root (inventory_state.json served by backend)
+        try {
+          const res = await fetch('./inventory_state.json');
+          if(res.ok){
+            const data = await res.json();
+            if(Array.isArray(data.plants) && data.plants.length){
+              data.plants.forEach(p=> this.inventory.addPlant(new Plant(p.name, p.careType, p.state, p.season, p.price)));
+              this.toast(`Loaded ${data.plants.length} plants from C++ backend! 🎉`);
+              return;
+            }
+          }
+        } catch(e){ /* ignore, fallback */ }
+        // fallback to demo
+        this.loadDemoPlants();
+      }
+
+      loadDemoPlants(showToast){
+        const demos = [
+          new Plant('Red Rose','Moderate','Budding','Spring',45.99),
+          new Plant('Aloe Vera','Low','Mature','Summer',25.50),
+          new Plant('Barrel Cactus','Low','Young','Summer',35.00),
+          new Plant('Lavender','Moderate','Flowering','Spring',28.75),
+          new Plant('Baobab Tree','High','Seedling','Year-round',150.00),
+          new Plant('Jade Plant','Low','Mature','Year-round',32.00),
+          new Plant('Peace Lily','Moderate','Flowering','Spring',55.00),
+          new Plant('Snake Plant','Low','Mature','Year-round',40.00)
+        ];
+        this.inventory.clear();
+        demos.forEach(p=> this.inventory.addPlant(p));
+        if(showToast) this.toast('Demo plants loaded.');
+        this.renderAll();
+      }
+
+      async loadFromJson(){
+        try{
+          const res = await fetch('./inventory_state.json');
+          if(!res.ok) throw new Error('HTTP '+res.status);
+          const data = await res.json();
+          if(!data.plants){ this.toast('JSON found but no "plants" array.', 'error'); return; }
+          this.inventory.clear();
+          data.plants.forEach(p=> this.inventory.addPlant(new Plant(p.name, p.careType, p.state, p.season, p.price)));
+          this.selectedPlant=null; this.renderAll();
+          this.toast(`Loaded ${data.plants.length} plants from inventory_state.json`);
+        }catch(err){ this.toast('Could not load inventory_state.json', 'error'); }
+      }
+
+exportToJson(){
+    // 🆕 DEBUG: Check what we're exporting
+    console.log("📤 Exporting inventory...");
+    console.log("📊 Inventory size:", this.inventory.getSize());
+    console.log("🌿 Plants to export:", this.inventory.plants);
+    
+    const plants = this.inventory.plants.map(p=>({name:p.name, careType:p.careType, state:p.state, season:p.season, price:p.price()}));
+    
+    // 🆕 DEBUG: Check the transformed data
+    console.log("📄 JSON data to export:", plants);
+    
+    const blob = new Blob([JSON.stringify({plants}, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; 
+    a.download = 'inventory_state.json'; 
+    a.click();
+    URL.revokeObjectURL(url);
+    this.toast('Exported inventory_state.json');
+}
+
+      setRole(role){
+        this.role = role; this.ui.roleLabel.textContent = role === 'staff' ? 'Staff' : 'Customer';
+        // show/hide views
+        if(role==='staff'){
+          this.ui.customerView.classList.add('hidden');
+          this.ui.staffView.classList.remove('hidden');
+          // hide customer-only stats not relevant? keep visible for quick glance
+        } else {
+          this.ui.staffView.classList.add('hidden');
+          this.ui.customerView.classList.remove('hidden');
+        }
+      }
+
+      // ===== Renderers =====
+      renderAll(){ this.renderInventoryGrid(); this.renderIteratorDisplay(0); this.renderStats(); this.renderStaffTable(); this.renderDetails(null); }
+
+      renderInventoryGrid(){
+        const grid = this.ui.grid; grid.innerHTML='';
+        const it = this.inventory.createIterator(); let pos=0; let selectedPos=0;
+        for(it.first(); !it.isDone(); it.next()){
+          const plant = it.current();
+          const card = document.createElement('div');
+          card.className = 'plant-card' + (plant===this.selectedPlant?' selected':'');
+          card.innerHTML = `
+            <div class="season-badge">${plant.getSeason()}</div>
+            <div class="plant-sprite">${plant.getSprite()}</div>
+            <div class="plant-name">${plant.getName()}</div>
+            <div class="plant-price">R${plant.price().toFixed(2)}</div>
+            <div class="plant-info">${plant.getCareType()} Care</div>`;
+          card.addEventListener('click', ()=> this.selectPlant(plant));
+          grid.appendChild(card);
+          if(plant===this.selectedPlant) selectedPos = pos; pos++;
+        }
+        this.renderIteratorDisplay(selectedPos);
+      }
+
+      renderDetails(plant){
+        const box = this.ui.details;
+        if(!plant){ box.innerHTML = '<div class="no-selection">Click on a plant to view details</div>'; return; }
+        box.innerHTML = `
+          <div class="plant-detail">
+            <div class="detail-sprite">${plant.getSprite()}</div>
+            <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">${plant.getName()}</span></div>
+            <div class="detail-row"><span class="detail-label">Price:</span><span class="detail-value">R${plant.price().toFixed(2)}</span></div>
+            <div class="detail-row"><span class="detail-label">Care Level:</span><span class="detail-value">${plant.getCareType()}</span></div>
+            <div class="detail-row"><span class="detail-label">State:</span><span class="detail-value">${plant.getStateText()}</span></div>
+            <div class="detail-row"><span class="detail-label">Season:</span><span class="detail-value">${plant.getSeason()}</span></div>
+          </div>`;
+      }
+
+      renderIteratorDisplay(position){ this.ui.iteratorPos.textContent = (this.inventory.getSize()? position+1 : 0); this.ui.iteratorTotal.textContent = this.inventory.getSize(); }
+      renderStats(){ this.ui.invCount.textContent = this.inventory.getSize(); this.ui.balance.textContent = `R${this.balance.toFixed(2)}`; this.updateBasketDisplay(); }
+
+      renderStaffTable(){
+        const tbody = this.ui.staffTbody; tbody.innerHTML='';
+        this.inventory.plants.forEach((p,idx)=>{
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${idx+1}</td><td>${p.getName()}</td><td>${p.getCareType()}</td><td>${p.getStateText()}</td><td>${p.getSeason()}</td><td>${p.price().toFixed(2)}</td>`;
+          tr.addEventListener('click', ()=>{
+            // select row & plant
+            [...tbody.children].forEach(r=> r.classList.remove('selected-row'));
+            tr.classList.add('selected-row');
+            this.selectedPlant = p; this.renderDetails(p);
+          });
+          tbody.appendChild(tr);
+        });
+      }
+
+      // ===== Customer flows =====
+      enableCustomerButtons(){ this.ui.browseBtn.disabled=false; this.ui.purchaseBtn.disabled=false; }
+      selectPlant(plant){ this.selectedPlant = plant; const it = this.inventory.createIterator(); let pos=0; for(it.first(); !it.isDone(); it.next()){ if(it.current()===plant) break; pos++; } this.renderInventoryGrid(); this.renderDetails(plant); this.renderIteratorDisplay(pos); this.ui.basketBtn.disabled = false; }
+      browseNext(){ if(!this.inventory.getSize()) return; if(!this.selectedPlant){ const it=this.inventory.createIterator(); it.first(); if(!it.isDone()) this.selectPlant(it.current()); return; } const it2=this.inventory.createIterator(); let found=false; for(it2.first(); !it2.isDone(); it2.next()){ if(found){ this.selectPlant(it2.current()); return; } if(it2.current()===this.selectedPlant){ found=true; } } it2.first(); if(!it2.isDone()) this.selectPlant(it2.current()); }
+      addToBasket(){ if(!this.selectedPlant){ this.toast('Please select a plant first!','error'); return; } const qty = this.basket.get(this.selectedPlant)||0; this.basket.set(this.selectedPlant, qty+1); this.updateBasketDisplay(); this.toast(`Added ${this.selectedPlant.getName()} to basket! 🛒`); }
+      getBasketTotal(){ let t=0; for(const [p,q] of this.basket){ t += p.price()*q; } return t; }
+      getBasketQuantity(){ let t=0; for(const q of this.basket.values()) t+=q; return t; }
+      updateBasketDisplay(){ this.ui.basketCount.textContent = this.getBasketQuantity(); this.ui.basketTotal.textContent = `R${this.getBasketTotal().toFixed(2)}`; }
+      purchaseBasket(){ const total=this.getBasketTotal(); if(total===0){ this.toast('Basket is empty!','error'); return; } if(this.balance<total){ this.toast('Insufficient funds!','error'); return; } this.balance -= total; this.toast(`Purchased basket for R${total.toFixed(2)}! 🎉`); this.basket.clear(); this.updateBasketDisplay(); this.renderStats(); }
+
+
+// Add this method to send plants to C++ server
+async sendPlantToServer(plantData) {
+    try {
+        const response = await fetch('http://localhost:8080/api/plants', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(plantData)
+        });
+        
+        if (response.ok) {
+            console.log('✅ Plant sent to C++ server successfully');
+            return true;
+        } else {
+            console.error('❌ Failed to send plant to server');
+            return false;
+        }
+    } catch (error) {
+        console.error('💥 Error sending plant to server:', error);
+        return false;
+    }
+}
+
+staffAddPlant(){
+    const name=(this.ui.fName.value||'').trim(); 
+    const care=this.ui.fCare.value; 
+    const state=this.ui.fState.value; 
+    const season=this.ui.fSeason.value; 
+    const price=parseFloat(this.ui.fPrice.value||'0');
+    
+    if(!name){ this.toast('Name is required','error'); return; }
+    
+    // 🆕 DEBUG: Log what we're adding
+    console.log("🆕 Adding plant:", {name, care, state, season, price});
+    
+    const newPlant = new Plant(name, care, state, season, price);
+    this.inventory.addPlant(newPlant);
+    
+    // 🆕 Send to C++ server
+    this.sendPlantToServer({
+        name: name,
+        careType: care, 
+        state: state,
+        season: season,
+        price: price
+    }).then(success => {
+        if (success) {
+            this.toast(`Added ${name} to C++ server! 🎉`);
+        } else {
+            this.toast(`Added ${name} locally (server unavailable)`, 'error');
+        }
+    });
+    
+    // 🆕 DEBUG: Check inventory after adding
+    console.log("📊 Inventory now has:", this.inventory.getSize(), "plants");
+    console.log("🌿 Plants in inventory:", this.inventory.plants);
+    
+    this.ui.fName.value=''; 
+    this.renderAll(); 
+}
+
+// Add this new method:
+forceSaveToFile() {
+    const plants = this.inventory.plants.map(p => ({
+        name: p.name, 
+        careType: p.careType, 
+        state: p.state, 
+        season: p.season, 
+        price: p.price()
+    }));
+    
+    // Save to the same file the C++ server uses
+    const data = JSON.stringify({plants: plants}, null, 2);
+    
+    // This will trigger a download, but at least it updates the file
+    const blob = new Blob([data], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'gui/inventory_state.json';  // Save to correct location
+    a.click();
+    URL.revokeObjectURL(url);
+}
+      staffRemoveSelected(){ if(!this.selectedPlant){ this.toast('Select a row first','error'); return; } const ok=this.inventory.removePlant(this.selectedPlant); if(ok){ this.selectedPlant=null; this.renderAll(); this.toast('Removed plant'); } }
+
+      // ===== Utils =====
+      toast(msg,type='success'){ 
+    const n=document.createElement('div'); 
+    n.className=`notification ${type==='error'?'error':''}`;  // ← ADD BACKTICKS HERE
+    n.textContent=msg; 
+    document.body.appendChild(n); 
+    setTimeout(()=> n.remove(), 3000); 
+}}
+
+    // boot
+    let app; document.addEventListener('DOMContentLoaded', ()=>{ app = new PlantNurseryApp(); });
+  </script>
 </body>
 </html>

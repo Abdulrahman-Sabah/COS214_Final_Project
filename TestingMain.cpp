@@ -49,6 +49,8 @@
 #include "GreenhouseManager.h"
 #include "Landscaper.h"
 #include "InventorySerializer.h"
+// ===== SIMPLE WEB API FOR TRUE BRIDGE =====
+#include "WebAPI.h"
 
 using namespace std;
   
@@ -80,6 +82,26 @@ bool assertStateEqual(const std::string& testName, const T& expected, const T& a
         << ", What we got: " << actual << "]\n" << ANSI_RESET;
         return false;
     }
+}
+
+void runTrueBridgeServer() {
+    // Create the main inventory that both C++ and GUI will share
+    Inventory mainInventory;
+    
+    // Initialize with some plants
+    mainInventory.addPlant(new Rose());
+    mainInventory.addPlant(new Cactus());
+    mainInventory.addPlant(new Lavender());
+    
+    // Save initial state
+    InventorySerializer::saveToFile(mainInventory, "inventory_state.json");
+    
+    std::cout << "🌿 True Bridge Pattern Active!" << std::endl;
+    std::cout << "📡 C++ managing real inventory, GUI acts as view" << std::endl;
+    std::cout << "💾 Initial inventory saved to inventory_state.json" << std::endl;
+    
+    // Start the web server
+    startWebServer(&mainInventory);
 }
 
 void initialState() {  
@@ -211,32 +233,7 @@ public:
 
 int main() 
 {
-// ===== SIMPLIFIED: Create inventory and save to file directly =====
-    std::cout << "🌿 Creating Plant Inventory for Web Interface...\n";
-    
-    Inventory webInventory;  // Local inventory just for saving to file
-    
-    // Add plants directly to this inventory
-    webInventory.addPlant(new Rose());
-    webInventory.addPlant(new Cactus());
-    webInventory.addPlant(new Lavender());
-    webInventory.addPlant(new Rose());   // Multiple roses
-    webInventory.addPlant(new Cactus()); // Multiple cacti
-    
-    // Add some decorated plants for variety
-    Plant* webBasicRose = new BasicPlant("Red Rose", "Beautiful red rose", 45.99);
-    Plant* webPotRose = new PotDecorator(webBasicRose, "Ceramic", 8.99);
-    webInventory.addPlant(webPotRose);
-    
-    Plant* webBasicCactus = new BasicPlant("Golden Cactus", "Desert cactus", 35.00);
-    webInventory.addPlant(webBasicCactus);
-    
-    std::cout << "✅ Created inventory with " << webInventory.getSize() << " plants\n";
-    
-    // Save directly to file
-    InventorySerializer::saveToFile(webInventory, "inventory_state.json");
-    
-    std::cout << "🌐 Web server can now display real plant data!\n\n";
+    runTrueBridgeServer();
 
     std::cout << "\n\n=== Builder Design Pattern Test ===\n\n";
 
