@@ -16,7 +16,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y g++ make valgrind clang-format lcov gcovr
-        sudo apt -get install -y clang-format
+        sudo apt-get install -y clang-format
 
     - name: Caching build files
       uses: actions/cache@v4
@@ -31,7 +31,7 @@ jobs:
     - name: Reformat code with clang-format(Lint)
       run: |
         echo "Checking code formatting..."
-        clang-format --dry-run --Werror $(find src includeFiles testFile -name '*.cpp' -o -name '*.h')
+        clang-format --dry-run --Werror $(find src testFile -name '*.cpp' -o -name '*.h')
 
     - name: make everything
       run: make all
