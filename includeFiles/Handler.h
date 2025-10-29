@@ -13,6 +13,7 @@ class Handler{
         // Helper method for derived classes to pass requests along the chain
         void passToSuccessor(Commands* r); //Add to UML - Changed parameter type
     public:
+        Handler();
         void setSuccessor(Handler* h);
         virtual void handleRequest(Commands* r) = 0;  // Changed parameter type
         virtual ~Handler() = default;  // Add destructor to UML

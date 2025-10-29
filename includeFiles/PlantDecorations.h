@@ -11,11 +11,8 @@ protected:
     Plant* wrappedPlant;
     
 public:
-    PlantDecorations(Plant* item) : wrappedPlant(item) {}
-    
-    virtual ~PlantDecorations() {
-        delete wrappedPlant;
-    }
+    PlantDecorations(Plant* item);
+    virtual ~PlantDecorations();
     string getName() override { return wrappedPlant->getName(); }
     virtual string description() = 0;
     virtual double price() = 0;

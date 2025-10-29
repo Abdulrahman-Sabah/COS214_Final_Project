@@ -1,0 +1,57 @@
+name: Pipeline for Git It Done Nursery Project
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-lint-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ make valgrind clang-format lcov gcovr
+
+    - name: Caching build files
+      uses: actions/cache@v4
+      with:
+        path: |
+          src/*.o
+          testFile/*.o
+        key: ${{ runner.os }}-build-${{ hashFiles('**/*.cpp', '**/*.h') }}
+        restore-keys: |
+          ${{ runner.os }}-build-
+
+    - name: Reformat code with clang-format(Lint)
+      run: |
+        echo "Checking code formatting..."
+        clang-format --dry-run --Werror $(find src includeFiles testFile -name '*.cpp' -o -name '*.h')
+
+    - name: make everything
+      run: make all
+
+    - name: run all unit tests
+      run: make run-tests
+
+    - name: check for meemory leaks for unit tests
+      run: make valgrind-tests
+
+    - name: Make coverage report
+      run: |
+        make clean
+        make COVERAGE=1 unit-tests
+        ./unit-tests
+        lcov --capture --directory . --output-file coverage.info
+        lcov --remove coverage.info '/usr/*' '/opt/*' '*/testFile/*' --output-file coverage.info
+        genhtml coverage.info --output-directory coverage-report
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: coverage-report

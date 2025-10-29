@@ -8,6 +8,7 @@
 class PlantBuilder
 {
     public:
+        PlantBuilder() = default;
         virtual void setName(std::string n = "") = 0;
         virtual void setCareType(std::string c = "") = 0;
         virtual void setSeason(std::string s = "") = 0;
