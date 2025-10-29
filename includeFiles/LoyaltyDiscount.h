@@ -5,7 +5,7 @@
 
 class LoyaltyDiscount : public DiscountStrategy {
     public:
-    double applyDiscount(double totalPrice) override;
+    double applyDiscount(Order* order) override;
     ~LoyaltyDiscount() override = default;
 };
 

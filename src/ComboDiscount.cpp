@@ -1,7 +1,8 @@
 #include "ComboDiscount.h"
 
-double ComboDiscount::applyDiscount(double totalPrice){
-    double discounted = totalPrice * 0.1; 
-    double newTotal = totalPrice - discounted;
+double ComboDiscount::applyDiscount(Order* order){
+    double total = order->getTotalPrice();
+    double discounted = 0.10 * total; 
+    double newTotal = total - discounted;
     return newTotal;
 }

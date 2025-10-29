@@ -1,7 +1,8 @@
 #include "LoyaltyDiscount.h"
 
-double LoyaltyDiscount::applyDiscount(double totalPrice){
-    double discounted = totalPrice * 0.05; 
-    double newTotal = totalPrice - discounted;
+double LoyaltyDiscount::applyDiscount(Order* order){
+    double total = order->getTotalPrice();
+    double discounted = 0.05 * total; 
+    double newTotal = total - discounted;
     return newTotal;
 }

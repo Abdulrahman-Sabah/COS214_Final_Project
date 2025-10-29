@@ -5,7 +5,7 @@
 
 class ComboDiscount : public DiscountStrategy {
     public:
-    double applyDiscount(double totalPrice) override;
+    double applyDiscount(Order* order) override;
     ~ComboDiscount() override = default;
 };
 

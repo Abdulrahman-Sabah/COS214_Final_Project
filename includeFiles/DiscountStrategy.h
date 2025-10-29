@@ -1,11 +1,11 @@
 #ifndef DISCOUNTSTRATEGY_H
 #define DISCOUNTSTRATEGY_H
 
-class Order; 
+#include "Order.h"; 
 
 class DiscountStrategy {
     public:
-    virtual double applyDiscount(double totalPrice) = 0;
+    virtual double applyDiscount(Order* order) = 0;
     virtual ~DiscountStrategy() = default;
 };
 
