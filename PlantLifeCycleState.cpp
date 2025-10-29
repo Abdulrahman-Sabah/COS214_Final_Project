@@ -7,6 +7,8 @@
 
 #include "PlantLifeCycleState.h"
 
+PlantLifeCycleState::PlantLifeCycleState() : dead(false), attention(false) {}
+
 bool PlantLifeCycleState::getDead() {
     return dead;
 }

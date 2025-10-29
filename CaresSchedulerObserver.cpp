@@ -20,11 +20,11 @@
 #include "DeadState.h"
 
 
-#include "SeedlingStatecmd.h"
-#include "GrowingStatecmd.h"
-#include "DormantStatecmd.h"
-#include "MatureStatecmd.h"
-#include "SellingStatecmd.h"
+#include "SeedlingStateCmd.h"
+#include "GrowingStateCmd.h"
+#include "DormantStateCmd.h"
+#include "MatureStateCmd.h"
+#include "SellingStateCmd.h"
 
 #include "DeadStateCmd.h"
 #include "DormantStateCmd.h"
@@ -38,6 +38,8 @@
 #include "RoseStrategyCmd.h"
 #include "CactusStrategyCmd.h"
 #include "LavenderStrategyCmd.h"
+
+CareSchedulerObserver::CareSchedulerObserver() : handler_(nullptr) {}
 
 void CareSchedulerObserver::onLifeCycleChanged(Plant* plantTesting, PlantLifeCycleState* newState)
 {
@@ -79,7 +81,8 @@ void CareSchedulerObserver::onLifeCycleChanged(Plant* plantTesting, PlantLifeCyc
 
 CareSchedulerObserver::~CareSchedulerObserver()
 {
-    delete handler_;
+    // if (handler_) delete handler_;
+    // handler_ = nullptr;
 }
 // -------------------- STRATEGY (param passed in) --------------------
 

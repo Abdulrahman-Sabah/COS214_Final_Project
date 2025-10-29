@@ -30,7 +30,7 @@ public:
     /**
      * @brief Default constructor
      */
-    PlantLifeCycleState() = default;
+    PlantLifeCycleState();
 
     /**
      * @brief Virtual destructor for proper cleanup

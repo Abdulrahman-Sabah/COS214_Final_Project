@@ -9,7 +9,7 @@
 #include "DeadState.h"
 #include "SellingState.h"
 
-MatureState::MatureState() = default;
+MatureState::MatureState() : PlantLifeCycleState() {}
 
 MatureState::~MatureState() = default;
 

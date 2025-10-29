@@ -57,7 +57,10 @@ public:
      */
     void onCareStrategyChanged(Plant* plant,CareStrategy* newStrategy) override;
 
-    //~CareSchedulerObserver() = default;
+    /**
+     * @brief default constructor for proper cleanup
+     */
+    CareSchedulerObserver();
 };
 
 #endif

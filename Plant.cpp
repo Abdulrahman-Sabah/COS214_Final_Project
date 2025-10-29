@@ -3,7 +3,7 @@
  * @file Plant.cpp
  * @brief Implementation of the Plant base class
  * @author COS214 Students
- * @date 2024
+ * @date 2025
  */
 
 #include "Plant.h"
@@ -40,9 +40,11 @@ void Plant::setSeason(string s) {
     season = s; 
 }
 void Plant::setCareStrategy(CareStrategy* cs) { 
+    if(careStrategy || careStrategy != cs) delete careStrategy;
     careStrategy = cs; 
 }
 void Plant::setLifeCycle(PlantLifeCycleState* st) { 
+    if(lifeCycle || lifeCycle != st) delete lifeCycle;
     lifeCycle = st; 
 }
 

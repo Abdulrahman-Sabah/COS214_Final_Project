@@ -7,7 +7,7 @@
 
 #include "SellingState.h"
 
-SellingState::SellingState() = default;
+SellingState::SellingState() : PlantLifeCycleState() {}
 
 SellingState::~SellingState() = default;
 

@@ -9,7 +9,7 @@
 #include "DeadState.h"
 #include "GrowingState.h"
 
-SeedlingState::SeedlingState() = default;
+SeedlingState::SeedlingState() : PlantLifeCycleState() {}
 
 SeedlingState::~SeedlingState() = default;
 

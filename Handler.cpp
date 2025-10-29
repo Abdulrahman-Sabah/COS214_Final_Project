@@ -8,6 +8,13 @@
 #include "Handler.h"
 #include <iostream>
 
+Handler::Handler() : successor(nullptr), subject(nullptr) {}
+
+Handler::~Handler() {
+    delete successor;
+    successor = nullptr;
+}
+
 void Handler::setSuccessor(Handler* h){
     successor = h;
 }

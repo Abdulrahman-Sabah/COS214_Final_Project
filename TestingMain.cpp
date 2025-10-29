@@ -456,8 +456,8 @@ int main()
     std::cout << "=========================================\n";
     deadfromMatureTest();
     std::cout << ANSI_BLUE << "=========================================\n";
-    std::cout << ANSI_BLUE << "ALL TESTS COMPLETED SUCCESSFULLY\n" << ANSI_RESET;
-    std::cout << ANSI_BLUE << "=========================================\n";
+    std::cout << ANSI_BLUE << "ALL TESTS COMPLETED SUCCESSFULLY\n";
+    std::cout << ANSI_BLUE << "=========================================\n"<< ANSI_RESET;
   
   
     cout << "=== PLANT OBSERVER PATTERN TEST ===" << endl;
@@ -695,16 +695,10 @@ int main()
     delete rosetwos;
     delete lavendertwos;
 
-
-      std::cout << "=== Chain of Responsibility Pattern Test ===" << std::endl;
+    std::cout << "=== Chain of Responsibility Pattern Test ===" << std::endl;
     
-   
     GreenhouseManager* manager = new GreenhouseManager();
     Landscaper* landscaper = new Landscaper();
-
-
-
-
 
     std::cout << "=== Lifecycle Observer Smoke Test ===\n";
 
@@ -713,83 +707,60 @@ int main()
     Landscaper landscapernew;
     GreenhouseManager managerNew;
 
-    PlantObserver* testing = new  CareSchedulerObserver(&landscapernew);
-
-    plant->attach(testing); 
-
-    testing->onLifeCycleChanged(plant,new SeedlingState());
-    cout << plant->getLifeCycle()->name() << std::endl;
-
-    plant->setLifeCycle(new GrowingState());
-        testing->onLifeCycleChanged(plant,new GrowingState());
-
-    cout << plant->getLifeCycle()->name() << std::endl;
-
-        testing->onLifeCycleChanged(plant,new DormantState());
-
-    cout << plant->getLifeCycle()->name() << std::endl;
-
-    plant->setLifeCycle(new MatureState());
-        testing->onLifeCycleChanged(plant,new MatureState());
-
-    cout << plant->getLifeCycle()->name() << std::endl;
-
-        testing->onLifeCycleChanged(plant,new SellingState());
-
-    cout << plant->getLifeCycle()->name() << std::endl;
-
-        testing->onLifeCycleChanged(plant,new DeadState());
-
-    cout << plant->getLifeCycle()->name() << std::endl;
-
-    std::cout << "=== Done ===\n";
-
-    //delete testing;
-    delete plant;
-    
-     std::cout << "=== Lifecycle Observer Smoke Test ===\n";
-
-    Plant* plantNew = new Rose();
-
-
-    Landscaper landscaperNewtwo;
-    GreenhouseManager managerNewTwo;
-
-    managerNewTwo.setSuccessor(&landscaperNewtwo);
-
-    PlantObserver* testingNew = new  CareSchedulerObserver(&managerNewTwo);
+    PlantObserver* testing = new CareSchedulerObserver(&landscapernew);
 
     plant->attach(testing);
 
-    testing->onLifeCycleChanged(plant,new SeedlingState());
+    { 
+        SeedlingState s;
+         testing->onLifeCycleChanged(plant, &s);
+    }
+
     cout << plant->getLifeCycle()->name() << std::endl;
 
     plant->setLifeCycle(new GrowingState());
-        testingNew->onLifeCycleChanged(plant,new GrowingState());
+
+    { 
+        GrowingState s; 
+        testing->onLifeCycleChanged(plant, &s); 
+    }
 
     cout << plant->getLifeCycle()->name() << std::endl;
 
-        testingNew->onLifeCycleChanged(plant,new DormantState());
-
+    { 
+        DormantState s; 
+        testing->onLifeCycleChanged(plant, &s);
+    }
+    
     cout << plant->getLifeCycle()->name() << std::endl;
 
     plant->setLifeCycle(new MatureState());
-        testingNew->onLifeCycleChanged(plant,new MatureState());
-
+    { 
+        MatureState s; 
+        testing->onLifeCycleChanged(plant, &s); 
+    }
     cout << plant->getLifeCycle()->name() << std::endl;
 
-        testingNew->onLifeCycleChanged(plant,new SellingState());
-
+    { 
+        SellingState s; 
+        testing->onLifeCycleChanged(plant, &s); 
+    }
+    
     cout << plant->getLifeCycle()->name() << std::endl;
 
-        testingNew->onLifeCycleChanged(plant,new DeadState());
+    { 
+        DeadState s; 
+        testing->onLifeCycleChanged(plant, &s); 
+    }
 
     cout << plant->getLifeCycle()->name() << std::endl;
 
     std::cout << "=== Done ===\n";
 
-    //delete testing;
+    delete testing;
     delete plant;
+    delete manager;
+    delete landscaper;
 
     std::cout << "=== Lifecycle Observer Smoke Test ===\n";
  Inventory inventoryNewMain;
@@ -801,154 +772,18 @@ int main()
     customer.setMediator(&mediator);
     deliveryNew.setMediator(&mediator);
 
-    Plant* roseNewInMain = new Cactus();
-     Plant* lavenderNewInMain = new Rose();
+    Plant* cactusnew = new Cactus();
+    Plant* lavenderNewInMain = new Lavender();
 
 
     inventoryNewMain.addPlant(lavenderNewInMain);
 
     std::cout << "\n==== TEST 1: Plant NOT in Inventory ====\n";
-    customer.requestPlant(roseNewInMain);
+    customer.requestPlant(cactusnew);
 
     std::cout << "\n==== TEST 2: Plant AVAILABLE in Inventory ====\n";
     customer.requestPlant(lavenderNewInMain);
-
-    delete rose; 
-
+    delete cactusnew;
     std::cout << "\n==== END OF TEST ====\n";
     return 0;
-
-
-    return 0;
 }
-    
-
-// #include "SeedlingStateCmd.h"
-// #include "GrowingStateCmd.h"
-// #include "DormantStateCmd.h"
-// #include "MatureStateCmd.h"
-// #include "SellingStateCmd.h"
-// #include "DeadStateCmd.h"
-// #include "Plant.h"
-// #include "CareScheduleObserver.h"   // your observer header (note the exact file name in your repo)
-// #include "SeedlingState.h"
-// #include "GrowingState.h"
-// #include "DormantState.h"
-// #include "MatureState.h"
-// #include "SellingState.h"
-// #include "DeadState.h"
-// #include "Rose.h"
-// #include "Landscaper.h"
-// #include "DeliveryStaff.h"
-// #include "GreenhouseManager.h"
-
-// #include "Handler.h"
-
-// int main() {
-//     std::cout << "=== Lifecycle Observer Smoke Test ===\n";
-
-//     Plant* plant = new Rose();
-
-//     //CareSchedulerObserver* observer();
-
-//     Landscaper landscaper;
-//     //DeliveryStaff delivery;
-//     GreenhouseManager manager;
-
-//     //landscaper.setSuccessor(&delivery);
-//     manager.setSuccessor(&landscaper);
-
-//     PlantObserver* testing = new  CareSchedulerObserver(&manager);
-
-//     plant->attach(testing);  // <-- Ensure Plant has addObserver(CareSchedulerObserver*)
-
-//     testing->onLifeCycleChanged(plant,new SeedlingState());
-//     //plant->setLifeCycle(new SeedlingState());
-//     cout << plant->getLifeCycle()->name() << std::endl;
-
-//     plant->setLifeCycle(new GrowingState());
-//         testing->onLifeCycleChanged(plant,new GrowingState());
-
-//     cout << plant->getLifeCycle()->name() << std::endl;
-
-//         testing->onLifeCycleChanged(plant,new DormantState());
-
-//     cout << plant->getLifeCycle()->name() << std::endl;
-
-//     plant->setLifeCycle(new MatureState());
-//         testing->onLifeCycleChanged(plant,new MatureState());
-
-//     cout << plant->getLifeCycle()->name() << std::endl;
-
-//         testing->onLifeCycleChanged(plant,new SellingState());
-
-//     cout << plant->getLifeCycle()->name() << std::endl;
-
-//         testing->onLifeCycleChanged(plant,new DeadState());
-
-//     cout << plant->getLifeCycle()->name() << std::endl;
-
-//     std::cout << "=== Done ===\n";
-
-//     //delete testing;
-//     delete plant;
-//     return 0;
-// }
-
-
-
-// #include "SeedlingStateCmd.h"
-// #include "GrowingStateCmd.h"
-// #include "DormantStateCmd.h"
-// #include "MatureStateCmd.h"
-// #include "SellingStateCmd.h"
-// #include "DeadStateCmd.h"
-// #include "Plant.h"
-// #include "CareScheduleObserver.h"   
-// #include "SeedlingState.h"
-// #include "GrowingState.h"
-// #include "DormantState.h"
-// #include "MatureState.h"
-// #include "SellingState.h"
-// #include "DeadState.h"
-// #include "Rose.h"
-// #include "Landscaper.h"
-// #include "DeliveryStaff.h"
-// #include "GreenhouseManager.h"
-// #include "StoreCustomer.h"
-// #include "FrontDesk.h"
-// #include "Cactus.h"
-
-
-
-// #include "Handler.h"
-
-// int main() {
-//     std::cout << "=== Lifecycle Observer Smoke Test ===\n";
-//  Inventory inventory;
-//     DeliveryStaff delivery(&inventory);
-
-//     StoreCustomer customer;
-
-//     FrontDesk mediator(&customer, &delivery);
-//     customer.setMediator(&mediator);
-//     delivery.setMediator(&mediator);
-
-//     Plant* rose = new Cactus();
-//      Plant* lavender = new Rose();
-
-
-//     inventory.addPlant(lavender);
-
-//     std::cout << "\n==== TEST 1: Plant NOT in Inventory ====\n";
-//     customer.requestPlant(rose);
-
-//     std::cout << "\n==== TEST 2: Plant AVAILABLE in Inventory ====\n";
-//     customer.requestPlant(lavender);
-
-//     delete rose; 
-
-//     std::cout << "\n==== END OF TEST ====\n";
-//     return 0;
-//     return 0;
-// }

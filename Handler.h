@@ -60,6 +60,11 @@ class Handler{
         /**
          * @brief Virtual destructor for proper polymorphic cleanup
          */
-        virtual ~Handler() = default;
+        virtual ~Handler();
+
+        /**
+         * @brief Default constructor
+         */
+        Handler();
 };
 #endif

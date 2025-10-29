@@ -16,7 +16,7 @@ void Landscaper::handleRequest(Commands* r,Plant* plant)
     {
         std::cout << "Landscaper is handling plant care: " << r->name() << std::endl;
         r->execute(plant);
-       delete r;
+        delete r;
     }
     else{
         // Pass to next handler in chain using protected method

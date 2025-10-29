@@ -10,7 +10,7 @@
 #include "GrowingState.h"
 #include "MatureState.h"
 
-DormantState::DormantState() = default;
+DormantState::DormantState() : PlantLifeCycleState(), growing(false) {}
 
 DormantState::~DormantState() = default;
 
