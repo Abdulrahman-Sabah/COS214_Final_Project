@@ -10,17 +10,17 @@ endif
 SRCS := $(wildcard src/*.cpp)
 OBJS := $(patsubst src/%.cpp,src/%.o,$(SRCS))
 
-COMMON_OBJS := $(filter-out src/DemoMain.o src/TestingMain.o,$(OBJS))
+COMMON_OBJS := $(filter-out src/TestingMain.o,$(OBJS))
 
 TEST_SRCS := $(wildcard testFile/*.cpp)
 TEST_OBJS := $(patsubst testFile/%.cpp,testFile/%.o,$(TEST_SRCS))
 
-.PHONY: all DemoMain TestingMain unit-tests run demo-run run-tests clean valgrind clean-coverage coverage
+.PHONY: all  TestingMain unit-tests run demo-run run-tests clean valgrind clean-coverage coverage
 
-all: DemoMain TestingMain unit-tests
+all: TestingMain unit-tests
 
-DemoMain: src/DemoMain.o $(COMMON_OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+# DemoMain: src/DemoMain.o $(COMMON_OBJS)
+# 	$(CXX) $(LDFLAGS) -o $@ $^
 
 TestingMain: src/TestingMain.o $(COMMON_OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
@@ -38,9 +38,9 @@ run: TestingMain
 	@echo "Running automated tests (TestingMain)..."
 	./TestingMain
 
-demo-run: DemoMain
-	@echo "Launching interactive demo (DemoMain)..."
-	./DemoMain
+# demo-run: DemoMain
+# 	@echo "Launching interactive demo (DemoMain)..."
+# 	./DemoMain
 
 run-tests: unit-tests
 	@echo "Running all doctest unit-tests..."
@@ -61,7 +61,7 @@ coverage: clean clean-coverage
 	gcov -b -c $(SRCS)
 
 clean:
-	rm -f $(OBJS) $(TEST_OBJS) DemoMain TestingMain unit-tests
+	rm -f $(OBJS) $(TEST_OBJS) TestingMain unit-tests
 	@echo "Cleaned object files and executables."
 
 clean-coverage:
