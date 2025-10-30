@@ -17,8 +17,7 @@ TEST_OBJS := $(patsubst testFile/%.cpp,testFile/%.o,$(TEST_SRCS))
 
 .PHONY: all  TestingMain unit-tests run demo-run run-tests clean valgrind clean-coverage coverage
 
-all: TestingMain unit-tests
-
+all: format TestingMain unit-tests
 # DemoMain: src/DemoMain.o $(COMMON_OBJS)
 # 	$(CXX) $(LDFLAGS) -o $@ $^
 
@@ -68,3 +67,8 @@ clean-coverage:
 	rm -f *.gcno *.gcda *.gcov coverage.info
 	rm -rf coverage-report
 	@echo "Cleaned coverage artifacts."
+
+.PHONY: format
+
+format:
+	@git ls-files '*.cpp' '*.h' | xargs clang-format -i
