@@ -10,17 +10,17 @@ class Plant;
 
 class FrontDesk : public StoreMediator {
 public:
-    FrontDesk(StoreCustomer* c = nullptr, DeliveryStaff* d = nullptr)
-        : customer(c), staff(d) {}
+  FrontDesk(StoreCustomer *c = nullptr, DeliveryStaff *d = nullptr)
+      : customer(c), staff(d) {}
 
-    void setCustomer(StoreCustomer* c);
-    void setDeliveryStaff(DeliveryStaff* d);
+  void setCustomer(StoreCustomer *c);
+  void setDeliveryStaff(DeliveryStaff *d);
 
-    void notify(Plant* plant, const std::string& event) override;
+  void notify(Plant *plant, const std::string &event) override;
 
 private:
-    StoreCustomer* customer = nullptr;
-    DeliveryStaff* staff    = nullptr;
+  StoreCustomer *customer = nullptr;
+  DeliveryStaff *staff = nullptr;
 };
 
 #endif

@@ -6,14 +6,14 @@
 
 class DormantStateCmd : public Commands {
 public:
-    DormantStateCmd();
-    virtual ~DormantStateCmd() {}
+  DormantStateCmd();
+  virtual ~DormantStateCmd() {}
 
-     std::string name() ;
-    void execute(Plant* plant);
+  std::string name();
+  void execute(Plant *plant);
 
 private:
-    std::string m_label;
+  std::string m_label;
 };
 
 #endif

@@ -33,15 +33,9 @@ PlantLifeCycleState *Plant::getLifeCycle() { return lifeCycle; }
 
 void Plant::setName(string n) { name = n; }
 
-void Plant::setCareType(string t) {
-  careType = t;
-}
-void Plant::setStateText(string s) {
-  state = s;
-}
-void Plant::setSeason(string s) {
-  season = s;
-}
+void Plant::setCareType(string t) { careType = t; }
+void Plant::setStateText(string s) { state = s; }
+void Plant::setSeason(string s) { season = s; }
 void Plant::setCareStrategy(CareStrategy *cs) {
   if (careStrategy && careStrategy != cs)
     delete careStrategy;
@@ -59,7 +53,6 @@ void Plant::detach(PlantObserver *observer) {
   observers.erase(std::remove(observers.begin(), observers.end(), observer),
                   observers.end());
 }
-
 
 void Plant::takeCare() {
   if (careStrategy) {

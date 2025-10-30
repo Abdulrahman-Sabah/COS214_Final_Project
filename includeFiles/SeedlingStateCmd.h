@@ -6,14 +6,14 @@
 
 class SeedlingStateCmd : public Commands {
 public:
-    SeedlingStateCmd();
-    virtual ~SeedlingStateCmd() {}
+  SeedlingStateCmd();
+  virtual ~SeedlingStateCmd() {}
 
-    std::string name() ;
-    void execute(Plant* plant);
+  std::string name();
+  void execute(Plant *plant);
 
 private:
-    std::string m_label;
+  std::string m_label;
 };
 
 #endif
