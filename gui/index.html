@@ -151,11 +151,13 @@
       <div class="staff-panel">
         <div class="section-title">🧑‍🌾 STAFF DASHBOARD — Inventory Management</div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
-          <button id="loadFromJsonBtn" class="btn btn-accent">Load from inventory_state.json</button>
-          <button id="loadDemoBtn" class="btn">Load Demo Plants</button>
-          <button id="exportJsonBtn" class="btn btn-primary">Export inventory_state.json</button>
-          <button id="clearAllBtn" class="btn" style="background:#ffb7b7;">Clear All</button>
-        </div>
+    <button id="loadFromJsonBtn" class="btn btn-accent">Load from inventory_state.json</button>
+    <button id="loadDemoBtn" class="btn">Load Demo Plants</button>
+    <button id="exportJsonBtn" class="btn btn-primary">Export inventory_state.json</button>
+    <!-- 🆕 ADD THIS BUTTON RIGHT HERE -->
+    <button id="simulateDayBtn" class="btn" style="background:#FFA500;">Simulate Day</button>
+    <button id="clearAllBtn" class="btn" style="background:#ffb7b7;">Clear All</button>
+    </div>
 
         <div style="overflow:auto; max-height:300px;">
           <table id="staffTable">
@@ -229,7 +231,25 @@
         this.name = name; this.careType = careType; this.state = state; this.season = season; this.plantPrice = Number(price) || 0;
       }
       getName(){return this.name;} getCareType(){return this.careType;} getStateText(){return this.state;} getSeason(){return this.season;} price(){return this.plantPrice;}
-      getSprite(){ const s={ 'Red Rose':'🌹','Rose':'🌹','Aloe Vera':'🌵','Barrel Cactus':'🌵','Cactus':'🌵','Lavender':'💜','Baobab Tree':'🌳','Jade Plant':'🪴','Peace Lily':'🌸','Snake Plant':'🌿'}; return s[this.name]||'🌱';}
+      getSprite(){ 
+    const s = { 
+        'Red Rose': '🌹', 'Rose': '🌹',
+        'Aloe Vera': '🌵', 'Barrel Cactus': '🌵', 'Cactus': '🌵',
+        'Lavender': '💜', 'Baobab Tree': '🌳', 'Jade Plant': '🪴',
+        'Peace Lily': '🌸', 'Snake Plant': '🌿'
+    };
+    
+    // 🎯 Show different sprites based on state
+    if (this.state === 'Dead') return '💀';
+    if (this.state === 'Seedling') return '🌱';
+    if (this.state === 'Young') return '🪴';
+    if (this.state === 'Budding') return '🌿';
+    if (this.state === 'Flowering') return '🌸';
+    if (this.state === 'Mature') return '🌳';
+    
+    return s[this.name] || '🌱';
+}
+
     }
     class PlantIterator { constructor(plants){ this.plants=plants; this.currentIndex=0; } first(){this.currentIndex=0;} next(){ if(!this.isDone()) this.currentIndex++; } isDone(){return this.currentIndex>=this.plants.length;} current(){return this.isDone()?null:this.plants[this.currentIndex];} getPosition(){return this.currentIndex;} getTotal(){return this.plants.length;} }
     class Inventory { constructor(){ this.plants=[]; } addPlant(p){ if(p) this.plants.push(p);} removePlant(p){ const i=this.plants.indexOf(p); if(i>-1){ this.plants.splice(i,1); return true;} return false;} getSize(){return this.plants.length;} createIterator(){return new PlantIterator(this.plants);} clear(){ this.plants.length=0; } }
@@ -274,6 +294,7 @@
           clearAllBtn: document.getElementById('clearAllBtn'),
           addPlantBtn: document.getElementById('addPlantBtn'),
           removeSelectedBtn: document.getElementById('removeSelectedBtn'),
+          simulateDayBtn: document.getElementById('simulateDayBtn'),
           fName: document.getElementById('fName'), fCare: document.getElementById('fCare'), fState: document.getElementById('fState'), fSeason: document.getElementById('fSeason'), fPrice: document.getElementById('fPrice')
         };
 
@@ -302,9 +323,44 @@
         this.ui.addPlantBtn.addEventListener('click', ()=> this.staffAddPlant());
         this.ui.removeSelectedBtn.addEventListener('click', ()=> this.staffRemoveSelected());
 
+        this.ui.simulateDayBtn = document.getElementById('simulateDayBtn');
+        this.ui.simulateDayBtn.addEventListener('click', () => this.simulateDayPassing());
+
         // boot
         this.init();
       }
+
+      // Add to your PlantNurseryApp class
+simulateDayPassing() {
+    console.log("🌅 Simulating one day passing...");
+    
+    // 🎯 Define state progression logic
+    const stateProgression = {
+        'Seedling': 'Young',
+        'Young': 'Budding', 
+        'Budding': 'Flowering',
+        'Flowering': 'Mature',
+        'Mature': 'Mature', // Mature plants stay mature
+        'Dead': 'Dead'      // Dead plants stay dead
+    };
+    
+    // 🎯 Update each plant's state
+    this.inventory.plants.forEach(plant => {
+        const currentState = plant.state;
+        const newState = stateProgression[currentState] || currentState;
+        
+        if (newState !== currentState) {
+            console.log(`🌱 ${plant.name}: ${currentState} → ${newState}`);
+            plant.state = newState;
+        }
+    });
+    
+    this.renderAll();
+    this.toast('🌅 Simulated one day - plant states updated!');
+    
+    // 🎯 Auto-export the updated state
+    this.exportToJson();
+}
 
       static get STAFF_PIN(){ return '1234'; } // change here
 
