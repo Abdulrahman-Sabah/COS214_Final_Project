@@ -5,29 +5,27 @@
 #include "PlantIterator.h"
 #include <vector>
 
-
 class Inventory {
 private:
-    std::vector<Plant*> plants;
+  std::vector<Plant *> plants;
 
 public:
-
-    void clear() {
-        for (Plant* plant : plants) {
-            delete plant;  // Free memory
-        }
-        plants.clear();    // Clear the vector
+  void clear() {
+    for (Plant *plant : plants) {
+      delete plant; // Free memory
     }
+    plants.clear(); // Clear the vector
+  }
 
-    Inventory();
-    ~Inventory();
-    void addPlant(Plant* p);
-    bool removePlant(Plant* p);
-    bool removePlantByName(const std::string& name);
-    size_t getSize() const;
-    PlantIterator* createIterator();
-    std::vector<Plant*>& getPlants();
-    void displayAll();
+  Inventory();
+  ~Inventory();
+  void addPlant(Plant *p);
+  bool removePlant(Plant *p);
+  bool removePlantByName(const std::string &name);
+  size_t getSize() const;
+  PlantIterator *createIterator();
+  std::vector<Plant *> &getPlants();
+  void displayAll();
 };
 
 #endif

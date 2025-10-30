@@ -4,15 +4,14 @@
 
 #include "Plant.h"
 
-class Rose : public Plant 
-{
+class Rose : public Plant {
 public:
-    Rose();
-    ~Rose();
-    std::string description() override;
-    double price() override;
-    Plant* clone() override;
-    std::string getType() const override { return "Rose"; }
+  Rose();
+  ~Rose();
+  std::string description() override;
+  double price() override;
+  Plant *clone() override;
+  std::string getType() const override { return "Rose"; }
 };
 
 #endif

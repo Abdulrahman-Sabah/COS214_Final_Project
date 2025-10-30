@@ -6,14 +6,14 @@
 
 class SellingStateCmd : public Commands {
 public:
-    SellingStateCmd();
-    virtual ~SellingStateCmd() {}
+  SellingStateCmd();
+  virtual ~SellingStateCmd() {}
 
-     std::string name() ;
-    void execute(Plant* plant);
+  std::string name();
+  void execute(Plant *plant);
 
 private:
-    std::string m_label;
+  std::string m_label;
 };
 
 #endif

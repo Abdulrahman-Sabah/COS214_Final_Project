@@ -7,26 +7,26 @@
 
 class WebAPI {
 private:
-    Inventory* inventory;  // The REAL C++ inventory
-    
+  Inventory *inventory; // The REAL C++ inventory
+
 public:
+  // ADD THIS DECLARATION:
+  void initializeInventory(Inventory &inventory);
 
-    // ADD THIS DECLARATION:
-    void initializeInventory(Inventory& inventory);
+  WebAPI(Inventory *inv);
 
-    WebAPI(Inventory* inv);
-    
-    // Get plants from the REAL C++ inventory
-    std::string getPlantsJSON();
-    
-    // Add plant to the REAL C++ inventory
-    bool addPlantToInventory(const std::string& name, const std::string& careType, 
-                            const std::string& state, const std::string& season, double price);
-    
-    // Remove plant from REAL C++ inventory
-    bool removePlantFromInventory(const std::string& name);
+  // Get plants from the REAL C++ inventory
+  std::string getPlantsJSON();
 
-    void startWebServer(Inventory* inventory);
+  // Add plant to the REAL C++ inventory
+  bool addPlantToInventory(const std::string &name, const std::string &careType,
+                           const std::string &state, const std::string &season,
+                           double price);
+
+  // Remove plant from REAL C++ inventory
+  bool removePlantFromInventory(const std::string &name);
+
+  void startWebServer(Inventory *inventory);
 };
 
 #endif // WEBAPI_H
