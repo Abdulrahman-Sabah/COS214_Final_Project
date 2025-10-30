@@ -6,19 +6,18 @@
 
 class InventoryIterator : public PlantIterator {
 private:
-    std::vector<Plant*>& plants;
-    size_t currentIndex;
+  std::vector<Plant *> &plants;
+  size_t currentIndex;
 
 public:
+  InventoryIterator(std::vector<Plant *> &plantList);
 
-    InventoryIterator(std::vector<Plant*>& plantList);
+  ~InventoryIterator();
 
-    ~InventoryIterator();
-
-    void first() override;
-    void next() override;
-    bool isDone() override;
-    Plant* current() override;
+  void first() override;
+  void next() override;
+  bool isDone() override;
+  Plant *current() override;
 };
 
 #endif

@@ -1,3 +1,10 @@
+/**
+ * @file Inventory.cpp
+ * @brief Implementation of the Inventory class
+ * @author COS214 Students
+ * @date 2024
+ */
+
 #include "Inventory.h"
 #include "InventoryIterator.h"
 #include <iostream>
@@ -55,10 +62,10 @@ std::vector<Plant*>& Inventory::getPlants() {
 void Inventory::displayAll() {
     std::cout << "\nCurrent Inventory: \n";
     std::cout << "Total plants: " << plants.size() << "\n\n";
-    
+
     PlantIterator* it = createIterator();
     int count = 1;
-    
+
     for (it->first(); !it->isDone(); it->next()) {
         Plant* p = it->current();
         if (p != nullptr) {
@@ -67,6 +74,11 @@ void Inventory::displayAll() {
             std::cout << "\n";
         }
     }
-    
+
     delete it;
+}
+
+bool Inventory::hasPlant(Plant* p)  
+{
+    return std::find(plants.begin(), plants.end(), p) != plants.end();
 }

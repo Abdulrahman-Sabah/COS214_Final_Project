@@ -6,17 +6,17 @@
 class GrowingState : public PlantLifeCycleState {
 
 public:
-	GrowingState();
+  GrowingState();
 
-    ~GrowingState() override;
+  ~GrowingState() override;
 
-	void advance(Plant* plant) override;
+  void advance(Plant *plant) override;
 
-	std::string name() override;
+  std::string name() override;
 
-    bool isDead() override;
+  bool isDead() override;
 
-	bool needsAttention() override;
+  bool needsAttention() override;
 };
 
 #endif

@@ -5,8 +5,8 @@
 
 class LavenderCare : public CareStrategy {
 public:
-    void applyCare(Plant* plant) override;
-    ~LavenderCare() override = default;
+  void applyCare(Plant *plant) override;
+  ~LavenderCare() override = default;
 };
 
-#endif 
+#endif

@@ -1,5 +1,10 @@
-# ignore VS Code settings
+# Ignore VS Code settings
 .vscode/
-*.code-workspace
-
+.vscode/
+.vscode/
+.c_cpp_properties.json
+.launch.json
+.settings.json
+.c_cpp_properties.json
+.settings.json
 

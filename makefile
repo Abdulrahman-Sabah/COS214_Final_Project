@@ -1,86 +1,70 @@
 CXX ?= g++
-CXXFLAGS ?= -std=c++11 -Wall -Wextra -g
-LDFLAGS ?= -lws2_32
+CXXFLAGS ?= -std=c++11 -Wall -Wextra -g -Isrc -IincludeFiles
+LDFLAGS ?=
 
 ifdef COVERAGE
-    CXXFLAGS += -O0 --coverage
-    LDFLAGS  += --coverage
+CXXFLAGS += -O0 --coverage
+LDFLAGS  += --coverage
 endif
 
-# Get all source files except DemoMain.cpp and main.cpp
-SRCS := $(filter-out DemoMain.cpp main.cpp,$(wildcard *.cpp))
-OBJS := $(patsubst %.cpp,%.o,$(SRCS))
+SRCS := $(wildcard src/*.cpp)
+OBJS := $(patsubst src/%.cpp,src/%.o,$(SRCS))
 
-# Common objects (all except TestingMain and server-specific files)
-COMMON_OBJS := $(filter-out TestingMain.o server.o,$(OBJS))
+COMMON_OBJS := $(filter-out src/TestingMain.o,$(OBJS))
 
-# Server-specific objects
-SERVER_OBJS := server.o InventorySerializer.o $(COMMON_OBJS)
+TEST_SRCS := $(wildcard testFile/*.cpp)
+TEST_OBJS := $(patsubst testFile/%.cpp,testFile/%.o,$(TEST_SRCS))
 
-# TestingMain-specific objects
-TESTING_OBJS := TestingMain.o InventorySerializer.o $(COMMON_OBJS)
+.PHONY: all  TestingMain unit-tests run demo-run run-tests clean valgrind clean-coverage coverage
 
-.PHONY: all TestingMain server run demo-run run-server clean clean-coverage coverage
+all: TestingMain unit-tests
 
-# Default target - build TestingMain
-all: TestingMain
+# DemoMain: src/DemoMain.o $(COMMON_OBJS)
+# 	$(CXX) $(LDFLAGS) -o $@ $^
 
-# Testing executable - FIXED: Use TESTING_OBJS instead of undefined COMMON_OBJS
-TestingMain: $(TESTING_OBJS)
+TestingMain: src/TestingMain.o $(COMMON_OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-# Server executable
-server: $(SERVER_OBJS)
-	$(CXX) -o $@ $^ $(LDFLAGS) -lws2_32
-	@echo 🌿 Plant Nursery Server built successfully!
-	@echo Run with: ./server then open http://localhost:8081
+unit-tests: $(TEST_OBJS) $(COMMON_OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $^
 
-# Server object file
-server.o: server.cpp
+src/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-# InventoryManager object file
-InventoryManager.o: InventoryManager.cpp
+testFile/%.o: testFile/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-# Compile other .cpp files to .o
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
-# Run automated tests
 run: TestingMain
-	@echo Running automated tests (TestingMain)...
+	@echo "Running automated tests (TestingMain)..."
 	./TestingMain
 
-# Run the server
-run-server: server
-	@echo Starting Plant Nursery Server...
-	@echo 🌿 GUI available at: http://localhost:8081
-	@echo Press Ctrl+C to stop the server
-	./server
+# demo-run: DemoMain
+# 	@echo "Launching interactive demo (DemoMain)..."
+# 	./DemoMain
 
-# Demo target
-demo-run: 
-	@echo Use 'make run-server' for the GUI demo
+run-tests: unit-tests
+	@echo "Running all doctest unit-tests..."
+	./unit-tests
 
-# Clean everything - WINDOWS VERSION
-clean:
-	-del /Q *.o 2>nul
-	-del /Q *.exe 2>nul
-	-del /Q TestingMain 2>nul
-	-del /Q server 2>nul
-	@echo Cleaned all build files and executables
 
-# Coverage targets - simplified for Windows
-clean-coverage:
-	-del /Q *.gcno 2>nul
-	-del /Q *.gcda 2>nul
-	-del /Q *.gcov 2>nul
-	-del /Q coverage.info 2>nul
-	-rmdir /Q /S coverage-report 2>nul
-	@echo Cleaned coverage artifacts
+valgrind: TestingMain
+	@echo "Running Valgrind on TestingMain..."
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./TestingMain
+
+valgrind-tests: unit-tests
+	@echo "Running Valgrind on unit-tests..."
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./unit-tests
 
 coverage: clean clean-coverage
 	$(MAKE) COVERAGE=1 TestingMain
 	./TestingMain
 	gcov -b -c $(SRCS)
+
+clean:
+	rm -f $(OBJS) $(TEST_OBJS) TestingMain unit-tests
+	@echo "Cleaned object files and executables."
+
+clean-coverage:
+	rm -f *.gcno *.gcda *.gcov coverage.info
+	rm -rf coverage-report
+	@echo "Cleaned coverage artifacts."

@@ -5,19 +5,19 @@
 
 class SellingState : public PlantLifeCycleState {
 public:
-    SellingState();
+  SellingState();
 
-    ~SellingState() override;
+  ~SellingState() override;
 
-    void advance(Plant* plant) override;
+  void advance(Plant *plant) override;
 
-    std::string name() override;
+  std::string name() override;
 
-    bool isDead() override;
+  bool isDead() override;
 
-    bool needsAttention() override;
+  bool needsAttention() override;
 
-    bool canSell();
+  bool canSell();
 };
 
 #endif

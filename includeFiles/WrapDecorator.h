@@ -5,15 +5,15 @@
 
 class WrapDecorator : public PlantDecorations {
 private:
-    string wrapType;
-    double wrapCost;
+  string wrapType;
+  double wrapCost;
 
 public:
-    WrapDecorator(Plant* item, string wrap, double cost);
-    
-    string description() override;
-    double price() override;
-    Plant* clone() override;
+  WrapDecorator(Plant *item, string wrap, double cost);
+
+  string description() override;
+  double price() override;
+  Plant *clone() override;
 };
 
 #endif

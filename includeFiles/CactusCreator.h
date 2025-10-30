@@ -3,11 +3,10 @@
 
 #include "Creator.h"
 
-class CactusCreator : public Creator 
-{
+class CactusCreator : public Creator {
 public:
-    CactusCreator() = default;
-    Plant* factoryMethod() const override; 
+  CactusCreator() = default;
+  Plant *factoryMethod() const override;
 };
 
 #endif
