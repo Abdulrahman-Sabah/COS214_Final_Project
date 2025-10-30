@@ -10,6 +10,10 @@ private:
     Inventory* inventory;  // The REAL C++ inventory
     
 public:
+
+    // ADD THIS DECLARATION:
+    void initializeInventory(Inventory& inventory);
+
     WebAPI(Inventory* inv);
     
     // Get plants from the REAL C++ inventory
@@ -21,9 +25,8 @@ public:
     
     // Remove plant from REAL C++ inventory
     bool removePlantFromInventory(const std::string& name);
-};
 
-// Simple file-based API for now (we'll enhance this later)
-void startWebServer(Inventory* inventory);
+    void startWebServer(Inventory* inventory);
+};
 
 #endif // WEBAPI_H

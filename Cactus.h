@@ -12,6 +12,7 @@ public:
     std::string description() override;
     double price() override;
     Plant* clone() override;
+    std::string getType() const override { return "Cactus"; }
 };
 
 #endif

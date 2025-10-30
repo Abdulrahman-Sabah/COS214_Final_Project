@@ -192,15 +192,17 @@
             </select>
           </div>
           <div>
-            <label>State</label>
-            <select id="fState">
-              <option>Seedling</option>
-              <option>Young</option>
-              <option selected>Budding</option>
-              <option>Flowering</option>
-              <option>Mature</option>
-            </select>
-          </div>
+            <div>
+    <label>State</label>
+    <select id="fState">
+        <option>Seedling</option>
+        <option>Growing</option>
+        <option>Mature</option>
+        <option>Selling</option>
+        <option>Dormant</option>
+        <option>Dead</option>
+    </select>
+</div>
           <div>
             <label>Season</label>
             <select id="fSeason">
@@ -239,23 +241,56 @@
         'Peace Lily': '🌸', 'Snake Plant': '🌿'
     };
     
-    // 🎯 Show different sprites based on state
+    // 🎯 Updated sprite logic for valid states
     if (this.state === 'Dead') return '💀';
     if (this.state === 'Seedling') return '🌱';
-    if (this.state === 'Young') return '🪴';
-    if (this.state === 'Budding') return '🌿';
-    if (this.state === 'Flowering') return '🌸';
+    if (this.state === 'Growing') return '🪴';
     if (this.state === 'Mature') return '🌳';
+    if (this.state === 'Selling') return '💰';  // Money bag for selling plants
+    if (this.state === 'Dormant') return '😴';  // Sleeping face for dormant
     
     return s[this.name] || '🌱';
 }
+}
 
+class Rose extends Plant {
+    constructor(name, careType, state, season, price) {
+        super(name, careType, state, season, price);
+        this.type = "Rose";
     }
+    
+    getSprite() { return '🌹'; }
+    getSpecificCare() { return "Needs regular pruning and sunlight"; }
+}
+
+class Cactus extends Plant {
+    constructor(name, careType, state, season, price) {
+        super(name, careType, state, season, price);
+        this.type = "Cactus";
+    }
+    
+    getSprite() { return '🌵'; }
+    getSpecificCare() { return "Water sparingly, lots of sun"; }
+}
+
+class Lavender extends Plant {
+    constructor(name, careType, state, season, price) {
+        super(name, careType, state, season, price);
+        this.type = "Lavender";
+    }
+    
+    getSprite() { return '💜'; }
+    getSpecificCare() { return "Well-drained soil, moderate water"; }
+}
+
     class PlantIterator { constructor(plants){ this.plants=plants; this.currentIndex=0; } first(){this.currentIndex=0;} next(){ if(!this.isDone()) this.currentIndex++; } isDone(){return this.currentIndex>=this.plants.length;} current(){return this.isDone()?null:this.plants[this.currentIndex];} getPosition(){return this.currentIndex;} getTotal(){return this.plants.length;} }
     class Inventory { constructor(){ this.plants=[]; } addPlant(p){ if(p) this.plants.push(p);} removePlant(p){ const i=this.plants.indexOf(p); if(i>-1){ this.plants.splice(i,1); return true;} return false;} getSize(){return this.plants.length;} createIterator(){return new PlantIterator(this.plants);} clear(){ this.plants.length=0; } }
 
     // ===== App Controller =====
     class PlantNurseryApp {
+
+      
+      
       constructor(){
         this.inventory = new Inventory();
         this.basket = new Map();
@@ -335,14 +370,14 @@ simulateDayPassing() {
     console.log("🌅 Simulating one day passing...");
     
     // 🎯 Define state progression logic
-    const stateProgression = {
-        'Seedling': 'Young',
-        'Young': 'Budding', 
-        'Budding': 'Flowering',
-        'Flowering': 'Mature',
-        'Mature': 'Mature', // Mature plants stay mature
-        'Dead': 'Dead'      // Dead plants stay dead
-    };
+const stateProgression = {
+    'Seedling': 'Growing',
+    'Growing': 'Mature', 
+    'Mature': 'Selling',
+    'Selling': 'Dormant',
+    'Dormant': 'Growing', // Dormant plants can start growing again
+    'Dead': 'Dead'        // Dead plants stay dead
+};
     
     // 🎯 Update each plant's state
     this.inventory.plants.forEach(plant => {
@@ -366,39 +401,59 @@ simulateDayPassing() {
 
       async init(){ await this.loadPlants(); this.renderAll(); this.enableCustomerButtons(); }
 
-      async loadPlants(){
-        // try fetch from root (inventory_state.json served by backend)
-        try {
-          const res = await fetch('./inventory_state.json');
-          if(res.ok){
-            const data = await res.json();
-            if(Array.isArray(data.plants) && data.plants.length){
-              data.plants.forEach(p=> this.inventory.addPlant(new Plant(p.name, p.careType, p.state, p.season, p.price)));
-              this.toast(`Loaded ${data.plants.length} plants from C++ backend! 🎉`);
-              return;
+// IN PlantNurseryApp class, MODIFY loadPlants():
+async loadPlants(){
+    try {
+        // 🎯 Fetch from the SAME server (port 8000)
+        const res = await fetch('./inventory_state.json');
+        
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        const data = await res.json();
+        
+        this.inventory.clear();
+        data.plants.forEach(plantData => {
+            let plant;
+            switch(plantData.type) {
+                case 'Rose':
+                    plant = new Rose(plantData.name, plantData.careType, plantData.state, plantData.season, plantData.price);
+                    break;
+                case 'Cactus':
+                    plant = new Cactus(plantData.name, plantData.careType, plantData.state, plantData.season, plantData.price);
+                    break;
+                case 'Lavender':
+                    plant = new Lavender(plantData.name, plantData.careType, plantData.state, plantData.season, plantData.price);
+                    break;
+                default:
+                    plant = new Plant(plantData.name, plantData.careType, plantData.state, plantData.season, plantData.price);
             }
-          }
-        } catch(e){ /* ignore, fallback */ }
-        // fallback to demo
+            this.inventory.addPlant(plant);
+        });
+        
+        console.log(`✅ Loaded ${data.plants.length} plants`);
+        
+    } catch(e) {
+        console.error('❌ Failed to load plants:', e);
         this.loadDemoPlants();
-      }
+    }
+}
 
       loadDemoPlants(showToast){
-        const demos = [
-          new Plant('Red Rose','Moderate','Budding','Spring',45.99),
-          new Plant('Aloe Vera','Low','Mature','Summer',25.50),
-          new Plant('Barrel Cactus','Low','Young','Summer',35.00),
-          new Plant('Lavender','Moderate','Flowering','Spring',28.75),
-          new Plant('Baobab Tree','High','Seedling','Year-round',150.00),
-          new Plant('Jade Plant','Low','Mature','Year-round',32.00),
-          new Plant('Peace Lily','Moderate','Flowering','Spring',55.00),
-          new Plant('Snake Plant','Low','Mature','Year-round',40.00)
-        ];
-        this.inventory.clear();
-        demos.forEach(p=> this.inventory.addPlant(p));
-        if(showToast) this.toast('Demo plants loaded.');
-        this.renderAll();
-      }
+    const demos = [
+        new Plant('Red Rose','Moderate','Selling','Spring',45.99),      // 🎯 Now in Selling state
+        new Plant('Aloe Vera','Low','Mature','Summer',25.50),
+        new Plant('Barrel Cactus','Low','Growing','Summer',35.00),
+        new Plant('Lavender','Moderate','Selling','Spring',28.75),     // 🎯 Now in Selling state
+        new Plant('Baobab Tree','High','Seedling','Year-round',150.00),
+        new Plant('Jade Plant','Low','Dormant','Year-round',32.00),
+        new Plant('Peace Lily','Moderate','Selling','Spring',55.00),   // 🎯 Now in Selling state
+        new Plant('Snake Plant','Low','Dead','Year-round',40.00)
+    ];
+    this.inventory.clear();
+    demos.forEach(p=> this.inventory.addPlant(p));
+    if(showToast) this.toast('Demo plants loaded.');
+    this.renderAll();
+}
 
       async loadFromJson(){
         try{
@@ -413,16 +468,16 @@ simulateDayPassing() {
         }catch(err){ this.toast('Could not load inventory_state.json', 'error'); }
       }
 
+// IN PlantNurseryApp class, MODIFY exportToJson():
 exportToJson(){
-    // 🆕 DEBUG: Check what we're exporting
-    console.log("📤 Exporting inventory...");
-    console.log("📊 Inventory size:", this.inventory.getSize());
-    console.log("🌿 Plants to export:", this.inventory.plants);
-    
-    const plants = this.inventory.plants.map(p=>({name:p.name, careType:p.careType, state:p.state, season:p.season, price:p.price()}));
-    
-    // 🆕 DEBUG: Check the transformed data
-    console.log("📄 JSON data to export:", plants);
+    const plants = this.inventory.plants.map(p => ({
+        type: p.type || p.constructor.name,  // 🎯 INCLUDE PLANT TYPE
+        name: p.name, 
+        careType: p.careType, 
+        state: p.state, 
+        season: p.season, 
+        price: p.price()
+    }));
     
     const blob = new Blob([JSON.stringify({plants}, null, 2)], {type:'application/json'});
     const url = URL.createObjectURL(blob);
@@ -451,24 +506,62 @@ exportToJson(){
       renderAll(){ this.renderInventoryGrid(); this.renderIteratorDisplay(0); this.renderStats(); this.renderStaffTable(); this.renderDetails(null); }
 
       renderInventoryGrid(){
-        const grid = this.ui.grid; grid.innerHTML='';
-        const it = this.inventory.createIterator(); let pos=0; let selectedPos=0;
-        for(it.first(); !it.isDone(); it.next()){
-          const plant = it.current();
-          const card = document.createElement('div');
-          card.className = 'plant-card' + (plant===this.selectedPlant?' selected':'');
-          card.innerHTML = `
+    const grid = this.ui.grid; 
+    grid.innerHTML='';
+    
+    // 🎯 FILTER PLANTS BASED ON ROLE
+    let plantsToShow = [];
+    const it = this.inventory.createIterator();
+    
+    for(it.first(); !it.isDone(); it.next()){
+        const plant = it.current();
+        if (this.role === 'customer') {
+            // 🎯 CUSTOMERS only see plants in "Selling" state
+            if (plant.getStateText() === 'Selling') {
+                plantsToShow.push(plant);
+            }
+        } else {
+            // 🎯 STAFF see all plants
+            plantsToShow.push(plant);
+        }
+    }
+    
+    // Create iterator for filtered plants
+    const filteredIterator = new PlantIterator(plantsToShow);
+    let pos = 0;
+    let selectedPos = 0;
+    
+    for(filteredIterator.first(); !filteredIterator.isDone(); filteredIterator.next()){
+        const plant = filteredIterator.current();
+        const card = document.createElement('div');
+        card.className = 'plant-card' + (plant===this.selectedPlant?' selected':'');
+        card.innerHTML = `
             <div class="season-badge">${plant.getSeason()}</div>
             <div class="plant-sprite">${plant.getSprite()}</div>
             <div class="plant-name">${plant.getName()}</div>
             <div class="plant-price">R${plant.price().toFixed(2)}</div>
-            <div class="plant-info">${plant.getCareType()} Care</div>`;
-          card.addEventListener('click', ()=> this.selectPlant(plant));
-          grid.appendChild(card);
-          if(plant===this.selectedPlant) selectedPos = pos; pos++;
-        }
-        this.renderIteratorDisplay(selectedPos);
-      }
+            <div class="plant-info">${plant.getCareType()} Care • ${plant.getStateText()}</div>`;
+        card.addEventListener('click', ()=> this.selectPlant(plant));
+        grid.appendChild(card);
+        if(plant===this.selectedPlant) selectedPos = pos; 
+        pos++;
+    }
+    
+    // 🎯 Update iterator display with filtered count
+    this.renderIteratorDisplay(selectedPos, plantsToShow.length);
+    
+    // 🎯 Show message if no plants available for customers
+    if (this.role === 'customer' && plantsToShow.length === 0) {
+        grid.innerHTML = '<div class="no-selection">No plants available for sale at the moment. Check back later!</div>';
+    }
+}
+
+// 🎯 Update iterator display to show filtered count
+renderIteratorDisplay(position, total = null){
+    const actualTotal = total !== null ? total : this.inventory.getSize();
+    this.ui.iteratorPos.textContent = (actualTotal ? position + 1 : 0);
+    this.ui.iteratorTotal.textContent = actualTotal;
+}
 
       renderDetails(plant){
         const box = this.ui.details;
@@ -485,7 +578,16 @@ exportToJson(){
       }
 
       renderIteratorDisplay(position){ this.ui.iteratorPos.textContent = (this.inventory.getSize()? position+1 : 0); this.ui.iteratorTotal.textContent = this.inventory.getSize(); }
-      renderStats(){ this.ui.invCount.textContent = this.inventory.getSize(); this.ui.balance.textContent = `R${this.balance.toFixed(2)}`; this.updateBasketDisplay(); }
+
+      renderStats(){ 
+    // 🎯 Show different counts based on role
+    const customerPlantCount = this.inventory.plants.filter(p => p.getStateText() === 'Selling').length;
+    const totalPlantCount = this.inventory.getSize();
+    
+    this.ui.invCount.textContent = this.role === 'customer' ? customerPlantCount : totalPlantCount;
+    this.ui.balance.textContent = `R${this.balance.toFixed(2)}`; 
+    this.updateBasketDisplay(); 
+}
 
       renderStaffTable(){
         const tbody = this.ui.staffTbody; tbody.innerHTML='';
@@ -505,7 +607,39 @@ exportToJson(){
       // ===== Customer flows =====
       enableCustomerButtons(){ this.ui.browseBtn.disabled=false; this.ui.purchaseBtn.disabled=false; }
       selectPlant(plant){ this.selectedPlant = plant; const it = this.inventory.createIterator(); let pos=0; for(it.first(); !it.isDone(); it.next()){ if(it.current()===plant) break; pos++; } this.renderInventoryGrid(); this.renderDetails(plant); this.renderIteratorDisplay(pos); this.ui.basketBtn.disabled = false; }
-      browseNext(){ if(!this.inventory.getSize()) return; if(!this.selectedPlant){ const it=this.inventory.createIterator(); it.first(); if(!it.isDone()) this.selectPlant(it.current()); return; } const it2=this.inventory.createIterator(); let found=false; for(it2.first(); !it2.isDone(); it2.next()){ if(found){ this.selectPlant(it2.current()); return; } if(it2.current()===this.selectedPlant){ found=true; } } it2.first(); if(!it2.isDone()) this.selectPlant(it2.current()); }
+      browseNext(){ 
+    if(!this.inventory.getSize()) return; 
+    
+    // 🎯 Get filtered plants based on role
+    let plantsToShow = [];
+    const it = this.inventory.createIterator();
+    
+    for(it.first(); !it.isDone(); it.next()){
+        const plant = it.current();
+        if (this.role === 'customer') {
+            if (plant.getStateText() === 'Selling') {
+                plantsToShow.push(plant);
+            }
+        } else {
+            plantsToShow.push(plant);
+        }
+    }
+    
+    if(plantsToShow.length === 0) return;
+    
+    if(!this.selectedPlant){ 
+        this.selectPlant(plantsToShow[0]); 
+        return; 
+    } 
+    
+    // Find current plant in filtered list
+    const currentIndex = plantsToShow.indexOf(this.selectedPlant);
+    if(currentIndex === -1 || currentIndex === plantsToShow.length - 1){
+        this.selectPlant(plantsToShow[0]);
+    } else {
+        this.selectPlant(plantsToShow[currentIndex + 1]);
+    }
+}
       addToBasket(){ if(!this.selectedPlant){ this.toast('Please select a plant first!','error'); return; } const qty = this.basket.get(this.selectedPlant)||0; this.basket.set(this.selectedPlant, qty+1); this.updateBasketDisplay(); this.toast(`Added ${this.selectedPlant.getName()} to basket! 🛒`); }
       getBasketTotal(){ let t=0; for(const [p,q] of this.basket){ t += p.price()*q; } return t; }
       getBasketQuantity(){ let t=0; for(const q of this.basket.values()) t+=q; return t; }

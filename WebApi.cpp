@@ -1,5 +1,8 @@
 #include "WebAPI.h"
 #include "BasicPlant.h"  // Needed for BasicPlant
+#include "Rose.h"
+#include "Cactus.h"
+#include "Lavender.h"
 #include <sstream>
 #include <iostream>
 #include <thread>
@@ -20,6 +23,7 @@ std::string WebAPI::getPlantsJSON() {
         if (plant) {
             if (!first) json << ",";
             json << "{";
+            json << "\"type\":\"" << plant->getType() << "\",";  // 🎯 ADD PLANT TYPE
             json << "\"name\":\"" << plant->getName() << "\",";
             json << "\"careType\":\"" << plant->getCareType() << "\",";
             json << "\"state\":\"" << plant->getStateText() << "\",";
@@ -60,15 +64,28 @@ bool WebAPI::removePlantFromInventory(const std::string& name) {
     return success;
 }
 
+void initializeInventory(Inventory& inventory) {
+    // 🎯 CREATE SPECIFIC PLANT TYPES (default constructors)
+    inventory.addPlant(new Rose());        // Uses Rose's default setup
+    inventory.addPlant(new Cactus());      // Uses your Cactus default setup
+    inventory.addPlant(new Lavender());    // Uses Lavender's default setup
+
+    // 💾 Serialize to JSON so GUI can read
+    InventorySerializer::saveToFile(inventory, "gui/inventory_state.json");
+}
+
+
 // Simple file-based API implementation
 void startWebServer(Inventory* inventory) {
     WebAPI webAPI(inventory);
     
     std::cout << "🌿 WebAPI Server Started!" << std::endl;
     
-    // Initial load from file
-    InventorySerializer::loadFromFile(*inventory, "gui/inventory_state.json");
-    std::cout << "📊 Loaded " << inventory->getSize() << " plants from file" << std::endl;
+    // 🎯 ONLY INITIALIZE ONCE - NOT BOTH!
+    //initializeInventory(*inventory);
+    // ❌ REMOVE THIS LINE: InventorySerializer::loadFromFile(*inventory, "gui/inventory_state.json");
+    
+    std::cout << "📊 Created " << inventory->getSize() << " specific plant types" << std::endl;
     
     std::cout << "👀 Will reload file every 5 seconds..." << std::endl;
     
@@ -79,4 +96,6 @@ void startWebServer(Inventory* inventory) {
         InventorySerializer::loadFromFile(*inventory, "gui/inventory_state.json");
         std::cout << "📊 Now have " << inventory->getSize() << " plants" << std::endl;
     }
+
+    
 }

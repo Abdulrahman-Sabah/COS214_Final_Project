@@ -1,32 +1,28 @@
 {
   "plants": [
     {
+      "type": "Rose",
       "name": "Rose",
       "careType": "Moderate",
-      "state": "Seedling",
+      "state": "Selling",
       "season": "Spring",
       "price": 79.99
     },
     {
+      "type": "Cactus",
       "name": "Cactus",
       "careType": "Low",
-      "state": "Seedling",
+      "state": "Selling",
       "season": "Summer",
       "price": 59.99
     },
     {
+      "type": "Lavender",
       "name": "Lavender",
       "careType": "Moderate",
-      "state": "Seedling",
+      "state": "Selling",
       "season": "Spring",
       "price": 49.99
-    },
-    {
-      "name": "test",
-      "careType": "Moderate",
-      "state": "Budding",
-      "season": "Spring",
-      "price": 45
     }
   ]
 }

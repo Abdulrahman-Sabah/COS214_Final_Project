@@ -26,6 +26,11 @@ void Plant::setCareType(string t) {
     careType = t; 
     notifyCareStrategyChanged();
 }
+
+void Plant::setPrice(double newPrice) {
+    price_ = newPrice;
+}
+
 void Plant::setStateText(string s) { 
     state = s; 
     notifyStateChanged();

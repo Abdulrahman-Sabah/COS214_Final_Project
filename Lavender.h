@@ -11,6 +11,7 @@ class Lavender : public Plant
     std::string description() override;
     double price() override;
     Plant* clone() override;
+    std::string getType() const override { return "Lavender"; }
 };
 
 #endif

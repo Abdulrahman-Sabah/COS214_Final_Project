@@ -12,6 +12,13 @@ private:
 
 public:
 
+    void clear() {
+        for (Plant* plant : plants) {
+            delete plant;  // Free memory
+        }
+        plants.clear();    // Clear the vector
+    }
+
     Inventory();
     ~Inventory();
     void addPlant(Plant* p);
