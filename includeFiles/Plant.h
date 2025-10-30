@@ -18,6 +18,7 @@ private:
   CareStrategy *careStrategy;
   PlantLifeCycleState *lifeCycle;
   vector<PlantObserver *> observers;
+  double price_;
 
 protected:
   void notifyStateChanged();
@@ -26,12 +27,13 @@ protected:
   void notifyCareStrategyChanged();
 
 public:
+  virtual std::string getType() const { return "Plant"; }
   Plant(string name, string careType, string state, string season,
         CareStrategy *strategy, PlantLifeCycleState *life);
 
   Plant();
 
-  virtual ~Plant();
+  virtual ~Plant() = default;
 
   virtual string description() = 0;
   virtual double price() = 0;
@@ -46,6 +48,7 @@ public:
 
   void setName(string n);
   void setCareType(string t);
+  void setPrice(double p);
   void setStateText(string s);
   void setSeason(string s);
   void setCareStrategy(CareStrategy *cs);
