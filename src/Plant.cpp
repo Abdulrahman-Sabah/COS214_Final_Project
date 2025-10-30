@@ -35,27 +35,22 @@ void Plant::setName(string n) { name = n; }
 
 void Plant::setCareType(string t) {
   careType = t;
-  notifyCareStrategyChanged();
 }
 void Plant::setStateText(string s) {
   state = s;
-  notifyStateChanged();
 }
 void Plant::setSeason(string s) {
   season = s;
-  notifySeasonChanged(s);
 }
 void Plant::setCareStrategy(CareStrategy *cs) {
   if (careStrategy && careStrategy != cs)
     delete careStrategy;
   careStrategy = cs;
-  notifyCareStrategyChanged();
 }
 void Plant::setLifeCycle(PlantLifeCycleState *st) {
   if (lifeCycle && lifeCycle != st)
     delete lifeCycle;
   lifeCycle = st;
-  notifyLifeCycleChanged(st);
 }
 
 void Plant::attach(PlantObserver *observer) { observers.push_back(observer); }
@@ -65,29 +60,6 @@ void Plant::detach(PlantObserver *observer) {
                   observers.end());
 }
 
-void Plant::notifyStateChanged() {
-  for (auto observer : observers) {
-    observer->onPlantStateChanged(this);
-  }
-}
-
-void Plant::notifyLifeCycleChanged(PlantLifeCycleState *newState) {
-  for (auto observer : observers) {
-    observer->onLifeCycleChanged(this, newState);
-  }
-}
-
-void Plant::notifySeasonChanged(string newSeason) {
-  for (auto observer : observers) {
-    observer->onSeasonChanged(this, newSeason);
-  }
-}
-
-void Plant::notifyCareStrategyChanged() {
-  for (auto observer : observers) {
-    observer->onCareStrategyChanged(this);
-  }
-}
 
 void Plant::takeCare() {
   if (careStrategy) {
