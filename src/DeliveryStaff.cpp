@@ -1,4 +1,5 @@
 #include "DeliveryStaff.h"
+#include "Inventory.h"
 #include <iostream>
 
 void DeliveryStaff::processCustomerRequest(Plant *plant) {

@@ -26,6 +26,7 @@ public:
   PlantIterator *createIterator();
   std::vector<Plant *> &getPlants();
   void displayAll();
+  bool hasPlant(Plant *p);
 };
 
 #endif
