@@ -54,11 +54,7 @@ void Plant::detach(PlantObserver *observer) {
                   observers.end());
 }
 
-void Plant::notifyStateChanged() {
-  for (auto observer : observers) {
-    observer->onPlantStateChanged(this);
-  }
-}
+void Plant::notifyStateChanged() {}
 
 void Plant::notifyLifeCycleChanged(PlantLifeCycleState *newState) {
   for (auto observer : observers) {
@@ -66,17 +62,9 @@ void Plant::notifyLifeCycleChanged(PlantLifeCycleState *newState) {
   }
 }
 
-void Plant::notifySeasonChanged(string newSeason) {
-  for (auto observer : observers) {
-    observer->onSeasonChanged(this, newSeason);
-  }
-}
+void Plant::notifySeasonChanged(string newSeason) {}
 
-void Plant::notifyCareStrategyChanged() {
-  for (auto observer : observers) {
-    observer->onCareStrategyChanged(this);
-  }
-}
+void Plant::notifyCareStrategyChanged() {}
 
 void Plant::takeCare() {
   if (careStrategy) {

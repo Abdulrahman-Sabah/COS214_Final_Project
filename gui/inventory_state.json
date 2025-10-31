@@ -23,6 +23,22 @@
       "state": "Selling",
       "season": "Spring",
       "price": 49.99
+    },
+    {
+      "type": "Plant",
+      "name": "Test123",
+      "careType": "High",
+      "state": "Growing",
+      "season": "Autumn",
+      "price": 100
+    },
+    {
+      "type": "Plant",
+      "name": "Test345",
+      "careType": "High",
+      "state": "Mature",
+      "season": "Autumn",
+      "price": 120
     }
   ]
 }
