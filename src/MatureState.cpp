@@ -1,4 +1,5 @@
 #include "MatureState.h"
+
 #include "DeadState.h"
 #include "SellingState.h"
 
@@ -22,13 +23,11 @@ void MatureState::advance(Plant *plant) {
 std::string MatureState::name() { return "Mature"; }
 
 bool MatureState::isDead() {
-  if (dead)
-    return true;
+  if (dead) return true;
   return false;
 }
 
 bool MatureState::needsAttention() {
-  if (attention)
-    return true;
+  if (attention) return true;
   return false;
 }

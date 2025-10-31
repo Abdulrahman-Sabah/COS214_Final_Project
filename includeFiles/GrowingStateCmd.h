@@ -1,17 +1,18 @@
 #ifndef GROWING_STATE_CMD_H
 #define GROWING_STATE_CMD_H
 
-#include "Commands.h"
 #include <string>
 
+#include "Commands.h"
+
 class GrowingStateCmd : public Commands {
-public:
+ public:
   GrowingStateCmd();
   virtual ~GrowingStateCmd() {}
   std::string name();
-  void execute(Plant *plant);
+  void execute(Plant* plant);
 
-private:
+ private:
   std::string m_label;
 };
 

@@ -1,7 +1,8 @@
 #include "LavenderCare.h"
+
 #include "Plant.h"
 
-void LavenderCare::applyCare(Plant *plant) {
+void LavenderCare::applyCare(Plant* plant) {
   std::cout << plant->getName()
             << " is being watered regularly, keeping the soil consistently "
                "moist but not soggy."

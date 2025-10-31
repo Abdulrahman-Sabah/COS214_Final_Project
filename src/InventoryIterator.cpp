@@ -1,6 +1,6 @@
 #include "InventoryIterator.h"
 
-InventoryIterator::InventoryIterator(std::vector<Plant *> &plantList)
+InventoryIterator::InventoryIterator(std::vector<Plant*>& plantList)
     : plants(plantList), currentIndex(0) {}
 
 InventoryIterator::~InventoryIterator() {}
@@ -15,7 +15,7 @@ void InventoryIterator::next() {
 
 bool InventoryIterator::isDone() { return currentIndex >= plants.size(); }
 
-Plant *InventoryIterator::current() {
+Plant* InventoryIterator::current() {
   if (isDone()) {
     return nullptr;
   }

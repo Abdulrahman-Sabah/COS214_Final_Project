@@ -1,35 +1,36 @@
 #include "StaffFacade.h"
+
+#include <iostream>
+#include <memory>
+
 #include "CactusBuilder.h"
 #include "GreenhouseDirector.h"
 #include "LavenderBuilder.h"
 #include "Plant.h"
 #include "RoseBuilder.h"
 
-#include <iostream>
-#include <memory>
+StaffFacade::StaffFacade(Inventory& inv) : inventory(inv) {}
 
-StaffFacade::StaffFacade(Inventory &inv) : inventory(inv) {}
-
-void StaffFacade::addStock(const std::string &name) {
+void StaffFacade::addStock(const std::string& name) {
   std::unique_ptr<Plant> plant;
 
   if (name == "Cactus") {
     CactusBuilder builder;
     GreenhouseDirector director(&builder);
     director.construct();
-    Plant *builtPlant = builder.getPlant();
+    Plant* builtPlant = builder.getPlant();
     plant = std::unique_ptr<Plant>(builtPlant);
   } else if (name == "Lavender") {
     LavenderBuilder builder;
     GreenhouseDirector director(&builder);
     director.construct();
-    Plant *builtPlant = builder.getPlant();
+    Plant* builtPlant = builder.getPlant();
     plant = std::unique_ptr<Plant>(builtPlant);
   } else if (name == "Rose") {
     RoseBuilder builder;
     GreenhouseDirector director(&builder);
     director.construct();
-    Plant *builtPlant = builder.getPlant();
+    Plant* builtPlant = builder.getPlant();
     plant = std::unique_ptr<Plant>(builtPlant);
   } else {
     std::cout << "Unknown plant type: " << name << "\n";

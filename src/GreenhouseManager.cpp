@@ -1,8 +1,10 @@
 #include "GreenhouseManager.h"
-#include "Commands.h"
+
 #include <iostream>
 
-void GreenhouseManager::handleRequest(Commands *r, Plant *plant) {
+#include "Commands.h"
+
+void GreenhouseManager::handleRequest(Commands* r, Plant* plant) {
   if (r && (r->name() == "LavenderStrategy" || r->name() == "RoseStrategy" ||
             r->name() == "SucculentStrategy")) {
     std::cout << "Greenhouse Manager is moving plants is looking at the states "

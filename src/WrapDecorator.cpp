@@ -1,6 +1,6 @@
 #include "WrapDecorator.h"
 
-WrapDecorator::WrapDecorator(Plant *item, string wrap, double cost)
+WrapDecorator::WrapDecorator(Plant* item, string wrap, double cost)
     : PlantDecorations(item), wrapType(wrap), wrapCost(cost) {}
 
 string WrapDecorator::description() {
@@ -9,6 +9,6 @@ string WrapDecorator::description() {
 
 double WrapDecorator::price() { return wrappedPlant->price() + wrapCost; }
 
-Plant *WrapDecorator::clone() {
+Plant* WrapDecorator::clone() {
   return new WrapDecorator(wrappedPlant->clone(), wrapType, wrapCost);
 }

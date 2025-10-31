@@ -1,4 +1,5 @@
 #include "SeedlingState.h"
+
 #include "DeadState.h"
 #include "GrowingState.h"
 
@@ -22,13 +23,11 @@ void SeedlingState::advance(Plant *plant) {
 std::string SeedlingState::name() { return "Seedling"; }
 
 bool SeedlingState::isDead() {
-  if (dead)
-    return true;
+  if (dead) return true;
   return false;
 }
 
 bool SeedlingState::needsAttention() {
-  if (attention)
-    return true;
+  if (attention) return true;
   return false;
 }

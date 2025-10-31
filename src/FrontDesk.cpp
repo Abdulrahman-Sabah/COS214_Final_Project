@@ -1,12 +1,14 @@
 #include "FrontDesk.h"
-#include "DeliveryStaff.h"
-#include "StoreCustomer.h"
+
 #include <iostream>
 
-void FrontDesk::setCustomer(StoreCustomer *c) { customer = c; }
-void FrontDesk::setDeliveryStaff(DeliveryStaff *d) { staff = d; }
+#include "DeliveryStaff.h"
+#include "StoreCustomer.h"
 
-void FrontDesk::notify(Plant *plant, const std::string &event) {
+void FrontDesk::setCustomer(StoreCustomer* c) { customer = c; }
+void FrontDesk::setDeliveryStaff(DeliveryStaff* d) { staff = d; }
+
+void FrontDesk::notify(Plant* plant, const std::string& event) {
   if (event == "StoreCustomerRequest") {
     if (!staff) {
       std::cout << "Mediator: No DeliveryStaff set.\n";

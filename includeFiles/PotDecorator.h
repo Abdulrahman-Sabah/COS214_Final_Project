@@ -4,16 +4,16 @@
 #include "PlantDecorations.h"
 
 class PotDecorator : public PlantDecorations {
-private:
+ private:
   string potType;
   double potCost;
 
-public:
-  PotDecorator(Plant *item, string pot, double cost);
+ public:
+  PotDecorator(Plant* item, string pot, double cost);
 
   string description() override;
   double price() override;
-  Plant *clone() override;
+  Plant* clone() override;
 };
 
 #endif

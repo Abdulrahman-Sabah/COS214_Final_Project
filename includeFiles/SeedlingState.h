@@ -4,13 +4,12 @@
 #include "PlantLifeCycleState.h"
 
 class SeedlingState : public PlantLifeCycleState {
-
-public:
+ public:
   SeedlingState();
 
   ~SeedlingState() override;
 
-  void advance(Plant *plant) override;
+  void advance(Plant* plant) override;
 
   std::string name() override;
 

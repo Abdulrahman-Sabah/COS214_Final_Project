@@ -24,8 +24,9 @@
 #ifndef SUCCULENT_BUILDER_H
 #define SUCCULENT_BUILDER_H
 
-#include "PlantBuilder.h"
 #include <string>
+
+#include "PlantBuilder.h"
 
 // Forward declarations to minimize coupling
 class Plant;
@@ -33,10 +34,10 @@ class Succulent;
 class PlantLifeCycleState;
 
 class SucculentBuilder : public PlantBuilder {
-private:
-  Plant *product; // the plant being built (will be a Succulent)
+ private:
+  Plant* product;  // the plant being built (will be a Succulent)
 
-public:
+ public:
   SucculentBuilder();
   ~SucculentBuilder() override;
 
@@ -44,10 +45,10 @@ public:
   void setName(std::string n) override;
   void setCareType(std::string ct) override;
   void setSeason(std::string s) override;
-  void setLifeCycle(PlantLifeCycleState *state) override;
+  void setLifeCycle(PlantLifeCycleState* state) override;
 
   // Transfer ownership of the built plant to the caller
-  Plant *getPlant() override;
+  Plant* getPlant() override;
 };
 
 #endif

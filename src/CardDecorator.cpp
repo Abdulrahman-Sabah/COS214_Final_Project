@@ -1,6 +1,6 @@
 #include "CardDecorator.h"
 
-CardDecorator::CardDecorator(Plant *item, string msg, double cost)
+CardDecorator::CardDecorator(Plant* item, string msg, double cost)
     : PlantDecorations(item), message(msg), cardCost(cost) {}
 
 string CardDecorator::description() {
@@ -9,6 +9,6 @@ string CardDecorator::description() {
 
 double CardDecorator::price() { return wrappedPlant->price() + cardCost; }
 
-Plant *CardDecorator::clone() {
+Plant* CardDecorator::clone() {
   return new CardDecorator(wrappedPlant->clone(), message, cardCost);
 }

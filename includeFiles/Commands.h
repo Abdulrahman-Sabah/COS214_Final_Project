@@ -8,8 +8,9 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "Plant.h"
 #include <string>
+
+#include "Plant.h"
 
 /**
  * @class Commands
@@ -24,7 +25,7 @@
  * pure virtual methods to define specific command behavior.
  */
 class Commands {
-public:
+ public:
   /**
    * @brief Virtual destructor for proper polymorphic cleanup
    */

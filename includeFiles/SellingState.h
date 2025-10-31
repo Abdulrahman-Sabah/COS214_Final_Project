@@ -4,12 +4,12 @@
 #include "PlantLifeCycleState.h"
 
 class SellingState : public PlantLifeCycleState {
-public:
+ public:
   SellingState();
 
   ~SellingState() override;
 
-  void advance(Plant *plant) override;
+  void advance(Plant* plant) override;
 
   std::string name() override;
 

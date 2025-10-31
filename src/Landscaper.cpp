@@ -6,10 +6,12 @@
  */
 
 #include "Landscaper.h"
-#include "Commands.h"
+
 #include <iostream>
 
-void Landscaper::handleRequest(Commands *r, Plant *plant) {
+#include "Commands.h"
+
+void Landscaper::handleRequest(Commands* r, Plant* plant) {
   std::cout << "Working";
   if (r && (r->name() == "SeedlingState" || r->name() == "GrowingState" ||
             r->name() == "DormantState" || r->name() == "MatureState" ||

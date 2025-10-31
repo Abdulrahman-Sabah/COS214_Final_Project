@@ -1,26 +1,28 @@
 
 #include "CactusBuilder.h"
-#include "Cactus.h" // concrete Plant subtype
+
+#include <utility>  // std::move
+
+#include "Cactus.h"  // concrete Plant subtype
 #include "CactusCreator.h"
 #include "Plant.h"
 #include "PlantLifeCycleState.h"
-#include <utility> // std::move
 
 namespace {
 // Lazily allocate the product the first time it’s needed
-inline void ensureAllocated(Plant *&p) {
+inline void ensureAllocated(Plant*& p) {
   if (!p) {
     CactusCreator creator;
-    p = creator.factoryMethod(); // adjust ctor args if your Cactus needs them
+    p = creator.factoryMethod();  // adjust ctor args if your Cactus needs them
     p->setName("Cactus");
   }
 }
-} // namespace
+}  // namespace
 
 CactusBuilder::CactusBuilder() : product(nullptr) {}
 
 CactusBuilder::~CactusBuilder() {
-  delete product; // safe if nullptr
+  delete product;  // safe if nullptr
   product = nullptr;
 }
 
@@ -39,14 +41,14 @@ void CactusBuilder::setSeason(std::string s) {
   product->setSeason(std::move(s));
 }
 
-void CactusBuilder::setLifeCycle(PlantLifeCycleState *state) {
+void CactusBuilder::setLifeCycle(PlantLifeCycleState* state) {
   ensureAllocated(product);
   product->setLifeCycle(state);
 }
 
-Plant *CactusBuilder::getPlant() {
+Plant* CactusBuilder::getPlant() {
   ensureAllocated(product);
-  Plant *out = product; // transfer ownership
-  product = nullptr;    // builder relinquishes ownership
+  Plant* out = product;  // transfer ownership
+  product = nullptr;     // builder relinquishes ownership
   return out;
 }

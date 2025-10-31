@@ -7,9 +7,10 @@
 
 #ifndef PLANTOBSERVER_H
 #define PLANTOBSERVER_H
+#include <string>
+
 #include "CareStrategy.h"
 #include "Plant.h"
-#include <string>
 using namespace std;
 
 class Plant;
@@ -24,7 +25,7 @@ class PlantLifeCycleState;
  * transitions, season changes, or care strategy modifications.
  */
 class PlantObserver {
-public:
+ public:
   /**
    * @brief Virtual destructor for proper cleanup
    */
@@ -42,8 +43,8 @@ public:
    * @param plant The plant whose lifecycle changed
    * @param newState The new lifecycle state
    */
-  virtual void onLifeCycleChanged(Plant *plant,
-                                  PlantLifeCycleState *newState) = 0;
+  virtual void onLifeCycleChanged(Plant* plant,
+                                  PlantLifeCycleState* newState) = 0;
 
   /**
    * @brief Called when a plant's season changes
@@ -55,8 +56,8 @@ public:
    * @brief Called when a plant's care strategy changes
    * @param plant The plant whose care strategy changed
    */
-  virtual void onCareStrategyChanged(Plant *plant,
-                                     CareStrategy *newStrategy) = 0;
+  virtual void onCareStrategyChanged(Plant* plant,
+                                     CareStrategy* newStrategy) = 0;
 };
 
 #endif

@@ -1,18 +1,19 @@
 #ifndef MATURE_STATE_CMD_H
 #define MATURE_STATE_CMD_H
 
-#include "Commands.h"
 #include <string>
 
+#include "Commands.h"
+
 class MatureStateCmd : public Commands {
-public:
+ public:
   MatureStateCmd();
   virtual ~MatureStateCmd() {}
 
   std::string name();
-  void execute(Plant *plant);
+  void execute(Plant* plant);
 
-private:
+ private:
   std::string m_label;
 };
 

@@ -1,14 +1,14 @@
 #include "StoreCustomer.h"
 
-void StoreCustomer::requestPlant(Plant *p) {
+void StoreCustomer::requestPlant(Plant* p) {
   std::cout << "StoreCustomer: Requesting plant '" << p->getName() << "'\n";
 
-  if (auto *m = getMediator()) {
+  if (auto* m = getMediator()) {
     m->notify(p, "StoreCustomerRequest");
   }
 }
 
-void StoreCustomer::receive(const std::string &event) {
+void StoreCustomer::receive(const std::string& event) {
   if (event == "DeliveryReady") {
     std::cout << "StoreCustomer: My plant is ready for pickup!\n";
   } else if (event == "PlantNotFound") {

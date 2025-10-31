@@ -20,11 +20,11 @@ class Commands;
  * greenhouse management system.
  */
 class Handler {
-private:
-  Handler *successor; /**< Pointer to next handler in chain */
-  Notify *subject;    /**< Subject for observer pattern notifications */
+ private:
+  Handler* successor; /**< Pointer to next handler in chain */
+  Notify* subject;    /**< Subject for observer pattern notifications */
 
-protected:
+ protected:
   /**
    * @brief Helper method for derived classes to pass requests along the chain
    * @param r Pointer to the command to be passed to successor
@@ -33,9 +33,9 @@ protected:
    * to the next handler in the chain when they cannot handle the request
    * themselves.
    */
-  void passToSuccessor(Commands *r, Plant *plant);
+  void passToSuccessor(Commands* r, Plant* plant);
 
-public:
+ public:
   /**
    * @brief Sets the next handler in the chain
    * @param h Pointer to the handler that should be the successor
@@ -43,7 +43,7 @@ public:
    * This method establishes the chain by setting which handler should
    * receive requests that this handler cannot process.
    */
-  void setSuccessor(Handler *h);
+  void setSuccessor(Handler* h);
 
   /**
    * @brief Pure virtual method for handling requests
@@ -53,7 +53,7 @@ public:
    * processes specific types of requests. If the handler cannot process
    * the request, it should call passToSuccessor().
    */
-  virtual void handleRequest(Commands *cmd, Plant *plant) = 0;
+  virtual void handleRequest(Commands* cmd, Plant* plant) = 0;
 
   /**
    * @brief Virtual destructor for proper polymorphic cleanup
