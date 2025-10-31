@@ -1,32 +1,33 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include "Plant.h"
-#include "PlantIterator.h"
 #include <vector>
 
-class Inventory {
-private:
-  std::vector<Plant *> plants;
+#include "Plant.h"
+#include "PlantIterator.h"
 
-public:
+class Inventory {
+ private:
+  std::vector<Plant*> plants;
+
+ public:
   void clear() {
-    for (Plant *plant : plants) {
-      delete plant; // Free memory
+    for (Plant* plant : plants) {
+      delete plant;  // Free memory
     }
-    plants.clear(); // Clear the vector
+    plants.clear();  // Clear the vector
   }
 
   Inventory();
   ~Inventory();
-  void addPlant(Plant *p);
-  bool removePlant(Plant *p);
-  bool removePlantByName(const std::string &name);
+  void addPlant(Plant* p);
+  bool removePlant(Plant* p);
+  bool removePlantByName(const std::string& name);
   size_t getSize() const;
-  PlantIterator *createIterator();
-  std::vector<Plant *> &getPlants();
+  PlantIterator* createIterator();
+  std::vector<Plant*>& getPlants();
   void displayAll();
-  bool hasPlant(Plant *p);
+  bool hasPlant(Plant* p);
 };
 
 #endif

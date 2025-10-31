@@ -1,20 +1,23 @@
 #include "InventorySerializer.h"
-#include "BasicPlant.h"
-#include "Cactus.h"
-#include "Lavender.h"
-#include "Rose.h"
+
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 
-void InventorySerializer::saveToFile(Inventory &inventory,
-                                     const std::string &filename) {
+#include "BasicPlant.h"
+#include "Cactus.h"
+#include "Lavender.h"
+#include "Rose.h"
+
+void InventorySerializer::saveToFile(Inventory& inventory,
+                                     const std::string& filename) {
   std::cout << "💾 STEP: Saving to file: " << filename << std::endl;
 
   std::ofstream file(filename);
   if (!file.is_open()) {
-    std::cerr << "❌ FAILED to open file for writing: " << filename << std::endl;
+    std::cerr << "❌ FAILED to open file for writing: " << filename
+              << std::endl;
     return;
   }
 
@@ -24,14 +27,13 @@ void InventorySerializer::saveToFile(Inventory &inventory,
 
   file << "{\"plants\":[";
 
-  PlantIterator *it = inventory.createIterator();
+  PlantIterator* it = inventory.createIterator();
   bool first = true;
 
   for (it->first(); !it->isDone(); it->next()) {
-    Plant *plant = it->current();
+    Plant* plant = it->current();
     if (plant) {
-      if (!first)
-        file << ",";
+      if (!first) file << ",";
       file << "{";
       // 🆕 ADD TYPE FIELD
       file << "\"type\":\"" << plant->getType() << "\",";
@@ -54,7 +56,7 @@ void InventorySerializer::saveToFile(Inventory &inventory,
 }
 
 // ADD THIS DEFINITION OUTSIDE THE CLASS
-void InventorySerializer::initializeInventory(Inventory &inventory) {
+void InventorySerializer::initializeInventory(Inventory& inventory) {
   std::cout << "🎯 Initializing inventory with default plants" << std::endl;
 
   inventory.clear();
@@ -67,20 +69,19 @@ void InventorySerializer::initializeInventory(Inventory &inventory) {
 }
 
 // ADD HELPER FUNCTION FIRST (before loadFromFile):
-std::string InventorySerializer::extractJSONField(const std::string &content,
-                                                  const std::string &field,
-                                                  size_t &pos) {
+std::string InventorySerializer::extractJSONField(const std::string& content,
+                                                  const std::string& field,
+                                                  size_t& pos) {
   size_t start = content.find(field, pos);
-  if (start == std::string::npos)
-    return "";
+  if (start == std::string::npos) return "";
   start = content.find("\"", start + field.length()) + 1;
   size_t end = content.find("\"", start);
   return content.substr(start, end - start);
 }
 
 // MODIFY loadFromFile() to handle specific types:
-void InventorySerializer::loadFromFile(Inventory &inventory,
-                                       const std::string &filename) {
+void InventorySerializer::loadFromFile(Inventory& inventory,
+                                       const std::string& filename) {
   std::cout << "🔍 STEP 1: Looking for file: " << filename << std::endl;
 
   std::ifstream file(filename);
@@ -137,9 +138,9 @@ void InventorySerializer::loadFromFile(Inventory &inventory,
     double price = std::stod(content.substr(priceStart, priceEnd - priceStart));
 
     // Create plant with properties from JSON
-    Plant *newPlant = nullptr;
+    Plant* newPlant = nullptr;
     if (type == "Rose") {
-      Rose *rose = new Rose();
+      Rose* rose = new Rose();
       rose->setName(name);
       rose->setCareType(careType);
       rose->setStateText(state);
@@ -147,7 +148,7 @@ void InventorySerializer::loadFromFile(Inventory &inventory,
       rose->setPrice(price);
       newPlant = rose;
     } else if (type == "Cactus") {
-      Cactus *cactus = new Cactus();
+      Cactus* cactus = new Cactus();
       cactus->setName(name);
       cactus->setCareType(careType);
       cactus->setStateText(state);
@@ -155,7 +156,7 @@ void InventorySerializer::loadFromFile(Inventory &inventory,
       cactus->setPrice(price);
       newPlant = cactus;
     } else if (type == "Lavender") {
-      Lavender *lavender = new Lavender();
+      Lavender* lavender = new Lavender();
       lavender->setName(name);
       lavender->setCareType(careType);
       lavender->setStateText(state);

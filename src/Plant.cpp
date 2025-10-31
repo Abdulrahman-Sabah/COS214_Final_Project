@@ -1,15 +1,25 @@
 
 #include "Plant.h"
-#include "PlantObserver.h"
+
 #include <algorithm>
 
+#include "PlantObserver.h"
+
 Plant::Plant(string name, string careType, string state, string season,
-             CareStrategy *strategy, PlantLifeCycleState *life)
-    : name(name), careType(careType), state(state), season(season),
-      careStrategy(strategy), lifeCycle(life) {}
+             CareStrategy* strategy, PlantLifeCycleState* life)
+    : name(name),
+      careType(careType),
+      state(state),
+      season(season),
+      careStrategy(strategy),
+      lifeCycle(life) {}
 
 Plant::Plant()
-    : name(""), careType(""), state(""), season(""), careStrategy(nullptr),
+    : name(""),
+      careType(""),
+      state(""),
+      season(""),
+      careStrategy(nullptr),
       lifeCycle(nullptr) {}
 
 string Plant::getCareType() { return careType; }
@@ -18,9 +28,9 @@ string Plant::getStateText() { return state; }
 
 string Plant::getSeason() { return season; }
 
-CareStrategy *Plant::getCareStrategy() { return careStrategy; }
+CareStrategy* Plant::getCareStrategy() { return careStrategy; }
 
-PlantLifeCycleState *Plant::getLifeCycle() { return lifeCycle; }
+PlantLifeCycleState* Plant::getLifeCycle() { return lifeCycle; }
 
 void Plant::setName(string n) { name = n; }
 void Plant::setCareType(string t) {
@@ -38,25 +48,25 @@ void Plant::setSeason(string s) {
   season = s;
   notifySeasonChanged(s);
 }
-void Plant::setCareStrategy(CareStrategy *cs) {
+void Plant::setCareStrategy(CareStrategy* cs) {
   careStrategy = cs;
   notifyCareStrategyChanged();
 }
-void Plant::setLifeCycle(PlantLifeCycleState *st) {
+void Plant::setLifeCycle(PlantLifeCycleState* st) {
   lifeCycle = st;
   notifyLifeCycleChanged(st);
 }
 
-void Plant::attach(PlantObserver *observer) { observers.push_back(observer); }
+void Plant::attach(PlantObserver* observer) { observers.push_back(observer); }
 
-void Plant::detach(PlantObserver *observer) {
+void Plant::detach(PlantObserver* observer) {
   observers.erase(std::remove(observers.begin(), observers.end(), observer),
                   observers.end());
 }
 
 void Plant::notifyStateChanged() {}
 
-void Plant::notifyLifeCycleChanged(PlantLifeCycleState *newState) {
+void Plant::notifyLifeCycleChanged(PlantLifeCycleState* newState) {
   for (auto observer : observers) {
     observer->onLifeCycleChanged(this, newState);
   }

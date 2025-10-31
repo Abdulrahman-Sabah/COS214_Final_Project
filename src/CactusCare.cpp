@@ -1,7 +1,8 @@
 #include "CactusCare.h"
+
 #include "Plant.h"
 
-void CactusCare::applyCare(Plant *plant) {
+void CactusCare::applyCare(Plant* plant) {
   std::cout << plant->getName()
             << " is being watered as soon as the soil is completely dry."
             << std::endl;

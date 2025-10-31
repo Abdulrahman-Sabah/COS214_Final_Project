@@ -4,11 +4,11 @@
 #include "PlantBuilder.h"
 
 class GreenhouseDirector {
-private:
-  PlantBuilder *builder;
+ private:
+  PlantBuilder* builder;
 
-public:
-  GreenhouseDirector(PlantBuilder *b);
+ public:
+  GreenhouseDirector(PlantBuilder* b);
   void construct();
 };
 

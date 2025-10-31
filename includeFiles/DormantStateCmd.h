@@ -1,18 +1,19 @@
 #ifndef DORMANTSTATECMD_H
 #define DORMANTSTATECMD_H
 
-#include "Commands.h"
 #include <string>
 
+#include "Commands.h"
+
 class DormantStateCmd : public Commands {
-public:
+ public:
   DormantStateCmd();
   virtual ~DormantStateCmd() {}
 
   std::string name();
-  void execute(Plant *plant);
+  void execute(Plant* plant);
 
-private:
+ private:
   std::string m_label;
 };
 

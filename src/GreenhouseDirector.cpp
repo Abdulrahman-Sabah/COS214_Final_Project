@@ -1,8 +1,9 @@
 #include "GreenhouseDirector.h"
+
 #include "PlantBuilder.h"
 #include "SeedlingState.h"
 
-GreenhouseDirector::GreenhouseDirector(PlantBuilder *b) : builder(b) {}
+GreenhouseDirector::GreenhouseDirector(PlantBuilder* b) : builder(b) {}
 
 void GreenhouseDirector::construct() {
   builder->setName();

@@ -1,4 +1,5 @@
 #include "GrowingState.h"
+
 #include "DeadState.h"
 #include "DormantState.h"
 
@@ -6,7 +7,7 @@ GrowingState::GrowingState() : PlantLifeCycleState() {}
 
 GrowingState::~GrowingState() = default;
 
-void GrowingState::advance(Plant *plant) {
+void GrowingState::advance(Plant* plant) {
   if (isDead()) {
     plant->setLifeCycle(new DeadState());
     std::cout << plant->getName() << " has died in the "
@@ -21,13 +22,11 @@ void GrowingState::advance(Plant *plant) {
 std::string GrowingState::name() { return "Growing"; }
 
 bool GrowingState::isDead() {
-  if (dead)
-    return true;
+  if (dead) return true;
   return false;
 }
 
 bool GrowingState::needsAttention() {
-  if (attention)
-    return true;
+  if (attention) return true;
   return false;
 }

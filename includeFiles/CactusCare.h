@@ -4,8 +4,8 @@
 #include "CareStrategy.h"
 
 class CactusCare : public CareStrategy {
-public:
-  void applyCare(Plant *plant) override;
+ public:
+  void applyCare(Plant* plant) override;
   ~CactusCare() override = default;
 };
 

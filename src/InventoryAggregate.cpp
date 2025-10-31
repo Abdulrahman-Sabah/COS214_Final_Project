@@ -3,7 +3,7 @@
 InventoryAggregate::InventoryAggregate() {}
 
 InventoryAggregate::~InventoryAggregate() {
-  for (Plant *p : plants) {
+  for (Plant* p : plants) {
     delete p;
   }
   plants.clear();
@@ -11,4 +11,4 @@ InventoryAggregate::~InventoryAggregate() {
 
 size_t InventoryAggregate::getSize() const { return plants.size(); }
 
-std::vector<Plant *> &InventoryAggregate::getPlants() { return plants; }
+std::vector<Plant*>& InventoryAggregate::getPlants() { return plants; }

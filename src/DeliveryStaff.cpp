@@ -1,8 +1,10 @@
 #include "DeliveryStaff.h"
-#include "Inventory.h"
+
 #include <iostream>
 
-void DeliveryStaff::processCustomerRequest(Plant *plant) {
+#include "Inventory.h"
+
+void DeliveryStaff::processCustomerRequest(Plant* plant) {
   std::cout << "DeliveryStaff: Customer delivery request received.\n";
 
   if (!greenhouse_) {
@@ -17,16 +19,14 @@ void DeliveryStaff::processCustomerRequest(Plant *plant) {
 
   if (!greenhouse_->hasPlant(plant)) {
     std::cout << "DeliveryStaff: Plant is NOT in inventory.\n";
-    if (auto *m = getMediator())
-      m->notify(plant, "PlantNotFound");
+    if (auto* m = getMediator()) m->notify(plant, "PlantNotFound");
     return;
   }
 
   std::cout << "DeliveryStaff: Plant found! Preparing delivery...\n";
-  if (auto *m = getMediator())
-    m->notify(plant, "DeliveryReady");
+  if (auto* m = getMediator()) m->notify(plant, "DeliveryReady");
 }
 
-void DeliveryStaff::receive(const std::string &event) {
+void DeliveryStaff::receive(const std::string& event) {
   std::cout << "DeliveryStaff received event: " << event << "\n";
 }

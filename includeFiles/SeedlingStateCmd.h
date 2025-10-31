@@ -1,18 +1,19 @@
 #ifndef SEEDLING_STATE_CMD_H
 #define SEEDLING_STATE_CMD_H
 
-#include "Commands.h"
 #include <string>
 
+#include "Commands.h"
+
 class SeedlingStateCmd : public Commands {
-public:
+ public:
   SeedlingStateCmd();
   virtual ~SeedlingStateCmd() {}
 
   std::string name();
-  void execute(Plant *plant);
+  void execute(Plant* plant);
 
-private:
+ private:
   std::string m_label;
 };
 

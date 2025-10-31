@@ -24,7 +24,7 @@ ALL_SRCS = $(wildcard src/*.cpp)
 SERVER_OBJS = $(filter-out src/TestingMain.o, $(ALL_SRCS:src/%.cpp=src/%.o))
 TEST_OBJS = $(filter-out src/server.o, $(ALL_SRCS:src/%.cpp=src/%.o))
 
-.PHONY: all server test clean run-server run-test
+.PHONY: all server test clean run-server run-test format
 
 # Default target
 all: server test
@@ -51,6 +51,12 @@ run-server: $(SERVER_EXE)
 
 run-test: $(TEST_EXE)
 	./$(TEST_EXE)
+
+# Format source code using clang-format
+format:
+	@echo "Formatting C++ source files..."
+	@find . -name "*.cpp" -o -name "*.h" | grep -v "./html" | grep -v "./latex" | xargs clang-format -i -style=Google
+	@echo "Formatting complete"
 
 # Cross-platform clean
 clean:
