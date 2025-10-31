@@ -23,6 +23,7 @@ void Handler::setSuccessor(Handler *h) {
 }
 
 void Handler::passToSuccessor(Commands* r, Plant* plant) {
+  if(!plant) return;
   if (successor) {
     successor->handleRequest(r, plant);
   } else {
