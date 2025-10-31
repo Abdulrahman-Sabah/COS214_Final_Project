@@ -11,14 +11,14 @@
 #include "doctest.h"
 
 TEST_CASE("Initial state") {
-  Rose *r = new Rose();
+  Rose* r = new Rose();
   REQUIRE(r->getLifeCycle() != nullptr);
   CHECK(r->getLifeCycle()->name() == "Seedling");
   delete r;
 }
 
 TEST_CASE("functions for Seedling state") {
-  Rose *r = new Rose();
+  Rose* r = new Rose();
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle() != nullptr);
   CHECK(r->getLifeCycle()->name() == "Growing");
@@ -26,7 +26,7 @@ TEST_CASE("functions for Seedling state") {
 }
 
 TEST_CASE("functions for Growing state") {
-  Rose *r = new Rose();
+  Rose* r = new Rose();
   r->setLifeCycle(new GrowingState());
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle() != nullptr);
@@ -37,8 +37,8 @@ TEST_CASE("functions for Growing state") {
 TEST_CASE("functions for Dormant state, when growing is true or false") {
   // Growing boolean variable is true
   {
-    Rose *r = new Rose();
-    DormantState *d = new DormantState();
+    Rose* r = new Rose();
+    DormantState* d = new DormantState();
     d->setGrowing(true);
     r->setLifeCycle(d);
     r->getLifeCycle()->advance(r);
@@ -47,8 +47,8 @@ TEST_CASE("functions for Dormant state, when growing is true or false") {
   }
   // Growing boolean variable is false
   {
-    Rose *r = new Rose();
-    DormantState *d = new DormantState();
+    Rose* r = new Rose();
+    DormantState* d = new DormantState();
     d->setGrowing(false);
     r->setLifeCycle(d);
     r->getLifeCycle()->advance(r);
@@ -58,7 +58,7 @@ TEST_CASE("functions for Dormant state, when growing is true or false") {
 }
 
 TEST_CASE("functions for Mature state") {
-  Rose *r = new Rose();
+  Rose* r = new Rose();
   r->setLifeCycle(new MatureState());
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle()->name() == "Selling");
@@ -66,7 +66,7 @@ TEST_CASE("functions for Mature state") {
 }
 
 TEST_CASE("We handle the Selling state advance function properly") {
-  Rose *r = new Rose();
+  Rose* r = new Rose();
   r->setLifeCycle(new SellingState());
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle() != nullptr);
@@ -74,7 +74,7 @@ TEST_CASE("We handle the Selling state advance function properly") {
 }
 
 TEST_CASE("We handle the Dead state advance function properly") {
-  Rose *r = new Rose();
+  Rose* r = new Rose();
   r->setLifeCycle(new DeadState());
   r->getLifeCycle()->setDead(true);
   r->getLifeCycle()->advance(r);
