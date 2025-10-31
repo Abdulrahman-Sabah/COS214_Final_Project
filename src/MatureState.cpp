@@ -7,7 +7,8 @@ MatureState::MatureState() : PlantLifeCycleState() {}
 
 MatureState::~MatureState() = default;
 
-void MatureState::advance(Plant* plant) {
+void MatureState::advance(Plant *plant) {
+  if (!plant) return;
   if (isDead()) {
     plant->setLifeCycle(new DeadState());
     std::cout << plant->getName() << " has died in the "

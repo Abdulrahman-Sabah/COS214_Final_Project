@@ -13,11 +13,14 @@
 Handler::Handler() : successor(nullptr), subject(nullptr) {}
 
 Handler::~Handler() {
-  delete successor;
+  // delete successor;
   successor = nullptr;
 }
 
-void Handler::setSuccessor(Handler* h) { successor = h; }
+void Handler::setSuccessor(Handler *h) { 
+  if(!h) return;
+  successor = h; 
+}
 
 void Handler::passToSuccessor(Commands* r, Plant* plant) {
   if (successor) {

@@ -11,6 +11,7 @@ void GreenhouseManager::handleRequest(Commands* r, Plant* plant) {
                  "of the plnats"
               << std::endl;
     r->execute(plant);
+    delete r;
   } else {
     // Pass to next handler in chain using protected method
     passToSuccessor(r, plant);

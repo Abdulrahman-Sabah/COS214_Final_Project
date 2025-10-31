@@ -10,9 +10,9 @@ class StoreColleague {
  protected:
   StoreMediator* mediator;
 
- public:
-  StoreColleague() = default;
-  explicit StoreColleague(StoreMediator* m) : mediator(m) {}
+public:
+  StoreColleague() { mediator = nullptr; };
+  explicit StoreColleague(StoreMediator *m) : mediator(m) {}
   virtual ~StoreColleague() = default;
 
   void setMediator(StoreMediator* m) { mediator = m; }

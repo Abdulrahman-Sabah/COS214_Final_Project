@@ -9,11 +9,13 @@
 #include "StoreColleague.h"
 
 class DeliveryStaff : public StoreColleague {
- private:
-  Inventory* greenhouse_ = nullptr;
+private:
+  Inventory *greenhouse_;
 
- public:
-  explicit DeliveryStaff(Inventory* inv) : greenhouse_(inv) {}
+public:
+  DeliveryStaff() { greenhouse_ = nullptr; };
+  ~DeliveryStaff() override = default;
+  explicit DeliveryStaff(Inventory *inv) : greenhouse_(inv) {}
 
   void setInventory(Inventory* inv) { greenhouse_ = inv; }
 

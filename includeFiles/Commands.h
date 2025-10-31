@@ -48,7 +48,8 @@ class Commands {
    * This method provides access to any additional data or parameters
    * that the command needs for execution (e.g., plant IDs, order numbers).
    */
-  virtual void execute(Plant* Plant) = 0;
+  virtual void execute(Plant *Plant) = 0;
+  Commands() = default;
 };
 
 #endif
