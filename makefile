@@ -23,9 +23,14 @@ else
     UNIT_EXE = unit-tests
 endif
 
+# SRCS := $(wildcard src/*.cpp)
+# OBJS := $(patsubst src/%.cpp,src/%.o,$(SRCS))
+# COMMON_OBJS := $(filter-out src/TestingMain.o src/server.o,$(OBJS))
+
 SRCS := $(wildcard src/*.cpp)
 OBJS := $(patsubst src/%.cpp,src/%.o,$(SRCS))
-COMMON_OBJS := $(filter-out src/TestingMain.o src/server.o,$(OBJS))
+COMMON_OBJS := $(filter-out src/TestingMain.o src/DemoMain.o src/server.o,$(OBJS))
+
 
 TEST_SRCS := $(wildcard testFile/*.cpp)
 TEST_OBJS := $(patsubst testFile/%.cpp,testFile/%.o,$(TEST_SRCS))
@@ -67,6 +72,12 @@ run: $(TEST_EXE)
 run-tests: $(UNIT_EXE)
 	@echo "Running all doctest unit-tests..."
 	./$(UNIT_EXE)
+
+run-demo: src/DemoMain.o $(COMMON_OBJS)
+	@echo "Running DemoMain..."
+	$(CXX) $(CXXFLAGS) -o DemoMain src/DemoMain.o $(COMMON_OBJS)
+	./DemoMain
+
 
 # Valgrind checks
 valgrind: $(TEST_EXE)

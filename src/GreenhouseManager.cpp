@@ -15,6 +15,7 @@ void GreenhouseManager::handleRequest(Commands* r, Plant* plant) {
     delete r;
   } else {
     // Pass to next handler in chain using protected method
+    std::cout << "Cailing th other" << std::endl;
     passToSuccessor(r, plant);
   }
 }

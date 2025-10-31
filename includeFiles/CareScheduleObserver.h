@@ -60,6 +60,10 @@ class CareSchedulerObserver : public PlantObserver {
    * @brief default constructor for proper cleanup
    */
   CareSchedulerObserver();
+
+  void setHandler(Handler* newHandler);
+
+  
 };
 
 #endif

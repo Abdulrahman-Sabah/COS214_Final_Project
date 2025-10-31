@@ -80,3 +80,9 @@ void CareSchedulerObserver::onCareStrategyChanged(Plant* plant,
     handler_->handleRequest(cmd, plant);
   }
 }
+
+
+void CareSchedulerObserver::setHandler(Handler* newHandler)
+{
+  this->handler_= newHandler;
+}

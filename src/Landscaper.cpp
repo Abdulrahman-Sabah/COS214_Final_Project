@@ -13,7 +13,7 @@
 
 void Landscaper::handleRequest(Commands* r, Plant* plant) {
   if(!plant) return;
-  std::cout << "Working";
+  //std::cout << "Working";
   if (r && (r->name() == "SeedlingState" || r->name() == "GrowingState" ||
             r->name() == "DormantState" || r->name() == "MatureState" ||
             r->name() == "SellingState" || r->name() == "DeadState")) {
@@ -23,6 +23,7 @@ void Landscaper::handleRequest(Commands* r, Plant* plant) {
     delete r;
   } else {
     // Pass to next handler in chain using protected method
+    std::cout << "Cailing th other" << std::endl;
     passToSuccessor(r, plant);
   }
 }
