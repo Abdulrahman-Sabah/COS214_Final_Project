@@ -1,64 +1,99 @@
-# Cross-platform Makefile for separate executables
+# Cross-platform Makefile with TestingMain, unit-tests, and server
 CXX ?= g++
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -g -Isrc -IincludeFiles
+LDFLAGS ?=
 
-# Detect OS and set appropriate commands
+ifdef COVERAGE
+CXXFLAGS += -O0 --coverage 
+LDFLAGS  += --coverage
+endif
+
+# Detect OS and set commands
 ifeq ($(OS),Windows_NT)
-    # Windows settings
     LDFLAGS ?= -lws2_32
-    SERVER_LDFLAGS ?= -lws2_32
     RM = del /Q
     SERVER_EXE = greenhouse_server.exe
     TEST_EXE = TestingMain.exe
+    UNIT_EXE = unit-tests.exe
 else
-    # Linux/Unix settings
     LDFLAGS ?=
-    SERVER_LDFLAGS ?=
     RM = rm -f
     SERVER_EXE = greenhouse_server
     TEST_EXE = TestingMain
+    UNIT_EXE = unit-tests
 endif
 
-# Source files
-ALL_SRCS = $(wildcard src/*.cpp)
-SERVER_OBJS = $(filter-out src/TestingMain.o, $(ALL_SRCS:src/%.cpp=src/%.o))
-TEST_OBJS = $(filter-out src/server.o, $(ALL_SRCS:src/%.cpp=src/%.o))
+SRCS := $(wildcard src/*.cpp)
+OBJS := $(patsubst src/%.cpp,src/%.o,$(SRCS))
+COMMON_OBJS := $(filter-out src/TestingMain.o src/server.o,$(OBJS))
 
-.PHONY: all server test clean run-server run-test
+TEST_SRCS := $(wildcard testFile/*.cpp)
+TEST_OBJS := $(patsubst testFile/%.cpp,testFile/%.o,$(TEST_SRCS))
 
-# Default target
-all: server test
+.PHONY: all server test format clean clean-coverage run run-tests run-server valgrind valgrind-tests coverage
+
+all: format $(SERVER_EXE) $(TEST_EXE) $(UNIT_EXE)
 
 # Server executable
 server: $(SERVER_EXE)
 
-$(SERVER_EXE): $(SERVER_OBJS)
-	$(CXX) -o $@ $^ $(SERVER_LDFLAGS)
+$(SERVER_EXE): src/server.o $(COMMON_OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $^
 
-# Test executable
-test: $(TEST_EXE)
+# TestingMain executable
+$(TEST_EXE): src/TestingMain.o $(COMMON_OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $^
 
-$(TEST_EXE): $(TEST_OBJS)
-	$(CXX) -o $@ $^ $(LDFLAGS)
+# Unit tests
+$(UNIT_EXE): $(TEST_OBJS) $(COMMON_OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $^
 
-# Object files
+# Compile objects
 src/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+testFile/%.o: testFile/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 # Run targets
 run-server: $(SERVER_EXE)
+	@echo "Launching greenhouse server..."
 	./$(SERVER_EXE)
 
-run-test: $(TEST_EXE)
+run: $(TEST_EXE)
+	@echo "Running TestingMain..."
 	./$(TEST_EXE)
 
-# Cross-platform clean
+run-tests: $(UNIT_EXE)
+	@echo "Running all doctest unit-tests..."
+	./$(UNIT_EXE)
+
+# Valgrind checks
+valgrind: $(TEST_EXE)
+	@echo "Running Valgrind on TestingMain..."
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TEST_EXE)
+
+valgrind-tests: $(UNIT_EXE)
+	@echo "Running Valgrind on unit-tests..."
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(UNIT_EXE)
+
+# Code coverage
+coverage: clean clean-coverage
+	$(MAKE) COVERAGE=1 $(TEST_EXE)
+	./$(TEST_EXE)
+	gcov -b -c $(SRCS)
+
+# Format all code
+format:
+	@echo "Formatting all C++ source and header files..."
+	@git ls-files '*.cpp' '*.h' | xargs clang-format -i
+	@echo "Code formatted successfully."
+
+# Clean targets
 clean:
-ifeq ($(OS),Windows_NT)
-	@if exist src\*.o $(RM) src\*.o 2>nul
-	@if exist $(SERVER_EXE) $(RM) $(SERVER_EXE) 2>nul
-	@if exist $(TEST_EXE) $(RM) $(TEST_EXE) 2>nul
-else
-	$(RM) src/*.o $(SERVER_EXE) $(TEST_EXE)
-endif
-	@echo Clean complete
+	$(RM) $(OBJS) $(TEST_OBJS) $(SERVER_EXE) $(TEST_EXE) $(UNIT_EXE)
+	@echo "Cleaned object files and executables."
+
+clean-coverage:
+	$(RM) *.gcno *.gcda *.gcov coverage.info
+	@echo "Cleaned coverage artifacts."

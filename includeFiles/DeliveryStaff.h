@@ -9,9 +9,11 @@
 
 class DeliveryStaff : public StoreColleague {
 private:
-  Inventory *greenhouse_ = nullptr;
+  Inventory *greenhouse_;
 
 public:
+  DeliveryStaff() { greenhouse_ = nullptr; };
+  ~DeliveryStaff() override = default;
   explicit DeliveryStaff(Inventory *inv) : greenhouse_(inv) {}
 
   void setInventory(Inventory *inv) { greenhouse_ = inv; }

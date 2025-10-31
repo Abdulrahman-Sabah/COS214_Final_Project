@@ -7,6 +7,7 @@ SeedlingState::SeedlingState() : PlantLifeCycleState() {}
 SeedlingState::~SeedlingState() = default;
 
 void SeedlingState::advance(Plant *plant) {
+  if(!plant ) return;
   if (isDead()) {
     plant->setLifeCycle(new DeadState());
     std::cout << plant->getName() << " has died in the "

@@ -10,7 +10,7 @@ protected:
   StoreMediator *mediator;
 
 public:
-  StoreColleague() = default;
+  StoreColleague() { mediator = nullptr; };
   explicit StoreColleague(StoreMediator *m) : mediator(m) {}
   virtual ~StoreColleague() = default;
 
