@@ -15,8 +15,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y g++ make valgrind clang-format lcov gcovr
-
+        
     - name: Caching build files
       uses: actions/cache@v4
       with:
@@ -47,6 +46,3 @@ jobs:
 
     - name: Check for memory leaks in TestingMain
       run: make valgrind -j
-
-    - name: Generate code coverage report
-      run: make coverage -j
