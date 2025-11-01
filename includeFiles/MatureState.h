@@ -4,18 +4,18 @@
 #include "PlantLifeCycleState.h"
 
 class MatureState : public PlantLifeCycleState {
- public:
+public:
   MatureState();
 
   ~MatureState() override;
 
-  void advance(Plant* plant) override;
+  void advance(Plant *plant) override;
 
   std::string name() override;
 
   bool isDead() override;
 
-  bool isGrowingAgain(Plant* plant);
+  bool isGrowingAgain(Plant *plant);
 
   bool needsAttention() override;
 };

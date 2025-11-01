@@ -4,9 +4,9 @@
 #include "Creator.h"
 
 class CactusCreator : public Creator {
- public:
+public:
   CactusCreator() = default;
-  Plant* factoryMethod() const override;
+  Plant *factoryMethod() const override;
 };
 
 #endif

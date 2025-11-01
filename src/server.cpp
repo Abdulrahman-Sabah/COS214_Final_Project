@@ -25,10 +25,10 @@
 #include "Rose.h"
 
 class PlantNurseryServer {
- private:
-  Inventory inventory;  // Local inventory for the server
+private:
+  Inventory inventory; // Local inventory for the server
 
- public:
+public:
   PlantNurseryServer() {
     // Load from file at startup
     InventorySerializer::loadFromFile(inventory, "inventory_state.json");
@@ -54,7 +54,7 @@ class PlantNurseryServer {
     // Allow socket reuse
     int opt = 1;
 #ifdef _WIN32
-    setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, (char*)&opt,
+    setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, (char *)&opt,
                sizeof(opt));
 #else
     setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
@@ -65,7 +65,7 @@ class PlantNurseryServer {
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     serverAddr.sin_port = htons(port);
 
-    if (bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
+    if (bind(serverSocket, (sockaddr *)&serverAddr, sizeof(serverAddr)) < 0) {
       std::cerr << "Failed to bind to port " << port << std::endl;
 #ifdef _WIN32
       closesocket(serverSocket);
@@ -112,7 +112,7 @@ class PlantNurseryServer {
 #endif
 
       int clientSocket =
-          accept(serverSocket, (sockaddr*)&clientAddr, &clientLen);
+          accept(serverSocket, (sockaddr *)&clientAddr, &clientLen);
       if (clientSocket < 0) {
         std::cerr << "Failed to accept connection" << std::endl;
         continue;
@@ -135,7 +135,7 @@ class PlantNurseryServer {
     }
   }
 
-  std::string handleHTTPRequest(const std::string& request) {
+  std::string handleHTTPRequest(const std::string &request) {
     std::cout << "📨 Request: " << request.substr(0, request.find('\n'))
               << std::endl;
 
@@ -203,13 +203,14 @@ class PlantNurseryServer {
             "application/json\r\nAccess-Control-Allow-Origin: *\r\n\r\n";
     json << "{\"plants\":[";
 
-    PlantIterator* it = inventory.createIterator();
+    PlantIterator *it = inventory.createIterator();
     bool first = true;
 
     for (it->first(); !it->isDone(); it->next()) {
-      Plant* plant = it->current();
+      Plant *plant = it->current();
       if (plant) {
-        if (!first) json << ",";
+        if (!first)
+          json << ",";
         json << "{";
         json << "\"name\":\"" << plant->getName() << "\",";
         json << "\"careType\":\"" << plant->getCareType() << "\",";
@@ -228,8 +229,8 @@ class PlantNurseryServer {
     return json.str();
   }
 
-  std::string serveFile(const std::string& filename,
-                        const std::string& contentType) {
+  std::string serveFile(const std::string &filename,
+                        const std::string &contentType) {
     std::ifstream file(filename, std::ios::binary);
     if (!file.is_open()) {
       std::cerr << "❌ File not found: " << filename << std::endl;

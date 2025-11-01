@@ -7,28 +7,28 @@
 #include "PlantIterator.h"
 
 class Inventory {
- private:
-  std::vector<Plant*> plants;
+private:
+  std::vector<Plant *> plants;
 
- public:
+public:
   void clear() {
-    for (Plant* plant : plants) {
-      delete plant;  
+    for (Plant *plant : plants) {
+      delete plant;
     }
-    plants.clear();  
+    plants.clear();
   }
 
   Inventory();
   ~Inventory();
-  void addPlant(Plant* p);
-  bool removePlant(Plant* p);
-  bool removePlantByName(const std::string& name);
+  void addPlant(Plant *p);
+  bool removePlant(Plant *p);
+  bool removePlantByName(const std::string &name);
   size_t getSize() const;
-  PlantIterator* createIterator();
-  std::vector<Plant*>& getPlants();
+  PlantIterator *createIterator();
+  std::vector<Plant *> &getPlants();
   void displayAll();
-  bool hasPlant(Plant* p);
-  Plant* at(int index) const;
+  bool hasPlant(Plant *p);
+  Plant *at(int index) const;
 };
 
 #endif

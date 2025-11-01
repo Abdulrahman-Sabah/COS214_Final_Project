@@ -106,5 +106,12 @@ clean:
 	@echo "Cleaned object files and executables."
 
 clean-coverage:
+ifeq ($(OS),Windows_NT)
+	$(RM) src\*.gcno src\*.gcda src\*.gcov
+	$(RM) testFile\*.gcno testFile\*.gcda testFile\*.gcov
 	$(RM) *.gcno *.gcda *.gcov coverage.info
-	@echo "Cleaned coverage artifacts."
+else
+	find . -type f \( -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov" \) -delete
+	$(RM) coverage.info
+endif
+	@echo "Cleaned coverage files."

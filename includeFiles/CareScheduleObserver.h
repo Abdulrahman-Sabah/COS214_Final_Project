@@ -20,10 +20,10 @@
  * to these changes by updating care schedules and logging important events.
  */
 class CareSchedulerObserver : public PlantObserver {
- public:
-  Handler* handler_;
+public:
+  Handler *handler_;
 
- public:
+public:
   /**
    * @brief Called when a plant's general state changes
    * @param plant Pointer to the plant that changed state
@@ -32,7 +32,7 @@ class CareSchedulerObserver : public PlantObserver {
    * changes, allowing the care scheduler to adjust care plans accordingly.
    */
 
-  explicit CareSchedulerObserver(Handler* chainHead) : handler_(chainHead) {}
+  explicit CareSchedulerObserver(Handler *chainHead) : handler_(chainHead) {}
   ~CareSchedulerObserver();
   // void onPlantStateChanged(Plant* plant,CareStrategy* CareStrategyOfPlant)
   // override;
@@ -45,7 +45,7 @@ class CareSchedulerObserver : public PlantObserver {
    * This method responds to plant lifecycle transitions (e.g., seedling
    * to growing, growing to mature) and updates care schedules accordingly.
    */
-  void onLifeCycleChanged(Plant* plant, PlantLifeCycleState* newState) override;
+  void onLifeCycleChanged(Plant *plant, PlantLifeCycleState *newState) override;
 
   /**
    * @brief Called when a plant's care strategy changes
@@ -54,16 +54,14 @@ class CareSchedulerObserver : public PlantObserver {
    * This method responds to changes in plant care strategies and
    * updates scheduling accordingly.
    */
-  void onCareStrategyChanged(Plant* plant, CareStrategy* newStrategy) override;
+  void onCareStrategyChanged(Plant *plant, CareStrategy *newStrategy) override;
 
   /**
    * @brief default constructor for proper cleanup
    */
   CareSchedulerObserver();
 
-  void setHandler(Handler* newHandler);
-
-  
+  void setHandler(Handler *newHandler);
 };
 
 #endif

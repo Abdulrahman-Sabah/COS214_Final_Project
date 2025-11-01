@@ -25,7 +25,7 @@ class PlantLifeCycleState;
  * transitions, season changes, or care strategy modifications.
  */
 class PlantObserver {
- public:
+public:
   /**
    * @brief Virtual destructor for proper cleanup
    */
@@ -43,8 +43,8 @@ class PlantObserver {
    * @param plant The plant whose lifecycle changed
    * @param newState The new lifecycle state
    */
-  virtual void onLifeCycleChanged(Plant* plant,
-                                  PlantLifeCycleState* newState) = 0;
+  virtual void onLifeCycleChanged(Plant *plant,
+                                  PlantLifeCycleState *newState) = 0;
 
   /**
    * @brief Called when a plant's season changes
@@ -56,8 +56,8 @@ class PlantObserver {
    * @brief Called when a plant's care strategy changes
    * @param plant The plant whose care strategy changed
    */
-  virtual void onCareStrategyChanged(Plant* plant,
-                                     CareStrategy* newStrategy) = 0;
+  virtual void onCareStrategyChanged(Plant *plant,
+                                     CareStrategy *newStrategy) = 0;
 };
 
 #endif

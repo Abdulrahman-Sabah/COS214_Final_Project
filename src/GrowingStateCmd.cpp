@@ -7,9 +7,10 @@ GrowingStateCmd::GrowingStateCmd() : m_label("GrowingState") {}
 
 std::string GrowingStateCmd::name() { return m_label; }
 
-void GrowingStateCmd::execute(Plant* plant) {
-  if (!plant) return;
+void GrowingStateCmd::execute(Plant *plant) {
+  if (!plant)
+    return;
   plant->setLifeCycle(new GrowingState());
-      std::cout << "[COMMAND USED] " << m_label << " applied to "<< plant->getName() << "\n";
-
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

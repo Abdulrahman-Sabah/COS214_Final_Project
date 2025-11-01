@@ -4,15 +4,15 @@
 #include "PlantLifeCycleState.h"
 
 class DormantState : public PlantLifeCycleState {
- private:
+private:
   bool growing;
 
- public:
+public:
   DormantState();
 
   ~DormantState() override;
 
-  void advance(Plant* plant) override;
+  void advance(Plant *plant) override;
 
   std::string name() override;
 

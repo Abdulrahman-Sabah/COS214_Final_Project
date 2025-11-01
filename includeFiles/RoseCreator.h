@@ -4,9 +4,9 @@
 #include "Creator.h"
 
 class RoseCreator : public Creator {
- public:
+public:
   RoseCreator();
-  Plant* factoryMethod() const override;
+  Plant *factoryMethod() const override;
 };
 
 #endif

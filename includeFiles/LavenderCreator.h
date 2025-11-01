@@ -4,9 +4,9 @@
 #include "Creator.h"
 
 class LavenderCreator : public Creator {
- public:
+public:
   LavenderCreator();
-  Plant* factoryMethod() const;
+  Plant *factoryMethod() const;
 };
 
 #endif

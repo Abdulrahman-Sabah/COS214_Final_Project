@@ -7,9 +7,10 @@ CactusStrategyCmd::CactusStrategyCmd() : m_label("CactusStrategy") {}
 
 std::string CactusStrategyCmd::name() { return m_label; }
 
-void CactusStrategyCmd::execute(Plant* plant) 
-{
-    if (!plant) return;
-    plant->setCareStrategy(new CactusCare());
-    std::cout << "[COMMAND USED] " << m_label << " applied to "<< plant->getName() << "\n";
+void CactusStrategyCmd::execute(Plant *plant) {
+  if (!plant)
+    return;
+  plant->setCareStrategy(new CactusCare());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

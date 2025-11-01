@@ -4,11 +4,11 @@
 #include "Plant.h"
 
 class Creator {
- protected:
-  Plant* product;
-  virtual Plant* factoryMethod() const = 0;
+protected:
+  Plant *product;
+  virtual Plant *factoryMethod() const = 0;
 
- public:
+public:
   virtual ~Creator() {}
 };
 

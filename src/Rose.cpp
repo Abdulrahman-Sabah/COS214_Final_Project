@@ -10,8 +10,8 @@ Rose::Rose()
     : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(),
             new SeedlingState()) {}
 
-Plant* Rose::clone() {
-  Rose* clonedRose = new Rose();
+Plant *Rose::clone() {
+  Rose *clonedRose = new Rose();
   clonedRose->setName(this->getName());
   clonedRose->setCareType(this->getCareType());
   clonedRose->setStateText(this->getStateText());
