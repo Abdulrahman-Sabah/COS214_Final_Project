@@ -15,7 +15,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        
+        sudo apt-get install -y g++ make valgrind clang-format lcov gcovr
+
     - name: Caching build files
       uses: actions/cache@v4
       with:
@@ -33,16 +34,16 @@ jobs:
       run: |
         echo "Checking code formatting..."
         clang-format --dry-run --Werror $(find src testFile -name '*.cpp' -o -name '*.h')
-        echo "Code format is correct."
 
     - name: Build project
-      run: make all -j
+      run: make all
 
     - name: Run all unit tests
-      run: make run-tests -j
+      run: make run-tests
 
     - name: Check for memory leaks in unit tests
-      run: make valgrind-tests -j
+      run: make valgrind-tests
 
     - name: Check for memory leaks in TestingMain
-      run: make valgrind -j
+      run: make valgrind
+      
