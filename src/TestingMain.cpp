@@ -546,7 +546,7 @@ int main() {
 
   int posA = 0, posB = 0;
   while (!itA->isDone()) {
-    posA++;
+     posA++;
     itA->next();
   }
   while (!itB->isDone()) {
