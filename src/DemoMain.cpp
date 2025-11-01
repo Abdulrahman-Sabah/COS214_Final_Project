@@ -24,99 +24,155 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include "Creator.h"
+#include "CactusCreator.h"
+#include "RoseCreator.h"
+#include "LavenderCreator.h"
+#include "PlantDecorations.h"
+#include "CardDecorator.h"
+#include "PotDecorator.h"
+#include "WrapDecorator.h"
 
-static void clearStdin() {
+static void clearStdin()
+{
   std::cin.clear();
 
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-static std::string lower(std::string s) {
-  for (char &c : s) {
+static std::string lower(std::string s)
+{
+  for (char &c : s)
+  {
     c = (char)std::tolower(c);
   }
   return s;
 }
 
-static Plant *makePlantByType(const std::string &type) {
+static Plant *makePlantByType(const std::string &type)
+{
   std::string t = lower(type);
-  if (t == "rose") {
+  if (t == "rose")
+  {
     return new Rose();
   }
-  if (t == "cactus") {
+  if (t == "cactus")
+  {
     return new Cactus();
   }
-  if (t == "lavender") {
+  if (t == "lavender")
+  {
     return new Lavender();
-  } else {
+  }
+  else
+  {
     return nullptr;
   }
 }
 
-static PlantLifeCycleState *makeState(const std::string &s) {
+static Creator *makeCreatorByType(const std::string &type)
+{
+  std::string t = lower(type);
+  if (t == "rose")
+    return new RoseCreator();
+  if (t == "cactus")
+    return new CactusCreator();
+  if (t == "lavender")
+    return new LavenderCreator();
+  return nullptr;
+}
+
+static PlantLifeCycleState *makeState(const std::string &s)
+{
   std::string t = lower(s);
-  if (t == "seedling") {
+  if (t == "seedling")
+  {
     return new SeedlingState();
   }
 
-  if (t == "growing") {
+  if (t == "growing")
+  {
     return new GrowingState();
   }
 
-  if (t == "dormant") {
+  if (t == "dormant")
+  {
     return new DormantState();
   }
-  if (t == "mature") {
+  if (t == "mature")
+  {
     return new MatureState();
   }
-  if (t == "selling") {
+  if (t == "selling")
+  {
     return new SellingState();
   }
-  if (t == "dead") {
+  if (t == "dead")
+  {
     return new DeadState();
-  } else {
+  }
+  else
+  {
     return nullptr;
   }
 }
-static CareStrategy *makeStrategy(const std::string &s) {
+static CareStrategy *makeStrategy(const std::string &s)
+{
   std::string t = lower(s);
-  if (t == "rose") {
+  if (t == "rose")
+  {
     return new RoseCare();
   }
-  if (t == "cactus") {
+  if (t == "cactus")
+  {
     return new CactusCare();
   }
-  if (t == "lavender") {
+  if (t == "lavender")
+  {
     return new LavenderCare();
-  } else {
+  }
+  else
+  {
     return nullptr;
   }
 }
 
-static void printInventory(Inventory *inv) {
+static void printInventory(Inventory *inv)
+{
   std::cout << "\n--- Inventory (" << inv->getSize() << ") ---\n";
   PlantIterator *it = inv->createIterator();
   int i = 1;
 
-  for (it->first(); !it->isDone(); it->next()) {
+  for (it->first(); !it->isDone(); it->next())
+  {
     Plant *p = it->current();
-    if (!p) {
+    if (!p)
+    {
       continue;
     }
     auto *st = p->getLifeCycle();
     auto *cs = p->getCareStrategy();
 
     std::string strategyName = "NoStrategy";
-    if (dynamic_cast<RoseCare *>(cs)) { strategyName = "RoseCare"; }
-    else if (dynamic_cast<CactusCare *>(cs)) { strategyName = "CactusCare"; }
-    else if (dynamic_cast<LavenderCare *>(cs)) { strategyName = "LavenderCare"; }
+    if (dynamic_cast<RoseCare *>(cs))
+    {
+      strategyName = "RoseCare";
+    }
+    else if (dynamic_cast<CactusCare *>(cs))
+    {
+      strategyName = "CactusCare";
+    }
+    else if (dynamic_cast<LavenderCare *>(cs))
+    {
+      strategyName = "LavenderCare";
+    }
 
     bool growing = (st && dynamic_cast<GrowingState *>(st) != nullptr);
     bool attention = (st ? st->getAttention() : false);
     bool dead = (st ? st->getDead() : false);
 
     std::cout << i++ << ". " << p->getName()
-              << " | Price: $" << p->price()                        
+              << " | Price: $" << p->price()
               << " | State: " << (st ? st->name() : "Unknown")
               << " | Care: " << strategyName
               << " | Growing: " << (growing ? "Yes" : "No")
@@ -125,47 +181,65 @@ static void printInventory(Inventory *inv) {
               << "\n\n";
   }
   delete it;
-  if (i == 1) std::cout << "(empty)\n";
+  if (i == 1)
+    std::cout << "(empty)\n";
 }
 
 static void applyStateAndNotify(Plant *plantchecking,
                                 PlantLifeCycleState *typeofcare,
-                                CareSchedulerObserver &Theobserver) {
+                                CareSchedulerObserver &Theobserver)
+{
   Theobserver.onLifeCycleChanged(plantchecking, typeofcare);
 }
 static void applyStrategyAndNotify(Plant *plantchecking,
                                    CareStrategy *typeofcare,
-                                   CareSchedulerObserver &Theobserver) {
+                                   CareSchedulerObserver &Theobserver)
+{
   Theobserver.onCareStrategyChanged(plantchecking, typeofcare);
 }
 
-static void printSellingOnly(Inventory *inv) {
+static void printSellingOnly(Inventory *inv)
+{
   std::cout << "\n--- Inventory (" << inv->getSize() << ") ---\n";
   PlantIterator *it = inv->createIterator();
   int i = 1;
 
-  for (it->first(); !it->isDone(); it->next()) {
+  for (it->first(); !it->isDone(); it->next())
+  {
     Plant *p = it->current();
-    if (!p) { continue; }
+    if (!p)
+    {
+      continue;
+    }
 
     PlantLifeCycleState *st = p->getLifeCycle();
-    if (st == NULL || dynamic_cast<SellingState *>(st) == NULL) {
+    if (st == NULL || dynamic_cast<SellingState *>(st) == NULL)
+    {
       i++;
       continue;
     }
     auto *cs = p->getCareStrategy();
 
     std::string strategyName = "NoStrategy";
-    if (dynamic_cast<RoseCare *>(cs)) { strategyName = "RoseCare"; }
-    else if (dynamic_cast<CactusCare *>(cs)) { strategyName = "CactusCare"; }
-    else if (dynamic_cast<LavenderCare *>(cs)) { strategyName = "LavenderCare"; }
+    if (dynamic_cast<RoseCare *>(cs))
+    {
+      strategyName = "RoseCare";
+    }
+    else if (dynamic_cast<CactusCare *>(cs))
+    {
+      strategyName = "CactusCare";
+    }
+    else if (dynamic_cast<LavenderCare *>(cs))
+    {
+      strategyName = "LavenderCare";
+    }
 
     bool growing = (st && dynamic_cast<GrowingState *>(st) != nullptr);
     bool attention = (st ? st->getAttention() : false);
     bool dead = (st ? st->getDead() : false);
 
     std::cout << i++ << ". " << p->getName()
-              << " | Price: $" << p->price()                        
+              << " | Price: $" << p->price()
               << " | State: " << (st ? st->name() : "Unknown")
               << " | Care: " << strategyName
               << " | Growing: " << (growing ? "Yes" : "No")
@@ -174,10 +248,12 @@ static void printSellingOnly(Inventory *inv) {
               << "\n\n";
   }
   delete it;
-  if (i == 1) std::cout << "(empty)\n";
+  if (i == 1)
+    std::cout << "(empty)\n";
 }
 
-int main() {
+int main()
+{
 
   FrontDesk mediator;
   StoreCustomer customer;
@@ -220,7 +296,8 @@ int main() {
   CareSchedulerObserver observer;
   observer.setHandler(landscaper);
 
-  while (true) {
+  while (true)
+  {
     std::cout << "\n====================================\n";
     std::cout << "  Plant Nursery Demo (Mediator + Observer)\n";
     std::cout << "====================================\n";
@@ -233,45 +310,56 @@ int main() {
     std::cout << "7) Exit\n";
     std::cout << "Choose: ";
     int choice = 0;
-    if (!(std::cin >> choice)) {
+    if (!(std::cin >> choice))
+    {
       clearStdin();
       continue;
     }
     clearStdin();
 
-    if (choice == 1) {
-      if (choice == 1) {
+    if (choice == 1)
+    {
+      if (choice == 1)
+      {
         std::string roleInput;
         std::cout << "\nAre you a Customer (C) or Staff (S)? ";
         std::getline(std::cin, roleInput);
 
         std::string role = lower(roleInput);
-        if (role == "s" || role == "staff") {
+        if (role == "s" || role == "staff")
+        {
           std::string passforthestaff;
           std::cout << "\n--- Staff Access ---\n";
           std::cout << "Enter password: ";
           std::getline(std::cin, passforthestaff);
 
-          if (passforthestaff == "1234") {
+          if (passforthestaff == "1234")
+          {
             std::cout << "Access granted. Showing full inventory.\n";
             printInventory(greenhouse);
-          } else {
+          }
+          else
+          {
             std::cout << "Wrong password. Showing selling items only.\n";
             printSellingOnly(greenhouse);
           }
-        } else {
+        }
+        else
+        {
           std::cout << "Customer view. Showing selling items only.\n";
           printSellingOnly(greenhouse);
         }
       }
-
-    } else if (choice == 2) {
+    }
+    else if (choice == 2)
+    {
       string passwordforcustomers;
       cout << "\n--- Observer Secure Access ---\n";
       cout << "Enter password in order to remove: ";
       getline(std::cin, passwordforcustomers);
 
-      if (passwordforcustomers != "1234") {
+      if (passwordforcustomers != "1234")
+      {
         std::cout
             << " Wrong password. Access denied. Sorry, you are not a staff.\n";
         continue;
@@ -282,71 +370,122 @@ int main() {
       getline(std::cin, typeThatWantstobeDeleted);
 
       Plant *wegettingtheplant = makePlantByType(typeThatWantstobeDeleted);
-      if (!wegettingtheplant) {
+      if (!wegettingtheplant)
+      {
         std::cout << "Unknown type.\n";
         continue;
-      } else {
+      }
+      else
+      {
         greenhouse->addPlant(wegettingtheplant);
         std::cout << "Added: " << wegettingtheplant->getName() << "\n";
+        Creator *testing = makeCreatorByType(typeThatWantstobeDeleted);
+        testing->factoryMethod();
       }
-    } else if (choice == 3)
+    }
+    else if (choice == 3)
 
     {
       printSellingOnly(greenhouse);
 
       int takingtheindex;
       std::cout << "Choose plant number to request (or 0 to cancel): ";
-      if (!(std::cin >> takingtheindex)) {
+      if (!(std::cin >> takingtheindex))
+      {
         clearStdin();
         std::cout << "Invalid input.\n";
         continue;
       }
       clearStdin();
 
-      if (takingtheindex == 0) {
+      if (takingtheindex == 0)
+      {
         std::cout << "Request cancelled.\n";
         continue;
       }
 
       int postioninginArray = takingtheindex - 1;
-      if (postioninginArray < 0 || postioninginArray >= greenhouse->getSize()) {
+      if (postioninginArray < 0 || postioninginArray >= greenhouse->getSize())
+      {
         std::cout << "Invalid index.\n";
         continue;
       }
 
       Plant *planttoremoveinpointer = greenhouse->at(postioninginArray);
-      if (planttoremoveinpointer == NULL) {
+      if (planttoremoveinpointer == NULL)
+      {
         std::cout << "Error: Plant pointer is null.\n";
         continue;
       }
 
       PlantLifeCycleState *st = planttoremoveinpointer->getLifeCycle();
-      if (st == NULL) {
+      if (st == NULL)
+      {
         std::cout << "Error: Plant state is null.\n";
         continue;
       }
 
       SellingState *sellingPtr = dynamic_cast<SellingState *>(st);
-      if (sellingPtr == NULL) {
+      if (sellingPtr == NULL)
+      {
         std::cout
             << "Only plants in SELLING state can be requested by customers.\n";
         continue;
       }
 
       std::cout << "(Found in inventory) ";
-      customer.requestPlant(planttoremoveinpointer);
-      planttoremoveinpointer->setLifeCycle(new DeadState());
-      greenhouse->removePlant(planttoremoveinpointer);
+      // Ask for decoration
+      std::cout << "Choose a decoration:\n";
+      std::cout << "1) Gift Wrap\n";
+      std::cout << "2) Pot\n";
+      std::cout << "3) Card\n";
+      std::cout << "4) None\n";
+      std::cout << "Enter option: ";
 
+      int decorChoice;
+      if (!(std::cin >> decorChoice))
+      {
+        clearStdin();
+        std::cout << "Invalid.\n";
+        continue;
+      }
+      clearStdin();
+
+      PlantDecorations *newDecorations = nullptr;
+
+      if (decorChoice == 1)
+      {
+        newDecorations = new WrapDecorator(planttoremoveinpointer, "Gift wrap decoration", planttoremoveinpointer->price());
+      }
+      else if (decorChoice == 2)
+      {
+        newDecorations = new PotDecorator(planttoremoveinpointer, "Pot decoration", planttoremoveinpointer->price());
+      }
+      else if (decorChoice == 3)
+      {
+        newDecorations = new CardDecorator(planttoremoveinpointer, "Card decoration", planttoremoveinpointer->price());
+      }
+      else
+      {
+        std::cout << "No decoration selected.\n";
+      }
+
+      customer.requestPlant(planttoremoveinpointer);
+
+      planttoremoveinpointer->setLifeCycle(new DeadState());
+      std::cout << "Final product: " << newDecorations->description() << "\n";
+      greenhouse->removePlant(planttoremoveinpointer);
     }
 
-    else if (choice == 4) {
+    else if (choice == 4)
+    {
       string passforthestaff;
       cout << "\n--- Secure Access Required ---\n";
       cout << "Enter password: ";
       getline(std::cin, passforthestaff);
 
-      if (passforthestaff != "1234") {
+      if (passforthestaff != "1234")
+      {
         std::cout << "Wrong password. Access denied.\n";
         continue;
       }
@@ -357,7 +496,8 @@ int main() {
 
       int takingtheindex;
       std::cout << "Enter plant number to remove (Only DEAD plants allowed): ";
-      if (!(std::cin >> takingtheindex)) {
+      if (!(std::cin >> takingtheindex))
+      {
         clearStdin();
         std::cout << "Invalid input.\n";
         continue;
@@ -366,7 +506,8 @@ int main() {
 
       int postioninginArray = takingtheindex - 1;
 
-      if (postioninginArray < 0 || postioninginArray >= greenhouse->getSize()) {
+      if (postioninginArray < 0 || postioninginArray >= greenhouse->getSize())
+      {
         std::cout << "Invalid index.\n";
         continue;
       }
@@ -374,20 +515,25 @@ int main() {
       Plant *planttoremoveinpointer = greenhouse->at(postioninginArray);
       bool diditremove = greenhouse->removePlant(planttoremoveinpointer);
 
-      if (diditremove) {
+      if (diditremove)
+      {
         std::cout << " Plant removed.\n";
-      } else {
+      }
+      else
+      {
         std::cout << " Cannot remove this plant.\n";
       }
     }
 
-    else if (choice == 5) {
+    else if (choice == 5)
+    {
       std::string passforthestaff;
       cout << "\n--- Observer Secure Access ---\n";
       cout << "Enter password: ";
       getline(std::cin, passforthestaff);
 
-      if (passforthestaff != "1234") {
+      if (passforthestaff != "1234")
+      {
         std::cout << " Wrong password. Access denied.\n";
         continue;
       }
@@ -401,13 +547,15 @@ int main() {
       std::cout << "3) Back to menu\n";
       std::cout << "Choose option: ";
 
-      if (!(std::cin >> obsChoice)) {
+      if (!(std::cin >> obsChoice))
+      {
         clearStdin();
         continue;
       }
       clearStdin();
 
-      if (obsChoice == 3) {
+      if (obsChoice == 3)
+      {
         std::cout << "Returning...\n";
         continue;
       }
@@ -416,7 +564,8 @@ int main() {
 
       int takingtheindex;
       std::cout << "Select plant number to edit: ";
-      if (!(std::cin >> takingtheindex)) {
+      if (!(std::cin >> takingtheindex))
+      {
         clearStdin();
         std::cout << "Invalid input.\n";
         continue;
@@ -424,24 +573,28 @@ int main() {
       clearStdin();
 
       int postioninginArray = takingtheindex - 1;
-      if (postioninginArray < 0 || postioninginArray >= greenhouse->getSize()) {
+      if (postioninginArray < 0 || postioninginArray >= greenhouse->getSize())
+      {
         std::cout << "Invalid index.\n";
         continue;
       }
 
       Plant *planttoremoveinpointer = greenhouse->at(postioninginArray);
-      if (planttoremoveinpointer == NULL) {
+      if (planttoremoveinpointer == NULL)
+      {
         std::cout << " Plant not found.\n";
         continue;
       }
 
-      if (obsChoice == 1) {
+      if (obsChoice == 1)
+      {
         std::string st;
         std::cout << "State (seedling/growing/dormant/mature/selling/dead): ";
         std::getline(std::cin, st);
 
         PlantLifeCycleState *ns = makeState(st);
-        if (!ns) {
+        if (!ns)
+        {
           std::cout << " Invalid state.\n";
           continue;
         }
@@ -449,30 +602,37 @@ int main() {
         applyStateAndNotify(planttoremoveinpointer, ns, observer);
         std::cout << " State updated: "
                   << planttoremoveinpointer->getLifeCycle()->name() << "\n";
-      } else if (obsChoice == 2) {
+      }
+      else if (obsChoice == 2)
+      {
         std::string st;
         std::cout << "Strategy (rose/cactus/lavender): ";
         std::getline(std::cin, st);
 
         CareStrategy *ns = makeStrategy(st);
-        if (!ns) {
+        if (!ns)
+        {
           std::cout << " Invalid strategy.\n";
           continue;
         }
 
         applyStrategyAndNotify(planttoremoveinpointer, ns, observer);
         std::cout << " Strategy updated!\n";
-      } else {
+      }
+      else
+      {
         std::cout << " Invalid selection.\n";
       }
     }
 
-    else if (choice == 6) {
+    else if (choice == 6)
+    {
       std::string pass;
       std::cout << "\n--- Staff Secure Access ---\n";
       std::cout << "Enter password: ";
       std::getline(std::cin, pass);
-      if (pass != "1234") {
+      if (pass != "1234")
+      {
         std::cout << "Wrong password. Access denied.\n";
         continue;
       }
@@ -480,30 +640,72 @@ int main() {
       printInventory(greenhouse);
       int idx;
       std::cout << "Select plant number to modify (or 0 to cancel): ";
-      if (!(std::cin >> idx)) { clearStdin(); std::cout << "Invalid input.\n"; continue; }
+      if (!(std::cin >> idx))
+      {
+        clearStdin();
+        std::cout << "Invalid input.\n";
+        continue;
+      }
       clearStdin();
-      if (idx == 0) { std::cout << "Cancelled.\n"; continue; }
+      if (idx == 0)
+      {
+        std::cout << "Cancelled.\n";
+        continue;
+      }
       int pos = idx - 1;
-      if (pos < 0 || pos >= greenhouse->getSize()) { std::cout << "Invalid index.\n"; continue; }
+      if (pos < 0 || pos >= greenhouse->getSize())
+      {
+        std::cout << "Invalid index.\n";
+        continue;
+      }
       Plant *p = greenhouse->at(pos);
-      if (!p) { std::cout << "Plant not found.\n"; continue; }
+      if (!p)
+      {
+        std::cout << "Plant not found.\n";
+        continue;
+      }
 
       PlantLifeCycleState *cur = p->getLifeCycle();
-      if (!cur) { std::cout << "Plant has no lifecycle state.\n"; continue; }
+      if (!cur)
+      {
+        std::cout << "Plant has no lifecycle state.\n";
+        continue;
+      }
 
       std::cout << "\nSet options:\n1) Set Dead\n2) Set Attention\nChoose: ";
       int set = 0;
-      if (!(std::cin >> set)) { clearStdin(); std::cout << "Invalid input.\n"; continue; }
+      if (!(std::cin >> set))
+      {
+        clearStdin();
+        std::cout << "Invalid input.\n";
+        continue;
+      }
       clearStdin();
 
       PlantLifeCycleState *ns = nullptr;
-      if (set == 1) {
-        if (cur->getDead()) ns = new SellingState();
-        else ns = new DeadState();
-      } else if (set == 2) {
-        if (cur->getAttention()) ns = new DormantState();
-        else ns = new GrowingState();
-      } else {
+      if (set == 1)
+      {
+
+        if (cur->getDead())
+        {
+          std::cout << "Working" << std::endl;
+          ns = new SellingState();
+        }
+        else
+        {
+          std::cout << "Working" << std::endl;
+          ns = new DeadState();
+        }
+      }
+      else if (set == 2)
+      {
+        if (cur->getAttention())
+          ns = new DormantState();
+        else
+          ns = new GrowingState();
+      }
+      else
+      {
         std::cout << "Invalid set option.\n";
         delete ns;
         continue;
@@ -517,10 +719,13 @@ int main() {
       continue;
     }
 
-    else if (choice == 7) {
+    else if (choice == 7)
+    {
       std::cout << "Bye! See you soon\n";
       break;
-    } else {
+    }
+    else
+    {
       std::cout << "Invalid option.\n";
     }
   }

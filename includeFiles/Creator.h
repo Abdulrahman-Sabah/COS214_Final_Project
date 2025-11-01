@@ -4,7 +4,7 @@
 #include "Plant.h"
 
 class Creator {
-protected:
+public:
   Plant *product;
   virtual Plant *factoryMethod() const = 0;
 
