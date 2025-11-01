@@ -8,16 +8,16 @@
 #include "Plant.h"
 
 class PlantLifeCycleState {
- protected:
+protected:
   bool dead;
   bool attention;
 
- public:
+public:
   PlantLifeCycleState();
 
   virtual ~PlantLifeCycleState() = default;
 
-  virtual void advance(Plant* plant) = 0;
+  virtual void advance(Plant *plant) = 0;
 
   virtual std::string name() = 0;
 

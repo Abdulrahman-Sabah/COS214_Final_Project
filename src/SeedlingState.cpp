@@ -8,7 +8,8 @@ SeedlingState::SeedlingState() : PlantLifeCycleState() {}
 SeedlingState::~SeedlingState() = default;
 
 void SeedlingState::advance(Plant *plant) {
-  if(!plant ) return;
+  if (!plant)
+    return;
   if (isDead()) {
     plant->setLifeCycle(new DeadState());
     std::cout << plant->getName() << " has died in the "
@@ -23,11 +24,13 @@ void SeedlingState::advance(Plant *plant) {
 std::string SeedlingState::name() { return "Seedling"; }
 
 bool SeedlingState::isDead() {
-  if (dead) return true;
+  if (dead)
+    return true;
   return false;
 }
 
 bool SeedlingState::needsAttention() {
-  if (attention) return true;
+  if (attention)
+    return true;
   return false;
 }

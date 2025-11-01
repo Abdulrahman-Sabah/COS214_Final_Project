@@ -17,10 +17,10 @@ public:
   ~DeliveryStaff() override = default;
   explicit DeliveryStaff(Inventory *inv) : greenhouse_(inv) {}
 
-  void setInventory(Inventory* inv) { greenhouse_ = inv; }
+  void setInventory(Inventory *inv) { greenhouse_ = inv; }
 
-  void processCustomerRequest(Plant* plant);
-  void receive(const std::string& event) override;
+  void processCustomerRequest(Plant *plant);
+  void receive(const std::string &event) override;
 };
 
 #endif

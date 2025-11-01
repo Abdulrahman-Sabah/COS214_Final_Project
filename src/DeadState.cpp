@@ -4,7 +4,7 @@ DeadState::DeadState() : PlantLifeCycleState() {}
 
 DeadState::~DeadState() = default;
 
-void DeadState::advance(Plant* plant) {
+void DeadState::advance(Plant *plant) {
   std::cout << plant->getName() << " is dead." << std::endl;
 }
 

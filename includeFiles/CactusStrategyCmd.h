@@ -6,14 +6,14 @@
 #include "Commands.h"
 
 class CactusStrategyCmd : public Commands {
- public:
+public:
   CactusStrategyCmd();
   ~CactusStrategyCmd() override = default;
 
   std::string name() override;
-  void execute(Plant* plant) override;
+  void execute(Plant *plant) override;
 
- private:
+private:
   std::string m_label;
 };
 

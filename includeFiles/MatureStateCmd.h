@@ -6,14 +6,14 @@
 #include "Commands.h"
 
 class MatureStateCmd : public Commands {
- public:
+public:
   MatureStateCmd();
   virtual ~MatureStateCmd() {}
 
   std::string name();
-  void execute(Plant* plant);
+  void execute(Plant *plant);
 
- private:
+private:
   std::string m_label;
 };
 

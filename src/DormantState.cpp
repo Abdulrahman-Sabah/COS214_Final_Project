@@ -8,7 +8,7 @@ DormantState::DormantState() : PlantLifeCycleState() { growing = false; }
 
 DormantState::~DormantState() = default;
 
-void DormantState::advance(Plant* plant) {
+void DormantState::advance(Plant *plant) {
   if (isDead()) {
     plant->setLifeCycle(new DeadState());
     std::cout << plant->getName() << " has died in the "
@@ -27,7 +27,8 @@ void DormantState::advance(Plant* plant) {
 std::string DormantState::name() { return "Dormant"; }
 
 bool DormantState::isDead() {
-  if (dead) return true;
+  if (dead)
+    return true;
   return false;
 }
 
@@ -36,11 +37,13 @@ bool DormantState::getGrowing() { return growing; }
 void DormantState::setGrowing(bool grow) { growing = grow; }
 
 bool DormantState::isGrowingAgain() {
-  if (growing) return true;
+  if (growing)
+    return true;
   return false;
 }
 
 bool DormantState::needsAttention() {
-  if (attention) return true;
+  if (attention)
+    return true;
   return false;
 }

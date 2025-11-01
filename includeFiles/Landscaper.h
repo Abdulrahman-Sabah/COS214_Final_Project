@@ -21,7 +21,7 @@
  * basic plant maintenance operations.
  */
 class Landscaper : public Handler {
- public:
+public:
   /**
    * @brief Handles plant care requests
    * @param r Pointer to the command to be processed
@@ -30,7 +30,7 @@ class Landscaper : public Handler {
    * and processes it. If not, it passes the request to the next handler in the
    * chain.
    */
-  void handleRequest(Commands* r, Plant* plant) override;
+  void handleRequest(Commands *r, Plant *plant) override;
 };
 
 #endif

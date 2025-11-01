@@ -6,14 +6,14 @@
 #include "Commands.h"
 
 class RoseStrategyCmd : public Commands {
- public:
+public:
   RoseStrategyCmd();
   ~RoseStrategyCmd() override = default;
 
   std::string name() override;
-  void execute(Plant* plant) override;
+  void execute(Plant *plant) override;
 
- private:
+private:
   std::string m_label;
 };
 

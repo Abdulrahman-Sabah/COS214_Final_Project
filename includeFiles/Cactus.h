@@ -5,12 +5,12 @@
 #include "Plant.h"
 
 class Cactus : public Plant {
- public:
+public:
   Cactus();
   ~Cactus();
   std::string description() override;
   double price() override;
-  Plant* clone() override;
+  Plant *clone() override;
   std::string getType() const override { return "Cactus"; }
 };
 

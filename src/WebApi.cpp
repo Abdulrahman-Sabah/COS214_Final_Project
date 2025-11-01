@@ -5,27 +5,28 @@
 #include <sstream>
 #include <thread>
 
-#include "BasicPlant.h"  // Needed for BasicPlant
+#include "BasicPlant.h" // Needed for BasicPlant
 #include "Cactus.h"
 #include "Lavender.h"
 #include "Rose.h"
 
-WebAPI::WebAPI(Inventory* inv) : inventory(inv) {}
+WebAPI::WebAPI(Inventory *inv) : inventory(inv) {}
 
 // Get plants from the REAL C++ inventory
 std::string WebAPI::getPlantsJSON() {
   std::stringstream json;
   json << "{\"plants\":[";
 
-  PlantIterator* it = inventory->createIterator();
+  PlantIterator *it = inventory->createIterator();
   bool first = true;
 
   for (it->first(); !it->isDone(); it->next()) {
-    Plant* plant = it->current();
+    Plant *plant = it->current();
     if (plant) {
-      if (!first) json << ",";
+      if (!first)
+        json << ",";
       json << "{";
-      json << "\"type\":\"" << plant->getType() << "\",";  // 🎯 ADD PLANT TYPE
+      json << "\"type\":\"" << plant->getType() << "\","; // 🎯 ADD PLANT TYPE
       json << "\"name\":\"" << plant->getName() << "\",";
       json << "\"careType\":\"" << plant->getCareType() << "\",";
       json << "\"state\":\"" << plant->getStateText() << "\",";
@@ -42,14 +43,14 @@ std::string WebAPI::getPlantsJSON() {
 }
 
 // Add plant to the REAL C++ inventory
-bool WebAPI::addPlantToInventory(const std::string& name,
-                                 const std::string& careType,
-                                 const std::string& state,
-                                 const std::string& season, double price) {
+bool WebAPI::addPlantToInventory(const std::string &name,
+                                 const std::string &careType,
+                                 const std::string &state,
+                                 const std::string &season, double price) {
   std::cout << "🌱 Adding plant to C++ inventory: " << name << std::endl;
 
   // Use BasicPlant for web-created plants
-  Plant* newPlant =
+  Plant *newPlant =
       new BasicPlant(name, "Web-added plant", price, careType, state, season);
   inventory->addPlant(newPlant);
 
@@ -62,7 +63,7 @@ bool WebAPI::addPlantToInventory(const std::string& name,
 }
 
 // Remove plant from REAL C++ inventory
-bool WebAPI::removePlantFromInventory(const std::string& name) {
+bool WebAPI::removePlantFromInventory(const std::string &name) {
   bool success = inventory->removePlantByName(name);
   if (success) {
     InventorySerializer::saveToFile(*inventory, "gui/inventory_state.json");
@@ -70,18 +71,18 @@ bool WebAPI::removePlantFromInventory(const std::string& name) {
   return success;
 }
 
-void initializeInventory(Inventory& inventory) {
+void initializeInventory(Inventory &inventory) {
   // 🎯 CREATE SPECIFIC PLANT TYPES (default constructors)
-  inventory.addPlant(new Rose());      // Uses Rose's default setup
-  inventory.addPlant(new Cactus());    // Uses your Cactus default setup
-  inventory.addPlant(new Lavender());  // Uses Lavender's default setup
+  inventory.addPlant(new Rose());     // Uses Rose's default setup
+  inventory.addPlant(new Cactus());   // Uses your Cactus default setup
+  inventory.addPlant(new Lavender()); // Uses Lavender's default setup
 
   // 💾 Serialize to JSON so GUI can read
   InventorySerializer::saveToFile(inventory, "gui/inventory_state.json");
 }
 
 // Simple file-based API implementation
-void startWebServer(Inventory* inventory) {
+void startWebServer(Inventory *inventory) {
   WebAPI webAPI(inventory);
 
   std::cout << "🌿 WebAPI Server Started!" << std::endl;

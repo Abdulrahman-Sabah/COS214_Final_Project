@@ -9,8 +9,8 @@ Cactus::Cactus()
     : Plant("Cactus", "Low", "Seedling", "Summer", new CactusCare(),
             new SeedlingState()) {}
 
-Plant* Cactus::clone() {
-  Cactus* clonedCactus = new Cactus();
+Plant *Cactus::clone() {
+  Cactus *clonedCactus = new Cactus();
   clonedCactus->setName(this->getName());
   clonedCactus->setCareType(this->getCareType());
   clonedCactus->setStateText(this->getStateText());

@@ -6,14 +6,14 @@
 #include "Commands.h"
 
 class SellingStateCmd : public Commands {
- public:
+public:
   SellingStateCmd();
   virtual ~SellingStateCmd() {}
 
   std::string name();
-  void execute(Plant* plant);
+  void execute(Plant *plant);
 
- private:
+private:
   std::string m_label;
 };
 

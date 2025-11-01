@@ -16,20 +16,20 @@
 #include "StoreColleague.h"
 
 class StoreCustomer : public StoreColleague {
- public:
+public:
   using StoreColleague::StoreColleague;
   StoreCustomer() = default;
   ~StoreCustomer() override = default;
   /**
    * @brief Sends a plant request to the mediator
    */
-  void requestPlant(const std::string& plantName);
+  void requestPlant(const std::string &plantName);
 
   /**
    * @brief Called when notified by the mediator (e.g., when the plant is ready)
    */
-  void requestPlant(Plant* p);
-  void receive(const std::string& event) override;
+  void requestPlant(Plant *p);
+  void receive(const std::string &event) override;
 };
 
 #endif

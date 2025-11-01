@@ -4,18 +4,18 @@
 #include "Plant.h"
 
 class BasicPlant : public Plant {
- private:
+private:
   double basePrice;
   string plantDescription;
 
- public:
+public:
   BasicPlant(string name, string description, double price,
              string careType = "Basic", string state = "Healthy",
              string season = "AllSeason");
 
   string description() override;
   double price() override;
-  Plant* clone() override;
+  Plant *clone() override;
 };
 
 #endif
