@@ -13,9 +13,9 @@ class Inventory {
  public:
   void clear() {
     for (Plant* plant : plants) {
-      delete plant;  // Free memory
+      delete plant;  
     }
-    plants.clear();  // Clear the vector
+    plants.clear();  
   }
 
   Inventory();
@@ -28,6 +28,7 @@ class Inventory {
   std::vector<Plant*>& getPlants();
   void displayAll();
   bool hasPlant(Plant* p);
+  Plant* at(int index) const;
 };
 
 #endif

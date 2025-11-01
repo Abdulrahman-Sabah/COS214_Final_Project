@@ -54,6 +54,7 @@ void Plant::setCareStrategy(CareStrategy *cs) {
     delete careStrategy;
   }
   careStrategy = cs;
+  cs->applyCare(this);
   notifyCareStrategyChanged();
 }
 void Plant::setLifeCycle(PlantLifeCycleState *st) {
