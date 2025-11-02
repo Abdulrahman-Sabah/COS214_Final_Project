@@ -38,5 +38,9 @@ make coverage
 
 Run the Demo Main
 make run-demo
-(This runs the Demo executable — GUI still needs to be added later)
+(This runs the Demo executable)
+
+Run the PLant Nursery System
+make run-server
+(This runs the server executable and launches the web GUI at http://localhost:8081)
 
