@@ -18,6 +18,7 @@ public:
   void setDeliveryStaff(DeliveryStaff *d);
 
   void notify(Plant *plant, const std::string &event) override;
+  void infoByType(const std::string& type) const;
 
 private:
   StoreCustomer *customer = nullptr;

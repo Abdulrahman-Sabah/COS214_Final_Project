@@ -307,7 +307,8 @@ int main()
     std::cout << "4) Remove plant (Only staff can remove dead plants)\n";
     std::cout << "5) Observer(only staff) (observer -> chain)\n";
     std::cout << "6) Set Dead / Attention for a plant (staff only)\n";
-    std::cout << "7) Exit\n";
+    std::cout << "7) Customer browsing, plant information & recommendations\n";
+    std::cout << "8) Exit\n";
     std::cout << "Choose: ";
     int choice = 0;
     if (!(std::cin >> choice))
@@ -434,7 +435,6 @@ int main()
       }
 
       std::cout << "(Found in inventory) ";
-      // Ask for decoration
       std::cout << "Choose a decoration:\n";
       std::cout << "1) Gift Wrap\n";
       std::cout << "2) Pot\n";
@@ -475,6 +475,27 @@ int main()
       planttoremoveinpointer->setLifeCycle(new DeadState());
       std::cout << "Final product: " << newDecorations->description() << "\n";
       greenhouse->removePlant(planttoremoveinpointer);
+
+      std::string receiptInput;
+      std::cout << "Would you like a receipt? (y/n): ";
+      std::getline(std::cin, receiptInput);
+
+      if (lower(receiptInput) == "y" || lower(receiptInput) == "yes")
+      {
+        std::cout << "\n===== RECEIPT =====\n";
+        if (newDecorations != nullptr)
+        {
+          std::cout << "Item: " << newDecorations->description() << "\n";
+          std::cout << "Price: R" << newDecorations->price() << "\n";
+        }
+        else
+        {
+          std::cout << "Item: " << planttoremoveinpointer->getName() << "\n";
+          std::cout << "Price: R" << planttoremoveinpointer->price() << "\n";
+          std::cout << "No decorations added" << std::endl;
+        }
+        std::cout << "===================\n";
+      }
     }
 
     else if (choice == 4)
@@ -719,11 +740,57 @@ int main()
       continue;
     }
 
-    else if (choice == 7)
+    else if (choice == 8)
     {
       std::cout << "Bye! See you soon\n";
       break;
     }
+    else if (choice == 7)
+    {
+      std::cout << "\n=== Customer Browsing ===\n";
+      std::cout << "Showing available (SELLING) plants:\n";
+      printSellingOnly(greenhouse);
+
+      while (true)
+      {
+        std::cout << "\n-- What would you like to do? --\n";
+        std::cout << "1) Info about plants (Rose/Cactus/Lavender)\n";
+        std::cout << "2) Quick recommendations (show selling again)\n";
+        std::cout << "3) Back\n";
+        std::cout << "Choose: ";
+
+        int sub = 0;
+        if (!(std::cin >> sub))
+        {
+          clearStdin();
+          continue;
+        }
+        clearStdin();
+
+        if (sub == 3)
+        {
+          std::cout << "Back to main menu.\n";
+          break;
+        }
+        else if (sub == 1)
+        {
+          std::string type;
+          std::cout << "Enter plant type (Rose/Cactus/Lavender): ";
+          std::getline(std::cin, type);
+          mediator.infoByType(type);
+        }
+        else if (sub == 2)
+        {
+          std::cout << "\nRecommended for you (available now):\n";
+          printSellingOnly(greenhouse);
+        }
+        else
+        {
+          std::cout << "Invalid option.\n";
+        }
+      }
+    }
+
     else
     {
       std::cout << "Invalid option.\n";
