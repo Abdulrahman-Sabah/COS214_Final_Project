@@ -26,7 +26,7 @@ std::string WebAPI::getPlantsJSON() {
       if (!first)
         json << ",";
       json << "{";
-      json << "\"type\":\"" << plant->getType() << "\","; 
+      json << "\"type\":\"" << plant->getType() << "\",";
       json << "\"name\":\"" << plant->getName() << "\",";
       json << "\"careType\":\"" << plant->getCareType() << "\",";
       json << "\"state\":\"" << plant->getStateText() << "\",";
