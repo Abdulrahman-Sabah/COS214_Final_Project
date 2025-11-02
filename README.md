@@ -23,13 +23,20 @@
 ## Build Options:  
 The following commands must be run from root of project folder:
 ```bash
-#Build all targets
-make all
-#Run the simulation
+
+Run the TestingMain program
 make run
-#Generate Doxygen documentation
-make docs
-#Run all unit tests
-make test
-#Remove compiled files
-make clean
+(This runs the TestingMain executable)
+
+Run Valgrind on TestingMain
+make valgrind
+(Checks for memory leaks and errors)
+
+Run code coverage for TestingMain
+make coverage
+(Generates coverage reports for all tests in TestingMain)
+
+Run the Demo Main
+make run-demo
+(This runs the Demo executable — GUI still needs to be added later)
+
