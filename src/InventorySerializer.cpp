@@ -20,7 +20,7 @@
 
 void InventorySerializer::saveToFile(Inventory &inventory,
                                      const std::string &filename) {
-  std::cout << "💾 STEP: Saving to file: " << filename << std::endl;
+  std::cout << "STEP: Saving to file: " << filename << std::endl;
 
   std::ofstream file(filename);
   if (!file.is_open()) {
@@ -28,8 +28,8 @@ void InventorySerializer::saveToFile(Inventory &inventory,
     return;
   }
 
-  std::cout << "💾 Saving to: " << filename << std::endl;
-  std::cout << "📁 Current dir: " << std::filesystem::current_path()
+  std::cout << "Saving to: " << filename << std::endl;
+  std::cout << "Current dir: " << std::filesystem::current_path()
             << std::endl;
 
   file << "{\"plants\":[";
@@ -43,7 +43,6 @@ void InventorySerializer::saveToFile(Inventory &inventory,
       if (!first)
         file << ",";
       file << "{";
-      // 🆕 ADD TYPE FIELD
       file << "\"type\":\"" << plant->getType() << "\",";
       file << "\"name\":\"" << plant->getName() << "\",";
       file << "\"careType\":\"" << plant->getCareType() << "\",";
@@ -63,7 +62,6 @@ void InventorySerializer::saveToFile(Inventory &inventory,
             << std::endl;
 }
 
-// ADD THIS DEFINITION OUTSIDE THE CLASS
 void InventorySerializer::initializeInventory(Inventory &inventory) {
   std::cout << "🎯 Initializing inventory with default plants" << std::endl;
 
@@ -72,11 +70,10 @@ void InventorySerializer::initializeInventory(Inventory &inventory) {
   inventory.addPlant(new Cactus());
   inventory.addPlant(new Lavender());
 
-  std::cout << "✅ Initialized " << inventory.getSize() << " default plants"
+  std::cout << "Initialized " << inventory.getSize() << " default plants"
             << std::endl;
 }
 
-// ADD HELPER FUNCTION FIRST (before loadFromFile):
 std::string InventorySerializer::extractJSONField(const std::string &content,
                                                   const std::string &field,
                                                   size_t &pos) {
@@ -88,7 +85,6 @@ std::string InventorySerializer::extractJSONField(const std::string &content,
   return content.substr(start, end - start);
 }
 
-// MODIFY loadFromFile() to handle specific types:
 void InventorySerializer::loadFromFile(Inventory &inventory,
                                        const std::string &filename) {
   std::cout << "🔍 STEP 1: Looking for file: " << filename << std::endl;
@@ -101,31 +97,30 @@ void InventorySerializer::loadFromFile(Inventory &inventory,
     initializeInventory(inventory);
     saveToFile(inventory, filename);
 
-    std::cout << "✅ File should now be created: " << filename << std::endl;
+    std::cout << "File should now be created: " << filename << std::endl;
     return;
   }
 
-  std::cout << "✅ File found, reading content..." << std::endl;
+  std::cout << "File found, reading content..." << std::endl;
 
   std::string content((std::istreambuf_iterator<char>(file)),
                       std::istreambuf_iterator<char>());
   file.close();
 
-  std::cout << "📄 File content length: " << content.length() << " characters"
+  std::cout << "File content length: " << content.length() << " characters"
             << std::endl;
 
   if (content.empty()) {
-    std::cout << "❌ FILE IS EMPTY - initializing..." << std::endl;
+    std::cout << "FILE IS EMPTY - initializing..." << std::endl;
     initializeInventory(inventory);
     saveToFile(inventory, filename);
     return;
   }
 
-  std::cout << "📄 First 100 chars: " << content.substr(0, 100) << std::endl;
+  std::cout << "First 100 chars: " << content.substr(0, 100) << std::endl;
 
-  std::cout << "💾 Loading from: " << filename << std::endl;
+  std::cout << "Loading from: " << filename << std::endl;
 
-  // Clear existing inventory
   inventory.clear();
 
   // Simple JSON parsing - look for plant arrays
@@ -182,14 +177,13 @@ void InventorySerializer::loadFromFile(Inventory &inventory,
     pos = priceEnd;
   }
 
-  // 🆕 If no plants were found in JSON, initialize defaults
   if (plantsLoaded == 0) {
-    std::cout << "📁 No plants found in JSON, initializing defaults"
+    std::cout << "No plants found in JSON, initializing defaults"
               << std::endl;
     initializeInventory(inventory);
     saveToFile(inventory, filename);
   }
 
-  std::cout << "💾 Loaded " << plantsLoaded << " plants from " << filename
+  std::cout << "Loaded " << plantsLoaded << " plants from " << filename
             << std::endl;
 }

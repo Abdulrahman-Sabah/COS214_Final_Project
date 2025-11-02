@@ -46,7 +46,7 @@ public:
   PlantNurseryServer() {
     // Load from file at startup
     InventorySerializer::loadFromFile(inventory, "inventory_state.json");
-    std::cout << "🌿 Server loaded " << inventory.getSize()
+    std::cout << "Server loaded " << inventory.getSize()
               << " plants from file\n";
   }
 
@@ -101,9 +101,9 @@ public:
       return false;
     }
 
-    std::cout << "🌿 Plant Nursery Server running on http://localhost:" << port
+    std::cout << "Plant Nursery Server running on http://localhost:" << port
               << std::endl;
-    std::cout << "📁 Serving files from: gui/" << std::endl;
+    std::cout << "Serving files from: gui/" << std::endl;
     handleRequests(serverSocket);
 
 #ifdef _WIN32
@@ -150,7 +150,7 @@ public:
   }
 
   std::string handleHTTPRequest(const std::string &request) {
-    std::cout << "📨 Request: " << request.substr(0, request.find('\n'))
+    std::cout << "Request: " << request.substr(0, request.find('\n'))
               << std::endl;
 
     // Serve inventory_state.json file directly
@@ -239,7 +239,7 @@ public:
     delete it;
     json << "]}";
 
-    std::cout << "📊 Sent " << inventory.getSize() << " plants from file\n";
+    std::cout << "Sent " << inventory.getSize() << " plants from file\n";
     return json.str();
   }
 
@@ -247,7 +247,7 @@ public:
                         const std::string &contentType) {
     std::ifstream file(filename, std::ios::binary);
     if (!file.is_open()) {
-      std::cerr << "❌ File not found: " << filename << std::endl;
+      std::cerr << "File not found: " << filename << std::endl;
       return "HTTP/1.1 404 Not Found\r\n\r\nFile not found: " + filename;
     }
 
@@ -256,18 +256,18 @@ public:
 
     std::string response = "HTTP/1.1 200 OK\r\nContent-Type: " + contentType +
                            "\r\n\r\n" + buffer.str();
-    std::cout << "📄 Served: " << filename << " (" << buffer.str().length()
+    std::cout << "Served: " << filename << " (" << buffer.str().length()
               << " bytes)" << std::endl;
     return response;
   }
 };
 
 int main() {
-  std::cout << "🚀 Starting Plant Nursery Server..." << std::endl;
+  std::cout << "Starting Plant Nursery Server..." << std::endl;
 
   PlantNurseryServer server;
   if (!server.start(8081)) {
-    std::cerr << "❌ Failed to start server!" << std::endl;
+    std::cerr << "Failed to start server!" << std::endl;
     return 1;
   }
 

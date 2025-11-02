@@ -34,25 +34,31 @@
 TEST_CASE("CactusStrategyCmd applies cactus care") {
     Cactus c;
     CactusStrategyCmd cmd;
-    // Just verify execute runs without crashing
+    CHECK(c.getCareStrategy() != nullptr);
+    CHECK(cmd.name() == "CactusStrategy");
     REQUIRE_NOTHROW(cmd.execute(&c));
 }
 
 TEST_CASE("LavenderStrategyCmd applies lavender care") {
     Lavender l;
     LavenderStrategyCmd cmd;
+    CHECK(l.getCareStrategy() != nullptr);
+    CHECK(cmd.name() == "LavenderStrategy");
     REQUIRE_NOTHROW(cmd.execute(&l));
 }
 
 TEST_CASE("RoseStrategyCmd applies rose care") {
     Rose r;
     RoseStrategyCmd cmd;
+    CHECK(r.getCareStrategy() != nullptr);
+    CHECK(cmd.name() == "RoseStrategy");
     REQUIRE_NOTHROW(cmd.execute(&r));
 }
 
 TEST_CASE("SeedlingStateCmd transitions plant to Seedling state") {
     Rose r;
     SeedlingStateCmd cmd;
+    CHECK(r.getLifeCycle() != nullptr);
     cmd.execute(&r);
     
     REQUIRE(r.getLifeCycle() != nullptr);
@@ -63,6 +69,7 @@ TEST_CASE("GrowingStateCmd transitions plant to Growing state") {
     Cactus c;
     GrowingStateCmd cmd;
     cmd.execute(&c);
+    CHECK(cmd.name() == "GrowingState");
     
     REQUIRE(c.getLifeCycle() != nullptr);
     CHECK(c.getLifeCycle()->name() == "Growing");
@@ -73,6 +80,7 @@ TEST_CASE("DormantStateCmd transitions plant to Dormant state") {
     DormantStateCmd cmd;
     cmd.execute(&l);
     
+    CHECK(cmd.name() == "DormantState");
     REQUIRE(l.getLifeCycle() != nullptr);
     CHECK(l.getLifeCycle()->name() == "Dormant");
 }
@@ -81,7 +89,8 @@ TEST_CASE("MatureStateCmd transitions plant to Mature state") {
     Rose r;
     MatureStateCmd cmd;
     cmd.execute(&r);
-    
+
+    CHECK(cmd.name() == "MatureState");
     REQUIRE(r.getLifeCycle() != nullptr);
     CHECK(r.getLifeCycle()->name() == "Mature");
 }
@@ -91,6 +100,7 @@ TEST_CASE("SellingStateCmd transitions plant to Selling state") {
     SellingStateCmd cmd;
     cmd.execute(&c);
     
+    CHECK(cmd.name() == "SellingState");
     REQUIRE(c.getLifeCycle() != nullptr);
     CHECK(c.getLifeCycle()->name() == "Selling");
 }
@@ -100,6 +110,7 @@ TEST_CASE("DeadStateCmd transitions plant to Dead state") {
     DeadStateCmd cmd;
     cmd.execute(&l);
     
+    CHECK(cmd.name() == "DeadState");
     REQUIRE(l.getLifeCycle() != nullptr);
     CHECK(l.getLifeCycle()->name() == "Dead");
 }
@@ -109,6 +120,11 @@ TEST_CASE("Command chaining - multiple state transitions") {
     SeedlingStateCmd s;
     GrowingStateCmd g;
     MatureStateCmd m;
+
+    CHECK(r.getLifeCycle() != nullptr);
+    CHECK(s.name() == "SeedlingState");
+    CHECK(g.name() == "GrowingState");
+    CHECK(m.name() == "MatureState");
 
     s.execute(&r);
     CHECK(r.getLifeCycle()->name() == "Seedling");
@@ -122,6 +138,6 @@ TEST_CASE("Command chaining - multiple state transitions") {
 
 TEST_CASE("Command execution on null plant pointer is safe") {
     SeedlingStateCmd cmd;
-    // Should not crash
+    CHECK(cmd.name() == "SeedlingState");
     REQUIRE_NOTHROW(cmd.execute(nullptr));
 }
