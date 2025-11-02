@@ -13,7 +13,6 @@
 Handler::Handler() : successor(nullptr), subject(nullptr) {}
 
 Handler::~Handler() {
-  // delete successor;
   successor = nullptr;
 }
 
