@@ -29,29 +29,27 @@ void Inventory::addPlant(Plant *p) {
 }
 
 bool Inventory::removePlant(Plant *p) {
-  if (p == NULL) {
-    return false;
-  }
-
-  PlantLifeCycleState *state = p->getLifeCycle();
-
-  if (state == NULL || !p->getLifeCycle()->isDead()) {
-    std::cout << " Cannot remove: Plant is not dead.\n";
-    return false;
-  }
-
-  std::vector<Plant *>::iterator it;
-  for (it = plants.begin(); it != plants.end(); ++it) {
-    if (*it == p) {
-      delete *it;
-      plants.erase(it);
-      std::cout << " Dead plant removed from inventory.\n";
-      return true;
+    if (p == NULL) {
+        return false;
     }
-  }
 
-  std::cout << " Plant not found in inventory.\n";
-  return false;
+    PlantLifeCycleState *state = p->getLifeCycle();
+
+    if (state == NULL || !state->isDead()) {
+        std::cout << " Cannot remove: Plant is not dead.\n";
+        return false;
+    }
+
+    for (std::vector<Plant*>::iterator it = plants.begin(); it != plants.end(); ++it) {
+        if (*it == p) {
+            plants.erase(it);  
+            std::cout << " Dead plant removed from inventory.\n";
+            return true;
+        }
+    }
+
+    std::cout << " Plant not found in inventory.\n";
+    return false;
 }
 
 bool Inventory::removePlantByName(const std::string &name) {
