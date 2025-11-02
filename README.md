@@ -6,12 +6,12 @@
 | Name | Student Number |
 |------|----------------|
 | **Joshua Heath** | u23541475 |
-| **Antony Van Straten** | 24590739 |
+| **Antony Van Straten** | u24590739 |
 | **Avuyile Sapula** | u23540282 |
 | **Hamdaan Mirz** | u24631494 |
 | **Dylan Hebron** | u22503685 |
 | **Abdelrahman Ahmed** | u24898008 |
-| **Abdulrahman Sabah** | u24566179 |
+| **Abdulrahman Sabah** | u24566170 |
 ---
 ## Design Patterns:
 | Type | Patterns Implemented |
