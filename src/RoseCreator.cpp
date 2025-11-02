@@ -1,6 +1,8 @@
 #include "RoseCreator.h"
-#include "Rose.h"
+
 #include <iostream>
+
+#include "Rose.h"
 
 RoseCreator::RoseCreator() {}
 

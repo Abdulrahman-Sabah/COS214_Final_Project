@@ -986,7 +986,8 @@ struct ContextOptions //! OCLINT too many fields
   unsigned last;  // the last (matching) test to be executed
 
   int abort_after;           // stop tests after this many failed assertions
-  int subcase_filter_levels; // apply the subcase filters for the first N levels
+  int subcase_filter_levels; // apply the subcase filters for the first N
+                             // levels
 
   bool success;        // include successful assertions in output
   bool case_sensitive; // if filtering should be case sensitive
@@ -1727,8 +1728,8 @@ struct DOCTEST_INTERFACE TestCase : public TestCaseData {
   funcType m_test; // a function pointer to the test case
 
   String m_type; // for templated test cases - gets appended to the real name
-  int m_template_id; // an ID used to distinguish between the different versions
-                     // of a templated test case
+  int m_template_id;  // an ID used to distinguish between the different
+                      // versions of a templated test case
   String m_full_name; // contains the name (only for templated test cases!) +
                       // the template type
 
@@ -5482,8 +5483,8 @@ bool ResultBuilder::log() {
   } else if (m_at & assertType::is_throws_as) { //! OCLINT bitwise operator in
                                                 //! conditional
     m_failed = !m_threw_as;
-  } else if (m_at & assertType::is_throws_with) { //! OCLINT bitwise operator in
-                                                  //! conditional
+  } else if (m_at & assertType::is_throws_with) { //! OCLINT bitwise operator
+                                                  //! in conditional
     m_failed = !m_exception_string.check(m_exception);
   } else if (m_at & assertType::is_nothrow) { //! OCLINT bitwise operator in
                                               //! conditional

@@ -1,6 +1,10 @@
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include "BasicPlant.h"
 #include "Cactus.h"
-#include "CactusBuilder.h"
 #include "CactusCare.h"
 #include "CactusCreator.h"
 #include "CardDecorator.h"
@@ -13,14 +17,13 @@
 #include "DormantState.h"
 #include "DormantStateCmd.h"
 #include "FrontDesk.h"
-#include "GreenhouseDirector.h"
 #include "GreenhouseManager.h"
 #include "GrowingState.h"
 #include "GrowingStateCmd.h"
 #include "Inventory.h"
+#include "InventorySerializer.h"
 #include "Landscaper.h"
 #include "Lavender.h"
-#include "LavenderBuilder.h"
 #include "LavenderCare.h"
 #include "LavenderCreator.h"
 #include "MatureState.h"
@@ -31,7 +34,6 @@
 #include "PlantLifeCycleState.h"
 #include "PotDecorator.h"
 #include "Rose.h"
-#include "RoseBuilder.h"
 #include "RoseCare.h"
 #include "RoseCreator.h"
 #include "SeedlingState.h"
@@ -40,10 +42,30 @@
 #include "SellingStateCmd.h"
 #include "StoreCustomer.h"
 #include "WrapDecorator.h"
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include <vector>
+
+#include "DeliveryStaff.h"
+#include "FrontDesk.h"
+#include "StoreCustomer.h"
+#include "WebAPI.h"
+
+#include "BasicPlant.h"
+#include "Cactus.h"
+#include "Lavender.h"
+#include "Rose.h"
+
+#include "Cactus.h"
+#include "CactusStrategyCmd.h"
+#include "DeadStateCmd.h"
+#include "GreenhouseManager.h"
+#include "GrowingStateCmd.h"
+#include "Inventory.h"
+#include "InventorySerializer.h"
+#include "Lavender.h"
+#include "LavenderStrategyCmd.h"
+#include "MatureStateCmd.h"
+#include "Rose.h"
+#include "SeedlingStateCmd.h"
+#include "SellingStateCmd.h"
 
 using namespace std;
 
@@ -52,6 +74,13 @@ const string ANSI_GREEN = "\u001b[32;1m";
 const string ANSI_BLUE = "\033[0;34m";
 const string ANSI_RESET = "\u001b[0m";
 
+static void wireMediator(FrontDesk &desk, StoreCustomer &cust,
+                         DeliveryStaff &staff) {
+  cust.setMediator(&desk);
+  staff.setMediator(&desk);
+  desk.setCustomer(&cust);
+  desk.setDeliveryStaff(&staff);
+}
 bool assertState(const std::string &testName, bool condition) {
   if (condition) {
     std::cout << ANSI_GREEN << "PASS: " << testName << ANSI_RESET << std::endl;
@@ -222,56 +251,7 @@ public:
 };
 
 int main() {
-
   std::cout << "\n\n=== Builder Design Pattern Test ===\n\n";
-
-  // 1. Rose
-  RoseBuilder roseBuilder;
-  GreenhouseDirector roseDirector(&roseBuilder);
-  roseDirector.construct();
-  Plant *rose = roseBuilder.getPlant();
-
-  if (rose) {
-    std::cout << "Rose Built Successfully!" << std::endl;
-    std::cout << "Name: " << rose->getName() << std::endl
-              << "Care Type: " << rose->getCareType() << std::endl
-              << "Season: " << rose->getSeason() << std::endl;
-  } else {
-    std::cout << "Rose Builder Returned Null Plant!" << std::endl;
-  }
-
-  // 2. Cactus
-  CactusBuilder cactusBuilder;
-  GreenhouseDirector cactusDirector(&cactusBuilder);
-  cactusDirector.construct();
-  Plant *cactus = cactusBuilder.getPlant();
-  if (cactus) {
-    std::cout << "\nCactus Built Successfully!" << std::endl;
-    std::cout << "Name: " << cactus->getName() << std::endl
-              << "Care Type: " << cactus->getCareType() << std::endl
-              << "Season: " << cactus->getSeason() << std::endl;
-  } else {
-    std::cout << "Cactus Builder Returned Null Plant!" << std::endl;
-  }
-
-  // 3. Lavender
-  LavenderBuilder lavenderBuilder;
-  GreenhouseDirector lavenderDirector(&lavenderBuilder);
-  lavenderDirector.construct();
-  Plant *lavender = lavenderBuilder.getPlant();
-  if (lavender) {
-    std::cout << "\nLavender Built Successfully!" << std::endl;
-    std::cout << "Name: " << lavender->getName() << std::endl
-              << "Care Type: " << lavender->getCareType() << std::endl
-              << "Season: " << lavender->getSeason() << std::endl;
-  } else {
-    std::cout << "Lavender Builder Returned Null Plant!" << std::endl;
-  }
-
-  // Cleanup
-  delete lavender;
-  delete cactus;
-  delete rose;
 
   std::cout << "\n\n=== Builder Design Pattern Test Completed ===\n\n";
 
@@ -646,90 +626,127 @@ int main() {
 
   GreenhouseManager *manager = new GreenhouseManager();
   Landscaper *landscaper = new Landscaper();
+  manager->setSuccessor(landscaper);
 
-  std::cout << "=== Lifecycle Observer Smoke Test ===\n";
+  std::cout << "\n=== Lifecycle Observer Test ===\n";
 
   Plant *plant = new Rose();
-
   Landscaper landscapernew;
-  GreenhouseManager managerNew;
 
   PlantObserver *testing = new CareSchedulerObserver(&landscapernew);
-
   plant->attach(testing);
 
-  {
-    SeedlingState s;
-    testing->onLifeCycleChanged(plant, &s);
-  }
+  std::cout << "\nTest 1: Seedling State" << std::endl;
+  plant->setLifeCycle(new SeedlingState());
+  std::cout << "Current state: " << plant->getLifeCycle()->name() << std::endl;
 
-  cout << plant->getLifeCycle()->name() << std::endl;
-
+  std::cout << "\nTest 2: Growing State" << std::endl;
   plant->setLifeCycle(new GrowingState());
+  std::cout << "Current state: " << plant->getLifeCycle()->name() << std::endl;
 
-  {
-    GrowingState s;
-    testing->onLifeCycleChanged(plant, &s);
-  }
+  std::cout << "\nTest 3: Dormant State" << std::endl;
+  plant->setLifeCycle(new DormantState());
+  std::cout << "Current state: " << plant->getLifeCycle()->name() << std::endl;
 
-  cout << plant->getLifeCycle()->name() << std::endl;
-
-  {
-    DormantState s;
-    testing->onLifeCycleChanged(plant, &s);
-  }
-
-  cout << plant->getLifeCycle()->name() << std::endl;
-
+  std::cout << "\nTest 4: Mature State" << std::endl;
   plant->setLifeCycle(new MatureState());
-  {
-    MatureState s;
-    testing->onLifeCycleChanged(plant, &s);
-  }
-  cout << plant->getLifeCycle()->name() << std::endl;
+  std::cout << "Current state: " << plant->getLifeCycle()->name() << std::endl;
 
-  {
-    SellingState s;
-    testing->onLifeCycleChanged(plant, &s);
-  }
+  std::cout << "\nTest 5: Selling State" << std::endl;
+  plant->setLifeCycle(new SellingState());
+  std::cout << "Current state: " << plant->getLifeCycle()->name() << std::endl;
 
-  cout << plant->getLifeCycle()->name() << std::endl;
+  std::cout << "\nTest 6: Dead State" << std::endl;
+  plant->setLifeCycle(new DeadState());
+  std::cout << "Current state: " << plant->getLifeCycle()->name() << std::endl;
 
-  {
-    DeadState s;
-    testing->onLifeCycleChanged(plant, &s);
-  }
+  std::cout << "\n=== Observer Test Complete ===\n";
 
-  cout << plant->getLifeCycle()->name() << std::endl;
+  std::cout << "===== Demo: WebAPI + Mediator =====\n";
 
-  std::cout << "=== Done ===\n";
+  Inventory *inventoryTestNew = new Inventory();
+  inventoryTestNew->addPlant(new Rose());
+  inventoryTestNew->addPlant(new Cactus());
+  inventoryTestNew->addPlant(new Lavender());
+  std::cout << inventoryTestNew->getSize();
 
-  delete testing;
-  delete plant;
-  delete manager;
-  delete landscaper;
+  FrontDesk frontDesk;
+  StoreCustomer customer;
+  DeliveryStaff staff;
+
+  staff.setInventory(inventoryTestNew);
+
+  staff.setInventory(inventoryTestNew);
+  inventoryTestNew->addPlant(new Rose());
+  inventoryTestNew->addPlant(new Cactus());
+  inventoryTestNew->addPlant(new Lavender());
+
+  wireMediator(frontDesk, customer, staff);
+  Inventory test;
+  WebAPI api(&test);
+  std::cout << api.getPlantsJSON() << "\n";
+  api.addPlantToInventory("Pixel Daisy", "ModerateWater", "Seedling", "Spring",
+                          129.99);
+
+  std::cout << api.getPlantsJSON() << "\n";
+
+  std::cout << "\n--- addPlantToInventory() ---\n";
+  api.addPlantToInventory("Pixel Daisy", "ModerateWater", "Seedling", "Spring",
+                          129.99);
+  std::cout << test.getSize() << "\n";
+  std::cout << test.getSize() << "\n";
+  bool removedtesting = api.removePlantFromInventory("Pixel Daisy");
 
   std::cout << "=== Lifecycle Observer Smoke Test ===\n";
   Inventory inventoryNewMain;
   DeliveryStaff deliveryNew(&inventoryNewMain);
 
-  StoreCustomer customer;
+  StoreCustomer customerNews;
 
-  FrontDesk mediator(&customer, &deliveryNew);
-  customer.setMediator(&mediator);
+  FrontDesk mediator(&customerNews, &deliveryNew);
+  customerNews.setMediator(&mediator);
   deliveryNew.setMediator(&mediator);
 
   Plant *cactusnew = new Cactus();
   Plant *lavenderNewInMain = new Lavender();
-
   inventoryNewMain.addPlant(lavenderNewInMain);
-
-  std::cout << "\n==== TEST 1: Plant NOT in Inventory ====\n";
-  customer.requestPlant(cactusnew);
-
-  std::cout << "\n==== TEST 2: Plant AVAILABLE in Inventory ====\n";
-  customer.requestPlant(lavenderNewInMain);
+  customerNews.requestPlant(cactusnew);
+  customerNews.requestPlant(lavenderNewInMain);
   delete cactusnew;
-  std::cout << "\n==== END OF TEST ====\n";
+  delete testing;
+  delete plant;
+  delete manager;
+  delete landscaper;
+  delete inventoryTestNew;
+
+  std::cout << "\n===InventorySerializer testing===\n";
+
+  GreenhouseManager gm;
+  Plant *p1 = new Rose();
+  Commands *cmd1 = new LavenderStrategyCmd();
+  gm.handleRequest(cmd1, p1);
+  Commands *cmd2 = new CactusStrategyCmd();
+  gm.handleRequest(cmd2, nullptr);
+
+  Plant *p2 = new Cactus();
+  SeedlingStateCmd().execute(p2);
+  GrowingStateCmd().execute(p2);
+  MatureStateCmd().execute(p2);
+  SellingStateCmd().execute(p2);
+  DeadStateCmd().execute(p2);
+  Inventory inv;
+  inv.addPlant(new Rose());
+  inv.addPlant(new Cactus());
+  inv.addPlant(new Lavender());
+  std::cout << "Inventory size: " << inv.getSize() << "\n";
+  inv.removePlantByName("Cactus");
+  InventorySerializer ser;
+  ser.saveToFile(inv, "test_inventory.json");
+  ser.loadFromFile(inv, "test_inventory.json");
+
+  delete p2;
+  delete p1;
+  delete cmd2;
+
   return 0;
 }

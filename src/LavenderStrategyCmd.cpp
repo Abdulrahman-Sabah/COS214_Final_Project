@@ -1,4 +1,5 @@
 #include "LavenderStrategyCmd.h"
+
 #include "LavenderCare.h"
 #include "Plant.h"
 
@@ -10,4 +11,6 @@ void LavenderStrategyCmd::execute(Plant *plant) {
   if (!plant)
     return;
   plant->setCareStrategy(new LavenderCare());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

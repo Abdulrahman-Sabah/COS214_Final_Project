@@ -1,7 +1,9 @@
 #include "Cactus.h"
+
+#include <iostream>
+
 #include "CactusCare.h"
 #include "SeedlingState.h"
-#include <iostream>
 
 Cactus::Cactus()
     : Plant("Cactus", "Low", "Seedling", "Summer", new CactusCare(),

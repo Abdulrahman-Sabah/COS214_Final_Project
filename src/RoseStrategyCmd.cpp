@@ -1,4 +1,5 @@
 #include "RoseStrategyCmd.h"
+
 #include "Plant.h"
 #include "RoseCare.h"
 
@@ -10,4 +11,6 @@ void RoseStrategyCmd::execute(Plant *plant) {
   if (!plant)
     return;
   plant->setCareStrategy(new RoseCare());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

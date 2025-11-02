@@ -6,9 +6,10 @@
  */
 #ifndef CARESCHEDULEROBSERVER_H
 #define CARESCHEDULEROBSERVER_H
+#include <iostream>
+
 #include "Handler.h"
 #include "PlantObserver.h"
-#include <iostream>
 /**
  * @class CareSchedulerObserver
  * @brief Concrete observer that monitors plant state changes for care
@@ -59,6 +60,8 @@ public:
    * @brief default constructor for proper cleanup
    */
   CareSchedulerObserver();
+
+  void setHandler(Handler *newHandler);
 };
 
 #endif

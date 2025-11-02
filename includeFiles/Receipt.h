@@ -1,8 +1,9 @@
 #ifndef RECEIPT_H
 #define RECEIPT_H
 
-#include "Plant.h"
 #include <vector>
+
+#include "Plant.h"
 
 class Receipt {
 private:

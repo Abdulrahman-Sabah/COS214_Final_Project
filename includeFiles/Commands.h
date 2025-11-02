@@ -8,8 +8,9 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "Plant.h"
 #include <string>
+
+#include "Plant.h"
 
 /**
  * @class Commands
@@ -48,6 +49,7 @@ public:
    * that the command needs for execution (e.g., plant IDs, order numbers).
    */
   virtual void execute(Plant *Plant) = 0;
+  Commands() = default;
 };
 
 #endif

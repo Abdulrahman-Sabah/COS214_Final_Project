@@ -1,6 +1,8 @@
 #include "LavenderCreator.h"
-#include "Lavender.h"
+
 #include <iostream>
+
+#include "Lavender.h"
 
 LavenderCreator::LavenderCreator() {}
 

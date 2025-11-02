@@ -1,17 +1,25 @@
 #include "GreenhouseManager.h"
-#include "Commands.h"
+
 #include <iostream>
 
+#include "Commands.h"
+
 void GreenhouseManager::handleRequest(Commands *r, Plant *plant) {
+  if (!plant)
+    return;
   if (r && (r->name() == "LavenderStrategy" || r->name() == "RoseStrategy" ||
-            r->name() == "SucculentStrategy")) {
-    std::cout << "Greenhouse Manager is moving plants is looking at the states "
-                 "of the plnats"
-              << std::endl;
+            r->name() == "CactusStrategy")) {
+
+    std::cout << "Greenhouse Manager: Executing " << r->name() << " on "
+              << plant->getName() << ".\n";
+
     r->execute(plant);
     delete r;
   } else {
     // Pass to next handler in chain using protected method
+    std::cout << "Greenhouse Manager: This request is not my responsibility. "
+                 "My  responsibility is the Strategy(Rose, Cactus,Lavender)"
+                 "Calling Landscaper...\n";
     passToSuccessor(r, plant);
   }
 }

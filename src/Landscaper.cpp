@@ -6,20 +6,26 @@
  */
 
 #include "Landscaper.h"
-#include "Commands.h"
+
 #include <iostream>
 
+#include "Commands.h"
+
 void Landscaper::handleRequest(Commands *r, Plant *plant) {
-  std::cout << "Working";
+  if (!plant)
+    return;
   if (r && (r->name() == "SeedlingState" || r->name() == "GrowingState" ||
             r->name() == "DormantState" || r->name() == "MatureState" ||
             r->name() == "SellingState" || r->name() == "DeadState")) {
-    std::cout << "Landscaper is handling plant care: " << r->name()
-              << std::endl;
+    std::cout << "Landscaper: Executing " << r->name() << " on "
+              << plant->getName() << ".\n";
     r->execute(plant);
     delete r;
   } else {
-    // Pass to next handler in chain using protected method
+    std::cout << "Landscaper: This request is not my responsibility. My "
+                 "responsibility are the "
+                 "sates(Seedling,Growing,Dormant,Mature,Selling,Dead) "
+                 "No further handlers available.\n";
     passToSuccessor(r, plant);
   }
 }

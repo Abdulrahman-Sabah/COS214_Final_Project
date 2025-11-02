@@ -1,8 +1,9 @@
 #ifndef FRONTDESK_H
 #define FRONTDESK_H
 
-#include "StoreMediator.h"
 #include <string>
+
+#include "StoreMediator.h"
 
 class StoreCustomer;
 class DeliveryStaff;
@@ -17,6 +18,7 @@ public:
   void setDeliveryStaff(DeliveryStaff *d);
 
   void notify(Plant *plant, const std::string &event) override;
+  void infoByType(const std::string& type) const;
 
 private:
   StoreCustomer *customer = nullptr;

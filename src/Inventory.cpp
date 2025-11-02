@@ -6,9 +6,12 @@
  */
 
 #include "Inventory.h"
-#include "InventoryIterator.h"
+
 #include <algorithm>
 #include <iostream>
+
+#include "InventoryIterator.h"
+#include "PlantLifeCycleState.h"
 
 Inventory::Inventory() {}
 
@@ -26,13 +29,27 @@ void Inventory::addPlant(Plant *p) {
 }
 
 bool Inventory::removePlant(Plant *p) {
-  auto it = std::find(plants.begin(), plants.end(), p);
-  if (it != plants.end()) {
-    delete *it;
-    plants.erase(it);
-    return true;
-  }
-  return false;
+    if (p == NULL) {
+        return false;
+    }
+
+    PlantLifeCycleState *state = p->getLifeCycle();
+
+    if (state == NULL || !state->isDead()) {
+        std::cout << " Cannot remove: Plant is not dead.\n";
+        return false;
+    }
+
+    for (std::vector<Plant*>::iterator it = plants.begin(); it != plants.end(); ++it) {
+        if (*it == p) {
+            plants.erase(it);  
+            std::cout << " Dead plant removed from inventory.\n";
+            return true;
+        }
+    }
+
+    std::cout << " Plant not found in inventory.\n";
+    return false;
 }
 
 bool Inventory::removePlantByName(const std::string &name) {
@@ -73,7 +90,12 @@ void Inventory::displayAll() {
   delete it;
 }
 
-bool Inventory::hasPlant(Plant *p) 
-{
+bool Inventory::hasPlant(Plant *p) {
   return std::find(plants.begin(), plants.end(), p) != plants.end();
+}
+
+Plant *Inventory::at(int index) const {
+  if (index >= 0 && index < (int)plants.size())
+    return plants[index];
+  return NULL;
 }

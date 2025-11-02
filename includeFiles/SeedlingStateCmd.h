@@ -1,8 +1,9 @@
 #ifndef SEEDLING_STATE_CMD_H
 #define SEEDLING_STATE_CMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class SeedlingStateCmd : public Commands {
 public:

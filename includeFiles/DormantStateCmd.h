@@ -1,8 +1,9 @@
 #ifndef DORMANTSTATECMD_H
 #define DORMANTSTATECMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class DormantStateCmd : public Commands {
 public:

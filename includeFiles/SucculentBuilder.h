@@ -24,8 +24,9 @@
 #ifndef SUCCULENT_BUILDER_H
 #define SUCCULENT_BUILDER_H
 
-#include "PlantBuilder.h"
 #include <string>
+
+#include "PlantBuilder.h"
 
 // Forward declarations to minimize coupling
 class Plant;

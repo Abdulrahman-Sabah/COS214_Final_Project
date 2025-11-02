@@ -9,8 +9,9 @@
 #ifndef STOREMEDIATOR_H
 #define STOREMEDIATOR_H
 
-#include "Plant.h"
 #include <string>
+
+#include "Plant.h"
 
 class Commands;
 

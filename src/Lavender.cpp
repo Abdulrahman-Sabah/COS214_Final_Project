@@ -1,7 +1,9 @@
 #include "Lavender.h"
+
+#include <iostream>
+
 #include "LavenderCare.h"
 #include "SeedlingState.h"
-#include <iostream>
 
 // Constructor
 Lavender::Lavender()

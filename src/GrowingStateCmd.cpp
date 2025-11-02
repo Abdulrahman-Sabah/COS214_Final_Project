@@ -1,4 +1,5 @@
 #include "GrowingStateCmd.h"
+
 #include "GrowingState.h"
 #include "Plant.h"
 
@@ -10,4 +11,6 @@ void GrowingStateCmd::execute(Plant *plant) {
   if (!plant)
     return;
   plant->setLifeCycle(new GrowingState());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

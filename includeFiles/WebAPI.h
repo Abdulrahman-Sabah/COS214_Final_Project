@@ -1,9 +1,10 @@
 #ifndef WEBAPI_H
 #define WEBAPI_H
 
+#include <string>
+
 #include "Inventory.h"
 #include "InventorySerializer.h"
-#include <string>
 
 class WebAPI {
 private:

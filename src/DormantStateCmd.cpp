@@ -1,4 +1,5 @@
 #include "DormantStateCmd.h"
+
 #include "DormantState.h"
 #include "Plant.h"
 
@@ -10,4 +11,6 @@ void DormantStateCmd::execute(Plant *plant) {
   if (!plant)
     return;
   plant->setLifeCycle(new DormantState());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

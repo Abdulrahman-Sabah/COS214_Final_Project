@@ -2,15 +2,16 @@
 #ifndef STORECOLLEAGUE_H
 #define STORECOLLEAGUE_H
 
-#include "StoreMediator.h"
 #include <string>
+
+#include "StoreMediator.h"
 
 class StoreColleague {
 protected:
   StoreMediator *mediator;
 
 public:
-  StoreColleague() = default;
+  StoreColleague() { mediator = nullptr; };
   explicit StoreColleague(StoreMediator *m) : mediator(m) {}
   virtual ~StoreColleague() = default;
 

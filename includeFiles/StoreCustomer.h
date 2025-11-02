@@ -9,10 +9,11 @@
 #ifndef STORECUSTOMER_H
 #define STORECUSTOMER_H
 
+#include <iostream>
+
 #include "Commands.h"
 #include "Plant.h"
 #include "StoreColleague.h"
-#include <iostream>
 
 class StoreCustomer : public StoreColleague {
 public:

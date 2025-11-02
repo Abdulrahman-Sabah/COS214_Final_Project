@@ -1,8 +1,9 @@
 #ifndef CACTUS_STRATEGY_CMD_H
 #define CACTUS_STRATEGY_CMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class CactusStrategyCmd : public Commands {
 public:

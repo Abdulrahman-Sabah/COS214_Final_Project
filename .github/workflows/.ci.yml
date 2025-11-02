@@ -43,3 +43,7 @@ jobs:
 
     - name: Check for memory leaks in unit tests
       run: make valgrind-tests
+
+    - name: Check for memory leaks in TestingMain
+      run: make valgrind
+      

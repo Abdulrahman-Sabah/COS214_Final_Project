@@ -7,18 +7,24 @@
  */
 
 #include "Handler.h"
+
 #include <iostream>
 
 Handler::Handler() : successor(nullptr), subject(nullptr) {}
 
 Handler::~Handler() {
-  subject = nullptr;
   successor = nullptr;
 }
 
-void Handler::setSuccessor(Handler *h) { successor = h; }
+void Handler::setSuccessor(Handler *h) {
+  if (!h)
+    return;
+  successor = h;
+}
 
 void Handler::passToSuccessor(Commands *r, Plant *plant) {
+  if (!plant)
+    return;
   if (successor) {
     successor->handleRequest(r, plant);
   } else {

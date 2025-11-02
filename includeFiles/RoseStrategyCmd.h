@@ -1,8 +1,9 @@
 #ifndef ROSE_STRATEGY_CMD_H
 #define ROSE_STRATEGY_CMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class RoseStrategyCmd : public Commands {
 public:

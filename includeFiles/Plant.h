@@ -1,8 +1,9 @@
 #ifndef PLANT_H
 #define PLANT_H
-#include "CareStrategy.h"
 #include <string>
 #include <vector>
+
+#include "CareStrategy.h"
 using namespace std;
 
 class CareStrategy;

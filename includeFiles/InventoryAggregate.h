@@ -1,9 +1,10 @@
 #ifndef INVENTORYAGGREGATE_H
 #define INVENTORYAGGREGATE_H
 
+#include <vector>
+
 #include "Plant.h"
 #include "PlantIterator.h"
-#include <vector>
 
 class InventoryAggregate {
 protected:

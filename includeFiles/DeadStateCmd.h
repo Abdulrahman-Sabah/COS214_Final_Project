@@ -1,8 +1,9 @@
 #ifndef DEAD_STATE_CMD_H
 #define DEAD_STATE_CMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class DeadStateCmd : public Commands {
 public:

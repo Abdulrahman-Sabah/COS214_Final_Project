@@ -20,10 +20,6 @@ class Commands;
  * greenhouse management system.
  */
 class Handler {
-private:
-  Handler *successor; /**< Pointer to next handler in chain */
-  Notify *subject;    /**< Subject for observer pattern notifications */
-
 protected:
   /**
    * @brief Helper method for derived classes to pass requests along the chain
@@ -34,6 +30,8 @@ protected:
    * themselves.
    */
   void passToSuccessor(Commands *r, Plant *plant);
+  Handler *successor; /**< Pointer to next handler in chain */
+  Notify *subject;    /**< Subject for observer pattern notifications */
 
 public:
   /**
@@ -64,5 +62,7 @@ public:
    * @brief Default constructor
    */
   Handler();
+
+  Handler *getSuccessor() { return successor; }
 };
 #endif

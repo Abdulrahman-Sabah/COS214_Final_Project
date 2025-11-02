@@ -1,9 +1,10 @@
 #ifndef PLANT_BUILDER_H
 #define PLANT_BUILDER_H
 
+#include <string>
+
 #include "Plant.h"
 #include "PlantLifeCycleState.h"
-#include <string>
 
 class PlantBuilder {
 public:

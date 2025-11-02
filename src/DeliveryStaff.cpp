@@ -1,6 +1,8 @@
 #include "DeliveryStaff.h"
-#include "Inventory.h"
+
 #include <iostream>
+
+#include "Inventory.h"
 
 void DeliveryStaff::processCustomerRequest(Plant *plant) {
   std::cout << "DeliveryStaff: Customer delivery request received.\n";

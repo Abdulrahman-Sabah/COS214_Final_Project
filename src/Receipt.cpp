@@ -1,4 +1,5 @@
 #include "Receipt.h"
+
 #include <iomanip>
 #include <iostream>
 

@@ -4,10 +4,19 @@ PotDecorator::PotDecorator(Plant *item, string pot, double cost)
     : PlantDecorations(item), potType(pot), potCost(cost) {}
 
 string PotDecorator::description() {
-  return wrappedPlant->description() + " in " + potType + " pot";
+  if(!wrappedPlant) {
+      return " in pot: " + potType;
+  }
+  std::string res = wrappedPlant ? wrappedPlant->description() : "";
+  return res + " in pot: " + potType;
 }
 
-double PotDecorator::price() { return wrappedPlant->price() + potCost; }
+double PotDecorator::price() { 
+  if(!wrappedPlant) {
+      return potCost;
+  }
+  return wrappedPlant->price() + potCost;
+}
 
 Plant *PotDecorator::clone() {
   return new PotDecorator(wrappedPlant->clone(), potType, potCost);

@@ -1,8 +1,9 @@
 #ifndef INVENTORYSERIALIZER_H
 #define INVENTORYSERIALIZER_H
 
-#include "Inventory.h"
 #include <string>
+
+#include "Inventory.h"
 
 class InventorySerializer {
 public:

@@ -1,8 +1,9 @@
 #ifndef GROWING_STATE_CMD_H
 #define GROWING_STATE_CMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class GrowingStateCmd : public Commands {
 public:

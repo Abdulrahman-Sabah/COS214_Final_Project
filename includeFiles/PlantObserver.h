@@ -7,9 +7,10 @@
 
 #ifndef PLANTOBSERVER_H
 #define PLANTOBSERVER_H
+#include <string>
+
 #include "CareStrategy.h"
 #include "Plant.h"
-#include <string>
 using namespace std;
 
 class Plant;

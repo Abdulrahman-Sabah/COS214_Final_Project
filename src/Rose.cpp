@@ -1,8 +1,10 @@
 
 #include "Rose.h"
+
+#include <iostream>
+
 #include "RoseCare.h"
 #include "SeedlingState.h"
-#include <iostream>
 
 Rose::Rose()
     : Plant("Rose", "Moderate", "Seedling", "Spring", new RoseCare(),

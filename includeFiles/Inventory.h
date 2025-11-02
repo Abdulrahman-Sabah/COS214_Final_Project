@@ -1,9 +1,10 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
+#include <vector>
+
 #include "Plant.h"
 #include "PlantIterator.h"
-#include <vector>
 
 class Inventory {
 private:
@@ -12,9 +13,9 @@ private:
 public:
   void clear() {
     for (Plant *plant : plants) {
-      delete plant; // Free memory
+      delete plant;
     }
-    plants.clear(); // Clear the vector
+    plants.clear();
   }
 
   Inventory();
@@ -27,6 +28,7 @@ public:
   std::vector<Plant *> &getPlants();
   void displayAll();
   bool hasPlant(Plant *p);
+  Plant *at(int index) const;
 };
 
 #endif

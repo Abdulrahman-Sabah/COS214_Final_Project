@@ -1,4 +1,5 @@
 #include "MatureState.h"
+
 #include "DeadState.h"
 #include "SellingState.h"
 
@@ -7,6 +8,8 @@ MatureState::MatureState() : PlantLifeCycleState() {}
 MatureState::~MatureState() = default;
 
 void MatureState::advance(Plant *plant) {
+  if (!plant)
+    return;
   if (isDead()) {
     plant->setLifeCycle(new DeadState());
     std::cout << plant->getName() << " has died in the "

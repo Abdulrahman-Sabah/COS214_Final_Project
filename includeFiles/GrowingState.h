@@ -4,7 +4,6 @@
 #include "PlantLifeCycleState.h"
 
 class GrowingState : public PlantLifeCycleState {
-
 public:
   GrowingState();
 

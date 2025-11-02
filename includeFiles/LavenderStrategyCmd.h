@@ -1,8 +1,9 @@
 #ifndef LAVENDER_STRATEGY_CMD_H
 #define LAVENDER_STRATEGY_CMD_H
 
-#include "Commands.h"
 #include <string>
+
+#include "Commands.h"
 
 class LavenderStrategyCmd : public Commands {
 public:

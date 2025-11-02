@@ -1,8 +1,9 @@
 #ifndef PLANTDECORATIONS_H
 #define PLANTDECORATIONS_H
 
-#include "Plant.h"
 #include <string>
+
+#include "Plant.h"
 
 using namespace std;
 

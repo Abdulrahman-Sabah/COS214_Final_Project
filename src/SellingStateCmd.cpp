@@ -1,4 +1,5 @@
 #include "SellingStateCmd.h"
+
 #include "Plant.h"
 #include "SellingState.h"
 
@@ -10,4 +11,6 @@ void SellingStateCmd::execute(Plant *plant) {
   if (!plant)
     return;
   plant->setLifeCycle(new SellingState());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
 }

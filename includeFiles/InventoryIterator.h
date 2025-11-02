@@ -1,8 +1,9 @@
 #ifndef INVENTORYITERATOR_H
 #define INVENTORYITERATOR_H
 
-#include "PlantIterator.h"
 #include <vector>
+
+#include "PlantIterator.h"
 
 class InventoryIterator : public PlantIterator {
 private:

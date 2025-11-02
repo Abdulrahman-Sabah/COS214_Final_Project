@@ -1,6 +1,4 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
-
 #include "DeadState.h"
 #include "DormantState.h"
 #include "GrowingState.h"
@@ -10,6 +8,7 @@
 #include "Rose.h"
 #include "SeedlingState.h"
 #include "SellingState.h"
+#include "doctest.h"
 
 TEST_CASE("Initial state") {
   Rose *r = new Rose();
