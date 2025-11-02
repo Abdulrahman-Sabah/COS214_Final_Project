@@ -4,12 +4,19 @@ WrapDecorator::WrapDecorator(Plant *item, string wrap, double cost)
     : PlantDecorations(item), wrapType(wrap), wrapCost(cost) {}
 
 string WrapDecorator::description() {
-  return this->wrapType;
+  if(!wrappedPlant) {
+      return " with wrap: " + wrapType;
+  }
+  std::string res = wrappedPlant ? wrappedPlant->description() : "";
+  return res + " with wrap: " + wrapType;
 }
 
 double WrapDecorator::price() 
 {
-  return this->wrapCost; 
+  if(!wrappedPlant) {
+      return wrapCost;
+  }
+  return wrappedPlant->price() + wrapCost;
 }
 
 Plant *WrapDecorator::clone() 
