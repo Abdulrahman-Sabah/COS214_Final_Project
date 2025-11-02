@@ -33,3 +33,39 @@ void FrontDesk::notify(Plant *plant, const std::string &event) {
     customer->receive("PlantNotFound");
   }
 }
+
+
+
+void FrontDesk::infoByType(const std::string& type) const {
+    std::string t = type;
+    for (char &c : t) c = (char)std::tolower(c);
+
+    std::cout << "\n=== Plant Information ===\n";
+
+    if (t == "rose") {
+        std::cout << " Rose\n"
+                  << "• Beautiful flowering plant commonly in gardens.\n"
+                  << "• Requires moderate water and sunlight.\n"
+                  << "• Has thorns and fragrant blooms.\n"
+                  << "• Popular choice for gifts and decoration.\n";
+    } 
+    else if (t == "cactus") {
+        std::cout << " Cactus\n"
+                  << "• Desert plant that stores water.\n"
+                  << "• Requires very little watering.\n"
+                  << "• Great for people who forget to water plants.\n"
+                  << "• Comes in many shapes and sizes.\n";
+    } 
+    else if (t == "lavender") {
+        std::cout << " Lavender\n"
+                  << "• Known for its relaxing scent and purple flowers.\n"
+                  << "• Good for sunny areas.\n"
+                  << "• Used in perfumes and oils.\n"
+                  << "• Attracts bees and butterflies.\n";
+    } 
+    else {
+        std::cout << "Sorry, we don't have information for: " << type << "\n";
+    }
+
+    std::cout << "====================================\n";
+}
