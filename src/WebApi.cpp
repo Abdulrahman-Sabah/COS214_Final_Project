@@ -12,7 +12,6 @@
 
 WebAPI::WebAPI(Inventory *inv) : inventory(inv) {}
 
-// Get plants from the REAL C++ inventory
 std::string WebAPI::getPlantsJSON() {
   std::stringstream json;
   json << "{\"plants\":[";
@@ -42,27 +41,23 @@ std::string WebAPI::getPlantsJSON() {
   return json.str();
 }
 
-// Add plant to the REAL C++ inventory
 bool WebAPI::addPlantToInventory(const std::string &name,
                                  const std::string &careType,
                                  const std::string &state,
                                  const std::string &season, double price) {
-  std::cout << "🌱 Adding plant to C++ inventory: " << name << std::endl;
+  std::cout << "Adding plant to C++ inventory: " << name << std::endl;
 
-  // Use BasicPlant for web-created plants
   Plant *newPlant =
       new BasicPlant(name, "Web-added plant", price, careType, state, season);
   inventory->addPlant(newPlant);
 
-  // Save the updated REAL inventory
   InventorySerializer::saveToFile(*inventory, "gui/inventory_state.json");
-  std::cout << "💾 Saved REAL inventory with " << inventory->getSize()
+  std::cout << "Saved REAL inventory with " << inventory->getSize()
             << " plants" << std::endl;
 
   return true;
 }
 
-// Remove plant from REAL C++ inventory
 bool WebAPI::removePlantFromInventory(const std::string &name) {
   bool success = inventory->removePlantByName(name);
   if (success) {
@@ -83,19 +78,19 @@ void initializeInventory(Inventory &inventory) {
 void startWebServer(Inventory *inventory) {
   WebAPI webAPI(inventory);
 
-  std::cout << "🌿 WebAPI Server Started!" << std::endl;
+  std::cout << "WebAPI Server Started!" << std::endl;
 
   std::cout << " Created " << inventory->getSize() << " specific plant types"
             << std::endl;
 
-  std::cout << "👀 Will reload file every 5 seconds..." << std::endl;
+  std::cout << "Will reload file every 5 seconds..." << std::endl;
 
   while (true) {
     std::this_thread::sleep_for(std::chrono::seconds(5));
 
-    std::cout << "🔄 Reloading inventory from file..." << std::endl;
+    std::cout << "Reloading inventory from file..." << std::endl;
     InventorySerializer::loadFromFile(*inventory, "gui/inventory_state.json");
-    std::cout << "📊 Now have " << inventory->getSize() << " plants"
+    std::cout << "Now have " << inventory->getSize() << " plants"
               << std::endl;
   }
 }
