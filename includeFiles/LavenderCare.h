@@ -13,23 +13,23 @@
 /**
  * @class LavenderCare
  * @brief Implements specific care requirements for lavender plants
- * 
+ *
  * This class provides the concrete implementation of care strategies
  * specifically tailored for lavender plants, including their unique
  * watering, sunlight, and maintenance requirements.
  */
 class LavenderCare : public CareStrategy {
 public:
-    /**
-     * @brief Applies lavender-specific care to a plant
-     * @param plant The lavender plant to care for
-     */
-    void applyCare(Plant* plant) override;
-    
-    /**
-     * @brief Virtual destructor
-     */
-    ~LavenderCare() override = default;
+  /**
+   * @brief Applies lavender-specific care to a plant
+   * @param plant The lavender plant to care for
+   */
+  void applyCare(Plant *plant) override;
+
+  /**
+   * @brief Virtual destructor
+   */
+  ~LavenderCare() override = default;
 };
 
-#endif 
+#endif
