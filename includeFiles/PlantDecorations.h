@@ -14,7 +14,7 @@ using namespace std;
 
 class PlantDecorations : public Plant {
 protected:
-  Plant *wrappedPlant; /**< The wrapped plant being decorated */
+  Plant *wrappedPlant; 
 
 public:
   /** @brief Construct a decorator wrapping an existing Plant */

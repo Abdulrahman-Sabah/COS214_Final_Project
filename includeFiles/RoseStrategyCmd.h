@@ -3,29 +3,32 @@
 
 /**
  * @file RoseStrategyCmd.h
- * @brief Command to switch a plant's care strategy to RoseCare.
+ * @brief Command to set plant care to RoseCare.
  */
 
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class RoseStrategyCmd
+ * @brief Applies RoseCare strategy to a plant.
+ */
 class RoseStrategyCmd : public Commands {
 public:
-  RoseStrategyCmd();
-  ~RoseStrategyCmd() override = default;
+    RoseStrategyCmd();
+    ~RoseStrategyCmd() override = default;
 
-  /** @brief Human-friendly name for the command */
-  std::string name() override;
+    /// @return Command name
+    std::string name() override;
 
-  /**
-   * @brief Execute the command to set rose care on the plant
-   * @param plant Plant pointer to act upon
-   */
-  void execute(Plant *plant) override;
+    /**
+     * @brief Set rose care
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label;
+    std::string m_label;
 };
 
-#endif
+#endif // ROSE_STRATEGY_CMD_H

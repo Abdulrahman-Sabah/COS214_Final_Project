@@ -1,64 +1,88 @@
 /**
  * @file CareScheduleObserver.h
- * @brief Observer for plant care scheduling notifications
- * @author COS214 Final Project Team
+ * @brief Observer for plant care scheduling notifications.
+ *
+ * Implements the Observer pattern to monitor plant lifecycle and care strategy
+ * changes. CareSchedulerObserver forwards responsibilities to the appropriate
+ * staff member using the Chain of Responsibility pattern via a Handler chain.
+ *
+ * @author
+ * COS214 Final Project Team
  * @date 2025
  */
-#ifndef CARESCHEDULEROBSERVER_H
-#define CARESCHEDULEROBSERVER_H
-#include <iostream>
 
+#ifndef CARECHEDULEROBSERVER_H
+#define CARECHEDULEROBSERVER_H
+
+#include <iostream>
 #include "Handler.h"
 #include "PlantObserver.h"
+
 /**
  * @class CareSchedulerObserver
- * @brief Concrete observer that monitors plant state changes for care
- * scheduling
+ * @brief Concrete observer that monitors plant state changes for care scheduling.
  *
- * CareSchedulerObserver implements the Observer pattern to track changes in
- * plant states, lifecycle phases, seasons, and care strategies. It responds
- * to these changes by updating care schedules and logging important events.
+ * CareSchedulerObserver implements:
+ * - Observer Pattern → reacts to lifecycle & care strategy updates
+ * - Chain of Responsibility → forwards care actions to staff handlers
+ *
+ * It ensures the plant receives appropriate care action depending on:
+ * - Lifecycle state changes (Seedling → Growing → Mature, etc.)
+ * - Care strategy adjustments (watering, pruning, etc.)
  */
 class CareSchedulerObserver : public PlantObserver {
-public:
-  Handler *handler_;
+private:
+    /**
+     * @brief Pointer to the first care handler in the chain.
+     *
+     * Used to forward requests down the Chain of Responsibility.
+     */
+    Handler* handler_;
 
 public:
-  /**
-   * @brief Construct a CareSchedulerObserver
-   * @param chainHead The head of the Handler chain used to forward requests
-   */
-  explicit CareSchedulerObserver(Handler *chainHead) : handler_(chainHead) {}
-  ~CareSchedulerObserver();
-  // void onPlantStateChanged(Plant* plant,CareStrategy* CareStrategyOfPlant)
-  // override;
+    /**
+     * @brief Default constructor for proper initialization.
+     */
+    CareSchedulerObserver();
 
-  /**
-   * @brief Called when a plant's lifecycle state changes
-   * @param plant Pointer to the plant with lifecycle change
-   * @param newState Pointer to the new lifecycle state
-   *
-   * This method responds to plant lifecycle transitions (e.g., seedling
-   * to growing, growing to mature) and updates care schedules accordingly.
-   */
-  void onLifeCycleChanged(Plant *plant, PlantLifeCycleState *newState) override;
+    /**
+     * @brief Construct with Handler chain head initialization.
+     *
+     * @param chainHead The first Handler in the Chain of Responsibility.
+     */
+    explicit CareSchedulerObserver(Handler* chainHead);
 
-  /**
-   * @brief Called when a plant's care strategy changes
-  * @param plant Pointer to the plant with strategy change
-  * @param newStrategy Pointer to the new CareStrategy
-   *
-   * This method responds to changes in plant care strategies and
-   * updates scheduling accordingly.
-   */
-  void onCareStrategyChanged(Plant *plant, CareStrategy *newStrategy) override;
+    /**
+     * @brief Virtual destructor for safe polymorphic cleanup.
+     */
+    ~CareSchedulerObserver() override;
 
-  /**
-   * @brief default constructor for proper cleanup
-   */
-  CareSchedulerObserver();
+    /**
+     * @brief Triggered when a plant’s lifecycle state changes.
+     *
+     * Updates scheduling and forwards to Handler chain if necessary.
+     *
+     * @param plant The affected plant.
+     * @param newState The new lifecycle state assigned to the plant.
+     */
+    void onLifeCycleChanged(Plant* plant, PlantLifeCycleState* newState) override;
 
-  void setHandler(Handler *newHandler);
+    /**
+     * @brief Triggered when a plant’s care strategy changes.
+     *
+     * Adjusts future care routines and logs strategy updates.
+     *
+     * @param plant The affected plant.
+     * @param newStrategy Updated care strategy assigned to the plant.
+     */
+    void onCareStrategyChanged(Plant* plant, CareStrategy* newStrategy) override;
+
+    /**
+     * @brief Assign a new Handler chain.
+     *
+     * @param newHandler Root handler of Chain of Responsibility.
+     */
+    void setHandler(Handler* newHandler);
 };
 
-#endif
+#endif // CARECHEDULEROBSERVER_H

@@ -1,23 +1,29 @@
+/**
+ * @file Creator.h
+ * @brief Abstract factory for creating Plant objects.
+ */
+
 #ifndef CREATOR_H
 #define CREATOR_H
 
-/**
- * @file Creator.h
- * @brief Abstract creator/factory interface used to instantiate Plant objects.
- *
- * Part of the Factory Method pattern — concrete Creator subclasses implement
- * factoryMethod() to return different Plant subclasses.
- */
-
 #include "Plant.h"
 
+/**
+ * @class Creator
+ * @brief Base class in the Factory Method pattern.
+ */
 class Creator {
 public:
-  Plant *product;
-  virtual Plant *factoryMethod() const = 0;
+    Plant* product = nullptr;
 
-public:
-  virtual ~Creator() {}
+    /**
+     * @brief Create a plant object
+     * @return New Plant instance
+     */
+    virtual Plant* factoryMethod() const = 0;
+
+    /// Virtual destructor
+    virtual ~Creator() = default;
 };
 
-#endif
+#endif // CREATOR_H

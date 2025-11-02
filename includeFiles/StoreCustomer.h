@@ -1,35 +1,43 @@
 /**
  * @file StoreCustomer.h
- * @brief Represents a StoreCustomer interacting with the nursery via the
- * mediator pattern
- * @author COS214
- * @date 2025
+ * @brief Customer interacting with the store via mediator.
  */
 
 #ifndef STORECUSTOMER_H
 #define STORECUSTOMER_H
 
 #include <iostream>
-
 #include "Commands.h"
 #include "Plant.h"
 #include "StoreColleague.h"
 
+/**
+ * @class StoreCustomer
+ * @brief Represents a customer requesting plants.
+ */
 class StoreCustomer : public StoreColleague {
 public:
-  using StoreColleague::StoreColleague;
-  StoreCustomer() = default;
-  ~StoreCustomer() override = default;
-  /**
-   * @brief Sends a plant request to the mediator
-   */
-  void requestPlant(const std::string &plantName);
+    using StoreColleague::StoreColleague;
+    StoreCustomer() = default;
+    ~StoreCustomer() override = default;
 
-  /**
-   * @brief Called when notified by the mediator (e.g., when the plant is ready)
-   */
-  void requestPlant(Plant *p);
-  void receive(const std::string &event) override;
+    /**
+     * @brief Send request by plant name
+     * @param plantName Name of plant
+     */
+    void requestPlant(const std::string& plantName);
+
+    /**
+     * @brief Send request by plant pointer
+     * @param p Plant pointer
+     */
+    void requestPlant(Plant* p);
+
+    /**
+     * @brief Receive notification from mediator
+     * @param event Event text
+     */
+    void receive(const std::string& event) override;
 };
 
-#endif
+#endif // STORECUSTOMER_H

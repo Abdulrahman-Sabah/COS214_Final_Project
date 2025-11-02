@@ -3,44 +3,57 @@
 
 /**
  * @file PlantLifeCycleState.h
- * @brief Abstract state interface for plant lifecycle states.
- *
- * Represents states such as Seedling, Growing, Mature, Dormant and Dead.
+ * @brief Abstract lifecycle state interface.
  */
 
 #include <iostream>
 #include <string>
 #include <vector>
-
 #include "Plant.h"
 
 class PlantLifeCycleState {
 protected:
-  bool dead;
-  bool attention;
+    bool dead;
+    bool attention;
 
 public:
-  PlantLifeCycleState();
+    PlantLifeCycleState();
+    virtual ~PlantLifeCycleState() = default;
 
-  virtual ~PlantLifeCycleState() = default;
+    /**
+     * @brief Move to next state
+     * @param plant Target plant
+     */
+    virtual void advance(Plant* plant) = 0;
 
-  /** @brief Advance lifecycle to the next phase (override in subclasses) */
-  virtual void advance(Plant *plant) = 0;
+    /// @return State name
+    virtual std::string name() = 0;
 
-  /** @brief Return a human-friendly name for this lifecycle state */
-  virtual std::string name() = 0;
+    /// @return True if state is dead
+    bool getDead();
 
-  bool getDead();
+    /// @return True if needs care
+    bool getAttention();
 
-  bool getAttention();
+    /**
+     * @brief Set dead flag
+     * @param d Value to set
+     * @return New value
+     */
+    bool setDead(bool d);
 
-  bool setDead(bool d);
+    /**
+     * @brief Set attention flag
+     * @param a Value to set
+     * @return New value
+     */
+    bool setAttention(bool a);
 
-  bool setAttention(bool a);
+    /// @return True if dead (override in subclass)
+    virtual bool isDead() = 0;
 
-  virtual bool isDead() = 0;
-
-  virtual bool needsAttention() = 0;
+    /// @return True if needs attention (override)
+    virtual bool needsAttention() = 0;
 };
 
 #endif

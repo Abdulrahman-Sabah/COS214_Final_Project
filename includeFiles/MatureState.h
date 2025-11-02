@@ -3,29 +3,41 @@
 
 /**
  * @file MatureState.h
- * @brief Plant lifecycle state representing maturity.
+ * @brief Plant is fully grown.
  */
 
 #include "PlantLifeCycleState.h"
 
+/**
+ * @class MatureState
+ * @brief Lifecycle state for a mature plant.
+ */
 class MatureState : public PlantLifeCycleState {
 public:
-  MatureState();
+    MatureState();
+    ~MatureState() override;
 
-  ~MatureState() override;
+    /**
+     * @brief Move to next state
+     * @param plant Target plant
+     */
+    void advance(Plant* plant) override;
 
-  /** @brief Advance the plant's lifecycle from mature */
-  void advance(Plant *plant) override;
+    /// @return "Mature"
+    std::string name() override;
 
-  /** @brief Name of this lifecycle state */
-  std::string name() override;
+    /// @return false (not dead)
+    bool isDead() override;
 
-  bool isDead() override;
+    /**
+     * @brief Check if growth may resume
+     * @param plant Target plant
+     * @return true if plant may grow again
+     */
+    bool isGrowingAgain(Plant* plant);
 
-  /** @brief Query if plant will re-enter a growing phase */
-  bool isGrowingAgain(Plant *plant);
-
-  bool needsAttention() override;
+    /// @return true if needs care
+    bool needsAttention() override;
 };
 
-#endif
+#endif // MATURESTATE_H

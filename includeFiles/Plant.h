@@ -1,18 +1,14 @@
 #ifndef PLANT_H
 #define PLANT_H
+
 #include <string>
 #include <vector>
-
 #include "CareStrategy.h"
 using namespace std;
 
 /**
  * @file Plant.h
- * @brief Abstract base class representing a plant in the nursery.
- *
- * Plant declares the main interface for all concrete plant types used in the
- * project (description, price, cloning) and provides observer and lifecycle
- * integration points.
+ * @brief Abstract base class for all plants.
  */
 
 class CareStrategy;
@@ -21,62 +17,120 @@ class PlantObserver;
 
 class Plant {
 private:
-  string name;
-  string careType;
-  string state;
-  string season;
-  CareStrategy *careStrategy;
-  PlantLifeCycleState *lifeCycle;
-  vector<PlantObserver *> observers;
-  double price_;
+    string name;
+    string careType;
+    string state;
+    string season;
+    CareStrategy* careStrategy;
+    PlantLifeCycleState* lifeCycle;
+    vector<PlantObserver*> observers;
+    double price_;
 
 protected:
-  void notifyStateChanged();
-  void notifyLifeCycleChanged(PlantLifeCycleState *newState);
-  void notifySeasonChanged(string newSeason);
-  void notifyCareStrategyChanged();
+    /// Notify when lifecycle state changes
+    void notifyStateChanged();
+
+    /**
+     * @brief Notify lifecycle change
+     * @param newState New lifecycle state
+     */
+    void notifyLifeCycleChanged(PlantLifeCycleState* newState);
+
+    /**
+     * @brief Notify season change
+     * @param newSeason Season string
+     */
+    void notifySeasonChanged(string newSeason);
+
+    /// Notify care strategy changed
+    void notifyCareStrategyChanged();
 
 public:
-  /** @brief Return runtime type name (override in subclasses) */
-  virtual std::string getType() const { return "Plant"; }
+    /// @return Type name
+    virtual std::string getType() const { return "Plant"; }
 
-  /** @brief Construct a Plant with full parameters */
-  Plant(string name, string careType, string state, string season,
-        CareStrategy *strategy, PlantLifeCycleState *life);
+    /**
+     * @brief Full constructor
+     * @param name Plant name
+     * @param careType Care strategy text
+     * @param state Lifecycle state text
+     * @param season Season text
+     * @param strategy CareStrategy pointer
+     * @param life PlantLifeCycleState pointer
+     */
+    Plant(string name, string careType, string state, string season,
+          CareStrategy* strategy, PlantLifeCycleState* life);
 
-  Plant();
+    /// Default constructor
+    Plant();
 
-  virtual ~Plant();
+    /// Destructor
+    virtual ~Plant();
 
-  /** @brief Get a textual description of this plant (pure virtual) */
-  virtual string description() = 0;
+    /// @return Description text
+    virtual string description() = 0;
 
-  /** @brief Get the price of the plant (pure virtual) */
-  virtual double price() = 0;
+    /// @return Price value
+    virtual double price() = 0;
 
-  /** @brief Clone the plant (pure virtual) */
-  virtual Plant *clone() = 0;
+    /// @return Cloned plant
+    virtual Plant* clone() = 0;
 
-  virtual string getName() { return name; };
-  string getCareType();
-  string getStateText();
-  string getSeason();
-  CareStrategy *getCareStrategy();
-  PlantLifeCycleState *getLifeCycle();
+    /// @return Plant name
+    virtual string getName() { return name; }
 
-  void setName(string n);
-  void setCareType(string t);
-  void setPrice(double p);
-  void setStateText(string s);
-  void setSeason(string s);
-  void setCareStrategy(CareStrategy *cs);
-  void setLifeCycle(PlantLifeCycleState *st);
+    /// @return Care type text
+    string getCareType();
 
-  void attach(PlantObserver *observer);
-  void detach(PlantObserver *observer);
+    /// @return Lifecycle state text
+    string getStateText();
 
-  /** @brief Convenient wrapper that delegates to the configured CareStrategy */
-  void takeCare();
+    /// @return Season text
+    string getSeason();
+
+    /// @return Pointer to care strategy
+    CareStrategy* getCareStrategy();
+
+    /// @return Pointer to lifecycle state
+    PlantLifeCycleState* getLifeCycle();
+
+    /// @param n New name
+    void setName(string n);
+
+    /// @param t New care type
+    void setCareType(string t);
+
+    /// @param p New price value
+    void setPrice(double p);
+
+    /// @param s New state text
+    void setStateText(string s);
+
+    /// @param s New season text
+    void setSeason(string s);
+
+    /// @param cs CareStrategy pointer
+    void setCareStrategy(CareStrategy* cs);
+
+    /// @param st PlantLifeCycleState pointer
+    void setLifeCycle(PlantLifeCycleState* st);
+
+    /**
+     * @brief Add observer
+     * @param observer Observer to attach
+     */
+    void attach(PlantObserver* observer);
+
+    /**
+     * @brief Remove observer
+     * @param observer Observer to detach
+     */
+    void detach(PlantObserver* observer);
+
+    /**
+     * @brief Perform care via current strategy
+     */
+    void takeCare();
 };
 
 #endif

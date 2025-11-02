@@ -3,29 +3,32 @@
 
 /**
  * @file LavenderStrategyCmd.h
- * @brief Command to switch a plant's care strategy to LavenderCare.
+ * @brief Command to set plant care to LavenderCare.
  */
 
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class LavenderStrategyCmd
+ * @brief Applies LavenderCare strategy to a plant.
+ */
 class LavenderStrategyCmd : public Commands {
 public:
-  LavenderStrategyCmd();
-  ~LavenderStrategyCmd() override = default;
+    LavenderStrategyCmd();
+    ~LavenderStrategyCmd() override = default;
 
-  /** @brief Human-readable command name */
-  std::string name() override;
+    /// @return Command name
+    std::string name() override;
 
-  /**
-   * @brief Execute the command to set lavender care on the plant
-   * @param plant Plant pointer to act upon
-   */
-  void execute(Plant *plant) override;
+    /**
+     * @brief Set lavender care
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label;
+    std::string m_label;
 };
 
-#endif
+#endif // LAVENDER_STRATEGY_CMD_H

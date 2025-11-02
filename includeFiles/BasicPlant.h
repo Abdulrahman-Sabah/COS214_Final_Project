@@ -3,28 +3,73 @@
 
 /**
  * @file BasicPlant.h
- * @brief Concrete basic plant implementation used by the nursery.
+ * @brief Concrete implementation of a simple Plant type.
  *
- * Provides a simple, concrete implementation of the Plant interface
- * with a base price and description. This file declares the
- * BasicPlant class used throughout the project.
+ * This class represents a basic plant model with a name, price,
+ * and basic description. It supports cloning (Prototype pattern),
+ * pricing, and descriptive details without advanced behaviors.
  */
 
 #include "Plant.h"
 
+/**
+ * @class BasicPlant
+ * @brief Represents a simple, concrete plant used in the nursery inventory.
+ *
+ * Inherits from the Plant abstract class and provides basic information:
+ * - Fixed price
+ * - Text description
+ * - Care type, lifecycle state, and seasonal information
+ */
 class BasicPlant : public Plant {
 private:
-  double basePrice;
-  string plantDescription;
+    /**
+     * @brief The base retail price for this plant.
+     */
+    double basePrice;
+
+    /**
+     * @brief A short descriptive summary of the plant.
+     */
+    string plantDescription;
 
 public:
-  BasicPlant(string name, string description, double price,
-             string careType = "Basic", string state = "Healthy",
-             string season = "AllSeason");
+    /**
+     * @brief Construct a new BasicPlant object.
+     *
+     * @param name Display name of the plant.
+     * @param description Text describing appearance or details.
+     * @param price Base cost for purchasing this plant.
+     * @param careType Care strategy label (default = "Basic").
+     * @param state Initial lifecycle state (default = "Healthy").
+     * @param season Seasonal availability (default = "AllSeason").
+     */
+    BasicPlant(string name,
+               string description,
+               double price,
+               string careType = "Basic",
+               string state = "Healthy",
+               string season = "AllSeason");
 
-  string description() override;
-  double price() override;
-  Plant *clone() override;
+    /**
+     * @brief Get a descriptive string for the plant.
+     * @return The stored description text.
+     */
+    string description() override;
+
+    /**
+     * @brief Get the price of the plant.
+     * @return The stored base price value.
+     */
+    double price() override;
+
+    /**
+     * @brief Clone this plant instance (Prototype pattern support).
+     *
+     * @return A newly allocated BasicPlant object with
+     *         identical internal data.
+     */
+    Plant* clone() override;
 };
 
-#endif
+#endif // BASICPLANT_H

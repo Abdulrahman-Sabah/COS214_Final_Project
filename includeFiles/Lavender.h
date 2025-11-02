@@ -3,26 +3,31 @@
 
 /**
  * @file Lavender.h
- * @brief Declaration of the Lavender plant concrete class.
+ * @brief Concrete Lavender plant type.
  */
 
 #include "Plant.h"
 
+/**
+ * @class Lavender
+ * @brief Represents a lavender plant.
+ */
 class Lavender : public Plant {
 public:
-  Lavender();
-  ~Lavender();
+    Lavender();
+    ~Lavender() override;
 
-  /** @brief Returns textual description of the lavender */
-  std::string description() override;
+    /// @return Description string
+    std::string description() override;
 
-  /** @brief Returns price for lavender */
-  double price() override;
+    /// @return Price value
+    double price() override;
 
-  /** @brief Clone a Lavender instance */
-  Plant *clone() override;
+    /// @return Cloned Lavender object
+    Plant* clone() override;
 
-  std::string getType() const override { return "Lavender"; }
+    /// @return "Lavender"
+    std::string getType() const override { return "Lavender"; }
 };
 
-#endif
+#endif // LAVENDER_H

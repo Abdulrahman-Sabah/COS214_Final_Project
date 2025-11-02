@@ -3,32 +3,32 @@
 
 /**
  * @file MatureStateCmd.h
- * @brief Command to transition a plant into the Mature lifecycle state.
- *
- * Implements the Commands interface; used by handlers to promote plants to
- * the MatureState and perform any associated actions.
+ * @brief Command to set a plant to MatureState.
  */
 
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class MatureStateCmd
+ * @brief Applies MatureState to a plant.
+ */
 class MatureStateCmd : public Commands {
 public:
-  MatureStateCmd();
-  virtual ~MatureStateCmd() {}
+    MatureStateCmd();
+    ~MatureStateCmd() override = default;
 
-  /** @brief Human-readable name for the command */
-  std::string name();
+    /// @return Command name
+    std::string name() override;
 
-  /**
-   * @brief Execute the command on the given plant
-   * @param plant Pointer to the plant to operate on
-   */
-  void execute(Plant *plant);
+    /**
+     * @brief Set mature state
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label; /**< Optional label or payload for the command */
+    std::string m_label;
 };
 
-#endif
+#endif // MATURE_STATE_CMD_H
