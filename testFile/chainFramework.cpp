@@ -83,7 +83,6 @@ TEST_CASE("multiple requests in sequence") {
     REQUIRE_NOTHROW(manager.handleRequest(seed_cmd, &r));
     REQUIRE_NOTHROW(manager.handleRequest(grow_cmd, &r));
     REQUIRE_NOTHROW(manager.handleRequest(mature_cmd, &r));
-    // Handler deletes all commands
 }
 
 TEST_CASE("diff plants") {
@@ -101,7 +100,6 @@ TEST_CASE("diff plants") {
     REQUIRE_NOTHROW(manager.handleRequest(rose_cmd, &r));
     REQUIRE_NOTHROW(manager.handleRequest(cactus_cmd, &c));
     REQUIRE_NOTHROW(manager.handleRequest(lavender_cmd, &l));
-    // Handler deletes all commands
 }
 
 TEST_CASE("Handler without successor processes request") {
@@ -110,7 +108,6 @@ TEST_CASE("Handler without successor processes request") {
     Commands* cmd = new CactusStrategyCmd();  
 
     REQUIRE_NOTHROW(landscaper.handleRequest(cmd, &c));
-    // Handler deletes cmd
 }
 
 TEST_CASE("Chain with nullptr plant is handled safely") {
