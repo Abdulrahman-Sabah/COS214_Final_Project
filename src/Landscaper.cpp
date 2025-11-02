@@ -5,6 +5,14 @@
  * @date 2025
  */
 
+#ifndef LANDSCAPER_CPP_DOC
+/**
+ * @file Landscaper.cpp
+ * @brief Concrete handler that performs plant maintenance requests.
+ */
+#define LANDSCAPER_CPP_DOC
+#endif
+
 #include "Landscaper.h"
 
 #include <iostream>

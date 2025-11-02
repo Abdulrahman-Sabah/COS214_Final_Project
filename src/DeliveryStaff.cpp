@@ -1,3 +1,11 @@
+#ifndef DELIVERYSTAFF_CPP_DOC
+/**
+ * @file DeliveryStaff.cpp
+ * @brief DeliveryStaff colleague implementation for mediator interactions.
+ */
+#define DELIVERYSTAFF_CPP_DOC
+#endif
+
 #include "DeliveryStaff.h"
 
 #include <iostream>

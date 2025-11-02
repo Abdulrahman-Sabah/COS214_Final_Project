@@ -1,3 +1,11 @@
+#ifndef CARDDECORATOR_CPP_DOC
+/**
+ * @file CardDecorator.cpp
+ * @brief Implementation of the CardDecorator which adds card message & cost.
+ */
+#define CARDDECORATOR_CPP_DOC
+#endif
+
 #include "CardDecorator.h"
 
 CardDecorator::CardDecorator(Plant *item, string msg, double cost)

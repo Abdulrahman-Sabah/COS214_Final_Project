@@ -1,3 +1,11 @@
+#ifndef CACTUSCARE_CPP_DOC
+/**
+ * @file CactusCare.cpp
+ * @brief Implementation of cactus-specific CareStrategy behaviour.
+ */
+#define CACTUSCARE_CPP_DOC
+#endif
+
 #include "CactusCare.h"
 
 #include "Plant.h"

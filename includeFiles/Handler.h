@@ -23,13 +23,15 @@ class Handler {
 protected:
   /**
    * @brief Helper method for derived classes to pass requests along the chain
-   * @param r Pointer to the command to be passed to successor
+   * @param cmd Pointer to the command to be passed to successor
+   * @param plant Pointer to the Plant associated with the command (may be
+   *        nullptr)
    *
    * This protected method allows derived handlers to easily pass requests
    * to the next handler in the chain when they cannot handle the request
    * themselves.
    */
-  void passToSuccessor(Commands *r, Plant *plant);
+  void passToSuccessor(Commands *cmd, Plant *plant);
   Handler *successor; /**< Pointer to next handler in chain */
   Notify *subject;    /**< Subject for observer pattern notifications */
 
@@ -45,7 +47,8 @@ public:
 
   /**
    * @brief Pure virtual method for handling requests
-   * @param r Pointer to the command to be handled
+   * @param cmd Pointer to the command to be handled
+   * @param plant Pointer to the Plant associated with the command
    *
    * Each concrete handler must implement this method to define how it
    * processes specific types of requests. If the handler cannot process

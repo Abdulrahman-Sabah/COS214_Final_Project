@@ -1,8 +1,6 @@
 /**
  * @file CaresSchedulerObserver.cpp
- * @brief Implementation of CareSchedulerObserver for plant monitoring
- * @author COS214 Final Project Team
- * @date 2025
+ * @brief Observer implementation that updates care schedules on events.
  */
 
 #include "CactusCare.h"

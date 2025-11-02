@@ -25,13 +25,9 @@ public:
 
 public:
   /**
-   * @brief Called when a plant's general state changes
-   * @param plant Pointer to the plant that changed state
-   *
-   * This method is notified when a plant's basic state information
-   * changes, allowing the care scheduler to adjust care plans accordingly.
+   * @brief Construct a CareSchedulerObserver
+   * @param chainHead The head of the Handler chain used to forward requests
    */
-
   explicit CareSchedulerObserver(Handler *chainHead) : handler_(chainHead) {}
   ~CareSchedulerObserver();
   // void onPlantStateChanged(Plant* plant,CareStrategy* CareStrategyOfPlant)
@@ -49,7 +45,8 @@ public:
 
   /**
    * @brief Called when a plant's care strategy changes
-   * @param plant Pointer to the plant with strategy change
+  * @param plant Pointer to the plant with strategy change
+  * @param newStrategy Pointer to the new CareStrategy
    *
    * This method responds to changes in plant care strategies and
    * updates scheduling accordingly.

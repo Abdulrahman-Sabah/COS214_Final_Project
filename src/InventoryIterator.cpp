@@ -1,3 +1,11 @@
+#ifndef INVENTORYITERATOR_CPP_DOC
+/**
+ * @file InventoryIterator.cpp
+ * @brief Concrete iterator for Inventory collections.
+ */
+#define INVENTORYITERATOR_CPP_DOC
+#endif
+
 #include "InventoryIterator.h"
 
 InventoryIterator::InventoryIterator(std::vector<Plant *> &plantList)

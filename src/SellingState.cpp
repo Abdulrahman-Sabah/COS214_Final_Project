@@ -1,3 +1,11 @@
+#ifndef SELLINGSTATE_CPP_DOC
+/**
+ * @file SellingState.cpp
+ * @brief Implementation of the SellingState lifecycle state for plants.
+ */
+#define SELLINGSTATE_CPP_DOC
+#endif
+
 #include "SellingState.h"
 
 SellingState::SellingState() : PlantLifeCycleState() {}

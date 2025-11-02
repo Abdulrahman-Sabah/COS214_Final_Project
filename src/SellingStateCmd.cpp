@@ -1,3 +1,11 @@
+#ifndef SELLINGSTATECMD_CPP_DOC
+/**
+ * @file SellingStateCmd.cpp
+ * @brief Command to set a Plant into the Selling lifecycle state.
+ */
+#define SELLINGSTATECMD_CPP_DOC
+#endif
+
 #include "SellingStateCmd.h"
 
 #include "Plant.h"

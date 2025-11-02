@@ -1,3 +1,11 @@
+#ifndef LAVENDERSTRATEGYCMD_CPP_DOC
+/**
+ * @file LavenderStrategyCmd.cpp
+ * @brief Command implementation to apply Lavender care strategy.
+ */
+#define LAVENDERSTRATEGYCMD_CPP_DOC
+#endif
+
 #include "LavenderStrategyCmd.h"
 
 #include "LavenderCare.h"

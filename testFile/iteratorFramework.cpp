@@ -1,3 +1,11 @@
+#ifndef ITERATORFRAMEWORK_CPP_DOC
+/**
+ * @file iteratorFramework.cpp
+ * @brief Tests for Inventory and its iterator behavior.
+ */
+#define ITERATORFRAMEWORK_CPP_DOC
+#endif
+
 #include "doctest.h"
 #include <vector>
 #include <string>

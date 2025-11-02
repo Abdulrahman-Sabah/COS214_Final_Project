@@ -1,6 +1,15 @@
 #ifndef BASICPLANT_H
 #define BASICPLANT_H
 
+/**
+ * @file BasicPlant.h
+ * @brief Concrete basic plant implementation used by the nursery.
+ *
+ * Provides a simple, concrete implementation of the Plant interface
+ * with a base price and description. This file declares the
+ * BasicPlant class used throughout the project.
+ */
+
 #include "Plant.h"
 
 class BasicPlant : public Plant {

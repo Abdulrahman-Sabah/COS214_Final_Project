@@ -1,3 +1,11 @@
+#ifndef MEDIATORFRAMEWORK_CPP_DOC
+/**
+ * @file mediatorFramework.cpp
+ * @brief Tests for the Mediator (FrontDesk) and Store colleagues.
+ */
+#define MEDIATORFRAMEWORK_CPP_DOC
+#endif
+
 #include "Cactus.h"
 #include "DeliveryStaff.h"
 #include "FrontDesk.h"

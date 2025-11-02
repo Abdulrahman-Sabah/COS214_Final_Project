@@ -2,6 +2,14 @@
 #ifndef CACTUS_H
 #define CACTUS_H
 
+/**
+ * @file Cactus.h
+ * @brief Declaration of the Cactus plant concrete class.
+ *
+ * Cactus is a concrete Plant used by the nursery. It provides a description,
+ * price and clone implementation specific to cactus plants.
+ */
+
 #include "Plant.h"
 
 class Cactus : public Plant {

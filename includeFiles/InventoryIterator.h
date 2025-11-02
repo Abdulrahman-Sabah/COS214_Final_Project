@@ -1,6 +1,14 @@
 #ifndef INVENTORYITERATOR_H
 #define INVENTORYITERATOR_H
 
+/**
+ * @file InventoryIterator.h
+ * @brief Iterator implementation for Inventory collections.
+ *
+ * Provides a concrete PlantIterator that walks through a vector of Plant
+ * pointers stored in Inventory-like aggregates.
+ */
+
 #include <vector>
 
 #include "PlantIterator.h"

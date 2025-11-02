@@ -1,3 +1,11 @@
+#ifndef DORMANTSTATE_CPP_DOC
+/**
+ * @file DormantState.cpp
+ * @brief Implementation of DormantState lifecycle behaviour.
+ */
+#define DORMANTSTATE_CPP_DOC
+#endif
+
 #include "DormantState.h"
 
 #include "DeadState.h"

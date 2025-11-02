@@ -1,4 +1,12 @@
 
+#ifndef PLANT_CPP_DOC
+/**
+ * @file Plant.cpp
+ * @brief Core Plant base class method implementations.
+ */
+#define PLANT_CPP_DOC
+#endif
+
 #include "Plant.h"
 #include "PlantObserver.h"
 #include <algorithm>

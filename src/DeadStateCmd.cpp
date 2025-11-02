@@ -1,3 +1,11 @@
+#ifndef DEADSTATECMD_CPP_DOC
+/**
+ * @file DeadStateCmd.cpp
+ * @brief Command implementation related to DeadState transitions.
+ */
+#define DEADSTATECMD_CPP_DOC
+#endif
+
 #include "DeadStateCmd.h"
 
 #include "DeadState.h"

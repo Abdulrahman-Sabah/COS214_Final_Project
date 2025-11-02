@@ -1,3 +1,11 @@
+#ifndef GREENHOUSEMANAGER_CPP_DOC
+/**
+ * @file GreenhouseManager.cpp
+ * @brief Concrete handler for sales/inventory management in the chain.
+ */
+#define GREENHOUSEMANAGER_CPP_DOC
+#endif
+
 #include "GreenhouseManager.h"
 
 #include <iostream>

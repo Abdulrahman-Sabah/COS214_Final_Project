@@ -24,13 +24,14 @@ class Landscaper : public Handler {
 public:
   /**
    * @brief Handles plant care requests
-   * @param r Pointer to the command to be processed
+   * @param cmd Pointer to the command to be processed
+   * @param plant Pointer to the Plant associated with the command
    *
    * This method checks if the command type is "AddWater" or "ApplyFertilizer"
    * and processes it. If not, it passes the request to the next handler in the
    * chain.
    */
-  void handleRequest(Commands *r, Plant *plant) override;
+  void handleRequest(Commands *cmd, Plant *plant) override;
 };
 
 #endif

@@ -1,3 +1,11 @@
+#ifndef ROSECARE_CPP_DOC
+/**
+ * @file RoseCare.cpp
+ * @brief Rose-specific CareStrategy implementation.
+ */
+#define ROSECARE_CPP_DOC
+#endif
+
 #include "RoseCare.h"
 
 #include "Plant.h"

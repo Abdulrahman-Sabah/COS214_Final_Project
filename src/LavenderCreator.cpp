@@ -1,3 +1,11 @@
+#ifndef LAVENDERCREATOR_CPP_DOC
+/**
+ * @file LavenderCreator.cpp
+ * @brief Factory method implementation to create Lavender objects.
+ */
+#define LAVENDERCREATOR_CPP_DOC
+#endif
+
 #include "LavenderCreator.h"
 
 #include <iostream>

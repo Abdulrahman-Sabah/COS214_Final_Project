@@ -1,3 +1,11 @@
+#ifndef SEEDLINGSTATECMD_CPP_DOC
+/**
+ * @file SeedlingStateCmd.cpp
+ * @brief Command implementation to set Seedling lifecycle state on plants.
+ */
+#define SEEDLINGSTATECMD_CPP_DOC
+#endif
+
 #include "SeedlingStateCmd.h"
 
 #include "Plant.h"

@@ -1,3 +1,11 @@
+#ifndef FRONTDESK_CPP_DOC
+/**
+ * @file FrontDesk.cpp
+ * @brief Mediator implementation coordinating customers and delivery staff.
+ */
+#define FRONTDESK_CPP_DOC
+#endif
+
 #include "FrontDesk.h"
 
 #include <iostream>

@@ -1,6 +1,11 @@
 #ifndef SEEDLINGSTATE_H
 #define SEEDLINGSTATE_H
 
+/**
+ * @file SeedlingState.h
+ * @brief Plant lifecycle state representing newly germinated seedlings.
+ */
+
 #include "PlantLifeCycleState.h"
 
 class SeedlingState : public PlantLifeCycleState {

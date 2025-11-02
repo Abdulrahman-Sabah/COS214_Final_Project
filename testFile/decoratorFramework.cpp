@@ -1,4 +1,12 @@
 
+#ifndef DECORATORFRAMEWORK_CPP_DOC
+/**
+ * @file decoratorFramework.cpp
+ * @brief Unit tests for the Decorator pattern (wrapping plants with extras).
+ */
+#define DECORATORFRAMEWORK_CPP_DOC
+#endif
+
 #include "doctest.h"
 
 #include <functional>

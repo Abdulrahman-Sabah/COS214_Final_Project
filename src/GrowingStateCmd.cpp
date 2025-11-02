@@ -1,3 +1,11 @@
+#ifndef GROWINGSTATECMD_CPP_DOC
+/**
+ * @file GrowingStateCmd.cpp
+ * @brief Command implementation for GrowingState transitions.
+ */
+#define GROWINGSTATECMD_CPP_DOC
+#endif
+
 #include "GrowingStateCmd.h"
 
 #include "GrowingState.h"

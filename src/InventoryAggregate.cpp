@@ -1,3 +1,11 @@
+#ifndef INVENTORYAGGREGATE_CPP_DOC
+/**
+ * @file InventoryAggregate.cpp
+ * @brief Abstract aggregate implementation helpers.
+ */
+#define INVENTORYAGGREGATE_CPP_DOC
+#endif
+
 #include "InventoryAggregate.h"
 
 InventoryAggregate::InventoryAggregate() {}

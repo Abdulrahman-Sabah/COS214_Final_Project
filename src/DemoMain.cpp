@@ -1,3 +1,11 @@
+#ifndef DEMOMAIN_CPP_DOC
+/**
+ * @file DemoMain.cpp
+ * @brief Demo runner showing example usage of the greenhouse classes.
+ */
+#define DEMOMAIN_CPP_DOC
+#endif
+
 #include "Cactus.h"
 #include "CactusCare.h"
 #include "CactusCreator.h"

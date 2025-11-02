@@ -1,3 +1,11 @@
+#ifndef OBSERVERFRAMEWORK_CPP_DOC
+/**
+ * @file observerFramework.cpp
+ * @brief Tests for Observer-based care scheduling and notifications.
+ */
+#define OBSERVERFRAMEWORK_CPP_DOC
+#endif
+
 #include "doctest.h"
 
 #include <string>

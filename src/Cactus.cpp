@@ -1,3 +1,11 @@
+#ifndef CACTUS_CPP_DOC
+/**
+ * @file Cactus.cpp
+ * @brief Cactus concrete Plant implementation.
+ */
+#define CACTUS_CPP_DOC
+#endif
+
 #include "Cactus.h"
 
 #include <iostream>

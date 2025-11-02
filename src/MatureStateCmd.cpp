@@ -1,3 +1,11 @@
+#ifndef MATURESTATECMD_CPP_DOC
+/**
+ * @file MatureStateCmd.cpp
+ * @brief Command implementation for MatureState transitions.
+ */
+#define MATURESTATECMD_CPP_DOC
+#endif
+
 #include "MatureStateCmd.h"
 
 #include "MatureState.h"

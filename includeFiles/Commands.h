@@ -42,13 +42,15 @@ public:
   virtual std::string name() = 0;
 
   /**
-   * @brief Gets the data/parameters associated with the command
-   * @return String containing command-specific data
+   * @brief Execute the command on a Plant.
+   * @param plant Pointer to the Plant to operate on. May be nullptr and
+   *        implementations should handle that safely.
    *
-   * This method provides access to any additional data or parameters
-   * that the command needs for execution (e.g., plant IDs, order numbers).
+   * Concrete commands perform their action in this method. The command owns
+   * any internal state; callers are responsible for command lifetime unless
+   * documented otherwise.
    */
-  virtual void execute(Plant *Plant) = 0;
+  virtual void execute(Plant *plant) = 0;
   Commands() = default;
 };
 

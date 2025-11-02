@@ -1,3 +1,11 @@
+#ifndef PROTOTYPEFRAMEWORK_CPP_DOC
+/**
+ * @file prototypeFramework.cpp
+ * @brief Tests for the Prototype pattern: cloning plants and decorated clones.
+ */
+#define PROTOTYPEFRAMEWORK_CPP_DOC
+#endif
+
 #include "Cactus.h"
 #include "CardDecorator.h"
 #include "Lavender.h"

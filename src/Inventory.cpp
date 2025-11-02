@@ -5,6 +5,14 @@
  * @date 2024
  */
 
+#ifndef INVENTORY_CPP_DOC
+/**
+ * @file Inventory.cpp
+ * @brief Inventory container implementation for Plant objects.
+ */
+#define INVENTORY_CPP_DOC
+#endif
+
 #include "Inventory.h"
 
 #include <algorithm>

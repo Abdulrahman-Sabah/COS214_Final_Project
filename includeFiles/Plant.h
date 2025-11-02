@@ -6,6 +6,15 @@
 #include "CareStrategy.h"
 using namespace std;
 
+/**
+ * @file Plant.h
+ * @brief Abstract base class representing a plant in the nursery.
+ *
+ * Plant declares the main interface for all concrete plant types used in the
+ * project (description, price, cloning) and provides observer and lifecycle
+ * integration points.
+ */
+
 class CareStrategy;
 class PlantLifeCycleState;
 class PlantObserver;
@@ -28,7 +37,10 @@ protected:
   void notifyCareStrategyChanged();
 
 public:
+  /** @brief Return runtime type name (override in subclasses) */
   virtual std::string getType() const { return "Plant"; }
+
+  /** @brief Construct a Plant with full parameters */
   Plant(string name, string careType, string state, string season,
         CareStrategy *strategy, PlantLifeCycleState *life);
 
@@ -36,8 +48,13 @@ public:
 
   virtual ~Plant();
 
+  /** @brief Get a textual description of this plant (pure virtual) */
   virtual string description() = 0;
+
+  /** @brief Get the price of the plant (pure virtual) */
   virtual double price() = 0;
+
+  /** @brief Clone the plant (pure virtual) */
   virtual Plant *clone() = 0;
 
   virtual string getName() { return name; };
@@ -58,6 +75,7 @@ public:
   void attach(PlantObserver *observer);
   void detach(PlantObserver *observer);
 
+  /** @brief Convenient wrapper that delegates to the configured CareStrategy */
   void takeCare();
 };
 

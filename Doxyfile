@@ -1,0 +1,39 @@
+PROJECT_NAME           = "PlantNursery"
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = NO
+OUTPUT_LANGUAGE        = English
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+INPUT                  = includeFiles src gui
+FILE_PATTERNS          = *.h *.hpp *.hh *.c *.cc *.cpp
+RECURSIVE              = YES
+
+GENERATE_TREEVIEW      = YES
+
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+
+# Source browser
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+
+# Misc
+OPTIMIZE_OUTPUT_FOR_C  = NO
+
+# Use UTF-8
+INPUT_ENCODING         = UTF-8
+
+# Enable dot if available for diagrams
+HAVE_DOT               = NO
+
+
+# Additional settings (leave defaults for others)

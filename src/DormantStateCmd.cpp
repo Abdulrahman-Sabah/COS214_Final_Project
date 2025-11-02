@@ -1,3 +1,11 @@
+#ifndef DORMANTSTATECMD_CPP_DOC
+/**
+ * @file DormantStateCmd.cpp
+ * @brief Command implementation for DormantState transitions.
+ */
+#define DORMANTSTATECMD_CPP_DOC
+#endif
+
 #include "DormantStateCmd.h"
 
 #include "DormantState.h"

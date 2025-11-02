@@ -1,3 +1,11 @@
+#ifndef DEADSTATE_CPP_DOC
+/**
+ * @file DeadState.cpp
+ * @brief Implementation of the Dead lifecycle state.
+ */
+#define DEADSTATE_CPP_DOC
+#endif
+
 #include "DeadState.h"
 
 DeadState::DeadState() : PlantLifeCycleState() {}

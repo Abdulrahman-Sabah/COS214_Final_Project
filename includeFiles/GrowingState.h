@@ -1,6 +1,13 @@
 #ifndef GROWINGSTATE_H
 #define GROWINGSTATE_H
 
+/**
+ * @file GrowingState.h
+ * @brief Plant lifecycle state for actively growing plants.
+ *
+ * GrowingState represents a phase where plants progress towards maturity.
+ */
+
 #include "PlantLifeCycleState.h"
 
 class GrowingState : public PlantLifeCycleState {

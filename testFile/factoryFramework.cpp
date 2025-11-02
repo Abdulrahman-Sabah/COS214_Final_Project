@@ -1,3 +1,11 @@
+#ifndef FACTORYFRAMEWORK_CPP_DOC
+/**
+ * @file factoryFramework.cpp
+ * @brief Tests for the Factory Method creators producing specific plants.
+ */
+#define FACTORYFRAMEWORK_CPP_DOC
+#endif
+
 #include "Cactus.h"
 #include "CactusCreator.h"
 #include "Lavender.h"

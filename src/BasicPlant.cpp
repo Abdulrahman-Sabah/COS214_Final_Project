@@ -1,3 +1,11 @@
+#ifndef BASICPLANT_CPP_DOC
+/**
+ * @file BasicPlant.cpp
+ * @brief Implementations for BasicPlant (simple concrete Plant).
+ */
+#define BASICPLANT_CPP_DOC
+#endif
+
 #include "BasicPlant.h"
 
 BasicPlant::BasicPlant(string name, string description, double price,

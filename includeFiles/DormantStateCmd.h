@@ -1,6 +1,11 @@
 #ifndef DORMANTSTATECMD_H
 #define DORMANTSTATECMD_H
 
+/**
+ * @file DormantStateCmd.h
+ * @brief Command to toggle or manage DormantState behaviour for a plant.
+ */
+
 #include <string>
 
 #include "Commands.h"

@@ -1,3 +1,11 @@
+#ifndef STATEFRAMEWORK_CPP_DOC
+/**
+ * @file stateFramework.cpp
+ * @brief Tests exercising plant lifecycle states and transitions.
+ */
+#define STATEFRAMEWORK_CPP_DOC
+#endif
+
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "DeadState.h"
 #include "DormantState.h"

@@ -1,6 +1,14 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
+/**
+ * @file Inventory.h
+ * @brief Collection and management of Plant objects.
+ *
+ * Inventory provides storage, search, add/remove and iterator support for
+ * Plant instances used in the nursery application.
+ */
+
 #include <vector>
 
 #include "Plant.h"

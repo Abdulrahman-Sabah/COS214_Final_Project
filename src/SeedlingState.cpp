@@ -1,3 +1,11 @@
+#ifndef SEEDLINGSTATE_CPP_DOC
+/**
+ * @file SeedlingState.cpp
+ * @brief Implementation of the Seedling lifecycle state behaviour.
+ */
+#define SEEDLINGSTATE_CPP_DOC
+#endif
+
 #include "SeedlingState.h"
 
 #include "DeadState.h"

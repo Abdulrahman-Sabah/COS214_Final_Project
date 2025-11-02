@@ -2,6 +2,15 @@
 #ifndef DELIVERYSTAFF_H
 #define DELIVERYSTAFF_H
 
+/**
+ * @file DeliveryStaff.h
+ * @brief Delivery staff colleague responsible for handling delivery-related
+ * operations and interacting with inventory.
+ *
+ * Implements StoreColleague to receive notifications and process customer
+ * requests (e.g., delivering plants).
+ */
+
 #include <iostream>
 
 #include "Inventory.h"

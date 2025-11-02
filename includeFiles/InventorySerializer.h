@@ -1,6 +1,14 @@
 #ifndef INVENTORYSERIALIZER_H
 #define INVENTORYSERIALIZER_H
 
+/**
+ * @file InventorySerializer.h
+ * @brief Serialization helpers to load/save Inventory state to JSON files.
+ *
+ * Declares functions that read and write inventory_state.json used by the
+ * server and command-line tools.
+ */
+
 #include <string>
 
 #include "Inventory.h"
@@ -15,7 +23,7 @@ public:
                const std::string &filename = "gui/inventory_state.json");
 
 private:
-  // 🆕 ADD PRIVATE HELPER METHOD
+  // ADD PRIVATE HELPER METHOD
   static std::string extractJSONField(const std::string &content,
                                       const std::string &field, size_t &pos);
   static void initializeInventory(Inventory &inventory);

@@ -6,6 +6,14 @@
  * @date 2025
  */
 
+#ifndef HANDLER_CPP_DOC
+/**
+ * @file Handler.cpp
+ * @brief Base class implementation for Chain of Responsibility helpers.
+ */
+#define HANDLER_CPP_DOC
+#endif
+
 #include "Handler.h"
 
 #include <iostream>

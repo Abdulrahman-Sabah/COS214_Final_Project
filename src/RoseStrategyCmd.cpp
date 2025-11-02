@@ -1,3 +1,11 @@
+#ifndef ROSESTRATEGYCMD_CPP_DOC
+/**
+ * @file RoseStrategyCmd.cpp
+ * @brief Command implementation to apply Rose care strategy.
+ */
+#define ROSESTRATEGYCMD_CPP_DOC
+#endif
+
 #include "RoseStrategyCmd.h"
 
 #include "Plant.h"

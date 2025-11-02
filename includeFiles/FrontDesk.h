@@ -1,6 +1,15 @@
 #ifndef FRONTDESK_H
 #define FRONTDESK_H
 
+/**
+ * @file FrontDesk.h
+ * @brief Mediator for customer and delivery staff interactions.
+ *
+ * The FrontDesk implements StoreMediator to coordinate communication between
+ * customers and delivery staff, facilitating actions such as notifications
+ * and querying by plant type.
+ */
+
 #include <string>
 
 #include "StoreMediator.h"

@@ -1,3 +1,11 @@
+#ifndef STRATEGYFRAMEWORK_CPP_DOC
+/**
+ * @file strategyFramework.cpp
+ * @brief Tests for CareStrategy implementations and their output.
+ */
+#define STRATEGYFRAMEWORK_CPP_DOC
+#endif
+
 #include "Cactus.h"
 #include "CactusCare.h"
 #include "Lavender.h"

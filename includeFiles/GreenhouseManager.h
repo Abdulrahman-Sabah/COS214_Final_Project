@@ -19,12 +19,13 @@ class GreenhouseManager : public Handler {
 public:
   /**
    * @brief Handles sales and inventory management requests
-   * @param r Pointer to the command to be processed
+   * @param cmd Pointer to the command to be processed
+   * @param plant Pointer to the Plant associated with the request
    *
    * This method checks if the command type is "MoveToSales" and processes it.
    * If not, it passes the request to the next handler in the chain.
    */
-  void handleRequest(Commands *r, Plant *plant);
+  void handleRequest(Commands *cmd, Plant *plant);
 };
 
 #endif

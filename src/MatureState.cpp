@@ -1,3 +1,11 @@
+#ifndef MATURESTATE_CPP_DOC
+/**
+ * @file MatureState.cpp
+ * @brief Implementation for Mature lifecycle state behaviour.
+ */
+#define MATURESTATE_CPP_DOC
+#endif
+
 #include "MatureState.h"
 
 #include "DeadState.h"

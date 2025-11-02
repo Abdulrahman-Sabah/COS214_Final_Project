@@ -1,3 +1,11 @@
+#ifndef POTDECORATOR_CPP_DOC
+/**
+ * @file PotDecorator.cpp
+ * @brief Implementation of PotDecorator to add pot-related description & cost.
+ */
+#define POTDECORATOR_CPP_DOC
+#endif
+
 #include "PotDecorator.h"
 
 PotDecorator::PotDecorator(Plant *item, string pot, double cost)

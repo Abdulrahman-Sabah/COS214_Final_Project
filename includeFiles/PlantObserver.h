@@ -31,12 +31,11 @@ public:
    */
   virtual ~PlantObserver() = default;
 
-  /**
-   * @brief Called when a plant's general state changes
-   * @param plant The plant that changed state
-   */
-  // virtual void onPlantStateChanged(Plant* plant,CareStrategy*
-  // CareStrategyOfPlant) = 0;
+  // Previously there was an observer callback here (onPlantStateChanged) but it
+  // was removed/disabled; keep this line as a plain comment to avoid Doxygen
+  // attaching the earlier docblock to the next declared method and producing
+  // duplicate @param warnings.
+  // virtual void onPlantStateChanged(Plant* plant, CareStrategy* CareStrategyOfPlant) = 0;
 
   /**
    * @brief Called when a plant's lifecycle state changes
@@ -47,14 +46,9 @@ public:
                                   PlantLifeCycleState *newState) = 0;
 
   /**
-   * @brief Called when a plant's season changes
-   * @param plant The plant whose season changed
-   * @param newSeason The new season
-   */
-
-  /**
    * @brief Called when a plant's care strategy changes
    * @param plant The plant whose care strategy changed
+   * @param newStrategy The new care strategy
    */
   virtual void onCareStrategyChanged(Plant *plant,
                                      CareStrategy *newStrategy) = 0;

@@ -1,3 +1,14 @@
+#ifndef COMMANDFRAMEWORK_CPP_DOC
+/**
+ * @file commandFramework.cpp
+ * @brief Tests for command objects and lifecycle commands.
+ *
+ * Verifies strategy/command execution and safe handling of null plant
+ * pointers.
+ */
+#define COMMANDFRAMEWORK_CPP_DOC
+#endif
+
 #include "doctest.h"
 
 #include <string>

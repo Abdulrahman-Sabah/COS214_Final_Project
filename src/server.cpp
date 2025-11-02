@@ -1,3 +1,17 @@
+#ifndef SERVER_CPP_DOC
+/**
+ * @file server.cpp
+ * @brief Minimal file-based HTTP server used to serve the GUI and a small
+ *        REST-like API backed by the C++ Inventory.
+ *
+ * This server is intentionally simple (blocking, single-thread) and is used
+ * for development/demo purposes only. It serves files from `gui/` and
+ * exposes a few API endpoints for adding/removing plants and retrieving the
+ * inventory as JSON.
+ */
+#define SERVER_CPP_DOC
+#endif
+
 #include <algorithm>
 #include <fstream>
 #include <iostream>

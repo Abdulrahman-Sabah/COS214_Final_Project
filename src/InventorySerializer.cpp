@@ -1,3 +1,11 @@
+#ifndef INVENTORYSERIALIZER_CPP_DOC
+/**
+ * @file InventorySerializer.cpp
+ * @brief JSON load/save helpers for Inventory state persistence.
+ */
+#define INVENTORYSERIALIZER_CPP_DOC
+#endif
+
 #include "InventorySerializer.h"
 
 #include <filesystem>

@@ -1,3 +1,11 @@
+#ifndef RECEIPT_CPP_DOC
+/**
+ * @file Receipt.cpp
+ * @brief Receipts for purchases and printing utilities.
+ */
+#define RECEIPT_CPP_DOC
+#endif
+
 #include "Receipt.h"
 
 #include <iomanip>

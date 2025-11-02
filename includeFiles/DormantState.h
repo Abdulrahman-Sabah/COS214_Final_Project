@@ -1,6 +1,15 @@
 #ifndef DORMANTSTATE_H
 #define DORMANTSTATE_H
 
+/**
+ * @file DormantState.h
+ * @brief Plant lifecycle state for dormant (non-growing) plants.
+ *
+ * DormantState implements behaviour for plants that are not actively
+ * growing. It can track whether a plant may resume growth later and
+ * whether attention is required.
+ */
+
 #include "PlantLifeCycleState.h"
 
 class DormantState : public PlantLifeCycleState {

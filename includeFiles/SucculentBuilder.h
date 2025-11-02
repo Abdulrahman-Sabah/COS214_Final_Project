@@ -24,6 +24,13 @@
 #ifndef SUCCULENT_BUILDER_H
 #define SUCCULENT_BUILDER_H
 
+/**
+ * @file SucculentBuilder.h
+ * @brief Builder for creating Succulent plant instances.
+ *
+ * Implements PlantBuilder to construct a Succulent step-by-step.
+ */
+
 #include <string>
 
 #include "PlantBuilder.h"

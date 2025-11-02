@@ -1,3 +1,11 @@
+#ifndef LAVENDER_CPP_DOC
+/**
+ * @file Lavender.cpp
+ * @brief Concrete Lavender plant implementation.
+ */
+#define LAVENDER_CPP_DOC
+#endif
+
 #include "Lavender.h"
 
 #include <iostream>

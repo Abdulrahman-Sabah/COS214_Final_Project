@@ -1,3 +1,11 @@
+#ifndef PLANTLIFECYCLESTATE_CPP_DOC
+/**
+ * @file PlantLifeCycleState.cpp
+ * @brief Base implementations for plant lifecycle state helpers.
+ */
+#define PLANTLIFECYCLESTATE_CPP_DOC
+#endif
+
 #include "PlantLifeCycleState.h"
 
 PlantLifeCycleState::PlantLifeCycleState() : dead(false), attention(false) {}

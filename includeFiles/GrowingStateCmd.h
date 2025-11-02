@@ -1,6 +1,11 @@
 #ifndef GROWING_STATE_CMD_H
 #define GROWING_STATE_CMD_H
 
+/**
+ * @file GrowingStateCmd.h
+ * @brief Command to trigger or manage GrowingState transitions.
+ */
+
 #include <string>
 
 #include "Commands.h"

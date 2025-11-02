@@ -1,4 +1,12 @@
 
+#ifndef ROSE_CPP_DOC
+/**
+ * @file Rose.cpp
+ * @brief Concrete Rose plant implementation.
+ */
+#define ROSE_CPP_DOC
+#endif
+
 #include "Rose.h"
 
 #include <iostream>

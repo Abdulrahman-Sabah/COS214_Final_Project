@@ -1,3 +1,11 @@
+#ifndef LAVENDERCARE_CPP_DOC
+/**
+ * @file LavenderCare.cpp
+ * @brief Lavender-specific CareStrategy implementation.
+ */
+#define LAVENDERCARE_CPP_DOC
+#endif
+
 #include "LavenderCare.h"
 
 #include "Plant.h"

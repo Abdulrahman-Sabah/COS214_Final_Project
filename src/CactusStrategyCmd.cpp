@@ -1,3 +1,11 @@
+#ifndef CACTUSSTRATEGYCMD_CPP_DOC
+/**
+ * @file CactusStrategyCmd.cpp
+ * @brief Command implementation to set cactus care strategy on plants.
+ */
+#define CACTUSSTRATEGYCMD_CPP_DOC
+#endif
+
 #include "CactusStrategyCmd.h"
 
 #include "CactusCare.h"

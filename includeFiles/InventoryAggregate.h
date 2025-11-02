@@ -1,6 +1,14 @@
 #ifndef INVENTORYAGGREGATE_H
 #define INVENTORYAGGREGATE_H
 
+/**
+ * @file InventoryAggregate.h
+ * @brief Abstract aggregate providing collection behaviour for Plant objects.
+ *
+ * Defines the interface used by concrete inventory-like aggregates that
+ * provide iterator support for plants.
+ */
+
 #include <vector>
 
 #include "Plant.h"

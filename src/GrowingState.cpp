@@ -1,3 +1,11 @@
+#ifndef GROWINGSTATE_CPP_DOC
+/**
+ * @file GrowingState.cpp
+ * @brief Implementation for Growing lifecycle state behaviour.
+ */
+#define GROWINGSTATE_CPP_DOC
+#endif
+
 #include "GrowingState.h"
 
 #include "DeadState.h"
