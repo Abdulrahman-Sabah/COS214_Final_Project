@@ -82,7 +82,7 @@ TEST_CASE("Inventory remove plant") {
     Inventory inv;
     Plant* p = new Rose();
     inv.addPlant(p);
-
+    p->setStateText("Dead");
     bool removed = inv.removePlant(p);
     CHECK(removed);
 
@@ -90,8 +90,9 @@ TEST_CASE("Inventory remove plant") {
 
     Plant* q = new Cactus();
     inv.addPlant(q);
-    
+    q->setStateText("Dead");
     CHECK(inv.removePlantByName("Cactus") == true);
+    
     CHECK(inv.removePlantByName("Cactus") == false);
 
     CHECK(!inv.removePlantByName("Cactus"));
