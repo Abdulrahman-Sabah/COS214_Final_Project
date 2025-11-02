@@ -7,6 +7,7 @@
 #include "Rose.h"
 #include "Cactus.h"
 #include "Lavender.h"
+#include "DeadState.h" 
 
 TEST_CASE("add plants") {
     Inventory inv;
@@ -82,7 +83,9 @@ TEST_CASE("Inventory remove plant") {
     Inventory inv;
     Plant* p = new Rose();
     inv.addPlant(p);
-    p->setStateText("Dead");
+    
+    p->setLifeCycle(new DeadState());
+    
     bool removed = inv.removePlant(p);
     CHECK(removed);
 
@@ -90,11 +93,11 @@ TEST_CASE("Inventory remove plant") {
 
     Plant* q = new Cactus();
     inv.addPlant(q);
-    q->setStateText("Dead");
-    CHECK(inv.removePlantByName("Cactus") == true);
     
+    q->setLifeCycle(new DeadState());
+    
+    CHECK(inv.removePlantByName("Cactus") == true);
     CHECK(inv.removePlantByName("Cactus") == false);
-
     CHECK(!inv.removePlantByName("Cactus"));
 
 }
