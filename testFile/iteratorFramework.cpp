@@ -99,5 +99,6 @@ TEST_CASE("Inventory remove plant") {
     CHECK(inv.removePlantByName("Cactus") == true);
     CHECK(inv.removePlantByName("Cactus") == false);
     CHECK(!inv.removePlantByName("Cactus"));
+    delete p;
 
 }
