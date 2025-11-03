@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reportercreatorfunc_0',['reporterCreatorFunc',['../namespacedoctest_1_1detail.html#a6123fb0d74a23d42ea5f09ef324a703b',1,'doctest::detail']]]
+  ['size_5ftype_1820',['size_type',['../classdoctest_1_1String.html#a955471ce254dca78b33f8167bad6b0f0',1,'doctest::String']]]
 ];

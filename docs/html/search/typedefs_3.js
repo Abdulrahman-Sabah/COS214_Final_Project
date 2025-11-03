@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nullptr_5ft_0',['nullptr_t',['../namespacestd.html#a147badd87f1e15108e8dbee257b60b84',1,'std']]]
+  ['ostream_1818',['ostream',['../namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5',1,'std']]]
 ];

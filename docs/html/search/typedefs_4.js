@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ostream_0',['ostream',['../namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5',1,'std']]]
+  ['reportercreatorfunc_1819',['reporterCreatorFunc',['../namespacedoctest_1_1detail.html#aa632bcc3ac99ed64738ad06ec4ce5769',1,'doctest::detail']]]
 ];
