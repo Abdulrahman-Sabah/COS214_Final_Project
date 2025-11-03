@@ -13,12 +13,8 @@
 | **Abdelrahman Ahmed** | u24898008 |
 | **Abdulrahman Sabah** | u24566170 |
 ---
-## Design Patterns:
-| Type | Patterns Implemented |
-|------|----------------------|
-| **Creational** | Factory Method, Prototype |
-| **Structural** | Decorator, Adapter |
-| **Behavioral** | Strategy, State, Observer, Command, Iterator, Chain of Responsibility, Mediator |
+### Short description of project 
+Our nursery project is made from various design patterns which models a greenhouse/nursery operations. It simulates how the staff interact with customers, the plant life cycle changes, care strategies, handling of operations such as taking care of plants or getting rid of them whent they die and helping customers and delivering the plants bought etc. It simualtes plant growth and life cycle changes using state desing pattern. It manages the inventory, which is the plants we have available, and when we buy or sell plants. It allows customers to interact with staff members and the staff members assist them in giving them what they need. It handles transactions when plants are bought. It demonstrates the usage of 11 design patterns to make the system work as a whole, correctly and efficiently.
 ---
 ## Build Options:  
 The following commands must be run from root of project folder:
