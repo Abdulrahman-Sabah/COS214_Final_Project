@@ -240,6 +240,28 @@ int main() {
   c2->setLifeCycle(new SellingState());
   greenhouse->addPlant(c2);
 
+  Plant *l2 = new Lavender();
+l2->setLifeCycle(new SellingState());
+greenhouse->addPlant(l2);
+
+Plant *r3 = new Rose();
+r3->setLifeCycle(new SellingState());
+greenhouse->addPlant(r3);
+
+
+Plant *c3 = new Cactus();
+c3->setLifeCycle(new SellingState());
+greenhouse->addPlant(c3);
+
+
+Plant *l3 = new Lavender();
+l3->setLifeCycle(new SellingState());
+greenhouse->addPlant(l3);
+
+Plant *r4 = new Rose();
+r4->setLifeCycle(new SellingState());
+greenhouse->addPlant(r4);
+
   DeliveryStaff *staff = new DeliveryStaff(greenhouse);
   staff->setMediator(&mediator);
 
