@@ -42,5 +42,6 @@ make run-demo
 
 Run the PLant Nursery System
 make run-server
-(This runs the server executable and launches the web GUI at http://localhost:8081)
+Visit http://localhost:8081
+This runs the server executable and launches the web GUI
 
