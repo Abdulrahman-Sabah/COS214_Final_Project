@@ -756,7 +756,7 @@ int main() {
 
   delete p2;
   delete p1;
-  delete cmd2;
+  // delete cmd2;
 
   return 0;
 }
