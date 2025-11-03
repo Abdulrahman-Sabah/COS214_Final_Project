@@ -16,9 +16,9 @@
 ## Design Patterns:
 | Type | Patterns Implemented |
 |------|----------------------|
-| **Creational** | Factory, Prototype |
-| **Structural** | Decorator, Bridge, Composite |
-| **Behavioral** | Strategy, State, Observer, Command, Iterator, Chain of Responsibility |
+| **Creational** | Factory Method, Prototype |
+| **Structural** | Decorator, Adapter |
+| **Behavioral** | Strategy, State, Observer, Command, Iterator, Chain of Responsibility, Mediator |
 ---
 ## Build Options:  
 The following commands must be run from root of project folder:
@@ -45,3 +45,5 @@ make run-server
 Visit http://localhost:8081
 This runs the server executable and launches the web GUI
 
+make clean
+(Removes all object files, executables, and coverage data for a fresh rebuild)
