@@ -45,3 +45,5 @@ make run-server
 Visit http://localhost:8081
 This runs the server executable and launches the web GUI
 
+make clean
+(Removes all object files, executables, and coverage data for a fresh rebuild)
