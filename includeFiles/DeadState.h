@@ -1,30 +1,36 @@
+/**
+ * @file DeadState.h
+ * @brief Plant state when the plant is dead.
+ */
+
 #ifndef DEADSTATE_H
 #define DEADSTATE_H
 
-/**
- * @file DeadState.h
- * @brief Plant lifecycle state representing a dead plant.
- *
- * DeadState implements PlantLifeCycleState for plants that have died and
- * require no further growth. It provides behaviour queries such as
- * isDead() and needsAttention().
- */
-
 #include "PlantLifeCycleState.h"
 
+/**
+ * @class DeadState
+ * @brief Lifecycle state for a dead plant.
+ */
 class DeadState : public PlantLifeCycleState {
 public:
-  DeadState();
+    DeadState();
+    ~DeadState() override;
 
-  ~DeadState() override;
+    /**
+     * @brief No further state progression
+     * @param plant Target plant
+     */
+    void advance(Plant* plant) override;
 
-  void advance(Plant *plant) override;
+    /// @return "Dead"
+    std::string name() override;
 
-  std::string name() override;
+    /// @return true (always dead)
+    bool isDead() override;
 
-  bool isDead() override;
-
-  bool needsAttention() override;
+    /// @return false (no care needed)
+    bool needsAttention() override;
 };
 
-#endif
+#endif // DEADSTATE_H

@@ -1,39 +1,51 @@
+/**
+ * @file DormantState.h
+ * @brief Lifecycle state for a dormant plant.
+ */
+
 #ifndef DORMANTSTATE_H
 #define DORMANTSTATE_H
 
-/**
- * @file DormantState.h
- * @brief Plant lifecycle state for dormant (non-growing) plants.
- *
- * DormantState implements behaviour for plants that are not actively
- * growing. It can track whether a plant may resume growth later and
- * whether attention is required.
- */
-
 #include "PlantLifeCycleState.h"
 
+/**
+ * @class DormantState
+ * @brief Plant is paused in growth.
+ */
 class DormantState : public PlantLifeCycleState {
 private:
-  bool growing;
+    bool growing;
 
 public:
-  DormantState();
+    DormantState();
+    ~DormantState() override;
 
-  ~DormantState() override;
+    /**
+     * @brief Move to next lifecycle state
+     * @param plant Target plant
+     */
+    void advance(Plant* plant) override;
 
-  void advance(Plant *plant) override;
+    /// @return "Dormant"
+    std::string name() override;
 
-  std::string name() override;
+    /// @return false (not dead)
+    bool isDead() override;
 
-  bool isDead() override;
+    /// @return true if growth expected later
+    bool getGrowing();
 
-  bool getGrowing();
+    /**
+     * @brief Set possible growth return
+     * @param grow True if plant may grow again
+     */
+    void setGrowing(bool grow);
 
-  void setGrowing(bool grow);
+    /// @return true if plant is resuming growth
+    bool isGrowingAgain();
 
-  bool isGrowingAgain();
-
-  bool needsAttention() override;
+    /// @return true if needs care
+    bool needsAttention() override;
 };
 
-#endif
+#endif // DORMANTSTATE_H

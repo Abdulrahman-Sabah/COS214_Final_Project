@@ -1,28 +1,36 @@
+/**
+ * @file GrowingState.h
+ * @brief Plant is actively growing.
+ */
+
 #ifndef GROWINGSTATE_H
 #define GROWINGSTATE_H
 
-/**
- * @file GrowingState.h
- * @brief Plant lifecycle state for actively growing plants.
- *
- * GrowingState represents a phase where plants progress towards maturity.
- */
-
 #include "PlantLifeCycleState.h"
 
+/**
+ * @class GrowingState
+ * @brief Lifecycle state for a growing plant.
+ */
 class GrowingState : public PlantLifeCycleState {
 public:
-  GrowingState();
+    GrowingState();
+    ~GrowingState() override;
 
-  ~GrowingState() override;
+    /**
+     * @brief Move to next lifecycle state
+     * @param plant Target plant
+     */
+    void advance(Plant* plant) override;
 
-  void advance(Plant *plant) override;
+    /// @return "Growing"
+    std::string name() override;
 
-  std::string name() override;
+    /// @return false (not dead)
+    bool isDead() override;
 
-  bool isDead() override;
-
-  bool needsAttention() override;
+    /// @return true if plant requires care
+    bool needsAttention() override;
 };
 
-#endif
+#endif // GROWINGSTATE_H

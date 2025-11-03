@@ -1,35 +1,51 @@
+/**
+ * @file DeliveryStaff.h
+ * @brief Handles delivery of plants to customers.
+ */
 
 #ifndef DELIVERYSTAFF_H
 #define DELIVERYSTAFF_H
 
-/**
- * @file DeliveryStaff.h
- * @brief Delivery staff colleague responsible for handling delivery-related
- * operations and interacting with inventory.
- *
- * Implements StoreColleague to receive notifications and process customer
- * requests (e.g., delivering plants).
- */
-
 #include <iostream>
-
 #include "Inventory.h"
 #include "Plant.h"
 #include "StoreColleague.h"
 
+/**
+ * @class DeliveryStaff
+ * @brief Delivery role in the nursery.
+ */
 class DeliveryStaff : public StoreColleague {
 private:
-  Inventory *greenhouse_;
+    Inventory* greenhouse_;
 
 public:
-  DeliveryStaff() { greenhouse_ = nullptr; };
-  ~DeliveryStaff() override = default;
-  explicit DeliveryStaff(Inventory *inv) : greenhouse_(inv) {}
+    /// Default constructor
+    DeliveryStaff() : greenhouse_(nullptr) {}
 
-  void setInventory(Inventory *inv) { greenhouse_ = inv; }
+    /// @param inv Inventory pointer
+    explicit DeliveryStaff(Inventory* inv) : greenhouse_(inv) {}
 
-  void processCustomerRequest(Plant *plant);
-  void receive(const std::string &event) override;
+    /// Virtual destructor
+    ~DeliveryStaff() override = default;
+
+    /**
+     * @brief Set greenhouse inventory
+     * @param inv Inventory pointer
+     */
+    void setInventory(Inventory* inv) { greenhouse_ = inv; }
+
+    /**
+     * @brief Deliver a requested plant
+     * @param plant Plant to deliver
+     */
+    void processCustomerRequest(Plant* plant);
+
+    /**
+     * @brief Receive notifications
+     * @param event Text message about an update
+     */
+    void receive(const std::string& event) override;
 };
 
-#endif
+#endif // DELIVERYSTAFF_H

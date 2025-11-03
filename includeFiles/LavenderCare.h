@@ -3,16 +3,25 @@
 
 /**
  * @file LavenderCare.h
- * @brief CareStrategy implementation for Lavender plants.
+ * @brief Care strategy for lavender plants.
  */
 
 #include "CareStrategy.h"
 
+/**
+ * @class LavenderCare
+ * @brief Applies lavender-specific care.
+ */
 class LavenderCare : public CareStrategy {
 public:
-  /** @brief Apply lavender-specific care actions to the given plant */
-  void applyCare(Plant *plant) override;
-  ~LavenderCare() override = default;
+    /**
+     * @brief Apply lavender care actions
+     * @param plant Target plant
+     */
+    void applyCare(Plant* plant) override;
+
+    /// Destructor
+    ~LavenderCare() override = default;
 };
 
-#endif
+#endif // LAVENDERCARE_H

@@ -3,16 +3,25 @@
 
 /**
  * @file RoseCare.h
- * @brief CareStrategy implementation for Rose plants.
+ * @brief Care strategy for rose plants.
  */
 
 #include "CareStrategy.h"
 
+/**
+ * @class RoseCare
+ * @brief Applies rose-specific care.
+ */
 class RoseCare : public CareStrategy {
 public:
-  /** @brief Apply rose-specific care actions to the given plant */
-  void applyCare(Plant *plant) override;
-  ~RoseCare() override = default;
+    /**
+     * @brief Apply rose care actions
+     * @param plant Target plant
+     */
+    void applyCare(Plant* plant) override;
+
+    /// Destructor
+    ~RoseCare() override = default;
 };
 
-#endif
+#endif // ROSECARE_H

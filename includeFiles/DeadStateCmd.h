@@ -1,26 +1,34 @@
+/**
+ * @file DeadStateCmd.h
+ * @brief Command to set a plant to DeadState.
+ */
+
 #ifndef DEAD_STATE_CMD_H
 #define DEAD_STATE_CMD_H
 
-/**
- * @file DeadStateCmd.h
- * @brief Command that transitions a plant into the DeadState or handles
- * related dead-state actions.
- */
-
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class DeadStateCmd
+ * @brief Applies DeadState to a plant.
+ */
 class DeadStateCmd : public Commands {
 public:
-  DeadStateCmd();
-  virtual ~DeadStateCmd() {}
+    DeadStateCmd();
+    ~DeadStateCmd() override = default;
 
-  std::string name();
-  void execute(Plant *plant);
+    /// @return Command name
+    std::string name() override;
+
+    /**
+     * @brief Change plant to DeadState
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label;
+    std::string m_label;
 };
 
-#endif
+#endif // DEAD_STATE_CMD_H

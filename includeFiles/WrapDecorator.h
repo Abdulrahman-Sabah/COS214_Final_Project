@@ -3,23 +3,37 @@
 
 /**
  * @file WrapDecorator.h
- * @brief Decorator that adds wrapping/packaging details to a Plant.
+ * @brief Adds wrapping decoration and cost to a plant.
  */
 
 #include "PlantDecorations.h"
 
+/**
+ * @class WrapDecorator
+ * @brief Decorator for adding wrapping.
+ */
 class WrapDecorator : public PlantDecorations {
 private:
-  string wrapType; /**< Type of wrap used */
-  double wrapCost; /**< Additional cost for wrapping */
+    string wrapType;
+    double wrapCost;
 
 public:
-  /** @brief Create a wrap decorator wrapping the provided plant */
-  WrapDecorator(Plant *item, string wrap, double cost);
+    /**
+     * @brief Constructor
+     * @param item Plant to decorate
+     * @param wrap Wrap type
+     * @param cost Extra cost
+     */
+    WrapDecorator(Plant* item, string wrap, double cost);
 
-  string description() override;
-  double price() override;
-  Plant *clone() override;
+    /// @return Description including wrap
+    string description() override;
+
+    /// @return Price + wrap cost
+    double price() override;
+
+    /// @return Cloned wrapped plant
+    Plant* clone() override;
 };
 
-#endif
+#endif // WRAPDECORATOR_H

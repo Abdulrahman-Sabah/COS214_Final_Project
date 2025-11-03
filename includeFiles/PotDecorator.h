@@ -3,23 +3,37 @@
 
 /**
  * @file PotDecorator.h
- * @brief Decorator that adds a pot type and cost to a Plant.
+ * @brief Adds pot decoration and cost to a plant.
  */
 
 #include "PlantDecorations.h"
 
+/**
+ * @class PotDecorator
+ * @brief Decorator for adding a pot.
+ */
 class PotDecorator : public PlantDecorations {
 private:
-  string potType; /**< Type of pot used */
-  double potCost; /**< Additional cost for the pot */
+    string potType;
+    double potCost;
 
 public:
-  /** @brief Create a PotDecorator wrapping a Plant */
-  PotDecorator(Plant *item, string pot, double cost);
+    /**
+     * @brief Constructor
+     * @param item Plant to decorate
+     * @param pot Pot type
+     * @param cost Extra cost
+     */
+    PotDecorator(Plant* item, string pot, double cost);
 
-  string description() override;
-  double price() override;
-  Plant *clone() override;
+    /// @return Description including pot
+    string description() override;
+
+    /// @return Price + pot cost
+    double price() override;
+
+    /// @return Cloned decorated plant
+    Plant* clone() override;
 };
 
-#endif
+#endif // POTDECORATOR_H

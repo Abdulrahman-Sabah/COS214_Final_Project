@@ -17,7 +17,7 @@
 
 class StoreColleague {
 protected:
-  StoreMediator *mediator; /**< Associated mediator (may be nullptr) */
+  StoreMediator *mediator; 
 
 public:
   StoreColleague() { mediator = nullptr; };

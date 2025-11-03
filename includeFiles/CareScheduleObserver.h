@@ -58,7 +58,11 @@ public:
    */
   CareSchedulerObserver();
 
-  void setHandler(Handler *newHandler);
+  /**
+ * @brief Set next handler in chain
+ * @param newHandler Handler pointer
+ */
+void setHandler(Handler* newHandler);
 };
 
 #endif

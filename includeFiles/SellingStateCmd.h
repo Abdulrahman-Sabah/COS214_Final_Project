@@ -3,29 +3,32 @@
 
 /**
  * @file SellingStateCmd.h
- * @brief Command to transition a plant into the Selling lifecycle state.
+ * @brief Command to set a plant to SellingState.
  */
 
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class SellingStateCmd
+ * @brief Applies SellingState to a plant.
+ */
 class SellingStateCmd : public Commands {
 public:
-  SellingStateCmd();
-  virtual ~SellingStateCmd() {}
+    SellingStateCmd();
+    ~SellingStateCmd() override = default;
 
-  /** @brief Return a human-readable name for this command */
-  std::string name();
+    /// @return Command name
+    std::string name() override;
 
-  /**
-   * @brief Execute the command on the provided plant
-   * @param plant Plant pointer to operate on
-   */
-  void execute(Plant *plant);
+    /**
+     * @brief Set selling state
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label; /**< Optional label or payload for the command */
+    std::string m_label;
 };
 
-#endif
+#endif // SELLING_STATE_CMD_H

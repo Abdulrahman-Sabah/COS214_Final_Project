@@ -1,29 +1,31 @@
 /**
  * @file StoreMediator.h
- * @brief Abstract Mediator interface for coordinating communication between
- * shop participants
- * @author COS214
- * @date 2025
+ * @brief Mediator interface for coordinating communication.
  */
 
 #ifndef STOREMEDIATOR_H
 #define STOREMEDIATOR_H
 
 #include <string>
-
 #include "Plant.h"
 
 class Commands;
 
+/**
+ * @class StoreMediator
+ * @brief Handles communication between store colleagues.
+ */
 class StoreMediator {
 public:
-  /**
-   * @brief Notify the mediator that an event occurred
-   * @param plant The object sending the notification
-   * @param event The type of event (e.g., "CustomerRequest", "DeliveryReady")
-   */
-  virtual void notify(Plant *plant, const std::string &event) = 0;
-  virtual ~StoreMediator() = default;
+    /**
+     * @brief Notify mediator of an event
+     * @param plant Plant involved
+     * @param event Event message
+     */
+    virtual void notify(Plant* plant, const std::string& event) = 0;
+
+    /// Virtual destructor
+    virtual ~StoreMediator() = default;
 };
 
-#endif
+#endif // STOREMEDIATOR_H

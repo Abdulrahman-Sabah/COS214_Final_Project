@@ -3,30 +3,42 @@
 
 /**
  * @file InventoryIterator.h
- * @brief Iterator implementation for Inventory collections.
- *
- * Provides a concrete PlantIterator that walks through a vector of Plant
- * pointers stored in Inventory-like aggregates.
+ * @brief Iterator over a list of plants.
  */
 
 #include <vector>
-
 #include "PlantIterator.h"
 
+/**
+ * @class InventoryIterator
+ * @brief Concrete iterator for plant collections.
+ */
 class InventoryIterator : public PlantIterator {
 private:
-  std::vector<Plant *> &plants;
-  size_t currentIndex;
+    std::vector<Plant*>& plants;
+    size_t currentIndex;
 
 public:
-  InventoryIterator(std::vector<Plant *> &plantList);
+    /**
+     * @brief Constructor
+     * @param plantList Reference to plant list
+     */
+    InventoryIterator(std::vector<Plant*>& plantList);
 
-  ~InventoryIterator();
+    /// Destructor
+    ~InventoryIterator();
 
-  void first() override;
-  void next() override;
-  bool isDone() override;
-  Plant *current() override;
+    /// Move to first element
+    void first() override;
+
+    /// Move to next element
+    void next() override;
+
+    /// @return True if reached end
+    bool isDone() override;
+
+    /// @return Current plant pointer
+    Plant* current() override;
 };
 
 #endif

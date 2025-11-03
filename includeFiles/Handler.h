@@ -66,6 +66,11 @@ public:
    */
   Handler();
 
-  Handler *getSuccessor() { return successor; }
+  /**
+ * @brief Get next handler in chain
+ * @return Pointer to successor handler
+ */
+Handler* getSuccessor() { return successor; }
+
 };
 #endif

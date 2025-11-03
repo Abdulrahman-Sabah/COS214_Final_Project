@@ -3,29 +3,32 @@
 
 /**
  * @file SeedlingStateCmd.h
- * @brief Command to transition a plant into the Seedling lifecycle state.
+ * @brief Command to set a plant to SeedlingState.
  */
 
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class SeedlingStateCmd
+ * @brief Applies SeedlingState to a plant.
+ */
 class SeedlingStateCmd : public Commands {
 public:
-  SeedlingStateCmd();
-  virtual ~SeedlingStateCmd() {}
+    SeedlingStateCmd();
+    ~SeedlingStateCmd() override = default;
 
-  /** @brief Human-readable command name */
-  std::string name();
+    /// @return Command name
+    std::string name() override;
 
-  /**
-   * @brief Execute the command on the given plant
-   * @param plant Plant pointer to operate on
-   */
-  void execute(Plant *plant);
+    /**
+     * @brief Set seedling state
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label; /**< Optional label or payload for the command */
+    std::string m_label;
 };
 
-#endif
+#endif // SEEDLING_STATE_CMD_H

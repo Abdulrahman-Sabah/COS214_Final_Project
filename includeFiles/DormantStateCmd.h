@@ -1,25 +1,34 @@
+/**
+ * @file DormantStateCmd.h
+ * @brief Command to put a plant in DormantState.
+ */
+
 #ifndef DORMANTSTATECMD_H
 #define DORMANTSTATECMD_H
 
-/**
- * @file DormantStateCmd.h
- * @brief Command to toggle or manage DormantState behaviour for a plant.
- */
-
 #include <string>
-
 #include "Commands.h"
 
+/**
+ * @class DormantStateCmd
+ * @brief Applies DormantState to a plant.
+ */
 class DormantStateCmd : public Commands {
 public:
-  DormantStateCmd();
-  virtual ~DormantStateCmd() {}
+    DormantStateCmd();
+    ~DormantStateCmd() override = default;
 
-  std::string name();
-  void execute(Plant *plant);
+    /// @return Command name
+    std::string name() override;
+
+    /**
+     * @brief Change plant to DormantState
+     * @param plant Target plant
+     */
+    void execute(Plant* plant) override;
 
 private:
-  std::string m_label;
+    std::string m_label;
 };
 
-#endif
+#endif // DORMANTSTATECMD_H
