@@ -26,6 +26,9 @@ It simulates how the staff interact with customers, the plant life cycle changes
 It simualtes plant growth and life cycle changes using state desing pattern. It manages the inventory, which is the plants we have available, and when we buy or sell plants. 
 It allows customers to interact with staff members and the staff members assist them in giving them what they need. It handles transactions when plants are bought. It demonstrates the usage of 11 design patterns to make the system work as a whole, correctly and efficiently.
 
+##  Link to the report in Google Docs:  
+https://docs.google.com/document/d/1vor777XFPyVh4oTEEA_yd9F96e1kfakO/edit
+
 ##  Build Options:  
 The following commands must be run from root of project folder:
 ```bash
@@ -59,4 +62,5 @@ make run-server
 
 (Removes all object files, executables, and coverage data for a fresh rebuild)
 make clean
+
 
