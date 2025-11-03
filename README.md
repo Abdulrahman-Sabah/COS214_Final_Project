@@ -16,9 +16,9 @@
 ## Design Patterns:
 | Type | Patterns Implemented |
 |------|----------------------|
-| **Creational** | Factory, Prototype |
-| **Structural** | Decorator, Bridge, Composite |
-| **Behavioral** | Strategy, State, Observer, Command, Iterator, Chain of Responsibility |
+| **Creational** | Factory Method, Prototype |
+| **Structural** | Decorator, Adapter |
+| **Behavioral** | Strategy, State, Observer, Command, Iterator, Chain of Responsibility, Mediator |
 ---
 ## Build Options:  
 The following commands must be run from root of project folder:
