@@ -13,13 +13,13 @@
 | **Abdelrahman Ahmed** | u24898008 |
 | **Abdulrahman Sabah** | u24566170 |
 ---
-📋** Requirements **
+** Requirements **
 1. Working in WSL
 2. Have C++17 or higher
 3. Have clang format installed.
 4. Make sure you are in the correct folder i.e.COS214_Project/ , there should not be another COS214_Project within the first one
 ---
-📝**Short Description**
+**Short Description**
 ---
 Our nursery project is made from various design patterns which models a greenhouse/nursery operations. 
 It simulates how the staff interact with customers, the plant life cycle changes, care strategies, handling of operations such as taking care of plants or getting rid of them whent they die and helping customers and delivering the plants bought etc. 
@@ -29,6 +29,9 @@ It allows customers to interact with staff members and the staff members assist 
 ## 🔨 Build Options:  
 The following commands must be run from root of project folder:
 ```bash
+
+Build all the files
+make all
 
 Run the TestingMain program(This runs the TestingMain executable)
 make run
@@ -48,8 +51,8 @@ make run-demo
 Run Unit Tests (This runs the unit-tests)
 make run-tests
 
-(Check Memory leaks in testingMain)
-make valgrind
+(Check Memory leaks in Unit_Tests)
+make valgrind-tests
 
 Visit http://localhost:8081 (This runs the server executable and launches the web GUI)
 make run-server 
