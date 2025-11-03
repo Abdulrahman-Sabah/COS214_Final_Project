@@ -2,6 +2,8 @@
 /**
  * @file RoseCare.cpp
  * @brief Rose-specific CareStrategy implementation.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define ROSECARE_CPP_DOC
 #endif

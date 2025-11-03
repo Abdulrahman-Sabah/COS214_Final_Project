@@ -1,7 +1,12 @@
+#ifndef CARESSCHEDULEROBSERVER_CPP_DOC
 /**
  * @file CaresSchedulerObserver.cpp
  * @brief Observer implementation that updates care schedules on events.
+ * @author Git it done group members
+ * @date 10-2025
  */
+#define CARESSCHEDULEROBSERVER_CPP_DOC
+#endif
 
 #include "CactusCare.h"
 #include "CactusStrategyCmd.h"

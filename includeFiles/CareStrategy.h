@@ -1,14 +1,14 @@
+
 #ifndef CARESTRATEGY_H
 #define CARESTRATEGY_H
 
 /**
  * @file CareStrategy.h
- * @brief Abstract strategy interface for plant care behaviors.
- *
- * Declares the CareStrategy interface used in the Strategy Pattern.
- * Each plant type can dynamically assign a different care routine,
- * which allows behavior to change at runtime without modifying the Plant class.
+ * @brief It defines the CareStrategy class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
+
 
 #include <iostream>
 class Plant;

@@ -9,6 +9,8 @@
 /**
  * @file Landscaper.cpp
  * @brief Concrete handler that performs plant maintenance requests.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define LANDSCAPER_CPP_DOC
 #endif

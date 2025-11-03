@@ -1,7 +1,9 @@
 #ifndef STATEFRAMEWORK_CPP_DOC
 /**
  * @file stateFramework.cpp
- * @brief Tests exercising plant lifecycle states and transitions.
+ * @brief Unit Tests exercising plant lifecycle states and transitions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define STATEFRAMEWORK_CPP_DOC
 #endif
@@ -48,6 +50,9 @@ TEST_CASE("functions for Dormant state, when growing is true or false") {
     Rose *r = new Rose();
     DormantState *d = new DormantState();
     d->setGrowing(true);
+    CHECK(d->isGrowingAgain() == true);
+    CHECK(d->isDead() == false);
+    CHECK(r->getLifeCycle() != nullptr);
     r->setLifeCycle(d);
     r->getLifeCycle()->advance(r);
     CHECK(r->getLifeCycle()->name() == "Growing");
@@ -58,6 +63,9 @@ TEST_CASE("functions for Dormant state, when growing is true or false") {
     Rose *r = new Rose();
     DormantState *d = new DormantState();
     d->setGrowing(false);
+    CHECK(d->isGrowingAgain() == false);
+    CHECK(d->isDead() == false);
+    CHECK(r->getLifeCycle() != nullptr);
     r->setLifeCycle(d);
     r->getLifeCycle()->advance(r);
     CHECK(r->getLifeCycle()->name() == "Mature");
@@ -68,6 +76,7 @@ TEST_CASE("functions for Dormant state, when growing is true or false") {
 TEST_CASE("functions for Mature state") {
   Rose *r = new Rose();
   r->setLifeCycle(new MatureState());
+  CHECK(r->getLifeCycle() != nullptr);
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle()->name() == "Selling");
   delete r;
@@ -76,6 +85,7 @@ TEST_CASE("functions for Mature state") {
 TEST_CASE("We handle the Selling state advance function properly") {
   Rose *r = new Rose();
   r->setLifeCycle(new SellingState());
+  CHECK(r->getLifeCycle() != nullptr);
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle() != nullptr);
   delete r;
@@ -85,6 +95,7 @@ TEST_CASE("We handle the Dead state advance function properly") {
   Rose *r = new Rose();
   r->setLifeCycle(new DeadState());
   r->getLifeCycle()->setDead(true);
+  CHECK(r->getLifeCycle() != nullptr);  
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle()->name() == "Dead");
   CHECK(r->getLifeCycle()->isDead() == true);

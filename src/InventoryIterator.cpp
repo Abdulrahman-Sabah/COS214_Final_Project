@@ -2,6 +2,8 @@
 /**
  * @file InventoryIterator.cpp
  * @brief Concrete iterator for Inventory collections.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define INVENTORYITERATOR_CPP_DOC
 #endif

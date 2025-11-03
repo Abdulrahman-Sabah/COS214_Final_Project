@@ -4,6 +4,8 @@
 /**
  * @file LavenderStrategyCmd.h
  * @brief Command to set plant care to LavenderCare.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <string>
@@ -15,10 +17,14 @@
  */
 class LavenderStrategyCmd : public Commands {
 public:
+    /** @brief Constructor */
     LavenderStrategyCmd();
+    /** @brief Destructor */
     ~LavenderStrategyCmd() override = default;
 
-    /// @return Command name
+    /** 
+     * @brief Gets the command name
+     * @return Command name */
     std::string name() override;
 
     /**
@@ -28,6 +34,7 @@ public:
     void execute(Plant* plant) override;
 
 private:
+    /** @brief Command label */
     std::string m_label;
 };
 

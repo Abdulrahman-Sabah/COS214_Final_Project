@@ -1,6 +1,8 @@
 /**
  * @file GrowingState.h
- * @brief Plant is actively growing.
+ * @brief It defines the GrowingState class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #ifndef GROWINGSTATE_H
@@ -11,25 +13,43 @@
 /**
  * @class GrowingState
  * @brief Lifecycle state for a growing plant.
+ * @details Inherits from PlantLifeCycleState and represents the growing state
+ * of a plant's lifecycle.
  */
 class GrowingState : public PlantLifeCycleState {
 public:
+    /**
+     * @brief Default Constructor
+     */
     GrowingState();
+    /**
+     * @brief Default Destructor
+     */
     ~GrowingState() override;
 
     /**
      * @brief Move to next lifecycle state
      * @param plant Target plant
+     * @details if the plant is dead, moves to deadState else moves to DormantState
      */
     void advance(Plant* plant) override;
 
-    /// @return "Growing"
+    /**
+     * @brief Get state name
+     * @return "Growing"
+     */
     std::string name() override;
 
-    /// @return false (not dead)
+    /**
+     * @brief Check if plant is dead
+     * @return true if dead, false otherwise
+     */
     bool isDead() override;
 
-    /// @return true if plant requires care
+    /**
+     * @brief Check if plant requires attention
+     * @return true if requires attention, false otherwise
+     */
     bool needsAttention() override;
 };
 

@@ -4,6 +4,8 @@
 /**
  * @file PlantLifeCycleState.h
  * @brief Abstract lifecycle state interface.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <iostream>
@@ -11,13 +13,25 @@
 #include <vector>
 #include "Plant.h"
 
+/**
+ * @class PlantLifeCycleState
+ * @brief Abstract base class for plant lifecycle states.
+ */
 class PlantLifeCycleState {
 protected:
+    /** @brief Dead flag */
     bool dead;
+    /** @brief Attention flag */
     bool attention;
 
 public:
+    /**
+     * @brief Constructor
+     */
     PlantLifeCycleState();
+    /** 
+     * @brief Destructor
+     */
     virtual ~PlantLifeCycleState() = default;
 
     /**
@@ -26,13 +40,22 @@ public:
      */
     virtual void advance(Plant* plant) = 0;
 
-    /// @return State name
+    /**
+     * @brief Get the state name
+     * @return State name
+     */
     virtual std::string name() = 0;
 
-    /// @return True if state is dead
+    /**
+     * @brief Get dead flag
+     *  @return True if state is dead, false otherwise
+     */ 
     bool getDead();
 
-    /// @return True if needs care
+    /**
+     * @brief Get attention flag
+     * @return True if needs care
+     */
     bool getAttention();
 
     /**
@@ -49,10 +72,16 @@ public:
      */
     bool setAttention(bool a);
 
-    /// @return True if dead (override in subclass)
+    /**
+     * @brief Check if plant is dead    
+     * @return True if dead (override in subclass)
+     */
     virtual bool isDead() = 0;
 
-    /// @return True if needs attention (override)
+    /**
+     * @brief Check if plant needs attention
+     * @return True if needs attention (override)
+     */
     virtual bool needsAttention() = 0;
 };
 

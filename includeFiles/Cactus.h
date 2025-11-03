@@ -1,13 +1,11 @@
+
 #ifndef CACTUS_H
 #define CACTUS_H
-
 /**
  * @file Cactus.h
- * @brief Declaration of the Cactus concrete plant class.
- *
- * This class represents a cactus item in the plant nursery.
- * Cactus objects have their own pricing, description, and type,
- * and support cloning through the Prototype design pattern.
+ * @brief It defines the Cactus class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "Plant.h"
@@ -15,17 +13,15 @@
 /**
  * @class Cactus
  * @brief Represents a cactus plant available for purchase.
- *
- * Inherits from the Plant abstract base class and overrides
- * required functions such as description(), price(), clone(),
- * and getType(). Cactus plants typically require low-water care.
+ * @details Inherits from the Plant abstract base class and overrides
+ * required functions such as description(), price(), clone()and getType().
  */
 class Cactus : public Plant {
 public:
     /**
      * @brief Default constructor.
      *
-     * Initializes a cactus plant with its predefined lifecycle state,
+     * @details Initializes a cactus plant with its predefined lifecycle state,
      * care strategy, and seasonal attributes (if assigned later).
      */
     Cactus();
@@ -33,7 +29,7 @@ public:
     /**
      * @brief Destructor.
      *
-     * Ensures proper cleanup if strategies or states have been set.
+     * @details Ensures proper cleanup if strategies or states have been set.
      */
     ~Cactus();
 
@@ -52,7 +48,7 @@ public:
     /**
      * @brief Clone this cactus instance using deep copy.
      *
-     * Supports Prototype design pattern for duplicating plants.
+     * @details Supports Prototype design pattern for duplicating plants.
      * @return A pointer to a new cloned Cactus object.
      */
     Plant* clone() override;

@@ -2,6 +2,8 @@
 /**
  * @file SellingState.cpp
  * @brief Implementation of the SellingState lifecycle state for plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define SELLINGSTATE_CPP_DOC
 #endif

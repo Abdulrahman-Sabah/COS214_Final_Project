@@ -2,6 +2,8 @@
 /**
  * @file LavenderCare.cpp
  * @brief Lavender-specific CareStrategy implementation.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define LAVENDERCARE_CPP_DOC
 #endif

@@ -1,13 +1,12 @@
+
 #ifndef BASICPLANT_H
 #define BASICPLANT_H
 
 /**
  * @file BasicPlant.h
- * @brief Concrete implementation of a simple Plant type.
- *
- * This class represents a basic plant model with a name, price,
- * and basic description. It supports cloning (Prototype pattern),
- * pricing, and descriptive details without advanced behaviors.
+ * @brief It defines the BasicPlant class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "Plant.h"
@@ -15,11 +14,8 @@
 /**
  * @class BasicPlant
  * @brief Represents a simple, concrete plant used in the nursery inventory.
- *
- * Inherits from the Plant abstract class and provides basic information:
- * - Fixed price
- * - Text description
- * - Care type, lifecycle state, and seasonal information
+ * @details Inherits from the Plant abstract class and provides basic information:
+ * such as price, description name, state season and caretype.
  */
 class BasicPlant : public Plant {
 private:
@@ -64,7 +60,7 @@ public:
     double price() override;
 
     /**
-     * @brief Clone this plant instance (Prototype pattern support).
+     * @brief Cloning the plant (Prototype design pattern).
      *
      * @return A newly allocated BasicPlant object with
      *         identical internal data.

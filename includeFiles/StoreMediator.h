@@ -1,10 +1,12 @@
+
+#ifndef STOREMEDIATOR_H
+#define STOREMEDIATOR_H
+
 /**
  * @file StoreMediator.h
  * @brief Mediator interface for coordinating communication.
  */
 
-#ifndef STOREMEDIATOR_H
-#define STOREMEDIATOR_H
 
 #include <string>
 #include "Plant.h"
@@ -24,7 +26,7 @@ public:
      */
     virtual void notify(Plant* plant, const std::string& event) = 0;
 
-    /// Virtual destructor
+    /// @brief Virtual destructor
     virtual ~StoreMediator() = default;
 };
 

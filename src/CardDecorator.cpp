@@ -2,6 +2,8 @@
 /**
  * @file CardDecorator.cpp
  * @brief Implementation of the CardDecorator which adds card message & cost.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define CARDDECORATOR_CPP_DOC
 #endif

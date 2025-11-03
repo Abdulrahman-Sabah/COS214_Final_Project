@@ -1,7 +1,9 @@
 #ifndef OBSERVERFRAMEWORK_CPP_DOC
 /**
  * @file observerFramework.cpp
- * @brief Tests for Observer-based care scheduling and notifications.
+ * @brief Unit Tests for Observer-based care scheduling and notifications.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define OBSERVERFRAMEWORK_CPP_DOC
 #endif

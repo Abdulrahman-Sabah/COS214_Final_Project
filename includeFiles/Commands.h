@@ -1,10 +1,13 @@
-/**
- * @file Commands.h
- * @brief Base class for Command pattern.
- */
 
 #ifndef COMMANDS_H
 #define COMMANDS_H
+
+/**
+ * @file Commands.h
+ * @brief It defines the Commands class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
+ */
 
 #include <string>
 #include "Plant.h"
@@ -15,10 +18,10 @@
  */
 class Commands {
 public:
-    /// Default constructor
+    /// @brief Default constructor
     Commands() = default;
 
-    /// Virtual destructor
+    /// @brief Virtual destructor
     virtual ~Commands() = default;
 
     /// @return Command name

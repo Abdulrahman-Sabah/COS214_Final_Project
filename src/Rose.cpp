@@ -3,6 +3,8 @@
 /**
  * @file Rose.cpp
  * @brief Concrete Rose plant implementation.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define ROSE_CPP_DOC
 #endif

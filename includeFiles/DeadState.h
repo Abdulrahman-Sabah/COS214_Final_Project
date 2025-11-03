@@ -1,16 +1,20 @@
-/**
- * @file DeadState.h
- * @brief Plant state when the plant is dead.
- */
 
 #ifndef DEADSTATE_H
 #define DEADSTATE_H
+
+/**
+ * @file DeadState.h
+ * @brief It defines the DeadState class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
+ */
 
 #include "PlantLifeCycleState.h"
 
 /**
  * @class DeadState
  * @brief Lifecycle state for a dead plant.
+ * @details Inherits from PlantLifeCycleState and represents the dead state of a plant.
  */
 class DeadState : public PlantLifeCycleState {
 public:
@@ -23,13 +27,22 @@ public:
      */
     void advance(Plant* plant) override;
 
-    /// @return "Dead"
+    /**
+     * @brief Get the name of the state
+     * @return "Dead"
+     */
     std::string name() override;
 
-    /// @return true (always dead)
+    /**
+     * @brief Check if plant is dead (always dead)
+     * @return true
+     */
     bool isDead() override;
 
-    /// @return false (no care needed)
+    /**
+     * @brief Check if the plant needs attention
+     * @return false
+     */
     bool needsAttention() override;
 };
 

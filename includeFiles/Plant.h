@@ -9,6 +9,8 @@ using namespace std;
 /**
  * @file Plant.h
  * @brief Abstract base class for all plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 class CareStrategy;
@@ -17,6 +19,7 @@ class PlantObserver;
 
 class Plant {
 private:
+    /** @brief Plant attributes */
     string name;
     string careType;
     string state;
@@ -27,7 +30,7 @@ private:
     double price_;
 
 protected:
-    /// Notify when lifecycle state changes
+    /// @brief Notify when lifecycle state changes
     void notifyStateChanged();
 
     /**
@@ -42,7 +45,7 @@ protected:
      */
     void notifySeasonChanged(string newSeason);
 
-    /// Notify care strategy changed
+    /// @brief Notify care strategy changed
     void notifyCareStrategyChanged();
 
 public:
@@ -61,10 +64,10 @@ public:
     Plant(string name, string careType, string state, string season,
           CareStrategy* strategy, PlantLifeCycleState* life);
 
-    /// Default constructor
+    /// @brief Default constructor
     Plant();
 
-    /// Destructor
+    /// @brief Destructor
     virtual ~Plant();
 
     /// @return Description text

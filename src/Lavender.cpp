@@ -2,6 +2,8 @@
 /**
  * @file Lavender.cpp
  * @brief Concrete Lavender plant implementation.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define LAVENDER_CPP_DOC
 #endif

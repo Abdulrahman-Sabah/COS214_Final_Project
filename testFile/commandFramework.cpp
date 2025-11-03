@@ -2,9 +2,10 @@
 /**
  * @file commandFramework.cpp
  * @brief Tests for command objects and lifecycle commands.
- *
- * Verifies strategy/command execution and safe handling of null plant
+ * @details Verifies strategy/command execution and safe handling of null plant
  * pointers.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define COMMANDFRAMEWORK_CPP_DOC
 #endif

@@ -2,6 +2,8 @@
 /**
  * @file SeedlingStateCmd.cpp
  * @brief Command implementation to set Seedling lifecycle state on plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define SEEDLINGSTATECMD_CPP_DOC
 #endif

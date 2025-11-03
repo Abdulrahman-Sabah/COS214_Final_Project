@@ -2,6 +2,8 @@
 /**
  * @file CactusCare.cpp
  * @brief Implementation of cactus-specific CareStrategy behaviour.
+ * * @author Git it done group members
+ * @date 10-2025
  */
 #define CACTUSCARE_CPP_DOC
 #endif

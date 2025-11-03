@@ -2,6 +2,8 @@
 /**
  * @file PlantLifeCycleState.cpp
  * @brief Base implementations for plant lifecycle state helpers.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define PLANTLIFECYCLESTATE_CPP_DOC
 #endif

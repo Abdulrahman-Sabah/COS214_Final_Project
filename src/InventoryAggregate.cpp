@@ -2,6 +2,8 @@
 /**
  * @file InventoryAggregate.cpp
  * @brief Abstract aggregate implementation helpers.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define INVENTORYAGGREGATE_CPP_DOC
 #endif

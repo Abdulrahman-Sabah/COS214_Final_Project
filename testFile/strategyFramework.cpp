@@ -1,7 +1,9 @@
 #ifndef STRATEGYFRAMEWORK_CPP_DOC
 /**
  * @file strategyFramework.cpp
- * @brief Tests for CareStrategy implementations and their output.
+ * @brief Unit Tests for CareStrategy implementations and their output.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define STRATEGYFRAMEWORK_CPP_DOC
 #endif

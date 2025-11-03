@@ -10,6 +10,8 @@
 /**
  * @file Handler.cpp
  * @brief Base class implementation for Chain of Responsibility helpers.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define HANDLER_CPP_DOC
 #endif

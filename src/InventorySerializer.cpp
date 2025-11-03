@@ -2,6 +2,8 @@
 /**
  * @file InventorySerializer.cpp
  * @brief JSON load/save helpers for Inventory state persistence.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define INVENTORYSERIALIZER_CPP_DOC
 #endif

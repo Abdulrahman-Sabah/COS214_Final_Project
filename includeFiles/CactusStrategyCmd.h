@@ -1,18 +1,23 @@
+
 #ifndef CACTUS_STRATEGY_CMD_H
 #define CACTUS_STRATEGY_CMD_H
 
 /**
  * @file CactusStrategyCmd.h
- * @brief Command to switch a plant's care strategy to CactusCare.
- *
- * This command is used by handlers to change a plant's CareStrategy to
- * cactus-specific behavior.
+ * @brief It defines the CactusStrategyCmd class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <string>
 
 #include "Commands.h"
-
+/**
+ * @class CactusStrategyCmd
+ * @brief Command to switch a plant's care strategy to CactusCare.
+ * @details Inherits from Commands and implements the Command pattern
+ * to execute the command to care for the plant as a cactus.
+ */
 class CactusStrategyCmd : public Commands {
 public:
   CactusStrategyCmd();
@@ -30,6 +35,9 @@ public:
   void execute(Plant *plant) override;
 
 private:
+  /**
+   * @brief Label identifying this command.
+   */
   std::string m_label;
 };
 

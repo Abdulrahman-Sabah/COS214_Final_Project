@@ -2,6 +2,8 @@
 /**
  * @file FrontDesk.cpp
  * @brief Mediator implementation coordinating customers and delivery staff.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define FRONTDESK_CPP_DOC
 #endif

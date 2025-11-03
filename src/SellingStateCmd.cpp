@@ -2,6 +2,8 @@
 /**
  * @file SellingStateCmd.cpp
  * @brief Command to set a Plant into the Selling lifecycle state.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define SELLINGSTATECMD_CPP_DOC
 #endif

@@ -2,6 +2,8 @@
 /**
  * @file LavenderStrategyCmd.cpp
  * @brief Command implementation to apply Lavender care strategy.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define LAVENDERSTRATEGYCMD_CPP_DOC
 #endif

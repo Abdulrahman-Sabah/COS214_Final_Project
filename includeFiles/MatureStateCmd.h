@@ -4,6 +4,8 @@
 /**
  * @file MatureStateCmd.h
  * @brief Command to set a plant to MatureState.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <string>
@@ -12,13 +14,23 @@
 /**
  * @class MatureStateCmd
  * @brief Applies MatureState to a plant.
+ * @details Inherits from Commands.
  */
 class MatureStateCmd : public Commands {
 public:
+    /**
+     * @brief Constructor
+     */
     MatureStateCmd();
+    /** 
+     * @brief Destructor
+     */
     ~MatureStateCmd() override = default;
 
-    /// @return Command name
+    /**
+     * @brief Get the command name
+     * @return Command name
+     */
     std::string name() override;
 
     /**
@@ -28,6 +40,7 @@ public:
     void execute(Plant* plant) override;
 
 private:
+    /** Command label */
     std::string m_label;
 };
 

@@ -2,9 +2,8 @@
 /**
  * @file chainFramework.cpp
  * @brief Unit tests for the Chain of Responsibility (Handler) demo.
- *
- * These doctest cases exercise handler chaining, successor wiring and safety
- * checks when null pointers are provided.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define CHAINFRAMEWORK_CPP_DOC
 #endif

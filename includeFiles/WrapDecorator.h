@@ -4,6 +4,8 @@
 /**
  * @file WrapDecorator.h
  * @brief Adds wrapping decoration and cost to a plant.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "PlantDecorations.h"
@@ -11,10 +13,13 @@
 /**
  * @class WrapDecorator
  * @brief Decorator for adding wrapping.
+ * @details Inherits from PlantDecorations to add wrapping type and cost.
  */
 class WrapDecorator : public PlantDecorations {
 private:
+    /** @brief Type of wrapping */
     string wrapType;
+    /** @brief Additional cost for wrapping */
     double wrapCost;
 
 public:
@@ -26,13 +31,22 @@ public:
      */
     WrapDecorator(Plant* item, string wrap, double cost);
 
-    /// @return Description including wrap
+    /**
+     * @brief Get description of the wrapped plant
+     * @return Description including wrap
+     */
     string description() override;
 
-    /// @return Price + wrap cost
+    /**
+     * @brief Get the price of the wrapped plant
+     * @return Price + wrap cost
+     */
     double price() override;
 
-    /// @return Cloned wrapped plant
+    /**
+     * @brief Clone the wrapped plant
+     * @return Cloned wrapped plant
+     */
     Plant* clone() override;
 };
 

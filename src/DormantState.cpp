@@ -2,6 +2,8 @@
 /**
  * @file DormantState.cpp
  * @brief Implementation of DormantState lifecycle behaviour.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DORMANTSTATE_CPP_DOC
 #endif
