@@ -5,8 +5,8 @@
 /**
  * @file StoreColleague.h
  * @brief Base class for participants in the Store mediator pattern.
- * @details StoreColleague represents an entity (customer, delivery staff, etc.) that
- * communicates via a StoreMediator.
+ * @details StoreColleague represents an entity (customer, delivery staff, etc.)
+ * that communicates via a StoreMediator.
  * @author Git it done group members
  * @date 10-2025
  */
@@ -22,7 +22,7 @@
 class StoreColleague {
 protected:
   /** @brief Pointer to the mediator */
-  StoreMediator *mediator; 
+  StoreMediator *mediator;
 
 public:
   /** @brief Constructor */

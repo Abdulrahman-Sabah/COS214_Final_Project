@@ -9,15 +9,15 @@
  * @date 10-2025
  */
 
-#include <vector>
 #include "Plant.h"
 #include "PlantIterator.h"
+#include <vector>
 
 /**
  * @class Inventory
  * @brief Manages a collection of Plant objects
  * @details The Inventory class provides methods to add, remove, and get Plant
- * objects. 
+ * objects.
  */
 class Inventory {
 private:

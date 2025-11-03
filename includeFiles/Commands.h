@@ -9,8 +9,8 @@
  * @date 10-2025
  */
 
-#include <string>
 #include "Plant.h"
+#include <string>
 
 /**
  * @class Commands
@@ -18,20 +18,20 @@
  */
 class Commands {
 public:
-    /// @brief Default constructor
-    Commands() = default;
+  /// @brief Default constructor
+  Commands() = default;
 
-    /// @brief Virtual destructor
-    virtual ~Commands() = default;
+  /// @brief Virtual destructor
+  virtual ~Commands() = default;
 
-    /// @return Command name
-    virtual std::string name() = 0;
+  /// @return Command name
+  virtual std::string name() = 0;
 
-    /**
-     * @brief Execute action on a plant
-     * @param plant Target plant (may be nullptr)
-     */
-    virtual void execute(Plant* plant) = 0;
+  /**
+   * @brief Execute action on a plant
+   * @param plant Target plant (may be nullptr)
+   */
+  virtual void execute(Plant *plant) = 0;
 };
 
 #endif // COMMANDS_H

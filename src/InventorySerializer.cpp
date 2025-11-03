@@ -31,8 +31,7 @@ void InventorySerializer::saveToFile(Inventory &inventory,
   }
 
   std::cout << "Saving to: " << filename << std::endl;
-  std::cout << "Current dir: " << std::filesystem::current_path()
-            << std::endl;
+  std::cout << "Current dir: " << std::filesystem::current_path() << std::endl;
 
   file << "{\"plants\":[";
 
@@ -180,8 +179,7 @@ void InventorySerializer::loadFromFile(Inventory &inventory,
   }
 
   if (plantsLoaded == 0) {
-    std::cout << "No plants found in JSON, initializing defaults"
-              << std::endl;
+    std::cout << "No plants found in JSON, initializing defaults" << std::endl;
     initializeInventory(inventory);
     saveToFile(inventory, filename);
   }

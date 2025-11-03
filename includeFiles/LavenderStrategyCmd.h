@@ -8,8 +8,8 @@
  * @date 10-2025
  */
 
-#include <string>
 #include "Commands.h"
+#include <string>
 
 /**
  * @class LavenderStrategyCmd
@@ -17,25 +17,25 @@
  */
 class LavenderStrategyCmd : public Commands {
 public:
-    /** @brief Constructor */
-    LavenderStrategyCmd();
-    /** @brief Destructor */
-    ~LavenderStrategyCmd() override = default;
+  /** @brief Constructor */
+  LavenderStrategyCmd();
+  /** @brief Destructor */
+  ~LavenderStrategyCmd() override = default;
 
-    /** 
-     * @brief Gets the command name
-     * @return Command name */
-    std::string name() override;
+  /**
+   * @brief Gets the command name
+   * @return Command name */
+  std::string name() override;
 
-    /**
-     * @brief Set lavender care
-     * @param plant Target plant
-     */
-    void execute(Plant* plant) override;
+  /**
+   * @brief Set lavender care
+   * @param plant Target plant
+   */
+  void execute(Plant *plant) override;
 
 private:
-    /** @brief Command label */
-    std::string m_label;
+  /** @brief Command label */
+  std::string m_label;
 };
 
 #endif // LAVENDER_STRATEGY_CMD_H

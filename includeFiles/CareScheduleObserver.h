@@ -14,9 +14,11 @@
 #include "PlantObserver.h"
 /**
  * @class CareSchedulerObserver
- * @brief Concrete observer that monitors plant state changes for care scheduling
- * @details CareSchedulerObserver implements the Observer pattern to track changes in plant
- * lifecycle states and care strategies. It responds to these changes by updating care schedules and updating the important changes.
+ * @brief Concrete observer that monitors plant state changes for care
+ * scheduling
+ * @details CareSchedulerObserver implements the Observer pattern to track
+ * changes in plant lifecycle states and care strategies. It responds to these
+ * changes by updating care schedules and updating the important changes.
  */
 class CareSchedulerObserver : public PlantObserver {
 public:
@@ -33,28 +35,30 @@ public:
    * @brief Called when a plant's lifecycle state changes
    * @param plant Pointer to the plant with lifecycle change
    * @param newState Pointer to the new lifecycle state
-   * @details This method responds to plant lifecycle state changes and updates care schedules accordingly.
+   * @details This method responds to plant lifecycle state changes and updates
+   * care schedules accordingly.
    */
   void onLifeCycleChanged(Plant *plant, PlantLifeCycleState *newState) override;
 
   /**
    * @brief Called when a plant's care strategy changes
-  * @param plant Pointer to the plant with strategy change
-  * @param newStrategy Pointer to the new CareStrategy
-   * @details This method responds to care strategy changes in the plant and updates care schedules accordingly.
+   * @param plant Pointer to the plant with strategy change
+   * @param newStrategy Pointer to the new CareStrategy
+   * @details This method responds to care strategy changes in the plant and
+   * updates care schedules accordingly.
    */
   void onCareStrategyChanged(Plant *plant, CareStrategy *newStrategy) override;
 
   /**
-   * @brief default constructor 
+   * @brief default constructor
    */
   CareSchedulerObserver();
 
   /**
- * @brief Set next handler in chain
- * @param newHandler Handler pointer
- */
-void setHandler(Handler* newHandler);
+   * @brief Set next handler in chain
+   * @param newHandler Handler pointer
+   */
+  void setHandler(Handler *newHandler);
 };
 
 #endif

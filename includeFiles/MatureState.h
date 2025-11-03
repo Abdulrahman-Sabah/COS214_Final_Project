@@ -16,46 +16,47 @@
  */
 class MatureState : public PlantLifeCycleState {
 public:
-    /**
-     * @brief Constructor
-     */
-    MatureState();
-    /** 
-     * @brief Destructor
-     */
-    ~MatureState() override;
+  /**
+   * @brief Constructor
+   */
+  MatureState();
+  /**
+   * @brief Destructor
+   */
+  ~MatureState() override;
 
-    /**
-     * @brief Move to next state
-     * @param plant Target plant
-     * @details if isDead() then plant moves to DeadState else moves to sellingState
-     */
-    void advance(Plant* plant) override;
+  /**
+   * @brief Move to next state
+   * @param plant Target plant
+   * @details if isDead() then plant moves to DeadState else moves to
+   * sellingState
+   */
+  void advance(Plant *plant) override;
 
-    /**
-     * @brief Get the state name
-     * @return "Mature"
-     */
-    std::string name() override;
+  /**
+   * @brief Get the state name
+   * @return "Mature"
+   */
+  std::string name() override;
 
-    /**
-     * @brief Check if the plant is dead
-     * @return returns true if dead, false otherwise
-     */
-    bool isDead() override;
+  /**
+   * @brief Check if the plant is dead
+   * @return returns true if dead, false otherwise
+   */
+  bool isDead() override;
 
-    /**
-     * @brief Check if growth may resume
-     * @param plant Target plant
-     * @return true if plant may grow again, false otherwise
-     */
-    bool isGrowingAgain(Plant* plant);
+  /**
+   * @brief Check if growth may resume
+   * @param plant Target plant
+   * @return true if plant may grow again, false otherwise
+   */
+  bool isGrowingAgain(Plant *plant);
 
-    /**
-     * @brief Check if the plant needs attention
-     * @return returns true if needs attention, false otherwise
-     */
-    bool needsAttention() override;
+  /**
+   * @brief Check if the plant needs attention
+   * @return returns true if needs attention, false otherwise
+   */
+  bool needsAttention() override;
 };
 
 #endif // MATURESTATE_H

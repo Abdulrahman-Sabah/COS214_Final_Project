@@ -1,8 +1,10 @@
 #ifndef STORECUSTOMER_CPP_DOC
 /**
  * @file StoreCustomer.cpp
- * @brief Concrete colleague that represents a customer in the store mediator demo. 
- * @details Provides request and receive callbacks used by the StoreMediator or FrontDesk.
+ * @brief Concrete colleague that represents a customer in the store mediator
+ * demo.
+ * @details Provides request and receive callbacks used by the StoreMediator or
+ * FrontDesk.
  * @author Git it done group members
  * @date 10-2025
  */

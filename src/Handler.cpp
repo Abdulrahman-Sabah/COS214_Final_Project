@@ -22,9 +22,7 @@
 
 Handler::Handler() : successor(nullptr), subject(nullptr) {}
 
-Handler::~Handler() {
-  successor = nullptr;
-}
+Handler::~Handler() { successor = nullptr; }
 
 void Handler::setSuccessor(Handler *h) {
   if (!h)

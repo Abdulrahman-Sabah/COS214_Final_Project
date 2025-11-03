@@ -19,7 +19,7 @@
  */
 class CardDecorator : public PlantDecorations {
 private:
-  string message; /**< Message printed on the card */
+  string message;  /**< Message printed on the card */
   double cardCost; /**< Additional cost for the card */
 
 public:

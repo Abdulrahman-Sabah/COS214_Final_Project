@@ -15,16 +15,16 @@
  */
 class LavenderCare : public CareStrategy {
 public:
-    /**
-     * @brief Apply lavender care actions
-     * @param plant Target plant
-     */
-    void applyCare(Plant* plant) override;
+  /**
+   * @brief Apply lavender care actions
+   * @param plant Target plant
+   */
+  void applyCare(Plant *plant) override;
 
-    /**
-     * @brief Destructor
-     */
-    ~LavenderCare() override = default;
+  /**
+   * @brief Destructor
+   */
+  ~LavenderCare() override = default;
 };
 
 #endif // LAVENDERCARE_H

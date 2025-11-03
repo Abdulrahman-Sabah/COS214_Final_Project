@@ -9,9 +9,9 @@
  * @date 10-2025
  */
 
-#include <vector>
 #include "Plant.h"
 #include "PlantIterator.h"
+#include <vector>
 
 /**
  * @class InventoryAggregate

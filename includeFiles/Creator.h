@@ -17,16 +17,16 @@
  */
 class Creator {
 public:
-    Plant* product = nullptr;
+  Plant *product = nullptr;
 
-    /**
-     * @brief Create a plant object
-     * @return New Plant instance
-     */
-    virtual Plant* factoryMethod() const = 0;
+  /**
+   * @brief Create a plant object
+   * @return New Plant instance
+   */
+  virtual Plant *factoryMethod() const = 0;
 
-    /// @brief Virtual destructor
-    virtual ~Creator() = default;
+  /// @brief Virtual destructor
+  virtual ~Creator() = default;
 };
 
 #endif // CREATOR_H

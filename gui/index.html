@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌱 Pixel Plant Nursery — Customer & Staff</title>
+  <title>Git It Done Plant Nursery — Customer & Staff</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -61,7 +61,6 @@
     .no-selection { text-align: center; color: #666; padding: 40px; font-style: italic; }
     .loading { text-align: center; color: #2F4F2F; padding: 40px; font-size: 18px; }
 
-    /* Role chooser overlay */
     .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index: 2000; }
     .overlay-card { width: 96%; max-width: 680px; background:#F5DEB3; border:8px solid #8B4513; border-radius:4px; padding: 22px; text-align:center; }
     .role-grid { margin-top: 14px; display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -71,7 +70,6 @@
     .pin-row { margin-top: 12px; display:flex; justify-content:center; gap: 8px; }
     .pin-input { border: 3px solid #8B4513; background:#FFF8DC; padding: 8px; width: 180px; text-align:center; font-weight:bold; }
 
-    /* Staff table */
     table { width:100%; border-collapse: collapse; background:#F5DEB3; }
     th, td { border: 2px solid #8B4513; padding: 6px; font-size: 13px; }
     th { background:#FFE4B5; }
@@ -82,10 +80,9 @@
   </style>
 </head>
 <body>
-  <!-- Role chooser overlay -->
   <div id="roleOverlay" class="overlay">
     <div class="overlay-card">
-      <h2 style="color:#2F4F2F; text-shadow:1px 1px #D2B48C;">🌱 Welcome to PIXEL PLANT NURSERY</h2>
+      <h2 style="color:#2F4F2F; text-shadow:1px 1px #D2B48C;"></h2> Welcome to Git It Done Plant Nursery</h2>
       <p style="margin-top:6px;">Choose how you want to enter:</p>
       <div class="role-grid">
         <div class="role-tile" id="chooseCustomer">
@@ -110,14 +107,13 @@
 
   <div class="nursery-container">
     <div class="header">
-      <h1>🌱 PIXEL PLANT NURSERY</h1>
+      <h1>Git It Done PLANT NURSERY</h1>
       <div style="display:flex; gap:8px; align-items:center;">
         <span class="role-chip">Role: <span id="roleLabel">Customer</span></span>
         <button id="switchRoleBtn" class="btn btn-accent">Switch Role</button>
       </div>
     </div>
 
-    <!-- Shared / Customer Stats Bar -->
     <div id="statsBar" class="stats-bar">
       <div class="stat"><div>Available</div><div class="stat-value" id="inventory-count">0</div></div>
       <div class="stat"><div>Balance</div><div class="stat-value" id="balance">R500.00</div></div>
@@ -125,28 +121,26 @@
       <div class="stat"><div>Basket Total</div><div class="stat-value" id="basket-total">R0.00</div></div>
     </div>
 
-    <!-- CUSTOMER VIEW -->
     <div id="customerView">
       <div class="main-area">
         <div class="inventory-section">
-          <div class="section-title">🏪 AVAILABLE PLANTS</div>
+          <div class="section-title">AVAILABLE PLANTS</div>
           <div class="plant-grid" id="plant-grid"><div class="loading">Loading plants...</div></div>
           <div class="iterator-display" id="iterator-info">Iterator Position: <span id="iterator-pos">0</span> / <span id="iterator-total">0</span></div>
         </div>
 
         <div class="info-panel">
-          <div class="section-title">📋 PLANT DETAILS</div>
+          <div class="section-title">PLANT DETAILS</div>
           <div id="plant-details"><div class="no-selection">Click on a plant to view details</div></div>
           <div class="controls" style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
             <button class="btn btn-accent" id="browse-btn" disabled>→ Browse Next</button>
-            <button class="btn" style="background:#32CD32; color:#fff;" id="basket-btn" disabled>🛒 Add to Basket</button>
-            <button class="btn btn-primary" id="purchase-btn" disabled>💰 Purchase Basket</button>
+            <button class="btn" style="background:#32CD32; color:#fff;" id="basket-btn" disabled>Add to Basket</button>
+            <button class="btn btn-primary" id="purchase-btn" disabled>Purchase Basket</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- STAFF VIEW -->
     <div id="staffView" class="hidden">
       <div class="staff-panel">
         <div class="section-title">🧑‍🌾 STAFF DASHBOARD — Inventory Management</div>
@@ -154,7 +148,6 @@
     <button id="loadFromJsonBtn" class="btn btn-accent">Load from inventory_state.json</button>
     <button id="loadDemoBtn" class="btn">Load Demo Plants</button>
     <button id="exportJsonBtn" class="btn btn-primary">Export inventory_state.json</button>
-    <!-- 🆕 ADD THIS BUTTON RIGHT HERE -->
     <button id="simulateDayBtn" class="btn" style="background:#FFA500;">Simulate Day</button>
     <button id="clearAllBtn" class="btn" style="background:#ffb7b7;">Clear All</button>
     </div>
@@ -172,7 +165,6 @@
               </tr>
             </thead>
             <tbody id="staffTbody">
-              <!-- rows injected -->
             </tbody>
           </table>
         </div>
@@ -227,7 +219,6 @@
   </div>
 
   <script>
-    // ===== Data Model =====
     class Plant {
       constructor(name, careType, state, season, price) {
         this.name = name; this.careType = careType; this.state = state; this.season = season; this.plantPrice = Number(price) || 0;
@@ -236,19 +227,17 @@
       getSprite(){ 
     const s = { 
         'Red Rose': '🌹', 'Rose': '🌹',
-        'Aloe Vera': '🌵', 'Barrel Cactus': '🌵', 'Cactus': '🌵',
-        'Lavender': '💜', 'Baobab Tree': '🌳', 'Jade Plant': '🪴',
-        'Peace Lily': '🌸', 'Snake Plant': '🌿'
+        'Pink Rose': '🌸', 'Barrel Cactus': '🌵', 'Cactus': '🌵',
+        'Lavender': '💜', 'Lavender': '💜'
     };
     
-    // 🎯 Updated sprite logic for valid states
-    if (this.state === 'Dead') return '💀';
-    if (this.state === 'Seedling') return '🌱';
-    if (this.state === 'Growing') return '🪴';
-    if (this.state === 'Mature') return '🌳';
-    if (this.state === 'Selling') return '💰';  // Money bag for selling plants
-    if (this.state === 'Dormant') return '😴';  // Sleeping face for dormant
-    
+    if (this.state === 'Dead') return '💀 Dead';
+    if (this.state === 'Seedling') return '🌱 Seedling';
+    if (this.state === 'Growing') return '🪴 Growing';
+    if (this.state === 'Mature') return '🌳 Mature';
+    if (this.state === 'Selling') return 'Selling';  
+    if (this.state === 'Dormant') return 'Dormant';  
+
     return s[this.name] || '🌱';
 }
 }
@@ -286,25 +275,19 @@ class Lavender extends Plant {
     class PlantIterator { constructor(plants){ this.plants=plants; this.currentIndex=0; } first(){this.currentIndex=0;} next(){ if(!this.isDone()) this.currentIndex++; } isDone(){return this.currentIndex>=this.plants.length;} current(){return this.isDone()?null:this.plants[this.currentIndex];} getPosition(){return this.currentIndex;} getTotal(){return this.plants.length;} }
     class Inventory { constructor(){ this.plants=[]; } addPlant(p){ if(p) this.plants.push(p);} removePlant(p){ const i=this.plants.indexOf(p); if(i>-1){ this.plants.splice(i,1); return true;} return false;} getSize(){return this.plants.length;} createIterator(){return new PlantIterator(this.plants);} clear(){ this.plants.length=0; } }
 
-    // ===== App Controller =====
     class PlantNurseryApp {
-
-      
-      
       constructor(){
         this.inventory = new Inventory();
         this.basket = new Map();
         this.selectedPlant = null;
         this.balance = 500.00;
-        this.role = 'customer'; // 'customer' | 'staff'
+        this.role = 'customer'; 
 
-        // bind UI
         this.ui = {
           roleOverlay: document.getElementById('roleOverlay'),
           roleLabel: document.getElementById('roleLabel'),
           switchRoleBtn: document.getElementById('switchRoleBtn'),
 
-          // customer
           customerView: document.getElementById('customerView'),
           grid: document.getElementById('plant-grid'),
           iteratorPos: document.getElementById('iterator-pos'),
@@ -314,13 +297,11 @@ class Lavender extends Plant {
           basketBtn: document.getElementById('basket-btn'),
           purchaseBtn: document.getElementById('purchase-btn'),
 
-          // shared stats
           invCount: document.getElementById('inventory-count'),
           balance: document.getElementById('balance'),
           basketCount: document.getElementById('basket-count'),
           basketTotal: document.getElementById('basket-total'),
 
-          // staff
           staffView: document.getElementById('staffView'),
           staffTbody: document.getElementById('staffTbody'),
           loadFromJsonBtn: document.getElementById('loadFromJsonBtn'),
@@ -333,24 +314,21 @@ class Lavender extends Plant {
           fName: document.getElementById('fName'), fCare: document.getElementById('fCare'), fState: document.getElementById('fState'), fSeason: document.getElementById('fSeason'), fPrice: document.getElementById('fPrice')
         };
 
-        // role chooser wiring
         document.getElementById('chooseCustomer').addEventListener('click', ()=>{ this.setRole('customer'); this.ui.roleOverlay.classList.add('hidden'); });
         document.getElementById('staffEnterBtn').addEventListener('click', ()=>{
           const pin = (document.getElementById('staffPin').value||'').trim();
           if(pin === PlantNurseryApp.STAFF_PIN){ this.setRole('staff'); this.ui.roleOverlay.classList.add('hidden'); }
           else { this.toast('Wrong PIN. Try 1234 or set your own in code.', 'error'); }
         });
-        document.getElementById('chooseStaff').addEventListener('dblclick', ()=>{ // shortcut: double-click card enters with default pin
+        document.getElementById('chooseStaff').addEventListener('dblclick', ()=>{ 
           this.setRole('staff'); this.ui.roleOverlay.classList.add('hidden');
         });
         this.ui.switchRoleBtn.addEventListener('click', ()=>{ this.ui.roleOverlay.classList.remove('hidden'); });
 
-        // customer actions
         this.ui.browseBtn.addEventListener('click', ()=> this.browseNext());
         this.ui.basketBtn.addEventListener('click', ()=> this.addToBasket());
         this.ui.purchaseBtn.addEventListener('click', ()=> this.purchaseBasket());
 
-        // staff actions
         this.ui.loadFromJsonBtn.addEventListener('click', ()=> this.loadFromJson());
         this.ui.loadDemoBtn.addEventListener('click', ()=> { this.loadDemoPlants(true); });
         this.ui.exportJsonBtn.addEventListener('click', ()=> this.exportToJson());
@@ -361,25 +339,22 @@ class Lavender extends Plant {
         this.ui.simulateDayBtn = document.getElementById('simulateDayBtn');
         this.ui.simulateDayBtn.addEventListener('click', () => this.simulateDayPassing());
 
-        // boot
         this.init();
       }
 
-      // Add to your PlantNurseryApp class
 simulateDayPassing() {
-    console.log("🌅 Simulating one day passing...");
+    console.log("Simulating one day passing...");
     
-    // 🎯 Define state progression logic
 const stateProgression = {
     'Seedling': 'Growing',
-    'Growing': 'Mature', 
+    'Growing': 'Dormant', 
+    'Dormant': 'Mature',
     'Mature': 'Selling',
-    'Selling': 'Dormant',
-    'Dormant': 'Growing', // Dormant plants can start growing again
-    'Dead': 'Dead'        // Dead plants stay dead
+    'Selling': 'Selling',
+    'Dormant': 'Growing', 
+    'Dead': 'Dead'      
 };
     
-    // 🎯 Update each plant's state
     this.inventory.plants.forEach(plant => {
         const currentState = plant.state;
         const newState = stateProgression[currentState] || currentState;
@@ -391,24 +366,18 @@ const stateProgression = {
     });
     
     this.renderAll();
-    this.toast('🌅 Simulated one day - plant states updated!');
+    this.toast('Simulated one day - plant states updated!');
     
-    // 🎯 Auto-export the updated state
     this.exportToJson();
 }
 
-      static get STAFF_PIN(){ return '1234'; } // change here
-
+      static get STAFF_PIN(){ return '1234'; }
       async init(){ await this.loadPlants(); this.renderAll(); this.enableCustomerButtons(); }
 
-// IN PlantNurseryApp class, MODIFY loadPlants():
 async loadPlants(){
     try {
-        // 🎯 Fetch from the SAME server (port 8000)
         const res = await fetch('./inventory_state.json');
-        
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        
         const data = await res.json();
         
         this.inventory.clear();
@@ -430,23 +399,23 @@ async loadPlants(){
             this.inventory.addPlant(plant);
         });
         
-        console.log(`✅ Loaded ${data.plants.length} plants`);
+        console.log(`Loaded ${data.plants.length} plants`);
         
     } catch(e) {
-        console.error('❌ Failed to load plants:', e);
+        console.error('Failed to load plants:', e);
         this.loadDemoPlants();
     }
 }
 
       loadDemoPlants(showToast){
     const demos = [
-        new Plant('Red Rose','Moderate','Selling','Spring',45.99),      // 🎯 Now in Selling state
+        new Plant('Red Rose','Moderate','Selling','Spring',45.99),    
         new Plant('Aloe Vera','Low','Mature','Summer',25.50),
         new Plant('Barrel Cactus','Low','Growing','Summer',35.00),
-        new Plant('Lavender','Moderate','Selling','Spring',28.75),     // 🎯 Now in Selling state
+        new Plant('Lavender','Moderate','Selling','Spring',28.75),
         new Plant('Baobab Tree','High','Seedling','Year-round',150.00),
         new Plant('Jade Plant','Low','Dormant','Year-round',32.00),
-        new Plant('Peace Lily','Moderate','Selling','Spring',55.00),   // 🎯 Now in Selling state
+        new Plant('Peace Lily','Moderate','Selling','Spring',55.00),
         new Plant('Snake Plant','Low','Dead','Year-round',40.00)
     ];
     this.inventory.clear();
@@ -468,10 +437,9 @@ async loadPlants(){
         }catch(err){ this.toast('Could not load inventory_state.json', 'error'); }
       }
 
-// IN PlantNurseryApp class, MODIFY exportToJson():
 exportToJson(){
     const plants = this.inventory.plants.map(p => ({
-        type: p.type || p.constructor.name,  // 🎯 INCLUDE PLANT TYPE
+        type: p.type || p.constructor.name, 
         name: p.name, 
         careType: p.careType, 
         state: p.state, 
@@ -491,42 +459,36 @@ exportToJson(){
 
       setRole(role){
         this.role = role; this.ui.roleLabel.textContent = role === 'staff' ? 'Staff' : 'Customer';
-        // show/hide views
         if(role==='staff'){
           this.ui.customerView.classList.add('hidden');
           this.ui.staffView.classList.remove('hidden');
-          // hide customer-only stats not relevant? keep visible for quick glance
         } else {
           this.ui.staffView.classList.add('hidden');
           this.ui.customerView.classList.remove('hidden');
         }
       }
 
-      // ===== Renderers =====
+      // Renderers 
       renderAll(){ this.renderInventoryGrid(); this.renderIteratorDisplay(0); this.renderStats(); this.renderStaffTable(); this.renderDetails(null); }
 
       renderInventoryGrid(){
     const grid = this.ui.grid; 
     grid.innerHTML='';
     
-    // 🎯 FILTER PLANTS BASED ON ROLE
     let plantsToShow = [];
     const it = this.inventory.createIterator();
     
     for(it.first(); !it.isDone(); it.next()){
         const plant = it.current();
         if (this.role === 'customer') {
-            // 🎯 CUSTOMERS only see plants in "Selling" state
             if (plant.getStateText() === 'Selling') {
                 plantsToShow.push(plant);
             }
         } else {
-            // 🎯 STAFF see all plants
             plantsToShow.push(plant);
         }
     }
     
-    // Create iterator for filtered plants
     const filteredIterator = new PlantIterator(plantsToShow);
     let pos = 0;
     let selectedPos = 0;
@@ -547,16 +509,13 @@ exportToJson(){
         pos++;
     }
     
-    // 🎯 Update iterator display with filtered count
     this.renderIteratorDisplay(selectedPos, plantsToShow.length);
     
-    // 🎯 Show message if no plants available for customers
     if (this.role === 'customer' && plantsToShow.length === 0) {
         grid.innerHTML = '<div class="no-selection">No plants available for sale at the moment. Check back later!</div>';
     }
 }
 
-// 🎯 Update iterator display to show filtered count
 renderIteratorDisplay(position, total = null){
     const actualTotal = total !== null ? total : this.inventory.getSize();
     this.ui.iteratorPos.textContent = (actualTotal ? position + 1 : 0);
@@ -580,7 +539,6 @@ renderIteratorDisplay(position, total = null){
       renderIteratorDisplay(position){ this.ui.iteratorPos.textContent = (this.inventory.getSize()? position+1 : 0); this.ui.iteratorTotal.textContent = this.inventory.getSize(); }
 
       renderStats(){ 
-    // 🎯 Show different counts based on role
     const customerPlantCount = this.inventory.plants.filter(p => p.getStateText() === 'Selling').length;
     const totalPlantCount = this.inventory.getSize();
     
@@ -595,7 +553,6 @@ renderIteratorDisplay(position, total = null){
           const tr = document.createElement('tr');
           tr.innerHTML = `<td>${idx+1}</td><td>${p.getName()}</td><td>${p.getCareType()}</td><td>${p.getStateText()}</td><td>${p.getSeason()}</td><td>${p.price().toFixed(2)}</td>`;
           tr.addEventListener('click', ()=>{
-            // select row & plant
             [...tbody.children].forEach(r=> r.classList.remove('selected-row'));
             tr.classList.add('selected-row');
             this.selectedPlant = p; this.renderDetails(p);
@@ -604,13 +561,12 @@ renderIteratorDisplay(position, total = null){
         });
       }
 
-      // ===== Customer flows =====
+      //  Customer flows 
       enableCustomerButtons(){ this.ui.browseBtn.disabled=false; this.ui.purchaseBtn.disabled=false; }
       selectPlant(plant){ this.selectedPlant = plant; const it = this.inventory.createIterator(); let pos=0; for(it.first(); !it.isDone(); it.next()){ if(it.current()===plant) break; pos++; } this.renderInventoryGrid(); this.renderDetails(plant); this.renderIteratorDisplay(pos); this.ui.basketBtn.disabled = false; }
       browseNext(){ 
     if(!this.inventory.getSize()) return; 
     
-    // 🎯 Get filtered plants based on role
     let plantsToShow = [];
     const it = this.inventory.createIterator();
     
@@ -632,7 +588,6 @@ renderIteratorDisplay(position, total = null){
         return; 
     } 
     
-    // Find current plant in filtered list
     const currentIndex = plantsToShow.indexOf(this.selectedPlant);
     if(currentIndex === -1 || currentIndex === plantsToShow.length - 1){
         this.selectPlant(plantsToShow[0]);
@@ -647,7 +602,6 @@ renderIteratorDisplay(position, total = null){
       purchaseBasket(){ const total=this.getBasketTotal(); if(total===0){ this.toast('Basket is empty!','error'); return; } if(this.balance<total){ this.toast('Insufficient funds!','error'); return; } this.balance -= total; this.toast(`Purchased basket for R${total.toFixed(2)}! 🎉`); this.basket.clear(); this.updateBasketDisplay(); this.renderStats(); }
 
 
-// Add this method to send plants to C++ server
 async sendPlantToServer(plantData) {
     try {
         const response = await fetch('http://localhost:8080/api/plants', {
@@ -659,14 +613,14 @@ async sendPlantToServer(plantData) {
         });
         
         if (response.ok) {
-            console.log('✅ Plant sent to C++ server successfully');
+            console.log('Plant sent to C++ server successfully');
             return true;
         } else {
-            console.error('❌ Failed to send plant to server');
+            console.error('Failed to send plant to server');
             return false;
         }
     } catch (error) {
-        console.error('💥 Error sending plant to server:', error);
+        console.error('Error sending plant to server:', error);
         return false;
     }
 }
@@ -679,14 +633,11 @@ staffAddPlant(){
     const price=parseFloat(this.ui.fPrice.value||'0');
     
     if(!name){ this.toast('Name is required','error'); return; }
-    
-    // 🆕 DEBUG: Log what we're adding
-    console.log("🆕 Adding plant:", {name, care, state, season, price});
+    console.log("Adding plant:", {name, care, state, season, price});
     
     const newPlant = new Plant(name, care, state, season, price);
     this.inventory.addPlant(newPlant);
     
-    // 🆕 Send to C++ server
     this.sendPlantToServer({
         name: name,
         careType: care, 
@@ -701,15 +652,13 @@ staffAddPlant(){
         }
     });
     
-    // 🆕 DEBUG: Check inventory after adding
-    console.log("📊 Inventory now has:", this.inventory.getSize(), "plants");
-    console.log("🌿 Plants in inventory:", this.inventory.plants);
+    console.log("Inventory now has:", this.inventory.getSize(), "plants");
+    console.log("Plants in inventory:", this.inventory.plants);
     
     this.ui.fName.value=''; 
     this.renderAll(); 
 }
 
-// Add this new method:
 forceSaveToFile() {
     const plants = this.inventory.plants.map(p => ({
         name: p.name, 
@@ -719,15 +668,13 @@ forceSaveToFile() {
         price: p.price()
     }));
     
-    // Save to the same file the C++ server uses
     const data = JSON.stringify({plants: plants}, null, 2);
     
-    // This will trigger a download, but at least it updates the file
     const blob = new Blob([data], {type: 'application/json'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'gui/inventory_state.json';  // Save to correct location
+    a.download = 'gui/inventory_state.json';  
     a.click();
     URL.revokeObjectURL(url);
 }
@@ -736,13 +683,12 @@ forceSaveToFile() {
       // ===== Utils =====
       toast(msg,type='success'){ 
     const n=document.createElement('div'); 
-    n.className=`notification ${type==='error'?'error':''}`;  // ← ADD BACKTICKS HERE
+    n.className=`notification ${type==='error'?'error':''}`;  
     n.textContent=msg; 
     document.body.appendChild(n); 
     setTimeout(()=> n.remove(), 3000); 
 }}
 
-    // boot
     let app; document.addEventListener('DOMContentLoaded', ()=>{ app = new PlantNurseryApp(); });
   </script>
 </body>

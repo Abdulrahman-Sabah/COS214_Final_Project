@@ -95,7 +95,7 @@ TEST_CASE("We handle the Dead state advance function properly") {
   Rose *r = new Rose();
   r->setLifeCycle(new DeadState());
   r->getLifeCycle()->setDead(true);
-  CHECK(r->getLifeCycle() != nullptr);  
+  CHECK(r->getLifeCycle() != nullptr);
   r->getLifeCycle()->advance(r);
   CHECK(r->getLifeCycle()->name() == "Dead");
   CHECK(r->getLifeCycle()->isDead() == true);

@@ -8,8 +8,8 @@
  * @date 10-2025
  */
 
-#include <string>
 #include "Commands.h"
+#include <string>
 
 /**
  * @class MatureStateCmd
@@ -18,30 +18,30 @@
  */
 class MatureStateCmd : public Commands {
 public:
-    /**
-     * @brief Constructor
-     */
-    MatureStateCmd();
-    /** 
-     * @brief Destructor
-     */
-    ~MatureStateCmd() override = default;
+  /**
+   * @brief Constructor
+   */
+  MatureStateCmd();
+  /**
+   * @brief Destructor
+   */
+  ~MatureStateCmd() override = default;
 
-    /**
-     * @brief Get the command name
-     * @return Command name
-     */
-    std::string name() override;
+  /**
+   * @brief Get the command name
+   * @return Command name
+   */
+  std::string name() override;
 
-    /**
-     * @brief Set mature state
-     * @param plant Target plant
-     */
-    void execute(Plant* plant) override;
+  /**
+   * @brief Set mature state
+   * @param plant Target plant
+   */
+  void execute(Plant *plant) override;
 
 private:
-    /** Command label */
-    std::string m_label;
+  /** Command label */
+  std::string m_label;
 };
 
 #endif // MATURE_STATE_CMD_H

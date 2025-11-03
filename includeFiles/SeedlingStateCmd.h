@@ -8,8 +8,8 @@
  * @date 10-2025
  */
 
-#include <string>
 #include "Commands.h"
+#include <string>
 
 /**
  * @class SeedlingStateCmd
@@ -17,26 +17,26 @@
  */
 class SeedlingStateCmd : public Commands {
 public:
-    /** @brief Constructor */
-    SeedlingStateCmd();
-    /** @brief Destructor */
-    ~SeedlingStateCmd() override = default;
+  /** @brief Constructor */
+  SeedlingStateCmd();
+  /** @brief Destructor */
+  ~SeedlingStateCmd() override = default;
 
-    /**
-     * @brief Get the command name
-     * @return Command name
-     */
-    std::string name() override;
+  /**
+   * @brief Get the command name
+   * @return Command name
+   */
+  std::string name() override;
 
-    /**
-     * @brief Set seedling state
-     * @param plant Target plant
-     */
-    void execute(Plant* plant) override;
+  /**
+   * @brief Set seedling state
+   * @param plant Target plant
+   */
+  void execute(Plant *plant) override;
 
 private:
-    /** @brief Label for the command */
-    std::string m_label;
+  /** @brief Label for the command */
+  std::string m_label;
 };
 
 #endif // SEEDLING_STATE_CMD_H

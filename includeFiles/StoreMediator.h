@@ -7,9 +7,8 @@
  * @brief Mediator interface for coordinating communication.
  */
 
-
-#include <string>
 #include "Plant.h"
+#include <string>
 
 class Commands;
 
@@ -19,15 +18,15 @@ class Commands;
  */
 class StoreMediator {
 public:
-    /**
-     * @brief Notify mediator of an event
-     * @param plant Plant involved
-     * @param event Event message
-     */
-    virtual void notify(Plant* plant, const std::string& event) = 0;
+  /**
+   * @brief Notify mediator of an event
+   * @param plant Plant involved
+   * @param event Event message
+   */
+  virtual void notify(Plant *plant, const std::string &event) = 0;
 
-    /// @brief Virtual destructor
-    virtual ~StoreMediator() = default;
+  /// @brief Virtual destructor
+  virtual ~StoreMediator() = default;
 };
 
 #endif // STOREMEDIATOR_H

@@ -17,37 +17,37 @@
  */
 class WrapDecorator : public PlantDecorations {
 private:
-    /** @brief Type of wrapping */
-    string wrapType;
-    /** @brief Additional cost for wrapping */
-    double wrapCost;
+  /** @brief Type of wrapping */
+  string wrapType;
+  /** @brief Additional cost for wrapping */
+  double wrapCost;
 
 public:
-    /**
-     * @brief Constructor
-     * @param item Plant to decorate
-     * @param wrap Wrap type
-     * @param cost Extra cost
-     */
-    WrapDecorator(Plant* item, string wrap, double cost);
+  /**
+   * @brief Constructor
+   * @param item Plant to decorate
+   * @param wrap Wrap type
+   * @param cost Extra cost
+   */
+  WrapDecorator(Plant *item, string wrap, double cost);
 
-    /**
-     * @brief Get description of the wrapped plant
-     * @return Description including wrap
-     */
-    string description() override;
+  /**
+   * @brief Get description of the wrapped plant
+   * @return Description including wrap
+   */
+  string description() override;
 
-    /**
-     * @brief Get the price of the wrapped plant
-     * @return Price + wrap cost
-     */
-    double price() override;
+  /**
+   * @brief Get the price of the wrapped plant
+   * @return Price + wrap cost
+   */
+  double price() override;
 
-    /**
-     * @brief Clone the wrapped plant
-     * @return Cloned wrapped plant
-     */
-    Plant* clone() override;
+  /**
+   * @brief Clone the wrapped plant
+   * @return Cloned wrapped plant
+   */
+  Plant *clone() override;
 };
 
 #endif // WRAPDECORATOR_H

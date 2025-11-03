@@ -1,8 +1,9 @@
 #ifndef WEBAPI_CPP_DOC
 /**
  * @file WebApi.cpp
-  * @brief Implementation of WebAPI methods for inventory management and web server.
-  * @author Git it done group members
+ * @brief Implementation of WebAPI methods for inventory management and web
+ * server.
+ * @author Git it done group members
  * @date 10-2025
  */
 #define WEBAPI_CPP_DOC
@@ -62,8 +63,8 @@ bool WebAPI::addPlantToInventory(const std::string &name,
   inventory->addPlant(newPlant);
 
   InventorySerializer::saveToFile(*inventory, "gui/inventory_state.json");
-  std::cout << "Saved REAL inventory with " << inventory->getSize()
-            << " plants" << std::endl;
+  std::cout << "Saved REAL inventory with " << inventory->getSize() << " plants"
+            << std::endl;
 
   return true;
 }
@@ -100,7 +101,6 @@ void startWebServer(Inventory *inventory) {
 
     std::cout << "Reloading inventory from file..." << std::endl;
     InventorySerializer::loadFromFile(*inventory, "gui/inventory_state.json");
-    std::cout << "Now have " << inventory->getSize() << " plants"
-              << std::endl;
+    std::cout << "Now have " << inventory->getSize() << " plants" << std::endl;
   }
 }

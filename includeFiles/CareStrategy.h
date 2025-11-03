@@ -9,7 +9,6 @@
  * @date 10-2025
  */
 
-
 #include <iostream>
 class Plant;
 
@@ -24,20 +23,20 @@ class Plant;
  */
 class CareStrategy {
 public:
-    /**
-     * @brief Apply the care routine to the given plant.
-     *
-     * This function gets triggered either manually by a staff member,
-     * or automatically via observers (e.g., lifecycle/state changes).
-     *
-     * @param plant Pointer to the plant requiring care.
-     */
-    virtual void applyCare(Plant* plant) = 0;
+  /**
+   * @brief Apply the care routine to the given plant.
+   *
+   * This function gets triggered either manually by a staff member,
+   * or automatically via observers (e.g., lifecycle/state changes).
+   *
+   * @param plant Pointer to the plant requiring care.
+   */
+  virtual void applyCare(Plant *plant) = 0;
 
-    /**
-     * @brief Virtual destructor for safe polymorphic cleanup.
-     */
-    virtual ~CareStrategy() = default;
+  /**
+   * @brief Virtual destructor for safe polymorphic cleanup.
+   */
+  virtual ~CareStrategy() = default;
 };
 
 #endif // CARESTRATEGY_H

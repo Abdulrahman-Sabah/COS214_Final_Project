@@ -9,7 +9,6 @@
  * @date 2024
  */
 
-
 #include <string>
 
 #include "CareStrategy.h"
@@ -22,8 +21,9 @@ class PlantLifeCycleState;
 /**
  * @class PlantObserver
  * @brief Abstract observer class for monitoring Plant state changes
- * @details Defines the interface for the Observer pattern, allowing objects 
- * to be notified when plants undergo changes such as lifecycle state changes or care strategy changes.
+ * @details Defines the interface for the Observer pattern, allowing objects
+ * to be notified when plants undergo changes such as lifecycle state changes or
+ * care strategy changes.
  */
 class PlantObserver {
 public:

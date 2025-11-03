@@ -14,36 +14,37 @@
 /**
  * @class DeadState
  * @brief Lifecycle state for a dead plant.
- * @details Inherits from PlantLifeCycleState and represents the dead state of a plant.
+ * @details Inherits from PlantLifeCycleState and represents the dead state of a
+ * plant.
  */
 class DeadState : public PlantLifeCycleState {
 public:
-    DeadState();
-    ~DeadState() override;
+  DeadState();
+  ~DeadState() override;
 
-    /**
-     * @brief No further state progression
-     * @param plant Target plant
-     */
-    void advance(Plant* plant) override;
+  /**
+   * @brief No further state progression
+   * @param plant Target plant
+   */
+  void advance(Plant *plant) override;
 
-    /**
-     * @brief Get the name of the state
-     * @return "Dead"
-     */
-    std::string name() override;
+  /**
+   * @brief Get the name of the state
+   * @return "Dead"
+   */
+  std::string name() override;
 
-    /**
-     * @brief Check if plant is dead (always dead)
-     * @return true
-     */
-    bool isDead() override;
+  /**
+   * @brief Check if plant is dead (always dead)
+   * @return true
+   */
+  bool isDead() override;
 
-    /**
-     * @brief Check if the plant needs attention
-     * @return false
-     */
-    bool needsAttention() override;
+  /**
+   * @brief Check if the plant needs attention
+   * @return false
+   */
+  bool needsAttention() override;
 };
 
 #endif // DEADSTATE_H

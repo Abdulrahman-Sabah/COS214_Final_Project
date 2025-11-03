@@ -16,12 +16,13 @@
 /**
  * @class WebAPI
  * @brief Adapter exposing Inventory operations for web server use.
- * @details Provides methods to get plant data in JSON format and modify inventory.
+ * @details Provides methods to get plant data in JSON format and modify
+ * inventory.
  */
 class WebAPI {
 private:
   /** @brief < Pointer to the real Inventory used by server */
-  Inventory *inventory; 
+  Inventory *inventory;
 
 public:
   /** @brief Initialize the WebAPI with an existing Inventory instance */
@@ -47,15 +48,15 @@ public:
                            const std::string &state, const std::string &season,
                            double price);
 
-  /** @brief Remove plant by name from the inventory 
+  /** @brief Remove plant by name from the inventory
    * @param name Plant name
    * @return true if removed, false if not found
-  */
+   */
   bool removePlantFromInventory(const std::string &name);
 
   /** @brief Convenience: start an embedded web server
    * @param inventory Inventory instance to use
-  */
+   */
   void startWebServer(Inventory *inventory);
 };
 

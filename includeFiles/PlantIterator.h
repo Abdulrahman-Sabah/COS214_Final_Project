@@ -23,14 +23,14 @@ public:
   /** @brief Advance to the next element */
   virtual void next() = 0;
 
-  /** @brief Query whether iteration is finished 
+  /** @brief Query whether iteration is finished
    * @return true if done, false otherwise
-  */
+   */
   virtual bool isDone() = 0;
 
   /** @brief Retrieve current plant pointer
    * @return Current Plant pointer or nullptr if done
-  */
+   */
   virtual Plant *current() = 0;
 };
 

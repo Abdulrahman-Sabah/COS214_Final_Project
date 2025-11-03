@@ -10,7 +10,6 @@
  * @date 2025
  */
 
- 
 // Forward declarations
 class Notify;
 class Commands;
@@ -18,9 +17,9 @@ class Commands;
  * @class Handler
  * @brief Abstract base class implementing the Chain of Responsibility pattern
  *
- * @details The Handler class defines the interface for handling requests in a chain.
- * Each handler can process a request or pass it to the next handler in the
- * chain. This implements the Chain of Responsibility design pattern for the
+ * @details The Handler class defines the interface for handling requests in a
+ * chain. Each handler can process a request or pass it to the next handler in
+ * the chain. This implements the Chain of Responsibility design pattern for the
  * greenhouse management system.
  */
 class Handler {
@@ -31,9 +30,9 @@ protected:
    * @param plant Pointer to the Plant associated with the command (may be
    *        nullptr)
    *
-   * @details This protected method allows derived handlers to easily pass requests
-   * to the next handler in the chain when they cannot handle the request
-   * themselves.
+   * @details This protected method allows derived handlers to easily pass
+   * requests to the next handler in the chain when they cannot handle the
+   * request themselves.
    */
   void passToSuccessor(Commands *cmd, Plant *plant);
   Handler *successor; /**< Pointer to next handler in chain */
@@ -71,10 +70,9 @@ public:
   Handler();
 
   /**
- * @brief Get next handler in chain
- * @return Pointer to successor handler
- */
-Handler* getSuccessor() { return successor; }
-
+   * @brief Get next handler in chain
+   * @return Pointer to successor handler
+   */
+  Handler *getSuccessor() { return successor; }
 };
 #endif

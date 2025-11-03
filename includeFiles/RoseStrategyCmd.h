@@ -8,8 +8,8 @@
  * @date 10-2025
  */
 
-#include <string>
 #include "Commands.h"
+#include <string>
 
 /**
  * @class RoseStrategyCmd
@@ -17,26 +17,26 @@
  */
 class RoseStrategyCmd : public Commands {
 public:
-    /** @brief Constructor */
-    RoseStrategyCmd();
-    /** @brief Destructor */
-    ~RoseStrategyCmd() override = default;
+  /** @brief Constructor */
+  RoseStrategyCmd();
+  /** @brief Destructor */
+  ~RoseStrategyCmd() override = default;
 
-    /**
-     * @brief Get the command name
-     * @return Command name
-     */
-    std::string name() override;
+  /**
+   * @brief Get the command name
+   * @return Command name
+   */
+  std::string name() override;
 
-    /**
-     * @brief Set rose care
-     * @param plant Target plant
-     */
-    void execute(Plant* plant) override;
+  /**
+   * @brief Set rose care
+   * @param plant Target plant
+   */
+  void execute(Plant *plant) override;
 
 private:
-    /** @brief Label for the command */
-    std::string m_label;
+  /** @brief Label for the command */
+  std::string m_label;
 };
 
 #endif // ROSE_STRATEGY_CMD_H

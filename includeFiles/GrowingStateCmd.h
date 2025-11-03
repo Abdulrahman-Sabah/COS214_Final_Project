@@ -9,8 +9,8 @@
  * @date 10-2025
  */
 
-#include <string>
 #include "Commands.h"
+#include <string>
 
 /**
  * @class GrowingStateCmd
@@ -20,30 +20,30 @@
  */
 class GrowingStateCmd : public Commands {
 public:
-    /**
-     * @brief Default Constructor
-     */
-    GrowingStateCmd();
-    /**
-     * @brief Default Destructor
-     */
-    ~GrowingStateCmd() override = default;
+  /**
+   * @brief Default Constructor
+   */
+  GrowingStateCmd();
+  /**
+   * @brief Default Destructor
+   */
+  ~GrowingStateCmd() override = default;
 
-    /**
-     * @brief Get command name\
-     * @return Command name
-     */
-    std::string name() override;
+  /**
+   * @brief Get command name\
+   * @return Command name
+   */
+  std::string name() override;
 
-    /**
-     * @brief Change plant to GrowingState
-     * @param plant Target plant
-     */
-    void execute(Plant* plant) override;
+  /**
+   * @brief Change plant to GrowingState
+   * @param plant Target plant
+   */
+  void execute(Plant *plant) override;
 
 private:
-    /** @brief Command label */
-    std::string m_label;
+  /** @brief Command label */
+  std::string m_label;
 };
 
 #endif // GROWING_STATE_CMD_H

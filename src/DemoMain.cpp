@@ -241,26 +241,24 @@ int main() {
   greenhouse->addPlant(c2);
 
   Plant *l2 = new Lavender();
-l2->setLifeCycle(new SellingState());
-greenhouse->addPlant(l2);
+  l2->setLifeCycle(new SellingState());
+  greenhouse->addPlant(l2);
 
-Plant *r3 = new Rose();
-r3->setLifeCycle(new SellingState());
-greenhouse->addPlant(r3);
+  Plant *r3 = new Rose();
+  r3->setLifeCycle(new SellingState());
+  greenhouse->addPlant(r3);
 
+  Plant *c3 = new Cactus();
+  c3->setLifeCycle(new SellingState());
+  greenhouse->addPlant(c3);
 
-Plant *c3 = new Cactus();
-c3->setLifeCycle(new SellingState());
-greenhouse->addPlant(c3);
+  Plant *l3 = new Lavender();
+  l3->setLifeCycle(new SellingState());
+  greenhouse->addPlant(l3);
 
-
-Plant *l3 = new Lavender();
-l3->setLifeCycle(new SellingState());
-greenhouse->addPlant(l3);
-
-Plant *r4 = new Rose();
-r4->setLifeCycle(new SellingState());
-greenhouse->addPlant(r4);
+  Plant *r4 = new Rose();
+  r4->setLifeCycle(new SellingState());
+  greenhouse->addPlant(r4);
 
   DeliveryStaff *staff = new DeliveryStaff(greenhouse);
   staff->setMediator(&mediator);
@@ -408,20 +406,16 @@ greenhouse->addPlant(r4);
 
       PlantDecorations *newDecorations = nullptr;
 
-      if (decorChoice == 1)
-      {
-        newDecorations = new WrapDecorator(planttoremoveinpointer, "Gift wrap decoration", 60);
-      }
-      else if (decorChoice == 2)
-      {
-        newDecorations = new PotDecorator(planttoremoveinpointer, "Pot decoration", 70);
-      }
-      else if (decorChoice == 3)
-      {
-        newDecorations = new CardDecorator(planttoremoveinpointer, "Card decoration", 80);
-      }
-      else
-      {
+      if (decorChoice == 1) {
+        newDecorations = new WrapDecorator(planttoremoveinpointer,
+                                           "Gift wrap decoration", 60);
+      } else if (decorChoice == 2) {
+        newDecorations =
+            new PotDecorator(planttoremoveinpointer, "Pot decoration", 70);
+      } else if (decorChoice == 3) {
+        newDecorations =
+            new CardDecorator(planttoremoveinpointer, "Card decoration", 80);
+      } else {
         std::cout << "No decoration selected.\n";
       }
 
@@ -429,33 +423,29 @@ greenhouse->addPlant(r4);
 
       planttoremoveinpointer->setLifeCycle(new DeadState());
       std::cout << "Final product: " << newDecorations->description() << "\n";
-      
 
       std::string receiptInput;
       std::cout << "Would you like a receipt? (y/n): ";
       std::getline(std::cin, receiptInput);
 
-      if (lower(receiptInput) == "y" || lower(receiptInput) == "yes")
-      {
+      if (lower(receiptInput) == "y" || lower(receiptInput) == "yes") {
         std::cout << "\n===== RECEIPT =====\n";
-if (newDecorations != nullptr)
-{
-    double basePrice = planttoremoveinpointer->price();
-    double decorationsCost = newDecorations->price();
+        if (newDecorations != nullptr) {
+          double basePrice = planttoremoveinpointer->price();
+          double decorationsCost = newDecorations->price();
 
-    std::cout << "Item: " << planttoremoveinpointer->getName() << "\n";
-    std::cout << "Base Price: R" << basePrice << "\n";
-    std::cout << "Decoration: " << newDecorations->description()
-              << " (+R" << decorationsCost << ")\n";
-    std::cout << "Total: R" << (newDecorations->price() + basePrice) << "\n";
-}
-else
-{
-    std::cout << "Item: " << planttoremoveinpointer->getName() << "\n";
-    std::cout << "Price: R" << planttoremoveinpointer->price() << "\n";
-    std::cout << "No decorations added" << std::endl;
-}
-std::cout << "===================\n";
+          std::cout << "Item: " << planttoremoveinpointer->getName() << "\n";
+          std::cout << "Base Price: R" << basePrice << "\n";
+          std::cout << "Decoration: " << newDecorations->description() << " (+R"
+                    << decorationsCost << ")\n";
+          std::cout << "Total: R" << (newDecorations->price() + basePrice)
+                    << "\n";
+        } else {
+          std::cout << "Item: " << planttoremoveinpointer->getName() << "\n";
+          std::cout << "Price: R" << planttoremoveinpointer->price() << "\n";
+          std::cout << "No decorations added" << std::endl;
+        }
+        std::cout << "===================\n";
       }
 
       greenhouse->removePlant(planttoremoveinpointer);
@@ -667,19 +657,15 @@ std::cout << "===================\n";
       continue;
     }
 
-    else if (choice == 8)
-    {
+    else if (choice == 8) {
       std::cout << "Bye! See you soon\n";
       break;
-    }
-    else if (choice == 7)
-    {
+    } else if (choice == 7) {
       std::cout << "\n=== Customer Browsing ===\n";
       std::cout << "Showing available (SELLING) plants:\n";
       printSellingOnly(greenhouse);
 
-      while (true)
-      {
+      while (true) {
         std::cout << "\n-- What would you like to do? --\n";
         std::cout << "1) Info about plants (Rose/Cactus/Lavender)\n";
         std::cout << "2) Quick recommendations (show selling again)\n";
@@ -687,39 +673,30 @@ std::cout << "===================\n";
         std::cout << "Choose: ";
 
         int sub = 0;
-        if (!(std::cin >> sub))
-        {
+        if (!(std::cin >> sub)) {
           clearStdin();
           continue;
         }
         clearStdin();
 
-        if (sub == 3)
-        {
+        if (sub == 3) {
           std::cout << "Back to main menu.\n";
           break;
-        }
-        else if (sub == 1)
-        {
+        } else if (sub == 1) {
           std::string type;
           std::cout << "Enter plant type (Rose/Cactus/Lavender): ";
           std::getline(std::cin, type);
           mediator.infoByType(type);
-        }
-        else if (sub == 2)
-        {
+        } else if (sub == 2) {
           std::cout << "\nRecommended for you (available now):\n";
           printSellingOnly(greenhouse);
-        }
-        else
-        {
+        } else {
           std::cout << "Invalid option.\n";
         }
       }
     }
 
-    else
-    {
+    else {
       std::cout << "Invalid option.\n";
     }
   }

@@ -50,8 +50,9 @@ TEST_CASE("RoseCreator makes a Rose") {
   CHECK(p != nullptr);
   CHECK(dynamic_cast<Rose *>(p) != nullptr);
   CHECK(dynamic_cast<Rose *>(p)->getName() == "Rose");
-  CHECK(dynamic_cast<Rose *>(p)->description() == "Rose (Rosa): a fragrant and colorful flowering "
-                           "plant symbolizing love and beauty.");
+  CHECK(dynamic_cast<Rose *>(p)->description() ==
+        "Rose (Rosa): a fragrant and colorful flowering "
+        "plant symbolizing love and beauty.");
   CHECK(dynamic_cast<Rose *>(p)->price() > 0.0);
   delete p;
 }
@@ -62,8 +63,9 @@ TEST_CASE("CactusCreator makes a Cactus") {
   CHECK(p != nullptr);
   CHECK(dynamic_cast<Cactus *>(p) != nullptr);
   CHECK(dynamic_cast<Cactus *>(p)->getName() == "Cactus");
-  CHECK(dynamic_cast<Cactus *>(p)->description() == "Cactus (Cactaceae): a hardy, water-efficient plant "
-                           "adapted to dry climates.");
+  CHECK(dynamic_cast<Cactus *>(p)->description() ==
+        "Cactus (Cactaceae): a hardy, water-efficient plant "
+        "adapted to dry climates.");
   CHECK(dynamic_cast<Cactus *>(p)->price() > 0.0);
   delete p;
 }
@@ -74,8 +76,9 @@ TEST_CASE("LavenderCreator makes a Lavender") {
   CHECK(p != nullptr);
   CHECK(dynamic_cast<Lavender *>(p) != nullptr);
   CHECK(dynamic_cast<Lavender *>(p)->getName() == "Lavender");
-  CHECK(dynamic_cast<Lavender *>(p)->description() == "Lavender (Lavandula): a fragrant purple herb often "
-                           "used for decoration and scent.");
+  CHECK(dynamic_cast<Lavender *>(p)->description() ==
+        "Lavender (Lavandula): a fragrant purple herb often "
+        "used for decoration and scent.");
   CHECK(dynamic_cast<Lavender *>(p)->price() > 0.0);
   delete p;
 }

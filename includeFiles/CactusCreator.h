@@ -19,21 +19,20 @@
  */
 class CactusCreator : public Creator {
 public:
+  /**
+   * @brief Default constructor.
+   */
+  CactusCreator() = default;
 
-    /**
-     * @brief Default constructor.
-     */
-    CactusCreator() = default;
-
-    /**
-     * @brief Creates and returns a new Cactus instance.
-     *
-     * @details Implements the Factory Method pattern to encapsulate the
-     * instantiation of plant objects based on type.
-     *
-     * @return A newly allocated Cactus object.
-     */
-    Plant* factoryMethod() const override;
+  /**
+   * @brief Creates and returns a new Cactus instance.
+   *
+   * @details Implements the Factory Method pattern to encapsulate the
+   * instantiation of plant objects based on type.
+   *
+   * @return A newly allocated Cactus object.
+   */
+  Plant *factoryMethod() const override;
 };
 
 #endif // CACTUSCREATOR_H

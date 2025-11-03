@@ -14,20 +14,21 @@
 /**
  * @class CactusCare
  * @brief Concrete strategy providing cactus-appropriate plant care.
- * @details Inherits from CareStrategy and implements care strategies relating to cacti.
+ * @details Inherits from CareStrategy and implements care strategies relating
+ * to cacti.
  */
 class CactusCare : public CareStrategy {
 public:
-    /**
-     * @brief Apply cactus-specific care to the given plant
-     * @param plant Pointer to the plant receiving care.
-     */
-    void applyCare(Plant* plant) override;
+  /**
+   * @brief Apply cactus-specific care to the given plant
+   * @param plant Pointer to the plant receiving care.
+   */
+  void applyCare(Plant *plant) override;
 
-    /**
-     * @brief Virtual default destructor for safe cleanup.
-     */
-    ~CactusCare() override = default;
+  /**
+   * @brief Virtual default destructor for safe cleanup.
+   */
+  ~CactusCare() override = default;
 };
 
 #endif // CACTUSCARE_H

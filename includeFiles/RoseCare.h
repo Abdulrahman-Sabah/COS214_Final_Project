@@ -16,14 +16,14 @@
  */
 class RoseCare : public CareStrategy {
 public:
-    /**
-     * @brief Apply rose care actions
-     * @param plant Target plant
-     */
-    void applyCare(Plant* plant) override;
+  /**
+   * @brief Apply rose care actions
+   * @param plant Target plant
+   */
+  void applyCare(Plant *plant) override;
 
-    /// @brief Destructor
-    ~RoseCare() override = default;
+  /// @brief Destructor
+  ~RoseCare() override = default;
 };
 
 #endif // ROSECARE_H
