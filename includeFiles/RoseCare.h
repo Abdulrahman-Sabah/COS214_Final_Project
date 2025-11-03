@@ -4,6 +4,8 @@
 /**
  * @file RoseCare.h
  * @brief Care strategy for rose plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "CareStrategy.h"
@@ -20,7 +22,7 @@ public:
      */
     void applyCare(Plant* plant) override;
 
-    /// Destructor
+    /// @brief Destructor
     ~RoseCare() override = default;
 };
 

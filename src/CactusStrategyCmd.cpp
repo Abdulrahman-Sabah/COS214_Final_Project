@@ -2,6 +2,8 @@
 /**
  * @file CactusStrategyCmd.cpp
  * @brief Command implementation to set cactus care strategy on plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define CACTUSSTRATEGYCMD_CPP_DOC
 #endif

@@ -1,3 +1,13 @@
+#ifndef ADAPTERFRAMEWORK_CPP_DOC
+/**
+ * @file adapterFramework.cpp
+ * @brief Unit test cases for WebAPI and Inventory integration.
+ * @author Git it done group members
+ * @date 10-2025
+ */
+#define ADAPTERFRAMEWORK_CPP_DOC
+#endif
+
 #include "doctest.h"
 #include <string>
 #include "Inventory.h"

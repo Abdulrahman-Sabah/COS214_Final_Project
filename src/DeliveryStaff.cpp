@@ -2,6 +2,8 @@
 /**
  * @file DeliveryStaff.cpp
  * @brief DeliveryStaff colleague implementation for mediator interactions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DELIVERYSTAFF_CPP_DOC
 #endif

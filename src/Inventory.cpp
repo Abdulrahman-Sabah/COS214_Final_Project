@@ -9,6 +9,8 @@
 /**
  * @file Inventory.cpp
  * @brief Inventory container implementation for Plant objects.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define INVENTORY_CPP_DOC
 #endif

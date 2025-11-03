@@ -2,6 +2,8 @@
 /**
  * @file WrapDecorator.cpp
  * @brief Concrete decorator that adds wrapping and its cost to a Plant.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define WRAPDECORATOR_CPP_DOC
 #endif

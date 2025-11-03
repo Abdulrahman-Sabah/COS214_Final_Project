@@ -2,6 +2,8 @@
 /**
  * @file DeadState.cpp
  * @brief Implementation of the Dead lifecycle state.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DEADSTATE_CPP_DOC
 #endif

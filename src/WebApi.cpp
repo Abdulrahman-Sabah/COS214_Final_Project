@@ -1,11 +1,9 @@
 #ifndef WEBAPI_CPP_DOC
 /**
  * @file WebApi.cpp
- * @brief Lightweight bridge between the C++ `Inventory` model and a simple
- *        JSON/file-based web API used by the demo GUI.
- *
- * Provides helpers to serialize the Inventory to JSON and simple functions
- * to initialize a demo inventory and run a small file-based reloader loop.
+  * @brief Implementation of WebAPI methods for inventory management and web server.
+  * @author Git it done group members
+ * @date 10-2025
  */
 #define WEBAPI_CPP_DOC
 #endif

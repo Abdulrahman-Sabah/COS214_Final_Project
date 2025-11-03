@@ -4,6 +4,8 @@
 /**
  * @file Rose.h
  * @brief Concrete Rose plant type.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "Plant.h"
@@ -11,22 +13,37 @@
 /**
  * @class Rose
  * @brief Represents a rose plant.
+ * @details Inherits from Plant and implements specific behavior for a rose plant.
  */
 class Rose : public Plant {
 public:
+    /** @brief Constructor */
     Rose();
+    /** @brief Destructor */
     ~Rose() override;
 
-    /// @return Description string
+    /**
+     * @brief Get description of the rose plant
+     * @return Description string
+     */
     std::string description() override;
 
-    /// @return Price value
+    /**
+     * @brief Get price of the rose plant
+     * @return Price value
+     */
     double price() override;
 
-    /// @return Cloned Rose object
+    /**
+     * @brief Clone the rose plant
+     * @return Cloned Rose object
+     */
     Plant* clone() override;
 
-    /// @return "Rose"
+    /**
+     * @brief Get the type of the plant
+     * @return "Rose"
+     */
     std::string getType() const override { return "Rose"; }
 };
 

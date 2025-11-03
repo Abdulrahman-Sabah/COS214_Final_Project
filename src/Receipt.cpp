@@ -2,6 +2,8 @@
 /**
  * @file Receipt.cpp
  * @brief Receipts for purchases and printing utilities.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define RECEIPT_CPP_DOC
 #endif

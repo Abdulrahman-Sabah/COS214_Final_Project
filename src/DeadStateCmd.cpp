@@ -2,6 +2,8 @@
 /**
  * @file DeadStateCmd.cpp
  * @brief Command implementation related to DeadState transitions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DEADSTATECMD_CPP_DOC
 #endif

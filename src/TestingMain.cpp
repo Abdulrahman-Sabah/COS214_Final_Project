@@ -1,10 +1,9 @@
 #ifndef TESTINGMAIN_CPP_DOC
 /**
  * @file TestingMain.cpp
- * @brief A large test/demo driver that exercises the project's design
- *        patterns (Builder, Factory, State, Prototype, etc.) and prints
- *        human-readable test output to the console. Used during development
- *        and for manual verification.
+ * @brief testing file to test all our funtions and ensure it works as expected
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define TESTINGMAIN_CPP_DOC
 #endif
@@ -757,7 +756,7 @@ int main() {
 
   delete p2;
   delete p1;
-  delete cmd2;
+  // delete cmd2;
 
   return 0;
 }

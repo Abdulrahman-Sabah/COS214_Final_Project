@@ -1,23 +1,22 @@
+
+#ifndef CARESCHEDULEROBSERVER_H
+#define CARESCHEDULEROBSERVER_H
+
 /**
  * @file CareScheduleObserver.h
  * @brief Observer for plant care scheduling notifications
- * @author COS214 Final Project Team
- * @date 2025
+ * @author Git it done group members
+ * @date 10-2025
  */
-#ifndef CARESCHEDULEROBSERVER_H
-#define CARESCHEDULEROBSERVER_H
 #include <iostream>
 
 #include "Handler.h"
 #include "PlantObserver.h"
 /**
  * @class CareSchedulerObserver
- * @brief Concrete observer that monitors plant state changes for care
- * scheduling
- *
- * CareSchedulerObserver implements the Observer pattern to track changes in
- * plant states, lifecycle phases, seasons, and care strategies. It responds
- * to these changes by updating care schedules and logging important events.
+ * @brief Concrete observer that monitors plant state changes for care scheduling
+ * @details CareSchedulerObserver implements the Observer pattern to track changes in plant
+ * lifecycle states and care strategies. It responds to these changes by updating care schedules and updating the important changes.
  */
 class CareSchedulerObserver : public PlantObserver {
 public:
@@ -25,21 +24,16 @@ public:
 
 public:
   /**
-   * @brief Construct a CareSchedulerObserver
+   * @brief Constructor with handler chain head
    * @param chainHead The head of the Handler chain used to forward requests
    */
   explicit CareSchedulerObserver(Handler *chainHead) : handler_(chainHead) {}
   ~CareSchedulerObserver();
-  // void onPlantStateChanged(Plant* plant,CareStrategy* CareStrategyOfPlant)
-  // override;
-
   /**
    * @brief Called when a plant's lifecycle state changes
    * @param plant Pointer to the plant with lifecycle change
    * @param newState Pointer to the new lifecycle state
-   *
-   * This method responds to plant lifecycle transitions (e.g., seedling
-   * to growing, growing to mature) and updates care schedules accordingly.
+   * @details This method responds to plant lifecycle state changes and updates care schedules accordingly.
    */
   void onLifeCycleChanged(Plant *plant, PlantLifeCycleState *newState) override;
 
@@ -47,14 +41,12 @@ public:
    * @brief Called when a plant's care strategy changes
   * @param plant Pointer to the plant with strategy change
   * @param newStrategy Pointer to the new CareStrategy
-   *
-   * This method responds to changes in plant care strategies and
-   * updates scheduling accordingly.
+   * @details This method responds to care strategy changes in the plant and updates care schedules accordingly.
    */
   void onCareStrategyChanged(Plant *plant, CareStrategy *newStrategy) override;
 
   /**
-   * @brief default constructor for proper cleanup
+   * @brief default constructor 
    */
   CareSchedulerObserver();
 

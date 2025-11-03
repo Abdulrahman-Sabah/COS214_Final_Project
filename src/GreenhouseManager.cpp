@@ -2,6 +2,8 @@
 /**
  * @file GreenhouseManager.cpp
  * @brief Concrete handler for sales/inventory management in the chain.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define GREENHOUSEMANAGER_CPP_DOC
 #endif
@@ -13,8 +15,10 @@
 #include "Commands.h"
 
 void GreenhouseManager::handleRequest(Commands *r, Plant *plant) {
-  if (!plant)
+  if (!plant) {
+    delete r;
     return;
+  }
   if (r && (r->name() == "LavenderStrategy" || r->name() == "RoseStrategy" ||
             r->name() == "CactusStrategy")) {
 

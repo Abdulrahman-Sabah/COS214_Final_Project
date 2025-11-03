@@ -2,6 +2,8 @@
 /**
  * @file RoseStrategyCmd.cpp
  * @brief Command implementation to apply Rose care strategy.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define ROSESTRATEGYCMD_CPP_DOC
 #endif

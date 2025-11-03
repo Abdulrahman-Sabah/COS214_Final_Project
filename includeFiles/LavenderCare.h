@@ -1,9 +1,10 @@
 #ifndef LAVENDERCARE_H
 #define LAVENDERCARE_H
-
 /**
  * @file LavenderCare.h
  * @brief Care strategy for lavender plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "CareStrategy.h"
@@ -20,7 +21,9 @@ public:
      */
     void applyCare(Plant* plant) override;
 
-    /// Destructor
+    /**
+     * @brief Destructor
+     */
     ~LavenderCare() override = default;
 };
 

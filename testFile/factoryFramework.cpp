@@ -1,7 +1,9 @@
 #ifndef FACTORYFRAMEWORK_CPP_DOC
 /**
  * @file factoryFramework.cpp
- * @brief Tests for the Factory Method creators producing specific plants.
+ * @brief Unit Tests for the Factory Method creators producing specific plants.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define FACTORYFRAMEWORK_CPP_DOC
 #endif

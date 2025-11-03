@@ -3,6 +3,8 @@
 /**
  * @file decoratorFramework.cpp
  * @brief Unit tests for the Decorator pattern (wrapping plants with extras).
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DECORATORFRAMEWORK_CPP_DOC
 #endif

@@ -4,6 +4,8 @@
 /**
  * @file SellingState.h
  * @brief Lifecycle state for plants ready to be sold.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "PlantLifeCycleState.h"
@@ -11,25 +13,34 @@
 /**
  * @class SellingState
  * @brief Plant available for sale.
+ * @details Inherits from PlantLifeCycleState, represents the selling state of a plant lifecycle
  */
 class SellingState : public PlantLifeCycleState {
 public:
-    SellingState();
+    /** @brief Constructor  */
+    SellingState(); 
+    /** @brief Destructor */
     ~SellingState() override;
 
     /**
-     * @brief Move to next lifecycle state
+     * @brief End of lifecycle reached, cannot advance further
      * @param plant Target plant
      */
     void advance(Plant* plant) override;
 
-    /// @return "Selling"
+    /**
+     * @brief Get the name of the state
+     * @return "Selling"
+     */
     std::string name() override;
 
     /// @return false (not dead)
     bool isDead() override;
 
-    /// @return true if needs care
+    /**
+     * @brief Check if the plant needs attention
+     * @return true if needs attention, false otherwise
+     */
     bool needsAttention() override;
 
     /**

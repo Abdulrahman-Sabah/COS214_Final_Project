@@ -3,6 +3,8 @@
 /**
  * @file Plant.cpp
  * @brief Core Plant base class method implementations.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define PLANT_CPP_DOC
 #endif

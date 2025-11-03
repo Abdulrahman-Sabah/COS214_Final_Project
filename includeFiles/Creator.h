@@ -1,10 +1,13 @@
-/**
- * @file Creator.h
- * @brief Abstract factory for creating Plant objects.
- */
 
 #ifndef CREATOR_H
 #define CREATOR_H
+
+/**
+ * @file Creator.h
+ * @brief It defines the Creator class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
+ */
 
 #include "Plant.h"
 
@@ -22,7 +25,7 @@ public:
      */
     virtual Plant* factoryMethod() const = 0;
 
-    /// Virtual destructor
+    /// @brief Virtual destructor
     virtual ~Creator() = default;
 };
 

@@ -3,7 +3,9 @@
 
 /**
  * @file InventoryIterator.h
- * @brief Iterator over a list of plants.
+ * @brief It defines the InventoryIterator class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <vector>
@@ -15,29 +17,43 @@
  */
 class InventoryIterator : public PlantIterator {
 private:
+    /** @brief Pointer to the vector of plants */
     std::vector<Plant*>& plants;
+    /** @brief Current index in the vector */
     size_t currentIndex;
 
 public:
     /**
      * @brief Constructor
-     * @param plantList Reference to plant list
+     * @param plantList Pointer to plant list
      */
     InventoryIterator(std::vector<Plant*>& plantList);
 
-    /// Destructor
+    /**
+     * @brief Destructor
+     */
     ~InventoryIterator();
 
-    /// Move to first element
+    /**
+     * @brief Position iterator at the first element
+     */
     void first() override;
 
-    /// Move to next element
+    /**
+     * @brief Advance to the next element
+     */
     void next() override;
 
-    /// @return True if reached end
+    /**
+     * @brief Check whether we reached the end
+     * @return true if at the end, false otherwise
+     */
     bool isDone() override;
 
-    /// @return Current plant pointer
+    /**
+     * @brief Retrieve current plant pointer
+     * @return Pointer to current plant, or nullptr if done
+     */
     Plant* current() override;
 };
 

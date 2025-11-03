@@ -2,6 +2,8 @@
 /**
  * @file BasicPlant.cpp
  * @brief Implementations for BasicPlant (simple concrete Plant).
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define BASICPLANT_CPP_DOC
 #endif

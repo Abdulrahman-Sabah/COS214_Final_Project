@@ -2,6 +2,8 @@
 /**
  * @file MatureState.cpp
  * @brief Implementation for Mature lifecycle state behaviour.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define MATURESTATE_CPP_DOC
 #endif

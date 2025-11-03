@@ -2,6 +2,8 @@
 /**
  * @file DormantStateCmd.cpp
  * @brief Command implementation for DormantState transitions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DORMANTSTATECMD_CPP_DOC
 #endif

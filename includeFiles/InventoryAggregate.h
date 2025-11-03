@@ -1,17 +1,25 @@
+
 #ifndef INVENTORYAGGREGATE_H
 #define INVENTORYAGGREGATE_H
 
 /**
  * @file InventoryAggregate.h
- * @brief Base class providing plant collection behavior.
+ * @brief It defines the InventoryAggregate class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <vector>
 #include "Plant.h"
 #include "PlantIterator.h"
 
+/**
+ * @class InventoryAggregate
+ * @brief Abstract base class for inventory aggregates
+ */
 class InventoryAggregate {
 protected:
+  /** @brief vector array of plants */
   std::vector<Plant *> plants;
 
 public:
@@ -27,7 +35,7 @@ public:
   /**
    * @brief Remove plant by pointer
    * @param p Plant pointer
-   * @return true if removed
+   * @return true if removed, false otherwise
    */
   virtual bool removePlant(Plant *p) = 0;
 

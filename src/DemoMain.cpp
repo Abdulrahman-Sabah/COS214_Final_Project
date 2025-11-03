@@ -2,6 +2,8 @@
 /**
  * @file DemoMain.cpp
  * @brief Demo runner showing example usage of the greenhouse classes.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define DEMOMAIN_CPP_DOC
 #endif

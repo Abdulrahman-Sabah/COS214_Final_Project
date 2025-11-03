@@ -1,17 +1,27 @@
+
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
 /**
  * @file Inventory.h
- * @brief Collection and management of Plant objects.
+ * @brief It defines the Inventory class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <vector>
 #include "Plant.h"
 #include "PlantIterator.h"
 
+/**
+ * @class Inventory
+ * @brief Manages a collection of Plant objects
+ * @details The Inventory class provides methods to add, remove, and get Plant
+ * objects. 
+ */
 class Inventory {
 private:
+  /** @brief vector array of plants */
   std::vector<Plant *> plants;
 
 public:
@@ -25,7 +35,14 @@ public:
     plants.clear();
   }
 
+  /**
+   * @brief Default constructor
+   */
   Inventory();
+
+  /**
+   * @brief Default destructor
+   */
   ~Inventory();
 
   /**
@@ -37,14 +54,14 @@ public:
   /**
    * @brief Remove a plant by pointer
    * @param p Plant pointer
-   * @return true if removed
+   * @return true if removed, false otherwise
    */
   bool removePlant(Plant *p);
 
   /**
    * @brief Remove a plant by name
    * @param name Plant name
-   * @return true if removed
+   * @return true if removed, false otherwise
    */
   bool removePlantByName(const std::string &name);
 
@@ -74,7 +91,7 @@ public:
   /**
    * @brief Check if plant exists
    * @param p Plant pointer
-   * @return true if found
+   * @return true if found, false otherwise
    */
   bool hasPlant(Plant *p);
 

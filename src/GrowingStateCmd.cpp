@@ -2,6 +2,8 @@
 /**
  * @file GrowingStateCmd.cpp
  * @brief Command implementation for GrowingState transitions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define GROWINGSTATECMD_CPP_DOC
 #endif

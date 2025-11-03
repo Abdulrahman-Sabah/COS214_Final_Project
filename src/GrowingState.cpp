@@ -2,6 +2,8 @@
 /**
  * @file GrowingState.cpp
  * @brief Implementation for Growing lifecycle state behaviour.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define GROWINGSTATE_CPP_DOC
 #endif

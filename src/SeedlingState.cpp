@@ -2,6 +2,8 @@
 /**
  * @file SeedlingState.cpp
  * @brief Implementation of the Seedling lifecycle state behaviour.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define SEEDLINGSTATE_CPP_DOC
 #endif

@@ -1,7 +1,9 @@
 #ifndef MEDIATORFRAMEWORK_CPP_DOC
 /**
  * @file mediatorFramework.cpp
- * @brief Tests for the Mediator (FrontDesk) and Store colleagues.
+ * @brief Unit Tests for the Mediator (FrontDesk) and Store colleagues.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define MEDIATORFRAMEWORK_CPP_DOC
 #endif

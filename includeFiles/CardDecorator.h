@@ -1,15 +1,22 @@
+
 #ifndef CARDDECORATOR_H
 #define CARDDECORATOR_H
 
 /**
  * @file CardDecorator.h
- * @brief Decorator that adds a greeting card to a plant order.
- *
- * CardDecorator wraps another Plant and adds a message and additional cost.
+ * @brief It defines the CardDecorator class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include "PlantDecorations.h"
 
+/**
+ * @class CardDecorator
+ * @brief Decorator adding a greeting card to a plant purchase.
+ * @details Inherits from PlantDecorations and implements the Decorator pattern
+ * to add card-specific details such as message and additional cost.
+ */
 class CardDecorator : public PlantDecorations {
 private:
   string message; /**< Message printed on the card */

@@ -1,7 +1,9 @@
 #ifndef PROTOTYPEFRAMEWORK_CPP_DOC
 /**
  * @file prototypeFramework.cpp
- * @brief Tests for the Prototype pattern: cloning plants and decorated clones.
+ * @brief Unit Tests for the Prototype pattern: cloning plants and decorated clones.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define PROTOTYPEFRAMEWORK_CPP_DOC
 #endif

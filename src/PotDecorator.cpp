@@ -2,6 +2,8 @@
 /**
  * @file PotDecorator.cpp
  * @brief Implementation of PotDecorator to add pot-related description & cost.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define POTDECORATOR_CPP_DOC
 #endif

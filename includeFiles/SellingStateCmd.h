@@ -4,6 +4,8 @@
 /**
  * @file SellingStateCmd.h
  * @brief Command to set a plant to SellingState.
+ * @author Git it done group members
+ * @date 10-2025
  */
 
 #include <string>
@@ -15,10 +17,15 @@
  */
 class SellingStateCmd : public Commands {
 public:
+    /** @brief Constructor */
     SellingStateCmd();
+    /** @brief Destructor */
     ~SellingStateCmd() override = default;
 
-    /// @return Command name
+    /**
+     * @brief Get the command name
+     * @return Command name
+     */
     std::string name() override;
 
     /**
@@ -28,6 +35,7 @@ public:
     void execute(Plant* plant) override;
 
 private:
+    /** @brief Label for the command */
     std::string m_label;
 };
 

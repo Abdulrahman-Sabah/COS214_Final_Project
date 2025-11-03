@@ -1,10 +1,13 @@
-/**
- * @file StoreCustomer.h
- * @brief Customer interacting with the store via mediator.
- */
 
 #ifndef STORECUSTOMER_H
 #define STORECUSTOMER_H
+
+/**
+ * @file StoreCustomer.h
+ * @brief Customer interacting with the store via mediator.
+ * @author Git it done group members
+ *  @date 10-2025
+ */
 
 #include <iostream>
 #include "Commands.h"
@@ -18,7 +21,9 @@
 class StoreCustomer : public StoreColleague {
 public:
     using StoreColleague::StoreColleague;
+    /** @brief Default constructor */
     StoreCustomer() = default;
+    /** @brief Destructor */
     ~StoreCustomer() override = default;
 
     /**

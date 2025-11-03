@@ -1,7 +1,9 @@
 #ifndef ITERATORFRAMEWORK_CPP_DOC
 /**
  * @file iteratorFramework.cpp
- * @brief Tests for Inventory and its iterator behavior.
+ * @brief Unit Tests for Inventory and its iterator behavior.
+ * @author Git it done group members
+ * @date 10-2025
  */
 #define ITERATORFRAMEWORK_CPP_DOC
 #endif

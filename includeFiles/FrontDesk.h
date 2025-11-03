@@ -1,10 +1,13 @@
-/**
- * @file FrontDesk.h
- * @brief Mediator linking customers and delivery staff.
- */
 
 #ifndef FRONTDESK_H
 #define FRONTDESK_H
+
+/**
+ * @file FrontDesk.h
+ * @brief It defines the FrontDesk class with its functions.
+ * @author Git it done group members
+ * @date 10-2025
+ */
 
 #include <string>
 #include "StoreMediator.h"
@@ -16,11 +19,12 @@ class Plant;
 /**
  * @class FrontDesk
  * @brief Mediator for staff–customer communication.
+ * @details Inherits from StoreMediator and  allows communication between StoreCustomer and DeliveryStaff.
  */
 class FrontDesk : public StoreMediator {
 public:
     /**
-     * @brief Construct mediator
+     * @brief Parameterized constructor
      * @param c Customer
      * @param d Delivery staff
      */
@@ -53,7 +57,14 @@ public:
     void infoByType(const std::string& type) const;
 
 private:
+    /**
+     * @brief Customer associated with the front desk
+     */
     StoreCustomer* customer = nullptr;
+
+    /**
+     * @brief Delivery staff associated with the front desk
+     */
     DeliveryStaff* staff = nullptr;
 };
 
