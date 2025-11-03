@@ -1,0 +1,26 @@
+#ifndef DEADSTATECMD_CPP_DOC
+/**
+ * @file DeadStateCmd.cpp
+ * @brief Command implementation related to DeadState transitions.
+ * @author Git it done group members
+ * @date 10-2025
+ */
+#define DEADSTATECMD_CPP_DOC
+#endif
+
+#include "DeadStateCmd.h"
+
+#include "DeadState.h"
+#include "Plant.h"
+
+DeadStateCmd::DeadStateCmd() : m_label("DeadState") {}
+
+std::string DeadStateCmd::name() { return m_label; }
+
+void DeadStateCmd::execute(Plant *plant) {
+  if (!plant)
+    return;
+  plant->setLifeCycle(new DeadState());
+  std::cout << "[COMMAND USED] " << m_label << " applied to "
+            << plant->getName() << "\n";
+}

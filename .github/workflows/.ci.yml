@@ -1,0 +1,49 @@
+name: Pipeline for Git It Done Nursery Project
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-lint-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ make valgrind clang-format lcov gcovr
+
+    - name: Caching build files
+      uses: actions/cache@v4
+      with:
+        path: |
+          src/*.o
+          testFile/*.o
+        key: ${{ runner.os }}-build-${{ hashFiles('**/*.cpp', '**/*.h') }}
+        restore-keys: |
+          ${{ runner.os }}-build-
+
+    - name: Format all files
+      run: make format
+
+    - name: Check code formatting (lint)
+      run: |
+        echo "Checking code formatting..."
+        clang-format --dry-run --Werror $(find src testFile -name '*.cpp' -o -name '*.h')
+
+    - name: Build project
+      run: make all
+
+    - name: Run all unit tests
+      run: make run-tests
+
+    - name: Check for memory leaks in unit tests
+      run: make valgrind-tests
+
+    - name: Check for memory leaks in TestingMain
+      run: make valgrind
+      
