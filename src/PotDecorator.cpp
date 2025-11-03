@@ -25,7 +25,7 @@ double PotDecorator::price() {
   if(!wrappedPlant) {
       return potCost;
   }
-  return wrappedPlant->price() + potCost;
+  return wrappedPlant->price();
 }
 
 Plant *PotDecorator::clone() {

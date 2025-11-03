@@ -396,7 +396,6 @@ greenhouse->addPlant(r4);
       std::cout << "1) Gift Wrap (R60)\n";
       std::cout << "2) Pot (R70)\n";
       std::cout << "3) Card (R80)\n";
-      std::cout << "4) None\n";
       std::cout << "Enter option: ";
 
       int decorChoice;

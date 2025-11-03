@@ -26,7 +26,7 @@ double WrapDecorator::price()
   if(!wrappedPlant) {
       return wrapCost;
   }
-  return wrappedPlant->price() + wrapCost;
+  return wrappedPlant->price();
 }
 
 Plant *WrapDecorator::clone() 
