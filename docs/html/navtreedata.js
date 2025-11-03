@@ -45,7 +45,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -62,17 +62,15 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_basic_plant_8cpp.html",
-"_testing_main_8cpp.html#a2ed5d0d638bc638960d5cd7434aa8ea2",
-"class_plant.html#abae19afa279dd4c8ba0ba07179cbaf6f",
-"classdoctest_1_1_string.html#a43d58193ddd859ffc1dbd8ea4d263103",
-"doctest_8h.html#a747b5dff90ae60f6f1636ebbe065a9da",
-"functions_~.html",
-"structdoctest_1_1_approx.html#a040114c288b721e97d7cdd22faf69c90",
-"structdoctest_1_1_test_case_data.html#a0c2353bd3fd8c2fa84d34ab4e973e038",
-"structdoctest_1_1detail_1_1filldata_3_01const_01void_01_5_01_4.html#a4988e62e00fd190970beb8d449fe48c8"
+"BasicPlant_8cpp.html",
+"TestingMain_8cpp.html#a4e841ba4ae6f07845bd053c831bac6a1",
+"classPlant.html#ac9b55f91736ca5123b9e5298301be0b5",
+"doctest_8h.html#a0607d91cd645129372a57329cdd0e4a8",
+"doctest_8h.html#a87d30bb902d1bfca7427a9eb51d130eb",
+"doctest_8h.html#aecb2ca1f80416d60f0d6b96f65859d3cab0e5ba77e37e755a83a01fdb2ad57b4d",
+"namespacedoctest_1_1assertType.html#ae1bb5bed722f34f1c38b83cb19d326d3abcad551db5972ed3918d2dae14c556f1",
+"structdoctest_1_1detail_1_1MessageBuilder.html#a52997cbdfd9b584335798fe771fdf259"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';

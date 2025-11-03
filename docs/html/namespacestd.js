@@ -5,8 +5,8 @@ var namespacestd =
     [ "basic_istream", "classstd_1_1basic__istream.html", null ],
     [ "tuple", "classstd_1_1tuple.html", null ],
     [ "istream", "namespacestd.html#a3891b048d9663e32878ba34284d62294", null ],
-    [ "nullptr_t", "namespacestd.html#a147badd87f1e15108e8dbee257b60b84", null ],
     [ "ostream", "namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5", null ],
-    [ "size_t", "namespacestd.html#a1ada4110a09572b70659f08d6eb27c17", null ],
-    [ "operator<<", "namespacestd.html#a51374695e8a67674c4308639aae941ca", null ]
+    [ "operator<<", "namespacestd.html#a69bae4d605f9ca3b46f99b8464306bf9", null ],
+    [ "nullptr_t", "namespacestd.html#a434932eec359f259df5e75c242397884", null ],
+    [ "size_t", "namespacestd.html#af172aeb9e083925cf5574a072412faee", null ]
 ];
